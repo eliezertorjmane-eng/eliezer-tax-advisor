@@ -6,7 +6,7 @@ import {
   CalculatorInput,
   CalculatorShell,
   DisclaimerBox,
-  OfficialSimulatorEmbed,
+  OfficialSimulatorCard,
   ResetButton,
   ResultCard,
   ToggleRow,
@@ -395,12 +395,12 @@ export function OfficialSimulatorsSection() {
           <p className="text-sm font-semibold uppercase text-teal">Outils officiels</p>
           <h2 className="mt-3 text-3xl font-semibold text-ink sm:text-4xl">Simulateurs officiels de רשות המסים</h2>
           <p className="mt-4 text-sm leading-7 text-slate-600">
-            Ces outils externes sont fournis par les autorités. Ils sont affichés ici pour faciliter votre démarche, avec un bouton de secours si l’intégration est bloquée.
+            Ces outils externes sont fournis par les autorités. Ils s’ouvrent dans un nouvel onglet afin que vous puissiez les utiliser directement sur le site officiel, puis revenir ici si vous souhaitez interpréter le résultat.
           </p>
         </div>
         <div className="mt-8 grid gap-5">
           {officialSimulators.map((simulator) => (
-            <OfficialSimulatorEmbed key={simulator.url} {...simulator} fallbackLabel="Ouvrir le simulateur officiel" locale="fr" />
+            <OfficialSimulatorCard key={simulator.url} {...simulator} fallbackLabel="Ouvrir le simulateur officiel" locale="fr" />
           ))}
         </div>
       </div>

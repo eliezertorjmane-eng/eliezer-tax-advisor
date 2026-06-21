@@ -185,7 +185,7 @@ export function CalculatorCard({
   );
 }
 
-export function OfficialSimulatorEmbed({
+export function OfficialSimulatorCard({
   title,
   description,
   url,
@@ -206,7 +206,7 @@ export function OfficialSimulatorEmbed({
         : "Used this simulator and want help interpreting the result? Send a WhatsApp message.";
 
   return (
-    <article className="rounded-md border border-line bg-white p-5 shadow-soft transition hover:border-sky hover:shadow-glow sm:p-6">
+    <article className="rounded-md border border-sky/25 bg-white p-5 shadow-soft transition hover:border-sky hover:shadow-glow sm:p-6">
       <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <span className="rounded-full border border-sky/30 bg-mint px-3 py-1 text-xs font-semibold text-teal">
