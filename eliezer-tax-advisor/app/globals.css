@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  background: #05070b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    linear-gradient(rgba(125, 220, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125, 220, 255, 0.04) 1px, transparent 1px),
+    #05070b;
+  background-size: 52px 52px;
+  color: #f8fafc;
+}
+
+a {
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(125, 220, 255, 0.35);
+  color: white;
+}
+
+.mesh-panel {
+  background:
+    linear-gradient(135deg, rgba(125, 220, 255, 0.1), rgba(30, 107, 135, 0.04)),
+    rgba(255, 255, 255, 0.035);
+}
+
+.edge-line {
+  position: relative;
+}
+
+.edge-line::before {
+  background: linear-gradient(90deg, transparent, rgba(125, 220, 255, 0.65), transparent);
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
