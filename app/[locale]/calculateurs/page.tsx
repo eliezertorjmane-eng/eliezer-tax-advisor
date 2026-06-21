@@ -11,29 +11,40 @@ type PageProps = {
   params: Promise<{ locale: string }>;
 };
 
-export const metadata: Metadata = {
-  title: "Calculateurs fiscaux en Israël | Eliezer Torjmane",
-  description:
-    "Calculateurs fiscaux en Israël : salaire net, נקודות זיכוי, Ehzer Mass, Bituah Leumi, impôt sur le revenu et statut d’indépendant.",
-  keywords: [
-    "calculateur impôt Israël",
-    "calculateur salaire brut net Israël",
-    "calculateur Ehzer Mass",
-    "Bituah Leumi indépendant",
-    "נקודות זיכוי עולה חדש"
-  ],
-  alternates: {
-    canonical: `${siteUrl}/fr/calculateurs`
-  },
-  openGraph: {
-    title: "Calculateurs fiscaux en Israël | Eliezer Torjmane",
-    description: "Des outils simples pour estimer votre situation fiscale en Israël.",
-    url: `${siteUrl}/fr/calculateurs`,
-    siteName: "Eliezer Torjmane",
-    locale: "fr_FR",
-    type: "website"
+export function generateStaticParams() {
+  return [{ locale: "fr" }];
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  if (locale !== "fr") {
+    return {};
   }
-};
+
+  return {
+    title: "Calculateurs fiscaux en Israël | Eliezer Torjmane",
+    description:
+      "Calculateurs fiscaux en Israël : salaire net, נקודות זיכוי, Ehzer Mass, Bituah Leumi, impôt sur le revenu et statut d’indépendant.",
+    keywords: [
+      "calculateur impôt Israël",
+      "calculateur salaire brut net Israël",
+      "calculateur Ehzer Mass",
+      "Bituah Leumi indépendant",
+      "נקודות זיכוי עולה חדש"
+    ],
+    alternates: {
+      canonical: `${siteUrl}/fr/calculateurs`
+    },
+    openGraph: {
+      title: "Calculateurs fiscaux en Israël | Eliezer Torjmane",
+      description: "Des outils simples pour estimer votre situation fiscale en Israël.",
+      url: `${siteUrl}/fr/calculateurs`,
+      siteName: "Eliezer Torjmane",
+      locale: "fr_FR",
+      type: "website"
+    }
+  };
+}
 
 export default async function FrenchCalculatorsPage({ params }: PageProps) {
   const { locale } = await params;

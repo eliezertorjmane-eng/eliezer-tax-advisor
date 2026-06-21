@@ -2,7 +2,7 @@
 
 import { ArrowRight, ExternalLink, Info, RotateCcw } from "lucide-react";
 import Link from "next/link";
-import { ReactNode, useState } from "react";
+import { ReactNode } from "react";
 import { buildWhatsAppUrl, type Locale } from "@/lib/i18n";
 
 export function CalculatorShell({
@@ -57,15 +57,15 @@ export function CalculatorInput({
   min?: string;
 }) {
   return (
-    <label className="grid gap-2 text-sm font-medium text-slate-700">
-      {label}
+    <label className="grid gap-3 rounded-md border border-line bg-paper p-4 text-sm text-slate-700">
+      <span className="font-semibold leading-6">{label}</span>
       <input
         type={type}
         value={value}
         min={type === "number" ? min : undefined}
         step={type === "number" ? step : undefined}
         onChange={(event) => onChange(event.target.value)}
-        className="min-h-12 rounded-md border border-line bg-paper px-4 text-ink outline-none transition placeholder:text-slate-400 focus:border-sky focus:bg-white"
+        className="min-h-12 rounded-md border border-line bg-white px-4 text-ink outline-none transition placeholder:text-slate-400 focus:border-sky"
       />
       {help ? <span className="text-xs leading-5 text-slate-500">{help}</span> : null}
     </label>
@@ -82,14 +82,17 @@ export function ToggleRow({
   onChange: (value: boolean) => void;
 }) {
   return (
-    <label className="flex min-h-12 items-center justify-between gap-4 rounded-md border border-line bg-paper px-4 py-3 text-sm font-medium text-slate-700">
-      <span>{label}</span>
-      <input
-        type="checkbox"
-        checked={checked}
-        onChange={(event) => onChange(event.target.checked)}
-        className="h-5 w-5 accent-[#1E6B87]"
-      />
+    <label className="grid gap-3 rounded-md border border-line bg-paper p-4 text-sm text-slate-700">
+      <span className="font-semibold leading-6">{label}</span>
+      <span className="flex min-h-11 items-center justify-between gap-4 rounded-md border border-line bg-white px-3 py-2">
+        <span className="text-xs font-semibold uppercase text-slate-500">Oui / Non</span>
+        <input
+          type="checkbox"
+          checked={checked}
+          onChange={(event) => onChange(event.target.checked)}
+          className="h-5 w-5 accent-[#1E6B87]"
+        />
+      </span>
     </label>
   );
 }
@@ -195,25 +198,24 @@ export function OfficialSimulatorEmbed({
   fallbackLabel: string;
   locale: Locale;
 }) {
-  const [iframeHidden, setIframeHidden] = useState(false);
   const cta =
     locale === "fr"
-      ? "Vous avez utilisé ce simulateur et vous souhaitez interpréter le résultat ? Envoyez-moi un message WhatsApp."
+      ? "Vous avez utilisé ce simulateur et souhaitez interpréter le résultat ? Envoyez-moi un message WhatsApp."
       : locale === "he"
         ? "השתמשתם בסימולטור ורוצים להבין את התוצאה? שלחו הודעת WhatsApp."
         : "Used this simulator and want help interpreting the result? Send a WhatsApp message.";
 
   return (
-    <article className="rounded-md border border-line bg-white p-5 shadow-soft">
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+    <article className="rounded-md border border-line bg-white p-5 shadow-soft transition hover:border-sky hover:shadow-glow sm:p-6">
+      <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <span className="rounded-full border border-sky/30 bg-soft px-3 py-1 text-xs font-semibold text-teal">
+          <span className="rounded-full border border-sky/30 bg-mint px-3 py-1 text-xs font-semibold text-teal">
             Outil officiel externe
           </span>
           <h3 className="mt-4 text-xl font-semibold text-ink">{title}</h3>
           <p className="mt-3 text-sm leading-7 text-slate-600">{description}</p>
-          <p className="mt-3 text-xs leading-6 text-slate-500">
-            Ce simulateur est fourni par רשות המסים. Il est affiché ici pour faciliter votre démarche.
+          <p className="mt-4 rounded-md border border-sky/25 bg-mint p-4 text-sm leading-7 text-slate-700">
+            Ce simulateur officiel de רשות המסים s’ouvrira dans un nouvel onglet.
           </p>
         </div>
         <a
@@ -226,17 +228,6 @@ export function OfficialSimulatorEmbed({
           <ExternalLink size={16} aria-hidden />
         </a>
       </div>
-      {!iframeHidden ? (
-        <div className="mt-5 overflow-hidden rounded-md border border-line bg-paper">
-          <iframe
-            src={url}
-            title={title}
-            className="h-[420px] w-full"
-            loading="lazy"
-            onError={() => setIframeHidden(true)}
-          />
-        </div>
-      ) : null}
       <div className="mt-5 rounded-md border border-sky/25 bg-mint p-4">
         <p className="text-sm leading-7 text-slate-700">{cta}</p>
         <div className="mt-4">

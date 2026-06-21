@@ -41,6 +41,7 @@ export default async function HomePage({ params }: PageProps) {
   const locale = (isLocale(resolvedParams.locale) ? resolvedParams.locale : "fr") as Locale;
   const dictionary = getDictionary(locale);
   const home = dictionary.home;
+  const countryLabel = locale === "fr" ? "Israël" : locale === "he" ? "ישראל" : "Israel";
 
   return (
     <>
@@ -98,7 +99,7 @@ export default async function HomePage({ params }: PageProps) {
                   priority
                 />
                 <div className="text-end">
-                  <p className="text-sm text-slate-500">Israël</p>
+                  <p className="text-sm text-slate-500">{countryLabel}</p>
                   <p className="mt-1 text-2xl font-semibold text-ink">{home.heroCardTitle}</p>
                   <p className="mt-2 text-sm font-medium text-teal">{dictionary.common.response}</p>
                 </div>

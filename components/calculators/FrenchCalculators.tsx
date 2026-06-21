@@ -35,7 +35,50 @@ function CalculatorFrame({ children }: { children: ReactNode }) {
 }
 
 function FieldPanel({ children }: { children: ReactNode }) {
-  return <div className="grid gap-4 rounded-md border border-line bg-white p-5 shadow-glow sm:p-6">{children}</div>;
+  return <div className="grid gap-5 rounded-md border border-line bg-white p-5 shadow-glow sm:p-6">{children}</div>;
+}
+
+function SelectField({
+  label,
+  value,
+  onChange,
+  children
+}: {
+  label: string;
+  value: string;
+  onChange: (value: string) => void;
+  children: ReactNode;
+}) {
+  return (
+    <label className="grid gap-3 rounded-md border border-line bg-paper p-4 text-sm text-slate-700">
+      <span className="font-semibold leading-6">{label}</span>
+      <select
+        value={value}
+        onChange={(event) => onChange(event.target.value)}
+        className="min-h-12 rounded-md border border-line bg-white px-4 text-ink outline-none transition focus:border-sky"
+      >
+        {children}
+      </select>
+    </label>
+  );
+}
+
+function hasMeaningfulEhzerMassInputs(inputs: EhzerMassInputs) {
+  return (
+    inputs.yearsToCheck !== "previous" ||
+    !inputs.employeeInIsrael ||
+    inputs.changedEmployer ||
+    inputs.partialYear ||
+    inputs.multipleEmployers ||
+    inputs.periodsWithoutSalary ||
+    inputs.olehHadash ||
+    inputs.creditPointChanges ||
+    inputs.personalChanges ||
+    inputs.paidIncomeTaxOnForm106 ||
+    inputs.hasForm106 ||
+    (inputs.annualTaxWithheld ?? 0) > 0 ||
+    (inputs.employerCount ?? 1) > 1
+  );
 }
 
 function Assumptions({ items }: { items: string[] }) {
@@ -69,8 +112,11 @@ function EhzerMassCalculator() {
     annualTaxWithheld: 0,
     employerCount: 1
   });
-  const result = useMemo(() => calculateEhzerMassPrecheck(inputs), [inputs]);
-  const summary = `Bonjour Eliezer, j’ai utilisé le calculateur Ehzer Mass sur votre site. Résultat : ${result.category}. Raisons : ${result.reasons.join(", ") || "à vérifier"}. Pouvez-vous vérifier si une demande de Ehzer Mass / החזר מס est pertinente ?`;
+  const hasEnoughInputs = hasMeaningfulEhzerMassInputs(inputs);
+  const result = useMemo(() => (hasEnoughInputs ? calculateEhzerMassPrecheck(inputs) : null), [hasEnoughInputs, inputs]);
+  const summary = result
+    ? `Bonjour Eliezer, j’ai utilisé le calculateur Ehzer Mass sur votre site. Résultat : ${result.category}. Raisons : ${result.reasons.join(", ") || "à vérifier"}. Pouvez-vous vérifier si une demande de Ehzer Mass / החזר מס est pertinente ?`
+    : "";
 
   function update(key: keyof EhzerMassInputs, value: boolean | string | number) {
     setInputs((current) => ({ ...current, [key]: value }));
@@ -83,18 +129,11 @@ function EhzerMassCalculator() {
     >
       <CalculatorFrame>
         <FieldPanel>
-          <label className="grid gap-2 text-sm font-medium text-slate-700">
-            Années à vérifier
-            <select
-              value={inputs.yearsToCheck}
-              onChange={(event) => update("yearsToCheck", event.target.value)}
-              className="min-h-12 rounded-md border border-line bg-paper px-4 text-ink outline-none transition focus:border-sky focus:bg-white"
-            >
-              <option value="current">Année en cours</option>
-              <option value="previous">Année précédente</option>
-              <option value="last6">Jusqu’aux 6 dernières années</option>
-            </select>
-          </label>
+          <SelectField label="Années à vérifier" value={inputs.yearsToCheck} onChange={(value) => update("yearsToCheck", value)}>
+            <option value="current">Année en cours</option>
+            <option value="previous">Année précédente</option>
+            <option value="last6">Jusqu’aux 6 dernières années</option>
+          </SelectField>
           <ToggleRow label="Avez-vous été salarié en Israël ?" checked={inputs.employeeInIsrael} onChange={(value) => update("employeeInIsrael", value)} />
           <ToggleRow label="Avez-vous changé d’employeur ?" checked={inputs.changedEmployer} onChange={(value) => update("changedEmployer", value)} />
           <ToggleRow label="Avez-vous travaillé seulement une partie de l’année ?" checked={inputs.partialYear} onChange={(value) => update("partialYear", value)} />
@@ -109,24 +148,34 @@ function EhzerMassCalculator() {
           <CalculatorInput label="Nombre d’employeurs, optionnel" value={inputs.employerCount ?? 1} onChange={(value) => update("employerCount", toNumber(value))} />
         </FieldPanel>
         <div className="grid gap-5">
-          <ResultCard title="Résultat du pré-diagnostic" value={result.category} tone="strong">
-            <p>{result.warning}</p>
-            <div className="mt-4">
-              <p className="font-semibold text-ink">Raisons détectées</p>
-              <p>{result.reasons.join(", ") || "Peu d’indices détectés dans les réponses saisies."}</p>
-            </div>
-          </ResultCard>
+          {result ? (
+            <ResultCard title="Résultat du pré-diagnostic" value={result.category} tone="strong">
+              <p>{result.warning}</p>
+              <div className="mt-4">
+                <p className="font-semibold text-ink">Raisons détectées</p>
+                <p>{result.reasons.join(", ") || "Peu d’indices détectés dans les réponses saisies."}</p>
+              </div>
+            </ResultCard>
+          ) : (
+            <ResultCard title="Pré-diagnostic" tone="strong">
+              Remplissez le formulaire pour obtenir un pré-diagnostic.
+            </ResultCard>
+          )}
           <DisclaimerBox>
             Ce pré-diagnostic ne calcule pas un montant de remboursement. Il sert uniquement à identifier les situations qui méritent une vérification professionnelle.
           </DisclaimerBox>
-          <WhatsAppResultButton label="Envoyer mon pré-diagnostic à Eliezer" message={summary} />
-          <Assumptions
-            items={[
-              "Aucun remboursement n’est garanti.",
-              "Les années réellement vérifiables et documents requis doivent être confirmés.",
-              "Le formulaire 106, les changements d’emploi et les crédits non utilisés sont des indices de vérification, pas une conclusion."
-            ]}
-          />
+          {result ? (
+            <>
+              <WhatsAppResultButton label="Envoyer mon pré-diagnostic à Eliezer" message={summary} />
+              <Assumptions
+                items={[
+                  "Aucun remboursement n’est garanti.",
+                  "Les années réellement vérifiables et documents requis doivent être confirmés.",
+                  "Le formulaire 106, les changements d’emploi et les crédits non utilisés sont des indices de vérification, pas une conclusion."
+                ]}
+              />
+            </>
+          ) : null}
         </div>
       </CalculatorFrame>
     </CalculatorShell>
@@ -316,13 +365,10 @@ function IncomeTaxCalculator() {
         <FieldPanel>
           <CalculatorInput label="Revenu imposable mensuel" value={income} onChange={setIncome} />
           <CalculatorInput label="Nombre de נקודות זיכוי" step="0.25" value={points} onChange={setPoints} />
-          <label className="grid gap-2 text-sm font-medium text-slate-700">
-            Type de revenu
-            <select value={incomeType} onChange={(event) => setIncomeType(event.target.value as "work" | "nonWork")} className="min-h-12 rounded-md border border-line bg-paper px-4 text-ink outline-none transition focus:border-sky focus:bg-white">
-              <option value="work">Revenu du travail / activité</option>
-              <option value="nonWork">Revenu hors travail</option>
-            </select>
-          </label>
+          <SelectField label="Type de revenu" value={incomeType} onChange={(value) => setIncomeType(value as "work" | "nonWork")}>
+            <option value="work">Revenu du travail / activité</option>
+            <option value="nonWork">Revenu hors travail</option>
+          </SelectField>
           <ToggleRow label="60 ans ou plus" checked={age60} onChange={setAge60} />
         </FieldPanel>
         <div className="grid gap-5">

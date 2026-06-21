@@ -45,10 +45,10 @@ export const frenchResourcePages: FrenchResourcePage[] = [
     metaDescription:
       "Accompagnement pour l’ouverture d’un עסק en Israël : compréhension du statut, documents à préparer, démarches administratives et suivi pour entrepreneurs francophones.",
     lead:
-      "Ouvrir un עסק en Israël signifie organiser le cadre administratif de votre activité indépendante. L’objectif est de clarifier les options, préparer les documents utiles et avancer avec méthode.",
+      "Ouvrir une activité / עסק en Israël signifie organiser le cadre administratif de votre activité indépendante. L’objectif est de clarifier les options, préparer les documents utiles et avancer avec méthode.",
     sections: [
       {
-        title: "Qu’est-ce qu’ouvrir un עסק en Israël ?",
+        title: "Qu’est-ce qu’une ouverture d’activité / עסק en Israël ?",
         paragraphs: [
           "L’ouverture d’un עסק correspond à la mise en place d’un dossier d’activité pour exercer comme indépendant ou développer une activité professionnelle en Israël.",
           "Pour un francophone, la difficulté vient souvent du vocabulaire, des formulaires, des organismes à comprendre et de la chronologie des démarches."
@@ -100,7 +100,7 @@ export const frenchResourcePages: FrenchResourcePage[] = [
     ],
     faq: [
       {
-        question: "Puis-je ouvrir un עסק tout en étant salarié ?",
+        question: "Puis-je ouvrir une activité / עסק tout en étant salarié ?",
         answer:
           "C’est parfois possible, selon votre contrat, vos revenus et votre situation personnelle. Il faut vérifier les obligations applicables avant d’avancer."
       },
@@ -409,7 +409,7 @@ export const frenchResourcePages: FrenchResourcePage[] = [
 export const resourceIndexCards = [
   {
     href: "/fr/creation-esek-israel",
-    title: "Ouvrir un עסק",
+    title: "Ouverture d’un עסק en Israël",
     description: "Comprendre les statuts, préparer les documents et organiser l’ouverture d’une activité en Israël."
   },
   {

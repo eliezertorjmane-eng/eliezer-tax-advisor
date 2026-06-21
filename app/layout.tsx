@@ -8,8 +8,6 @@ export const metadata: Metadata = {
     default: "Eliezer Torjmane",
     template: "%s"
   },
-  description:
-    "Conseiller fiscal agréé en Israël pour francophones : ouverture d’un עסק, déclarations fiscales, Ehzer Mass / החזר מס, calculateurs et suivi administratif.",
   robots: {
     index: true,
     follow: true

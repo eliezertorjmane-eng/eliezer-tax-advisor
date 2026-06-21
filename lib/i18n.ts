@@ -253,11 +253,11 @@ export const dictionaries = {
           resourceLabel: "Voir les ressources"
         },
         {
-          question: "Puis-je ouvrir un עסק tout en étant salarié ?",
+          question: "Puis-je ouvrir une activité / עסק tout en étant salarié ?",
           answer:
             "C’est parfois possible, selon votre situation personnelle, votre contrat, vos revenus et vos obligations déclaratives. Le premier échange permet d’identifier les points à vérifier avant d’ouvrir un dossier d’activité.",
           resourcePath: "/fr/creation-esek-israel",
-          resourceLabel: "Lire la page sur l’ouverture d’un עסק"
+          resourceLabel: "Lire la page sur l’ouverture d’une activité / עסק"
         },
         {
           question: "Quelle est la différence entre עוסק פטור et עוסק מורשה ?",

@@ -19,6 +19,15 @@ type PageProps = {
   params: Promise<{ locale: string }>;
 };
 
+const frenchServiceActions = [
+  { type: "link", label: "Lire la page", href: "/fr/creation-esek-israel" },
+  { type: "link", label: "Lire la page", href: "/fr/declarations-fiscales-israel" },
+  { type: "whatsapp", label: "Faire vérifier ma situation" },
+  { type: "whatsapp", label: "Me contacter" },
+  { type: "link", label: "Utiliser un calculateur", href: "/fr/calculateurs/salaire-brut-net-israel" },
+  { type: "whatsapp", label: "Me contacter" }
+] as const;
+
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
@@ -44,60 +53,74 @@ export default async function ServicesPage({ params }: PageProps) {
           </Reveal>
 
           <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {services.items.map((service, index) => (
-              <Reveal key={service.title} delay={index * 0.035}>
-                <article
-                  className={`flex h-full flex-col rounded-md border bg-white p-6 shadow-soft transition hover:-translate-y-0.5 hover:border-sky hover:shadow-glow ${
-                    "badge" in service ? "border-sky/40 lg:col-span-2" : "border-line"
-                  }`}
-                >
-                  <div className="mb-7 inline-flex h-11 w-11 items-center justify-center rounded-full bg-mint text-teal">
-                    <CheckCircle2 size={20} aria-hidden />
-                  </div>
-                  {"badge" in service ? (
-                    <span className="mb-4 w-fit rounded-full border border-sky/30 bg-mint px-3 py-1 text-xs font-semibold text-teal">
-                      {service.badge}
-                    </span>
-                  ) : null}
-                  <h2 className="text-xl font-semibold text-ink">{service.title}</h2>
-                  <p className="mt-4 text-sm leading-7 text-slate-600">{service.text}</p>
-                  <div className="mt-5 grid gap-4 border-t border-line pt-5">
-                    <div>
-                      <p className="text-xs font-semibold uppercase text-teal">{services.labels.audience}</p>
-                      <p className="mt-2 text-sm leading-7 text-slate-600">{service.audience}</p>
+            {services.items.map((service, index) => {
+              const frenchAction = locale === "fr" ? frenchServiceActions[index] : null;
+
+              return (
+                <Reveal key={service.title} delay={index * 0.035}>
+                  <article
+                    className={`flex h-full flex-col rounded-md border bg-white p-6 shadow-soft transition hover:-translate-y-0.5 hover:border-sky hover:shadow-glow ${
+                      "badge" in service ? "border-sky/40 lg:col-span-2" : "border-line"
+                    }`}
+                  >
+                    <div className="mb-7 inline-flex h-11 w-11 items-center justify-center rounded-full bg-mint text-teal">
+                      <CheckCircle2 size={20} aria-hidden />
                     </div>
-                    <div>
-                      <p className="text-xs font-semibold uppercase text-teal">{services.labels.clarifies}</p>
-                      <p className="mt-2 text-sm leading-7 text-slate-600">{service.clarifies}</p>
-                    </div>
-                    <div>
-                      <p className="text-xs font-semibold uppercase text-teal">{services.labels.documents}</p>
-                      <p className="mt-2 text-sm leading-7 text-slate-600">{service.documents}</p>
-                    </div>
-                  </div>
-                  <div className="mt-auto flex flex-wrap gap-3 pt-6">
-                    <a
-                      href={getWhatsAppHref()}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full blue-gradient px-4 text-xs font-semibold text-white shadow-glow"
-                    >
-                      <MessageCircle size={15} aria-hidden />
-                      {"badge" in service ? services.labels.featuredCta : dictionary.common.whatsapp}
-                    </a>
-                    {service.resourcePath ? (
-                      <Link
-                        href={service.resourcePath}
-                        className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full border border-line bg-paper px-4 text-xs font-semibold text-teal transition hover:border-sky hover:bg-mint"
-                      >
-                        {dictionary.common.learnMore}
-                        <ArrowRight size={15} aria-hidden />
-                      </Link>
+                    {"badge" in service ? (
+                      <span className="mb-4 w-fit rounded-full border border-sky/30 bg-mint px-3 py-1 text-xs font-semibold text-teal">
+                        {service.badge}
+                      </span>
                     ) : null}
-                  </div>
-                </article>
-              </Reveal>
-            ))}
+                    <h2 className="text-xl font-semibold text-ink">{service.title}</h2>
+                    <p className="mt-4 text-sm leading-7 text-slate-600">{service.text}</p>
+                    <div className="mt-5 grid gap-4 border-t border-line pt-5">
+                      <div>
+                        <p className="text-xs font-semibold uppercase text-teal">{services.labels.audience}</p>
+                        <p className="mt-2 text-sm leading-7 text-slate-600">{service.audience}</p>
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase text-teal">{services.labels.clarifies}</p>
+                        <p className="mt-2 text-sm leading-7 text-slate-600">{service.clarifies}</p>
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase text-teal">{services.labels.documents}</p>
+                        <p className="mt-2 text-sm leading-7 text-slate-600">{service.documents}</p>
+                      </div>
+                    </div>
+                    <div className="mt-auto flex flex-wrap gap-3 pt-6">
+                      {frenchAction?.type === "link" ? (
+                        <Link
+                          href={frenchAction.href}
+                          className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full border border-line bg-paper px-4 text-xs font-semibold text-teal transition hover:border-sky hover:bg-mint"
+                        >
+                          {frenchAction.label}
+                          <ArrowRight size={15} aria-hidden />
+                        </Link>
+                      ) : (
+                        <a
+                          href={getWhatsAppHref()}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full blue-gradient px-4 text-xs font-semibold text-white shadow-glow"
+                        >
+                          <MessageCircle size={15} aria-hidden />
+                          {frenchAction?.label ?? ("badge" in service ? services.labels.featuredCta : dictionary.common.whatsapp)}
+                        </a>
+                      )}
+                      {!frenchAction && service.resourcePath ? (
+                        <Link
+                          href={service.resourcePath}
+                          className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full border border-line bg-paper px-4 text-xs font-semibold text-teal transition hover:border-sky hover:bg-mint"
+                        >
+                          {dictionary.common.learnMore}
+                          <ArrowRight size={15} aria-hidden />
+                        </Link>
+                      ) : null}
+                    </div>
+                  </article>
+                </Reveal>
+              );
+            })}
           </div>
 
           <Reveal className="mt-12 rounded-md border border-sky/25 bg-white p-6 shadow-glow sm:p-8">
