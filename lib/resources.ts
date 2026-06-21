@@ -118,70 +118,90 @@ export const frenchResourcePages: FrenchResourcePage[] = [
   },
   {
     slug: "hahzar-mas-remboursement-impot-israel",
-    title: "Remboursement d’impôt / החזר מס en Israël",
-    seoTitle: "החזר מס en Israël | Remboursement d’impôt pour salariés et francophones",
+    title: "Remboursement d’impôt / Ehzer Mass (החזר מס) en Israël",
+    seoTitle: "Ehzer Mass / החזר מס en Israël | Remboursement d’impôt pour salariés",
     metaDescription:
-      "Vous pensez avoir droit à un remboursement d’impôt / החזר מס en Israël ? Accompagnement pour comprendre votre situation, organiser les documents et préparer la demande.",
+      "Vous pensez avoir droit à un remboursement d’impôt / Ehzer Mass en Israël ? Faites vérifier votre situation : changement d’employeur, année partielle, plusieurs revenus, olé hadash, crédits non utilisés.",
     lead:
-      "Une demande de remboursement d’impôt / החזר מס doit être préparée avec prudence. L’objectif est de comprendre votre situation, vérifier les documents et éviter toute promesse automatique.",
+      "Faites vérifier votre Ehzer Mass en Israël. Une analyse peut révéler une opportunité de remboursement, sans promesse automatique.",
     sections: [
       {
-        title: "Que signifie החזר מס ?",
+        title: "Que signifie Ehzer Mass (החזר מס) ?",
         paragraphs: [
-          "Le terme החזר מס désigne un remboursement d’impôt potentiel lorsque la situation fiscale montre qu’un montant a pu être payé en trop.",
-          "Cela ne signifie pas qu’un remboursement est garanti : chaque cas dépend des revenus, documents, crédits et changements personnels."
+          "Le Ehzer Mass (החזר מס) correspond à une demande de remboursement d’impôt lorsque trop d’impôt a été prélevé ou lorsque certains droits/crédits n’ont pas été correctement pris en compte.",
+          "Cela ne signifie pas qu’un remboursement est garanti : chaque cas dépend des revenus, documents, crédits, années concernées et changements personnels."
         ]
       },
       {
-        title: "Qui peut être concerné ?",
+        title: "Qui devrait vérifier sa situation ?",
         bullets: [
-          "Salariés ayant connu des changements au cours de l’année.",
-          "Changement d’employeur ou périodes sans emploi.",
-          "Travail partiel sur l’année.",
-          "Plusieurs revenus ou plusieurs employeurs.",
-          "Olim hadashim avec points à clarifier.",
-          "Situations personnelles particulières."
+          "Salarié ayant changé d’employeur.",
+          "Personne ayant travaillé seulement une partie de l’année.",
+          "Personne ayant plusieurs employeurs ou revenus.",
+          "Olé hadash.",
+          "Personne ayant des נקודות זיכוי non utilisées.",
+          "Personne ayant payé de l’impôt et souhaitant vérifier les années précédentes.",
+          "Personne ayant eu des changements familiaux ou administratifs."
         ]
       },
       {
         title: "Documents à préparer",
         bullets: [
-          "Fiches de salaire et formulaires annuels.",
-          "Dates de début et fin d’emploi.",
-          "Documents personnels pouvant influencer la situation.",
-          "Informations sur revenus complémentaires.",
-          "Correspondances reçues des autorités."
+          "Teoudat zehout.",
+          "Formulaires 106.",
+          "Fiches de paie.",
+          "Informations sur les employeurs.",
+          "Documents liés aux crédits ou situations personnelles.",
+          "Coordonnées bancaires si nécessaire.",
+          "Tout formulaire fiscal déjà transmis."
         ]
       },
       {
-        title: "Comment se déroule l’accompagnement",
-        paragraphs: [
-          "Le premier échange sert à cadrer la situation et à identifier les documents manquants.",
-          "Ensuite, les éléments sont organisés pour comprendre si une démarche peut être préparée, sans garantir le résultat."
-        ]
-      },
-      {
-        title: "Ce que l’on peut vérifier ensemble",
+        title: "Comment Eliezer vous aide",
         bullets: [
-          "Les périodes de travail déclarées.",
-          "Les changements d’employeur ou de situation familiale.",
-          "Les documents annuels et justificatifs disponibles.",
-          "Les points qui nécessitent une analyse individuelle."
+          "Comprendre la situation.",
+          "Organiser les documents.",
+          "Vérifier les années pertinentes.",
+          "Préparer la demande.",
+          "Suivre les étapes.",
+          "Expliquer le résultat."
+        ]
+      },
+      {
+        title: "Point important",
+        paragraphs: [
+          "Aucun remboursement ne peut être garanti avant analyse. L’objectif est de vérifier sérieusement la situation, d’identifier les documents utiles et de comprendre si une demande de remboursement d’impôt / Ehzer Mass (החזר מס) est pertinente."
         ]
       }
     ],
     faq: [
       {
-        question: "Peut-on garantir un remboursement ?",
-        answer: "Non. Aucun remboursement ne peut être garanti avant analyse et chaque situation doit être vérifiée individuellement."
+        question: "Comment savoir si j’ai droit à un Ehzer Mass ?",
+        answer: "Il faut vérifier les revenus, années concernées, formulaires 106, changements d’employeur et crédits éventuels. Le pré-diagnostic peut donner une première indication."
       },
       {
-        question: "Est-ce utile si j’ai changé d’employeur ?",
-        answer: "Oui, un changement d’employeur peut justifier une vérification, selon les documents et périodes concernées."
+        question: "Combien d’années peut-on vérifier ?",
+        answer: "Certaines situations permettent de vérifier plusieurs années précédentes. Les années réellement pertinentes doivent être confirmées selon le dossier."
       },
       {
-        question: "Puis-je travailler à distance pour préparer le dossier ?",
+        question: "Quels documents préparer ?",
+        answer: "Préparez Teoudat zehout, formulaires 106, fiches de paie, informations employeurs et tout document lié aux crédits ou situations personnelles."
+      },
+      {
+        question: "Est-ce uniquement pour les salariés ?",
+        answer: "Le Ehzer Mass concerne souvent les salariés, mais certaines situations mixtes ou particulières peuvent aussi justifier une vérification."
+      },
+      {
+        question: "Est-ce que le remboursement est garanti ?",
+        answer: "Non. Aucun remboursement ne peut être garanti avant analyse. L’objectif est de vérifier sérieusement la situation."
+      },
+      {
+        question: "Peut-on faire la démarche à distance ?",
         answer: "Oui. Les premiers échanges et l’organisation des documents peuvent généralement se faire par WhatsApp, téléphone ou email."
+      },
+      {
+        question: "Que se passe-t-il si je ne parle pas bien hébreu ?",
+        answer: "L’accompagnement permet de clarifier les documents et étapes en français, tout en tenant compte des documents officiels en hébreu."
       }
     ]
   },
@@ -257,11 +277,11 @@ export const frenchResourcePages: FrenchResourcePage[] = [
   {
     slug: "fiscalite-salaries-israel",
     title: "Fiscalité des salariés en Israël",
-    seoTitle: "Fiscalité des salariés en Israël | Questions fiscales et החזר מס",
+    seoTitle: "Fiscalité des salariés en Israël | Questions fiscales et Ehzer Mass",
     metaDescription:
-      "Accompagnement pour salariés en Israël : compréhension des documents, changements d’emploi, demandes de החזר מס et questions fiscales.",
+      "Accompagnement pour salariés en Israël : compréhension des documents, changements d’emploi, demandes de Ehzer Mass (החזר מס) et questions fiscales.",
     lead:
-      "Même en étant salarié, certaines situations fiscales méritent d’être vérifiées : changement d’emploi, plusieurs revenus, documents incompris ou demande potentielle de remboursement d’impôt / החזר מס.",
+      "Même en étant salarié, certaines situations fiscales méritent d’être vérifiées : changement d’emploi, plusieurs revenus, documents incompris ou demande potentielle de remboursement d’impôt / Ehzer Mass (החזר מס).",
     sections: [
       {
         title: "Questions fréquentes des salariés",
@@ -269,7 +289,7 @@ export const frenchResourcePages: FrenchResourcePage[] = [
           "Ai-je des documents annuels à conserver ?",
           "Que faire après un changement d’emploi ?",
           "Comment comprendre une demande administrative ?",
-          "Puis-je vérifier une demande de remboursement d’impôt / החזר מס ?"
+          "Puis-je vérifier une demande de remboursement d’impôt / Ehzer Mass (החזר מס) ?"
         ]
       },
       {
@@ -292,7 +312,7 @@ export const frenchResourcePages: FrenchResourcePage[] = [
           "Après une année partiellement travaillée.",
           "En cas de plusieurs employeurs.",
           "Lorsqu’un document administratif est incompris.",
-          "Avant de préparer une demande de remboursement d’impôt / החזר מס."
+          "Avant de préparer une demande de remboursement d’impôt / Ehzer Mass (החזר מס)."
         ]
       },
       {
@@ -394,7 +414,7 @@ export const resourceIndexCards = [
   },
   {
     href: "/fr/hahzar-mas-remboursement-impot-israel",
-    title: "Demander un remboursement d’impôt / החזר מס",
+    title: "Demander un remboursement d’impôt / Ehzer Mass (החזר מס)",
     description: "Vérifier les situations possibles, sans promesse de remboursement, et préparer les documents utiles."
   },
   {

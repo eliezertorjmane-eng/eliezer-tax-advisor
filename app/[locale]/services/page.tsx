@@ -4,7 +4,16 @@ import Link from "next/link";
 import { PageCTA } from "@/components/PageCTA";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeader } from "@/components/SectionHeader";
-import { getDictionary, getLocalizedPath, getWhatsAppHref, isLocale, locales, pageMetadata, type Locale } from "@/lib/i18n";
+import {
+  getCalculatorsPath,
+  getDictionary,
+  getLocalizedPath,
+  getWhatsAppHref,
+  isLocale,
+  locales,
+  pageMetadata,
+  type Locale
+} from "@/lib/i18n";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -37,10 +46,19 @@ export default async function ServicesPage({ params }: PageProps) {
           <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {services.items.map((service, index) => (
               <Reveal key={service.title} delay={index * 0.035}>
-                <article className="h-full rounded-md border border-line bg-white p-6 shadow-soft transition hover:-translate-y-0.5 hover:border-sky hover:shadow-glow">
+                <article
+                  className={`flex h-full flex-col rounded-md border bg-white p-6 shadow-soft transition hover:-translate-y-0.5 hover:border-sky hover:shadow-glow ${
+                    "badge" in service ? "border-sky/40 lg:col-span-2" : "border-line"
+                  }`}
+                >
                   <div className="mb-7 inline-flex h-11 w-11 items-center justify-center rounded-full bg-mint text-teal">
                     <CheckCircle2 size={20} aria-hidden />
                   </div>
+                  {"badge" in service ? (
+                    <span className="mb-4 w-fit rounded-full border border-sky/30 bg-mint px-3 py-1 text-xs font-semibold text-teal">
+                      {service.badge}
+                    </span>
+                  ) : null}
                   <h2 className="text-xl font-semibold text-ink">{service.title}</h2>
                   <p className="mt-4 text-sm leading-7 text-slate-600">{service.text}</p>
                   <div className="mt-5 grid gap-4 border-t border-line pt-5">
@@ -57,7 +75,7 @@ export default async function ServicesPage({ params }: PageProps) {
                       <p className="mt-2 text-sm leading-7 text-slate-600">{service.documents}</p>
                     </div>
                   </div>
-                  <div className="mt-6 flex flex-wrap gap-3">
+                  <div className="mt-auto flex flex-wrap gap-3 pt-6">
                     <a
                       href={getWhatsAppHref()}
                       target="_blank"
@@ -65,7 +83,7 @@ export default async function ServicesPage({ params }: PageProps) {
                       className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full blue-gradient px-4 text-xs font-semibold text-white shadow-glow"
                     >
                       <MessageCircle size={15} aria-hidden />
-                      {dictionary.common.whatsapp}
+                      {"badge" in service ? services.labels.featuredCta : dictionary.common.whatsapp}
                     </a>
                     {service.resourcePath ? (
                       <Link
@@ -93,6 +111,12 @@ export default async function ServicesPage({ params }: PageProps) {
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full blue-gradient px-6 text-sm font-semibold text-white shadow-glow transition hover:-translate-y-0.5"
               >
                 {dictionary.common.contactCta} <ArrowRight size={18} aria-hidden />
+              </Link>
+              <Link
+                href={getCalculatorsPath(locale)}
+                className="inline-flex min-h-12 items-center justify-center rounded-full border border-line bg-paper px-6 text-sm font-semibold text-teal transition hover:border-sky hover:bg-mint"
+              >
+                {dictionary.nav.calculators}
               </Link>
             </div>
           </Reveal>

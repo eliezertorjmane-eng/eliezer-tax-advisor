@@ -28,6 +28,25 @@ The root route redirects to `/fr`.
 - `/fr/fiscalite-salaries-israel`
 - `/fr/olim-hadashim-fiscalite-israel`
 
+## Calculators
+
+French calculator routes:
+
+- `/fr/calculateurs`
+- `/fr/calculateurs/ehzer-mass`
+- `/fr/calculateurs/bituah-leumi-independant`
+- `/fr/calculateurs/ole-hadash-nekoudot-zikouy`
+- `/fr/calculateurs/nekoudot-zikouy`
+- `/fr/calculateurs/salaire-brut-net-israel`
+- `/fr/calculateurs/impot-revenu-israel`
+
+English and Hebrew calculator landing pages:
+
+- `/en/calculators`
+- `/he/calculators`
+
+Calculator constants are centralized in `lib/tax/constants2026.ts`. They are labeled as 2026 constants and must be reviewed annually before production use.
+
 ## Contact
 
 - Phone / WhatsApp: `+972584962143`
@@ -37,7 +56,7 @@ The root route redirects to `/fr`.
 
 ## Visual Direction
 
-The V4 design keeps the light premium advisory style inspired by the logo:
+The V5 design keeps the light premium advisory style inspired by the logo:
 
 - white and very light blue backgrounds
 - deep navy text
@@ -75,10 +94,14 @@ For production form capture, connect a Next.js server action with Resend or use 
 
 ## Legal Wording
 
-The website intentionally uses careful wording: conseiller fiscal, accompagnement fiscal, orientation, préparation and accompaniment in administrative/tax processes.
+The website identifies Eliezer as:
 
-Do not claim that the service is a CPA, lawyer, רואה חשבון, or licensed tax consultant service. Do not guarantee tax refunds.
+- French: `Conseiller fiscal agréé en Israël`
+- Hebrew: `יועץ מס מורשה בישראל`
+- English: `Licensed tax advisor in Israel`
+
+Do not claim that the service is a CPA, lawyer, or רואה חשבון unless explicitly added later. Do not guarantee tax refunds.
 
 Footer disclaimer:
 
-> Les informations présentes sur ce site sont fournies à titre général et ne remplacent pas un conseil personnalisé. Chaque situation fiscale doit être analysée individuellement.
+> Les informations et calculateurs présents sur ce site sont fournis à titre indicatif et ne remplacent pas une analyse personnalisée par un professionnel. Chaque situation fiscale doit être examinée individuellement.

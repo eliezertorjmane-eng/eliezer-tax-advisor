@@ -22,12 +22,16 @@ This is a multilingual Next.js website for Eliezer Torjmane.
 
 ## Legal Boundaries
 
-- Do not claim Eliezer is a CPA, lawyer, רואה חשבון, or licensed tax consultant.
+- Eliezer may be described as a licensed/accredited tax advisor:
+  - French: `Conseiller fiscal agréé en Israël`
+  - Hebrew: `יועץ מס מורשה בישראל`
+  - English: `Licensed tax advisor in Israel`
+- Do not claim Eliezer is a CPA, lawyer, or רואה חשבון unless explicitly added later.
 - Do not guarantee tax refunds.
 - Use careful wording such as conseiller fiscal, accompagnement fiscal, orientation, préparation and accompaniment in processes.
-- Keep the footer disclaimer visible:
+- Keep the footer disclaimer visible and focused on calculators/general information not replacing a personalized professional review:
 
-  Les informations présentes sur ce site sont fournies à titre général et ne remplacent pas un conseil personnalisé. Chaque situation fiscale doit être analysée individuellement.
+  Les informations et calculateurs présents sur ce site sont fournis à titre indicatif et ne remplacent pas une analyse personnalisée par un professionnel. Chaque situation fiscale doit être examinée individuellement.
 
 ## Design Notes
 

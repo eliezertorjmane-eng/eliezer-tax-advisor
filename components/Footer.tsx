@@ -1,7 +1,7 @@
 import { AtSign, Mail, MessageCircle, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { contact, getDictionary, getLocalizedPath, getWhatsAppHref, type Locale } from "@/lib/i18n";
+import { contact, getCalculatorsPath, getDictionary, getLocalizedPath, getWhatsAppHref, type Locale } from "@/lib/i18n";
 
 type FooterProps = {
   locale: Locale;
@@ -47,6 +47,9 @@ export function Footer({ locale }: FooterProps) {
             </Link>
             <Link href={getLocalizedPath(locale, "contact")} className="text-slate-400 transition hover:text-white">
               {dictionary.nav.contact}
+            </Link>
+            <Link href={getCalculatorsPath(locale)} className="text-slate-400 transition hover:text-white">
+              {dictionary.nav.calculators}
             </Link>
             {locale === "fr" ? (
               <Link href="/fr/ressources" className="text-slate-400 transition hover:text-white">

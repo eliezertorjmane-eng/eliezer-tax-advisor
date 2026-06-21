@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: "%s"
   },
   description:
-    "Conseiller fiscal en Israël pour francophones : ouverture d’un עסק, déclarations fiscales, remboursement d’impôt / החזר מס et suivi administratif.",
+    "Conseiller fiscal agréé en Israël pour francophones : ouverture d’un עסק, déclarations fiscales, Ehzer Mass / החזר מס, calculateurs et suivi administratif.",
   robots: {
     index: true,
     follow: true

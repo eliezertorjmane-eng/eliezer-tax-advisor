@@ -6,7 +6,17 @@ import { PageCTA } from "@/components/PageCTA";
 import { Reveal } from "@/components/Reveal";
 import { ResourceCard } from "@/components/ResourceCard";
 import { VideoCard } from "@/components/VideoCard";
-import { getDictionary, getLocalizedPath, getWhatsAppHref, isLocale, locales, pageMetadata, type Locale } from "@/lib/i18n";
+import {
+  buildWhatsAppUrl,
+  getCalculatorsPath,
+  getDictionary,
+  getLocalizedPath,
+  getWhatsAppHref,
+  isLocale,
+  locales,
+  pageMetadata,
+  type Locale
+} from "@/lib/i18n";
 import { frenchVideoResources, resourceIndexCards } from "@/lib/resources";
 
 type PageProps = {
@@ -110,6 +120,60 @@ export default async function HomePage({ params }: PageProps) {
         </div>
       </section>
 
+      {locale === "fr" ? (
+        <section className="bg-white py-16 sm:py-20">
+          <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+            <Reveal>
+              <div className="rounded-md border border-sky/25 bg-gradient-to-br from-white via-mint to-soft p-6 shadow-glow sm:p-8">
+                <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+                  <div>
+                    <p className="text-sm font-semibold uppercase text-teal">Service très demandé</p>
+                    <h2 className="mt-3 text-3xl font-semibold text-ink sm:text-4xl">
+                      Vous avez peut-être droit à un Ehzer Mass
+                    </h2>
+                    <p className="mt-5 text-base leading-8 text-slate-600">
+                      Un changement d’employeur, une année travaillée partiellement, plusieurs revenus, une alyah récente
+                      ou des crédits non utilisés peuvent parfois justifier une vérification. L’objectif : comprendre si
+                      une demande de remboursement d’impôt / החזר מס est pertinente dans votre situation.
+                    </p>
+                    <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                      <a
+                        href={buildWhatsAppUrl(
+                          "Bonjour Eliezer, je souhaite vérifier si j’ai droit à un Ehzer Mass / החזר מס en Israël."
+                        )}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex min-h-12 items-center justify-center rounded-full blue-gradient px-6 text-sm font-semibold text-white shadow-glow transition hover:-translate-y-0.5"
+                      >
+                        Vérifier mon Ehzer Mass sur WhatsApp
+                      </a>
+                      <Link
+                        href="/fr/hahzar-mas-remboursement-impot-israel"
+                        className="inline-flex min-h-12 items-center justify-center rounded-full border border-line bg-white px-6 text-sm font-semibold text-teal shadow-soft transition hover:border-sky hover:bg-mint"
+                      >
+                        Lire la page Ehzer Mass
+                      </Link>
+                    </div>
+                  </div>
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    {[
+                      "Changement d’employeur",
+                      "Année travaillée partiellement",
+                      "Plusieurs revenus ou employeurs",
+                      "Crédit d’impôt / נקודות זיכוי non utilisé"
+                    ].map((item) => (
+                      <div key={item} className="rounded-md border border-line bg-white p-4 text-sm font-semibold text-slate-700 shadow-soft">
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+      ) : null}
+
       <section className="section-band border-y border-line py-20">
         <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
           <Reveal className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
@@ -166,6 +230,14 @@ export default async function HomePage({ params }: PageProps) {
                     <ResourceCard {...card} />
                   </Reveal>
                 ))}
+                <Reveal delay={resourceIndexCards.length * 0.04}>
+                  <ResourceCard
+                    href={getCalculatorsPath(locale)}
+                    title="Utiliser un calculateur fiscal"
+                    description="Pré-diagnostic Ehzer Mass, Bituah Leumi, נקודות זיכוי, salaire brut/net et impôt sur le revenu."
+                    cta="Voir les calculateurs"
+                  />
+                </Reveal>
               </div>
             </div>
           </section>

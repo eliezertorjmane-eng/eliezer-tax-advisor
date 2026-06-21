@@ -1,7 +1,7 @@
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { PageCTA } from "@/components/PageCTA";
 import { ResourceCard } from "@/components/ResourceCard";
 import { Reveal } from "@/components/Reveal";
@@ -24,12 +24,35 @@ function resourceUrl(slug: string) {
   return `${siteUrl}/fr/${slug}`;
 }
 
+function relatedCalculatorLinks(slug: string) {
+  if (slug === "creation-esek-israel") {
+    return [{ href: "/fr/calculateurs/bituah-leumi-independant", label: "Calculateur Bituah Leumi indépendant" }];
+  }
+
+  if (slug === "fiscalite-salaries-israel") {
+    return [
+      { href: "/fr/calculateurs/salaire-brut-net-israel", label: "Calculateur salaire brut / net" },
+      { href: "/fr/calculateurs/ehzer-mass", label: "Pré-diagnostic Ehzer Mass" }
+    ];
+  }
+
+  if (slug === "olim-hadashim-fiscalite-israel") {
+    return [{ href: "/fr/calculateurs/ole-hadash-nekoudot-zikouy", label: "Calculateur נקודות זיכוי olé hadash" }];
+  }
+
+  if (slug === "hahzar-mas-remboursement-impot-israel") {
+    return [{ href: "/fr/calculateurs/ehzer-mass", label: "Pré-diagnostic Ehzer Mass / החזר מס" }];
+  }
+
+  return [];
+}
+
 function metadataForResource(slug: string): Metadata {
   if (slug === "ressources") {
     return {
       title: "Ressources fiscalité Israël | Eliezer Torjmane",
       description:
-        "Guides pratiques pour francophones en Israël : ouverture d’un עסק, remboursement d’impôt / החזר מס, déclarations fiscales, salariés et olim hadashim.",
+        "Guides pratiques pour francophones en Israël : ouverture d’un עסק, remboursement d’impôt / Ehzer Mass (החזר מס), déclarations fiscales, salariés et olim hadashim.",
       alternates: { canonical: resourceUrl(slug) },
       openGraph: {
         title: "Ressources fiscalité Israël | Eliezer Torjmane",
@@ -48,7 +71,7 @@ function metadataForResource(slug: string): Metadata {
     return {
       title: "Vidéos fiscalité Israël | Eliezer Torjmane",
       description:
-        "Retrouvez les vidéos et interventions d’Eliezer Torjmane sur les démarches fiscales en Israël, l’ouverture d’un עסק, החזר מס et les questions des francophones.",
+        "Retrouvez les vidéos et interventions d’Eliezer Torjmane sur les démarches fiscales en Israël, l’ouverture d’un עסק, Ehzer Mass (החזר מס) et les questions des francophones.",
       alternates: { canonical: resourceUrl(slug) },
       openGraph: {
         title: "Vidéos fiscalité Israël | Eliezer Torjmane",
@@ -90,7 +113,10 @@ function metadataForResource(slug: string): Metadata {
 }
 
 export function generateStaticParams() {
-  return resourceSlugs.map((resourceSlug) => ({ locale: "fr", resourceSlug }));
+  return [
+    ...resourceSlugs.map((resourceSlug) => ({ locale: "fr", resourceSlug })),
+    { locale: "fr", resourceSlug: "remboursement-impot-ehzer-mass-israel" }
+  ];
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -111,7 +137,7 @@ function ResourcesIndexPage() {
             <SectionHeader
               eyebrow="Ressources"
               title="Vos démarches fiscales en Israël, expliquées simplement"
-              lead="Des guides pratiques pour comprendre les démarches les plus fréquentes : ouverture d’un עסק, remboursement d’impôt / החזר מס, déclarations fiscales, salariés et olim hadashim."
+              lead="Des guides pratiques pour comprendre les démarches les plus fréquentes : ouverture d’un עסק, remboursement d’impôt / Ehzer Mass (החזר מס), déclarations fiscales, salariés et olim hadashim."
             />
           </Reveal>
           <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -145,7 +171,7 @@ function VideosPage() {
             <SectionHeader
               eyebrow="Ressources"
               title="Vidéos & conseils fiscaux"
-              lead="Retrouvez les vidéos et interventions d’Eliezer Torjmane sur les démarches fiscales en Israël, l’ouverture d’un עסק, החזר מס et les questions des francophones."
+              lead="Retrouvez les vidéos et interventions d’Eliezer Torjmane sur les démarches fiscales en Israël, l’ouverture d’un עסק, Ehzer Mass (החזר מס) et les questions des francophones."
             />
           </Reveal>
           <div className="mt-10 grid gap-4 md:grid-cols-3">
@@ -168,6 +194,7 @@ function DetailPage({ slug }: { slug: string }) {
   if (!page) {
     notFound();
   }
+  const relatedLinks = relatedCalculatorLinks(slug);
 
   return (
     <>
@@ -238,6 +265,16 @@ function DetailPage({ slug }: { slug: string }) {
                 <Link href="/fr/ressources" className="text-sm font-semibold text-teal transition hover:text-ink">
                   Voir toutes les ressources
                 </Link>
+                {relatedLinks.length > 0 ? (
+                  <div className="mt-5 grid gap-2">
+                    <p className="text-xs font-semibold uppercase text-slate-500">Calculateurs liés</p>
+                    {relatedLinks.map((link) => (
+                      <Link key={link.href} href={link.href} className="text-sm font-semibold text-teal transition hover:text-ink">
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
+                ) : null}
               </div>
             </aside>
           </div>
@@ -253,6 +290,10 @@ export default async function FrenchResourceRoute({ params }: PageProps) {
 
   if (locale !== "fr") {
     notFound();
+  }
+
+  if (resourceSlug === "remboursement-impot-ehzer-mass-israel") {
+    redirect("/fr/hahzar-mas-remboursement-impot-israel");
   }
 
   if (resourceSlug === "ressources") {

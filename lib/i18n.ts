@@ -46,20 +46,26 @@ export function getWhatsAppHref() {
   return `https://wa.me/972584962143?text=${encodeURIComponent(whatsappMessage)}`;
 }
 
+export function buildWhatsAppUrl(message: string) {
+  return `https://wa.me/972584962143?text=${encodeURIComponent(message)}`;
+}
+
 export const dictionaries = {
   fr: {
     meta: {
       siteName: "Eliezer Torjmane",
-      title: "Conseiller fiscal en Israël pour francophones | Eliezer Torjmane",
+      title: "Conseiller fiscal agréé en Israël pour francophones | Eliezer Torjmane",
       description:
-        "Conseiller fiscal francophone en Israël pour entrepreneurs, indépendants, salariés et olim : ouverture d’un עסק, déclarations fiscales, remboursement d’impôt / החזר מס et suivi administratif.",
+        "Conseiller fiscal agréé en Israël pour entrepreneurs, indépendants, salariés et olim francophones : ouverture d’un עסק, déclarations fiscales, Ehzer Mass / החזר מס et suivi administratif.",
       keywords: [
         "conseiller fiscal Israël",
+        "conseiller fiscal agréé Israël",
         "conseiller fiscal francophone Israël",
         "fiscalité Israël francophones",
         "ouverture עסק Israël",
         "ouverture activité indépendante Israël",
         "החזר מס",
+        "Ehzer Mass",
         "remboursement impôt Israël"
       ]
     },
@@ -70,11 +76,12 @@ export const dictionaries = {
       faq: "FAQ",
       contact: "Contact",
       resources: "Ressources",
+      calculators: "Calculateurs",
       cta: "WhatsApp"
     },
     common: {
       brand: "Eliezer Torjmane",
-      eyebrow: "Conseiller fiscal en Israël",
+      eyebrow: "Conseiller fiscal agréé en Israël",
       whatsapp: "WhatsApp",
       email: "Email",
       instagram: "Instagram",
@@ -89,14 +96,14 @@ export const dictionaries = {
       contactCta: "Me contacter sur WhatsApp",
       response: "Un suivi humain, clair et structuré",
       disclaimer:
-        "Les informations présentes sur ce site sont fournies à titre général et ne remplacent pas un conseil personnalisé. Chaque situation fiscale doit être analysée individuellement.",
+        "Les informations et calculateurs présents sur ce site sont fournis à titre indicatif et ne remplacent pas une analyse personnalisée par un professionnel. Chaque situation fiscale doit être examinée individuellement.",
       ctaTitle: "Vous avez une question fiscale en Israël ?",
       ctaText: "Envoyez-moi un message WhatsApp et je vous répondrai rapidement."
     },
     home: {
-      heroTitle: "Conseiller fiscal en Israël pour francophones",
+      heroTitle: "Conseiller fiscal agréé en Israël pour francophones",
       heroLead:
-        "J’accompagne entrepreneurs, indépendants, salariés et olim francophones dans leurs démarches fiscales en Israël : ouverture d’un עסק, déclarations, remboursement d’impôt / החזר מס et suivi administratif.",
+        "J’accompagne entrepreneurs, indépendants, salariés et olim francophones dans leurs démarches fiscales en Israël : ouverture d’un עסק, déclarations, remboursement d’impôt / Ehzer Mass (החזר מס) et suivi administratif.",
       primary: "Me contacter sur WhatsApp",
       secondary: "Voir les services",
       trustSignals: [
@@ -111,7 +118,7 @@ export const dictionaries = {
       heroCardRows: [
         "Ouverture d’un עסק et suivi administratif",
         "Déclarations fiscales et organisation de dossier",
-        "Étude d’une demande de remboursement d’impôt / החזר מס, sans garantie de résultat"
+        "Étude d’une demande de remboursement d’impôt / Ehzer Mass (החזר מס), sans garantie de résultat"
       ],
       introTitle: "Une approche premium, claire et rassurante.",
       introText:
@@ -153,10 +160,11 @@ export const dictionaries = {
           resourcePath: "/fr/declarations-fiscales-israel"
         },
         {
-          title: "Remboursement d’impôt / החזר מס",
-          text: "Accompagnement dans l’étude et la préparation d’une demande éventuelle de remboursement d’impôt, sans garantie de résultat.",
+          title: "Remboursement d’impôt / Ehzer Mass (החזר מס)",
+          badge: "Service très demandé",
+          text: "Le remboursement d’impôt / Ehzer Mass (החזר מס) est souvent une démarche mal comprise. Beaucoup de salariés ne savent pas qu’une vérification peut être utile après un changement d’emploi, une année incomplète, plusieurs sources de revenus ou une situation personnelle particulière.",
           audience: "Salariés, olim, personnes ayant changé d’employeur, travaillé une partie de l’année ou connu une situation personnelle particulière.",
-          clarifies: "Les raisons possibles d’un remboursement, les documents à vérifier et les limites avant toute demande.",
+          clarifies: "Les situations qui peuvent ouvrir droit à une vérification, les années pertinentes, les documents à préparer et les limites avant toute demande.",
           documents: "Fiches de salaire, formulaires annuels, documents personnels, périodes d’emploi, revenus complémentaires et justificatifs utiles.",
           resourcePath: "/fr/hahzar-mas-remboursement-impot-israel"
         },
@@ -191,7 +199,8 @@ export const dictionaries = {
       labels: {
         audience: "Pour qui",
         clarifies: "À clarifier",
-        documents: "Documents typiques"
+        documents: "Documents typiques",
+        featuredCta: "Faire vérifier ma situation"
       }
     },
     about: {
@@ -259,8 +268,8 @@ export const dictionaries = {
           question: "Comment savoir si j’ai droit à un remboursement d’impôt / החזר מס ?",
           answer:
             "Cela dépend de votre situation fiscale, de vos revenus, crédits, changements familiaux, périodes de travail et documents disponibles. Aucun remboursement ne peut être garanti avant analyse.",
-          resourcePath: "/fr/hahzar-mas-remboursement-impot-israel",
-          resourceLabel: "Comprendre le remboursement d’impôt / החזר מס"
+          resourcePath: "/fr/calculateurs/ehzer-mass",
+          resourceLabel: "Faire le pré-diagnostic Ehzer Mass"
         },
         {
           question: "Combien de temps prend une démarche ?",
@@ -287,7 +296,7 @@ export const dictionaries = {
         {
           question: "Le service remplace-t-il un comptable ou un avocat ?",
           answer:
-            "Non. Il s’agit d’orientation, de préparation et d’accompagnement fiscal. Le service ne se présente pas comme CPA, avocat, רואה חשבון ou conseiller fiscal agréé."
+            "Eliezer Torjmane est conseiller fiscal agréé en Israël. L’accompagnement ne remplace pas un avocat ou un רואה חשבון lorsque votre dossier nécessite spécifiquement ces compétences."
         },
         {
           question: "Comment se déroule le premier contact ?",
@@ -325,12 +334,13 @@ export const dictionaries = {
   he: {
     meta: {
       siteName: "Eliezer Torjmane",
-      title: "ליווי בתהליכי מס בישראל | Eliezer Torjmane",
+      title: "יועץ מס מורשה בישראל | Eliezer Torjmane",
       description:
-        "ליווי ברור ומסודר לעצמאים, יזמים, שכירים ועולים חדשים בתהליכי מס בישראל: פתיחת עסק, דוחות מס, החזרי מס ומעקב מנהלי.",
+        "יועץ מס מורשה בישראל לליווי ברור ומסודר לעצמאים, יזמים, שכירים ועולים חדשים: פתיחת עסק, דוחות מס, החזרי מס ומעקב מנהלי.",
       keywords: [
+        "יועץ מס מורשה בישראל",
         "ליווי מס בישראל",
-        "פתיחת עוסק בישראל",
+        "פתיחת עסק בישראל",
         "החזר מס",
         "עצמאים בישראל",
         "עולים חדשים מסים",
@@ -344,11 +354,12 @@ export const dictionaries = {
       faq: "שאלות",
       contact: "יצירת קשר",
       resources: "משאבים",
+      calculators: "מחשבונים",
       cta: "WhatsApp"
     },
     common: {
       brand: "Eliezer Torjmane",
-      eyebrow: "ליווי בתהליכי מס בישראל",
+      eyebrow: "יועץ מס מורשה בישראל",
       whatsapp: "WhatsApp",
       email: "Email",
       instagram: "Instagram",
@@ -363,12 +374,12 @@ export const dictionaries = {
       contactCta: "יצירת קשר ב-WhatsApp",
       response: "ליווי אנושי, ברור ומסודר",
       disclaimer:
-        "המידע באתר נועד להכוונה כללית בלבד ואינו מחליף ייעוץ אישי. כל מצב מס צריך להיבחן באופן פרטני.",
+        "המידע והמחשבונים באתר נועדו להערכה כללית בלבד ואינם מחליפים בדיקה מקצועית פרטנית. כל מצב מס צריך להיבחן באופן אישי.",
       ctaTitle: "יש לכם שאלה בתחום המס בישראל?",
       ctaText: "שלחו לי הודעה ב-WhatsApp ואחזור אליכם בהקדם."
     },
     home: {
-      heroTitle: "ליווי בתהליכי מס בישראל",
+      heroTitle: "יועץ מס מורשה בישראל",
       heroLead:
         "ליווי ברור ומסודר לעצמאים, יזמים ושכירים בתהליכי מס בישראל: פתיחת עסק, דוחות מס, החזרי מס ומעקב מנהלי.",
       primary: "יצירת קשר ב-WhatsApp",
@@ -463,7 +474,8 @@ export const dictionaries = {
       labels: {
         audience: "למי זה מתאים",
         clarifies: "מה מבהירים",
-        documents: "מסמכים נפוצים"
+        documents: "מסמכים נפוצים",
+        featuredCta: "בדיקת המצב שלי"
       }
     },
     about: {
@@ -551,7 +563,7 @@ export const dictionaries = {
         {
           question: "האם השירות מחליף רואה חשבון או עורך דין?",
           answer:
-            "לא. מדובר בהכוונה, הכנה וליווי בתחום המס. השירות אינו מוצג כ-CPA, עורך דין, רואה חשבון או יועץ מס מורשה."
+            "אליעזר טורג׳מן הוא יועץ מס מורשה בישראל. השירות אינו מחליף עורך דין או רואה חשבון כאשר התיק דורש במפורש מומחיות כזו."
         },
         {
           question: "איך מתבצע הקשר הראשון?",
@@ -587,10 +599,11 @@ export const dictionaries = {
   en: {
     meta: {
       siteName: "Eliezer Torjmane",
-      title: "Tax advisory support in Israel | Eliezer Torjmane",
+      title: "Licensed tax advisor in Israel | Eliezer Torjmane",
       description:
-        "Clear tax advisory support in Israel for entrepreneurs, freelancers, employees and olim: business file opening, tax declarations, tax refund review and administrative follow-up.",
+        "Licensed tax advisor in Israel providing clear support for entrepreneurs, freelancers, employees and olim: business file opening, tax declarations, tax refund review and administrative follow-up.",
       keywords: [
+        "licensed tax advisor Israel",
         "tax advisory Israel",
         "tax advisor Israel",
         "business file opening Israel",
@@ -606,11 +619,12 @@ export const dictionaries = {
       faq: "FAQ",
       contact: "Contact",
       resources: "Resources",
+      calculators: "Calculators",
       cta: "WhatsApp"
     },
     common: {
       brand: "Eliezer Torjmane",
-      eyebrow: "Tax advisory support in Israel",
+      eyebrow: "Licensed tax advisor in Israel",
       whatsapp: "WhatsApp",
       email: "Email",
       instagram: "Instagram",
@@ -625,12 +639,12 @@ export const dictionaries = {
       contactCta: "Contact me on WhatsApp",
       response: "Clear, human and structured support",
       disclaimer:
-        "Information on this site is provided for general guidance only and does not replace personalized advice. Each tax situation should be reviewed individually.",
+        "Information and calculators on this site are provided for general estimation only and do not replace a personalized professional review. Each tax situation should be reviewed individually.",
       ctaTitle: "Have a tax question in Israel?",
       ctaText: "Send me a WhatsApp message and I’ll get back to you."
     },
     home: {
-      heroTitle: "Tax advisory support in Israel",
+      heroTitle: "Licensed tax advisor in Israel",
       heroLead:
         "Clear, structured support for entrepreneurs, freelancers, employees and olim navigating Israeli tax processes: business file opening, declarations, tax refund review and administrative follow-up.",
       primary: "Contact me on WhatsApp",
@@ -726,7 +740,8 @@ export const dictionaries = {
       labels: {
         audience: "Who it is for",
         clarifies: "What we clarify",
-        documents: "Typical documents"
+        documents: "Typical documents",
+        featuredCta: "Check my situation"
       }
     },
     about: {
@@ -814,7 +829,7 @@ export const dictionaries = {
         {
           question: "Does this replace an accountant or lawyer?",
           answer:
-            "No. This is tax guidance, preparation and support. The service is not presented as CPA, lawyer, רואה חשבון or licensed tax consultant activity."
+            "Eliezer Torjmane is a licensed tax advisor in Israel. This does not replace a lawyer or רואה חשבון when a file specifically requires that expertise."
         },
         {
           question: "How does the first contact work?",
@@ -857,6 +872,10 @@ export function getDictionary(locale: Locale) {
 export function getLocalizedPath(locale: Locale, page: PageKey = "home") {
   const suffix = page === "home" ? "" : `/${page}`;
   return `/${locale}${suffix}`;
+}
+
+export function getCalculatorsPath(locale: Locale) {
+  return locale === "fr" ? "/fr/calculateurs" : `/${locale}/calculators`;
 }
 
 export function getPageUrl(locale: Locale, page: PageKey = "home") {
@@ -914,17 +933,17 @@ export function pageMetadata(locale: Locale, page: PageKey): Metadata {
 }
 
 export function getProfessionalServiceJsonLd(locale: Locale) {
-  const dictionary = getDictionary(locale);
   const languages = ["French", "Hebrew", "English"];
 
   return {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "ProfessionalService"],
     name: "Eliezer Torjmane",
+    alternateName: "Eliezer Torjmane Tax Advisor",
     url: getPageUrl(locale),
     logo: `${siteUrl}/logo.png`,
     image: `${siteUrl}/eliezer-profile.jpg`,
-    description: dictionary.meta.description,
+    description: "Licensed tax advisor in Israel providing tax advisory support in French, Hebrew and English.",
     telephone: contact.phoneInternational,
     email: contact.email,
     sameAs: [contact.instagramHref],
