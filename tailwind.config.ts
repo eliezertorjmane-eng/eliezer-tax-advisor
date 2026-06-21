@@ -9,17 +9,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#05070B",
-        navy: "#07111F",
-        panel: "#0B1726",
-        line: "rgba(125, 220, 255, 0.18)",
+        ink: "#062033",
+        navy: "#0A3148",
+        panel: "#FFFFFF",
+        line: "#D9EDF6",
         cyan: "#7DDCFF",
         sky: "#4FAFD1",
         teal: "#1E6B87",
-        mint: "#B7F8E5"
+        mint: "#E5F8FF",
+        soft: "#F4FBFE",
+        paper: "#F7FCFF"
       },
       boxShadow: {
-        glow: "0 0 42px rgba(125, 220, 255, 0.18)"
+        glow: "0 18px 55px rgba(30, 107, 135, 0.14)",
+        soft: "0 10px 30px rgba(10, 49, 72, 0.08)"
       },
       fontFamily: {
         sans: ["Arial", "Helvetica", "sans-serif"]

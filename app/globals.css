@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
-  background: #05070b;
+  color-scheme: light;
+  background: #f7fcff;
 }
 
 * {
@@ -18,11 +18,9 @@ html {
 body {
   margin: 0;
   background:
-    linear-gradient(rgba(125, 220, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(125, 220, 255, 0.04) 1px, transparent 1px),
-    #05070b;
-  background-size: 52px 52px;
-  color: #f8fafc;
+    radial-gradient(circle at top left, rgba(125, 220, 255, 0.22), transparent 34rem),
+    linear-gradient(180deg, #ffffff 0%, #f4fbfe 42%, #ffffff 100%);
+  color: #062033;
 }
 
 a {
@@ -31,13 +29,13 @@ a {
 
 ::selection {
   background: rgba(125, 220, 255, 0.35);
-  color: white;
+  color: #062033;
 }
 
 .mesh-panel {
   background:
-    linear-gradient(135deg, rgba(125, 220, 255, 0.1), rgba(30, 107, 135, 0.04)),
-    rgba(255, 255, 255, 0.035);
+    linear-gradient(135deg, rgba(125, 220, 255, 0.2), rgba(30, 107, 135, 0.04)),
+    #ffffff;
 }
 
 .edge-line {
@@ -45,11 +43,21 @@ a {
 }
 
 .edge-line::before {
-  background: linear-gradient(90deg, transparent, rgba(125, 220, 255, 0.65), transparent);
+  background: linear-gradient(90deg, transparent, rgba(79, 175, 209, 0.55), transparent);
   content: "";
   height: 1px;
   left: 0;
   position: absolute;
   right: 0;
   top: 0;
+}
+
+.blue-gradient {
+  background: linear-gradient(135deg, #1e6b87 0%, #4fafd1 62%, #7ddcff 100%);
+}
+
+.section-band {
+  background:
+    linear-gradient(180deg, rgba(244, 251, 254, 0.92), rgba(255, 255, 255, 0.96)),
+    radial-gradient(circle at 85% 0%, rgba(125, 220, 255, 0.22), transparent 24rem);
 }

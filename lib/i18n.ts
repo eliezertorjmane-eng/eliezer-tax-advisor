@@ -14,7 +14,7 @@ export const localeLabels: Record<Locale, string> = {
 };
 
 export const localeNames: Record<Locale, string> = {
-  fr: "Francais",
+  fr: "Français",
   he: "עברית",
   en: "English"
 };
@@ -38,167 +38,209 @@ export const contact = {
   phoneInternational: "+972584962143"
 };
 
-const whatsappMessages: Record<Locale, string> = {
-  fr: "Bonjour Eliezer, je souhaite un accompagnement fiscal.",
-  he: "שלום אליעזר, אשמח לקבל ליווי בתחום המס.",
-  en: "Hello Eliezer, I would like tax guidance in Israel."
-};
+const whatsappMessage =
+  "Bonjour Eliezer, je vous contacte depuis votre site concernant une question fiscale en Israël.";
 
-export function getWhatsAppHref(locale: Locale) {
-  return `https://wa.me/972584962143?text=${encodeURIComponent(whatsappMessages[locale])}`;
+export function getWhatsAppHref() {
+  return `https://wa.me/972584962143?text=${encodeURIComponent(whatsappMessage)}`;
 }
 
 export const dictionaries = {
   fr: {
     meta: {
       siteName: "Eliezer Torjmane Tax Advisor",
-      title: "Eliezer Torjmane Tax Advisor | Accompagnement fiscal francophone en Israel",
+      title: "Conseiller fiscal en Israël pour francophones | Eliezer Torjmane",
       description:
-        "Conseiller fiscal francophone en Israel pour olim hadashim, entrepreneurs, independants, salaries et dirigeants ayant besoin d'orientation fiscale."
+        "Conseiller fiscal francophone en Israël pour entrepreneurs, indépendants, salariés et olim : ouverture de esek, déclarations fiscales, החזר מס et suivi administratif.",
+      keywords: [
+        "conseiller fiscal Israël",
+        "conseiller fiscal francophone Israël",
+        "fiscalité Israël francophones",
+        "ouverture esek Israël",
+        "החזר מס",
+        "tax advisor Israel French speakers"
+      ]
     },
     nav: {
       home: "Accueil",
       services: "Services",
-      about: "A propos",
+      about: "À propos",
       faq: "FAQ",
       contact: "Contact",
-      cta: "Parler a Eliezer"
+      cta: "WhatsApp"
     },
     common: {
       brand: "Eliezer Torjmane Tax Advisor",
-      eyebrow: "Conseiller fiscal francophone en Israel",
+      eyebrow: "Conseiller fiscal francophone en Israël",
       whatsapp: "WhatsApp",
       email: "Email",
       instagram: "Instagram",
-      phone: "Telephone",
+      phone: "Téléphone",
       learnMore: "Voir les services",
-      contactCta: "Demander un accompagnement",
-      response: "Reponse claire, humaine et structuree",
+      contactCta: "Me contacter sur WhatsApp",
+      response: "Un suivi humain, clair et structuré",
       disclaimer:
-        "Les informations presentes sur ce site sont fournies a titre general et ne remplacent pas un conseil personnalise. Chaque situation fiscale doit etre analysee individuellement."
+        "Les informations présentes sur ce site sont fournies à titre général et ne remplacent pas un conseil personnalisé. Chaque situation fiscale doit être analysée individuellement.",
+      ctaTitle: "Une question fiscale en Israël ?",
+      ctaText:
+        "Envoyez un message avec votre situation, vos documents disponibles et l’étape qui vous bloque. La première réponse permet de cadrer la démarche."
     },
     home: {
-      heroTitle: "Avancer dans les demarches fiscales israeliennes avec clarte.",
+      heroTitle: "Conseiller fiscal en Israël pour francophones",
       heroLead:
-        "Un accompagnement fiscal en francais pour comprendre, preparer et suivre vos obligations en Israel, sans promesse automatique ni jargon inutile.",
-      primary: "Commencer sur WhatsApp",
-      secondary: "Explorer les services",
-      proof: ["Francais, hebreu, anglais", "Independants et salaries", "Dossiers personnels et professionnels"],
-      statCards: [
-        { value: "3", label: "langues de suivi" },
-        { value: "6", label: "services principaux" },
-        { value: "100%", label: "approche personnalisee" }
+        "J’accompagne entrepreneurs, indépendants, salariés et olim francophones dans leurs démarches fiscales en Israël : ouverture de esek, déclarations, החזר מס et suivi administratif.",
+      primary: "Me contacter sur WhatsApp",
+      secondary: "Voir les services",
+      trustSignals: [
+        "10 ans d’accompagnement",
+        "Spécial francophones en Israël",
+        "Expérience corporate & high-tech",
+        "Suivi humain et structuré"
       ],
-      introTitle: "Un cadre premium pour des decisions fiscales plus sereines.",
+      heroCardTitle: "Accompagnement fiscal en français",
+      heroCardText:
+        "Une lecture claire de votre situation, des documents à préparer et des prochaines démarches à organiser.",
+      heroCardRows: [
+        "Ouverture de esek et suivi administratif",
+        "Déclarations fiscales et organisation de dossier",
+        "Étude d’une demande de החזר מס, sans garantie de remboursement"
+      ],
+      introTitle: "Une approche premium, claire et rassurante.",
       introText:
-        "Le site presente une approche d'orientation, de preparation et d'accompagnement dans les demarches fiscales. Il s'adresse aux francophones vivant en Israel qui veulent savoir quoi faire, quand le faire et comment organiser leurs documents.",
+        "L’objectif est de rendre les démarches fiscales israéliennes plus lisibles pour les francophones : comprendre les obligations, préparer les bons éléments et avancer avec méthode.",
       audienceTitle: "Pour qui ?",
       audiences: [
-        "Olim hadashim qui decouvrent le systeme fiscal israelien",
-        "Entrepreneurs et freelances qui veulent ouvrir ou structurer leur activite",
-        "Salaries ayant besoin d'un suivi ou d'une verification de situation",
-        "Dirigeants et independants qui veulent une lecture claire de leurs obligations"
+        "Olim hadashim qui découvrent le système fiscal israélien",
+        "Entrepreneurs et freelances qui veulent ouvrir ou structurer leur activité",
+        "Salariés ayant besoin d’un suivi, d’une vérification ou d’une orientation",
+        "Dirigeants et indépendants qui veulent une lecture claire de leurs obligations"
       ],
-      processTitle: "Une methode simple",
+      processTitle: "Une méthode simple",
       process: [
-        { title: "Ecoute", text: "Comprendre votre situation, vos documents et vos objectifs." },
-        { title: "Orientation", text: "Identifier les demarches possibles et les points a clarifier." },
-        { title: "Preparation", text: "Organiser les informations utiles avant depot ou suivi." },
-        { title: "Suivi", text: "Rester disponible pour les prochaines etapes du dossier." }
+        { title: "Écoute", text: "Comprendre votre situation, vos documents et vos objectifs." },
+        { title: "Orientation", text: "Identifier les démarches possibles et les points à clarifier." },
+        { title: "Préparation", text: "Organiser les informations utiles avant dépôt ou suivi." },
+        { title: "Suivi", text: "Rester disponible pour les prochaines étapes du dossier." }
       ]
     },
     services: {
       title: "Services",
       lead:
-        "Un accompagnement fiscal francophone pour les etapes importantes de la vie personnelle et professionnelle en Israel.",
+        "Un accompagnement fiscal francophone pour les étapes importantes de la vie personnelle et professionnelle en Israël.",
       items: [
         {
           title: "Ouverture de esek",
-          text: "Orientation et preparation pour l'ouverture d'une activite independante, avec explication des obligations initiales."
+          text: "Orientation et préparation pour l’ouverture d’une activité indépendante, avec explication des obligations initiales."
         },
         {
-          title: "Declarations fiscales",
-          text: "Aide a la preparation, a l'organisation et au suivi des declarations selon la situation individuelle."
+          title: "Déclarations fiscales",
+          text: "Aide à la préparation, à l’organisation et au suivi des déclarations selon la situation individuelle."
         },
         {
           title: "החזר מס",
-          text: "Accompagnement dans l'etude et la preparation d'une demande eventuelle, sans garantie de remboursement."
+          text: "Accompagnement dans l’étude et la préparation d’une demande éventuelle, sans garantie de remboursement."
         },
         {
           title: "Accompagnement entrepreneurs",
           text: "Suivi des besoins fiscaux courants pour entrepreneurs, freelances et dirigeants de petites structures."
         },
         {
-          title: "Accompagnement salaries",
-          text: "Orientation pour comprendre les fiches, situations personnelles, changements et questions de regularisation."
+          title: "Accompagnement salariés",
+          text: "Orientation pour comprendre les fiches, situations personnelles, changements et questions de régularisation."
         },
         {
-          title: "Suivi fiscal personnalise",
-          text: "Un cadre de suivi adapte aux documents, delais et specificites de votre dossier."
+          title: "Suivi fiscal personnalisé",
+          text: "Un cadre de suivi adapté aux documents, délais et spécificités de votre dossier."
         }
       ],
-      promiseTitle: "Ce que l'accompagnement apporte",
+      promiseTitle: "Ce que l’accompagnement apporte",
       promise:
-        "Une lecture claire des prochaines etapes, une preparation plus ordonnee, et une communication en francais pour reduire le stress administratif."
+        "Une lecture claire des prochaines étapes, une préparation plus ordonnée et une communication en français pour réduire le stress administratif."
     },
     about: {
-      title: "A propos",
+      title: "À propos",
       lead:
-        "Eliezer Torjmane accompagne les francophones en Israel dans la comprehension, la preparation et le suivi de leurs demarches fiscales.",
+        "Eliezer Torjmane accompagne les francophones en Israël dans la compréhension, la préparation et le suivi de leurs démarches fiscales.",
       body:
-        "L'approche est directe, pedagogique et prudente : traduire les enjeux, structurer les informations, orienter les prochaines actions et aider a avancer avec methode. Le service ne se presente pas comme une activite de CPA, d'avocat, de רואה חשבון ou de conseiller fiscal agree.",
+        "Eliezer Torjmane dispose d’une solide expérience dans le monde de l’entreprise, notamment dans l’écosystème high-tech israélien. En parallèle, depuis environ 10 ans, il accompagne des entrepreneurs, indépendants et salariés francophones dans leurs démarches fiscales en Israël.",
       values: [
-        { title: "Clarte", text: "Des explications simples pour comprendre les options et les documents." },
-        { title: "Rigueur", text: "Une organisation methodique des informations avant chaque demarche." },
-        { title: "Disponibilite", text: "Un contact humain, en francais, pour suivre les etapes importantes." },
-        { title: "Prudence", text: "Des formulations responsables, sans promesse de resultat automatique." }
+        { title: "Clarté", text: "Des explications simples pour comprendre les options, les documents et les délais." },
+        { title: "Rigueur", text: "Une organisation méthodique des informations avant chaque démarche." },
+        { title: "Disponibilité", text: "Un contact humain, en français, pour suivre les étapes importantes." },
+        { title: "Prudence", text: "Une approche responsable, sans promesse automatique ni garantie de résultat." }
       ]
     },
     faq: {
-      title: "Questions frequentes",
-      lead: "Des reponses rapides aux questions que se posent souvent les francophones en Israel.",
+      title: "Questions fréquentes",
+      lead: "Des réponses concrètes aux questions que se posent souvent les francophones en Israël.",
       items: [
         {
-          question: "Pouvez-vous ouvrir un esek pour moi ?",
+          question: "Quels documents préparer avant un premier échange ?",
           answer:
-            "L'accompagnement porte sur l'orientation, la preparation et le suivi des demarches. La situation exacte determine les etapes utiles."
+            "Préparez une pièce d’identité, vos coordonnées, les documents fiscaux déjà reçus, fiches de salaire si vous êtes salarié, informations d’activité si vous êtes indépendant, et toute correspondance avec les autorités."
         },
         {
-          question: "Est-ce que vous garantissez un remboursement d'impot ?",
+          question: "Puis-je ouvrir un esek si je suis salarié ?",
           answer:
-            "Non. Une demande de החזר מס depend de la situation fiscale individuelle et des documents disponibles. Aucun remboursement n'est garanti."
+            "C’est parfois possible, selon votre situation personnelle, votre contrat, vos revenus et vos obligations déclaratives. Le premier échange permet d’identifier les points à vérifier."
         },
         {
-          question: "Travaillez-vous avec les olim hadashim ?",
+          question: "Quelle est la différence entre עוסק פטור et עוסק מורשה ?",
           answer:
-            "Oui, le site s'adresse notamment aux olim hadashim francophones qui ont besoin de comprendre le systeme fiscal israelien."
+            "Ces statuts correspondent à des cadres différents pour l’activité indépendante, notamment sur la TVA, les plafonds et les obligations. Le choix dépend de l’activité, du volume attendu et de la situation personnelle."
         },
         {
-          question: "Dans quelles langues peut se faire le suivi ?",
+          question: "Ai-je droit à un החזר מס ?",
           answer:
-            "Le suivi peut se faire en francais, avec support en hebreu et en anglais selon les besoins du dossier."
+            "Cela dépend de votre situation fiscale, de vos revenus, crédits, changements familiaux, périodes de travail et documents disponibles. Aucun remboursement ne peut être garanti avant analyse."
         },
         {
-          question: "Ce service remplace-t-il un conseil juridique ou comptable ?",
+          question: "Combien de temps prend une démarche ?",
           answer:
-            "Non. Les informations sont generales et l'accompagnement ne remplace pas une analyse personnalisee par le professionnel competent lorsque la situation l'exige."
+            "Le délai dépend du type de démarche, de la qualité des documents et des délais administratifs. L’objectif est de préparer un dossier clair pour éviter les allers-retours inutiles."
+        },
+        {
+          question: "Est-ce possible de travailler à distance ?",
+          answer:
+            "Oui. La plupart des échanges peuvent se faire par WhatsApp, téléphone ou email, avec envoi sécurisé des documents nécessaires."
+        },
+        {
+          question: "Est-ce adapté aux olim hadashim ?",
+          answer:
+            "Oui. L’accompagnement est particulièrement utile pour les olim francophones qui découvrent les termes, les démarches et les habitudes administratives en Israël."
+        },
+        {
+          question: "Pouvez-vous m’aider si je ne maîtrise pas l’hébreu ?",
+          answer:
+            "Oui. L’accompagnement permet de clarifier les documents et démarches en français, avec prise en compte des éléments en hébreu lorsque nécessaire."
+        },
+        {
+          question: "Le service remplace-t-il un comptable ou un avocat ?",
+          answer:
+            "Non. Il s’agit d’orientation, de préparation et d’accompagnement fiscal. Le service ne se présente pas comme CPA, avocat, רואה חשבון ou conseiller fiscal agréé."
+        },
+        {
+          question: "Comment se déroule le premier contact ?",
+          answer:
+            "Vous envoyez un message avec votre situation et votre besoin. Un premier cadrage permet ensuite de comprendre l’urgence, les documents utiles et la démarche la plus adaptée."
         }
       ]
     },
     contactPage: {
       title: "Contact",
       lead:
-        "Expliquez votre situation en quelques lignes. Eliezer vous recontacte pour cadrer la demande et les prochaines etapes.",
+        "Expliquez votre situation en quelques lignes. Eliezer vous recontacte pour cadrer la demande et les prochaines étapes.",
       directTitle: "Contact direct",
       form: {
         name: "Nom complet",
         email: "Email",
-        phone: "Telephone",
+        phone: "Téléphone",
         profile: "Votre profil",
         message: "Message",
-        submit: "Envoyer la demande",
-        profiles: ["Oleh hadash", "Entrepreneur", "Freelance", "Salarie", "Dirigeant", "Autre"],
-        placeholder: "Decrivez brievement votre situation, vos documents et le type d'accompagnement souhaite."
+        submit: "Préparer l’email",
+        profiles: ["Oleh hadash", "Entrepreneur", "Freelance", "Salarié", "Dirigeant", "Autre"],
+        placeholder:
+          "Décrivez brièvement votre situation, vos documents et le type d’accompagnement souhaité."
       }
     }
   },
@@ -207,7 +249,14 @@ export const dictionaries = {
       siteName: "Eliezer Torjmane Tax Advisor",
       title: "Eliezer Torjmane Tax Advisor | ליווי מס לדוברי צרפתית בישראל",
       description:
-        "ליווי והכוונה בתחום המס לדוברי צרפתית בישראל, לעולים חדשים, עצמאים, יזמים, שכירים ובעלי עסקים."
+        "ליווי והכוונה בתחום המס לדוברי צרפתית בישראל: פתיחת עוסק, דוחות, החזר מס ומעקב מנהלי לעולים, עצמאים, יזמים ושכירים.",
+      keywords: [
+        "יועץ מס לדוברי צרפתית בישראל",
+        "ליווי מס בישראל",
+        "פתיחת עוסק בישראל",
+        "החזר מס",
+        "tax advisor Israel French speakers"
+      ]
     },
     nav: {
       home: "בית",
@@ -215,7 +264,7 @@ export const dictionaries = {
       about: "אודות",
       faq: "שאלות",
       contact: "יצירת קשר",
-      cta: "דברו עם אליעזר"
+      cta: "WhatsApp"
     },
     common: {
       brand: "Eliezer Torjmane Tax Advisor",
@@ -225,32 +274,42 @@ export const dictionaries = {
       instagram: "Instagram",
       phone: "טלפון",
       learnMore: "לשירותים",
-      contactCta: "בקשת ליווי",
-      response: "מענה ברור, אנושי ומסודר",
+      contactCta: "יצירת קשר ב-WhatsApp",
+      response: "ליווי אנושי, ברור ומסודר",
       disclaimer:
-        "Les informations presentes sur ce site sont fournies a titre general et ne remplacent pas un conseil personnalise. Chaque situation fiscale doit etre analysee individuellement."
+        "המידע באתר זה ניתן כהכוונה כללית בלבד ואינו מחליף ייעוץ אישי. כל מצב מס צריך להיבחן באופן פרטני.",
+      ctaTitle: "יש לכם שאלה בתחום המס בישראל?",
+      ctaText:
+        "שלחו הודעה עם תיאור קצר של המצב, המסמכים הקיימים והשלב שבו אתם צריכים הכוונה."
     },
     home: {
-      heroTitle: "מתקדמים מול מערכת המס בישראל בצורה ברורה ומסודרת.",
+      heroTitle: "ליווי מס בישראל לדוברי צרפתית",
       heroLead:
-        "ליווי בצרפתית להבנה, הכנה ומעקב אחר תהליכים בתחום המס בישראל, בלי הבטחות אוטומטיות ובלי שפה מסובכת.",
-      primary: "להתחיל ב-WhatsApp",
+        "ליווי ליזמים, עצמאים, שכירים ועולים דוברי צרפתית בתהליכי מס בישראל: פתיחת עוסק, הצהרות, החזר מס ומעקב מנהלי.",
+      primary: "יצירת קשר ב-WhatsApp",
       secondary: "צפייה בשירותים",
-      proof: ["צרפתית, עברית ואנגלית", "עצמאים ושכירים", "תיקים אישיים ועסקיים"],
-      statCards: [
-        { value: "3", label: "שפות ליווי" },
-        { value: "6", label: "שירותים מרכזיים" },
-        { value: "100%", label: "גישה אישית" }
+      trustSignals: [
+        "כ-10 שנות ליווי",
+        "התמחות בדוברי צרפתית בישראל",
+        "ניסיון בעולמות corporate והייטק",
+        "מעקב אנושי ומסודר"
       ],
-      introTitle: "מסגרת מקצועית ורגועה לקבלת החלטות מסודרות.",
+      heroCardTitle: "ליווי מס בצרפתית",
+      heroCardText: "הבנה ברורה של המצב, המסמכים שצריך להכין והשלבים הבאים.",
+      heroCardRows: [
+        "פתיחת עוסק ומעקב מנהלי",
+        "הצהרות מס וארגון תיק",
+        "בדיקת אפשרות להחזר מס, ללא התחייבות לקבלת החזר"
+      ],
+      introTitle: "גישה נקייה, מקצועית ומרגיעה.",
       introText:
-        "האתר מציג שירותי הכוונה, הכנה וליווי בתהליכים בתחום המס. הוא מיועד לדוברי צרפתית בישראל שרוצים להבין מה לעשות, מתי לפעול ואיך לארגן את המסמכים.",
+        "המטרה היא להפוך את התהליכים מול מערכת המס בישראל לברורים יותר עבור דוברי צרפתית: להבין חובות, להכין מסמכים ולהתקדם בצורה מסודרת.",
       audienceTitle: "למי זה מתאים?",
       audiences: [
         "עולים חדשים שמכירים את מערכת המס בישראל",
         "יזמים ופרילנסרים שרוצים לפתוח או להסדיר פעילות",
-        "שכירים שזקוקים לבדיקה או מעקב אחר מצב אישי",
-        "בעלי עסקים ועצמאים שרוצים להבין את החובות שלהם"
+        "שכירים שזקוקים לבדיקה, מעקב או הכוונה",
+        "בעלי עסקים ועצמאים שרוצים להבין טוב יותר את החובות שלהם"
       ],
       processTitle: "שיטה פשוטה",
       process: [
@@ -296,44 +355,69 @@ export const dictionaries = {
     about: {
       title: "אודות",
       lead:
-        "אליעזר טורג'מן מלווה דוברי צרפתית בישראל בהבנה, הכנה ומעקב אחר תהליכים בתחום המס.",
+        "אליעזר טורג׳מן מלווה דוברי צרפתית בישראל בהבנה, הכנה ומעקב אחר תהליכים בתחום המס.",
       body:
-        "הגישה ישירה, לימודית וזהירה: להסביר את הנושאים, לסדר את המידע, לכוון לפעולות הבאות ולעזור להתקדם בצורה שיטתית. השירות אינו מוצג כפעילות של CPA, עורך דין, רואה חשבון או יועץ מס מורשה.",
+        "לאליעזר טורג׳מן ניסיון משמעותי בעולם העסקי, ובפרט באקוסיסטם ההייטק הישראלי. במקביל, מזה כ-10 שנים, הוא מלווה יזמים, עצמאים ושכירים דוברי צרפתית בתהליכים בתחום המס בישראל.",
       values: [
-        { title: "בהירות", text: "הסברים פשוטים להבנת אפשרויות ומסמכים." },
-        { title: "סדר", text: "ארגון שיטתי של מידע לפני כל פעולה." },
+        { title: "בהירות", text: "הסברים פשוטים להבנת האפשרויות, המסמכים והמועדים." },
+        { title: "סדר", text: "ארגון שיטתי של המידע לפני כל פעולה." },
         { title: "זמינות", text: "קשר אנושי בצרפתית סביב השלבים החשובים." },
-        { title: "זהירות", text: "ניסוח אחראי, ללא הבטחה לתוצאה אוטומטית." }
+        { title: "זהירות", text: "גישה אחראית, ללא הבטחה אוטומטית או התחייבות לתוצאה." }
       ]
     },
     faq: {
       title: "שאלות נפוצות",
-      lead: "תשובות קצרות לשאלות נפוצות של דוברי צרפתית בישראל.",
+      lead: "תשובות מעשיות לשאלות נפוצות על תהליכי מס בישראל.",
       items: [
         {
-          question: "האם אפשר לקבל ליווי לפתיחת esek?",
+          question: "אילו מסמכים להכין לפני שיחה ראשונה?",
           answer:
-            "כן. הליווי מתמקד בהכוונה, הכנה ומעקב אחר השלבים. המצב הספציפי קובע אילו צעדים נדרשים."
+            "כדאי להכין תעודה מזהה, פרטים אישיים, מסמכים שקיבלתם מרשויות, תלושי שכר אם יש, מידע על פעילות עצמאית וכל התכתבות רלוונטית."
         },
         {
-          question: "האם מובטח החזר מס?",
+          question: "האם אפשר לפתוח עוסק אם אני שכיר?",
           answer:
-            "לא. בקשת החזר מס תלויה במצב האישי ובמסמכים הקיימים. אין התחייבות לקבלת החזר."
+            "במקרים מסוימים כן. זה תלוי במצב האישי, בהסכם העבודה, בהכנסות ובחובות הדיווח. השיחה הראשונה עוזרת להבין מה צריך לבדוק."
         },
         {
-          question: "האם השירות מתאים לעולים חדשים?",
+          question: "מה ההבדל בין עוסק פטור לעוסק מורשה?",
           answer:
-            "כן. השירות מיועד בין היתר לעולים חדשים דוברי צרפתית שרוצים להבין את מערכת המס בישראל."
+            "אלה מסגרות שונות לפעילות עצמאית, בין היתר מבחינת מע״מ, תקרות וחובות. הבחירה תלויה בסוג הפעילות, בהיקף הצפוי ובמצב האישי."
         },
         {
-          question: "באילו שפות ניתן לקבל ליווי?",
+          question: "האם מגיע לי החזר מס?",
           answer:
-            "הליווי יכול להתבצע בצרפתית, עם תמיכה בעברית ובאנגלית בהתאם לצורך."
+            "זה תלוי במצב המס האישי, הכנסות, זיכויים, שינויים משפחתיים, תקופות עבודה ומסמכים קיימים. אין התחייבות לקבלת החזר לפני בדיקה."
         },
         {
-          question: "האם זה מחליף ייעוץ משפטי או חשבונאי?",
+          question: "כמה זמן לוקח תהליך?",
           answer:
-            "לא. המידע כללי והליווי אינו מחליף בדיקה אישית של בעל מקצוע מתאים כאשר המצב דורש זאת."
+            "הזמן תלוי בסוג התהליך, באיכות המסמכים ובזמני הרשויות. המטרה היא להכין תיק ברור כדי לצמצם עיכובים."
+        },
+        {
+          question: "האם אפשר לעבוד מרחוק?",
+          answer:
+            "כן. רוב התהליך יכול להתבצע דרך WhatsApp, טלפון או אימייל, כולל שליחת המסמכים הדרושים."
+        },
+        {
+          question: "האם זה מתאים לעולים חדשים?",
+          answer:
+            "כן. הליווי מתאים במיוחד לעולים דוברי צרפתית שמכירים לראשונה את המונחים, התהליכים וההתנהלות בישראל."
+        },
+        {
+          question: "אפשר לקבל עזרה אם אני לא שולט בעברית?",
+          answer:
+            "כן. הליווי מסביר בצרפתית את המסמכים והשלבים, ומתייחס גם למסמכים בעברית כשצריך."
+        },
+        {
+          question: "האם השירות מחליף רואה חשבון או עורך דין?",
+          answer:
+            "לא. מדובר בהכוונה, הכנה וליווי בתחום המס. השירות אינו מוצג כ-CPA, עורך דין, רואה חשבון או יועץ מס מורשה."
+        },
+        {
+          question: "איך מתבצע הקשר הראשון?",
+          answer:
+            "שולחים הודעה עם תיאור קצר של המצב והצורך. לאחר מכן מגדירים את הדחיפות, המסמכים והשלב המתאים."
         }
       ]
     },
@@ -347,7 +431,7 @@ export const dictionaries = {
         phone: "טלפון",
         profile: "הפרופיל שלכם",
         message: "הודעה",
-        submit: "שליחת בקשה",
+        submit: "הכנת אימייל",
         profiles: ["עולה חדש", "יזם", "פרילנסר", "שכיר", "בעל עסק", "אחר"],
         placeholder: "תארו בקצרה את המצב, המסמכים וסוג הליווי המבוקש."
       }
@@ -356,9 +440,17 @@ export const dictionaries = {
   en: {
     meta: {
       siteName: "Eliezer Torjmane Tax Advisor",
-      title: "Eliezer Torjmane Tax Advisor | French-speaking tax guidance in Israel",
+      title: "Tax advisor in Israel for French speakers | Eliezer Torjmane",
       description:
-        "French-speaking tax guidance in Israel for new immigrants, entrepreneurs, freelancers, employees and business owners."
+        "French-speaking tax guidance in Israel for entrepreneurs, freelancers, employees and olim: esek opening, tax declarations, החזר מס and administrative follow-up.",
+      keywords: [
+        "tax advisor Israel French speakers",
+        "French speaking tax advisor Israel",
+        "Israeli tax guidance French speakers",
+        "open esek Israel",
+        "החזר מס",
+        "conseiller fiscal Israël"
+      ]
     },
     nav: {
       home: "Home",
@@ -366,7 +458,7 @@ export const dictionaries = {
       about: "About",
       faq: "FAQ",
       contact: "Contact",
-      cta: "Speak with Eliezer"
+      cta: "WhatsApp"
     },
     common: {
       brand: "Eliezer Torjmane Tax Advisor",
@@ -376,31 +468,42 @@ export const dictionaries = {
       instagram: "Instagram",
       phone: "Phone",
       learnMore: "View services",
-      contactCta: "Request guidance",
+      contactCta: "Contact me on WhatsApp",
       response: "Clear, human and structured support",
       disclaimer:
-        "Les informations presentes sur ce site sont fournies a titre general et ne remplacent pas un conseil personnalise. Chaque situation fiscale doit etre analysee individuellement."
+        "Information on this site is provided for general guidance only and does not replace personalized advice. Each tax situation should be reviewed individually.",
+      ctaTitle: "Have a tax question in Israel?",
+      ctaText:
+        "Send a short message with your situation, available documents and the step where you need guidance."
     },
     home: {
-      heroTitle: "Move through Israeli tax processes with clarity.",
+      heroTitle: "Tax advisor in Israel for French speakers",
       heroLead:
-        "French-speaking tax guidance to understand, prepare and follow your obligations in Israel, without automatic promises or unnecessary jargon.",
-      primary: "Start on WhatsApp",
-      secondary: "Explore services",
-      proof: ["French, Hebrew, English", "Freelancers and employees", "Personal and business files"],
-      statCards: [
-        { value: "3", label: "support languages" },
-        { value: "6", label: "core services" },
-        { value: "100%", label: "personal approach" }
+        "Support for French-speaking entrepreneurs, freelancers, employees and olim through Israeli tax processes: esek opening, declarations, החזר מס and administrative follow-up.",
+      primary: "Contact me on WhatsApp",
+      secondary: "View services",
+      trustSignals: [
+        "10 years of support",
+        "Specialized in French speakers in Israel",
+        "Corporate & high-tech experience",
+        "Human and structured follow-up"
       ],
-      introTitle: "A premium structure for calmer tax decisions.",
+      heroCardTitle: "Tax guidance in French",
+      heroCardText:
+        "A clear reading of your situation, the documents to prepare and the next administrative steps.",
+      heroCardRows: [
+        "Esek opening and administrative follow-up",
+        "Tax declarations and file organization",
+        "Review of a possible החזר מס request, without refund guarantee"
+      ],
+      introTitle: "A premium, clear and reassuring approach.",
       introText:
-        "The site presents guidance, preparation and support for tax-related processes. It is designed for French speakers in Israel who want to know what to do, when to act and how to organize documents.",
+        "The goal is to make Israeli tax processes easier to understand for French speakers: clarify obligations, prepare the right documents and move forward methodically.",
       audienceTitle: "Who it helps",
       audiences: [
         "Olim hadashim discovering the Israeli tax system",
         "Entrepreneurs and freelancers opening or structuring activity",
-        "Employees who need personal situation review or follow-up",
+        "Employees who need review, follow-up or orientation",
         "Business owners who want a clearer view of their obligations"
       ],
       processTitle: "A simple method",
@@ -449,42 +552,67 @@ export const dictionaries = {
       lead:
         "Eliezer Torjmane supports French speakers in Israel with understanding, preparing and following tax-related processes.",
       body:
-        "The approach is direct, educational and careful: clarify the issues, structure the information, orient the next actions and help move forward methodically. The service is not presented as CPA, lawyer, רואה חשבון or licensed tax consultant activity.",
+        "Eliezer Torjmane has solid experience in the business world, including the Israeli high-tech ecosystem. In parallel, for around 10 years, he has supported French-speaking entrepreneurs, freelancers and employees through tax-related processes in Israel.",
       values: [
-        { title: "Clarity", text: "Simple explanations to understand options and documents." },
+        { title: "Clarity", text: "Simple explanations to understand options, documents and deadlines." },
         { title: "Method", text: "Organized information before every process." },
         { title: "Availability", text: "Human contact in French around important steps." },
-        { title: "Care", text: "Responsible wording, without automatic result promises." }
+        { title: "Care", text: "A responsible approach, without automatic promises or guaranteed outcomes." }
       ]
     },
     faq: {
       title: "Frequently asked questions",
-      lead: "Quick answers for French speakers in Israel.",
+      lead: "Practical answers to common tax questions in Israel.",
       items: [
         {
-          question: "Can you help with opening an esek?",
+          question: "Which documents should I prepare before a first exchange?",
           answer:
-            "Yes. The support focuses on guidance, preparation and follow-up. The exact situation determines the useful steps."
+            "Prepare identification, contact details, tax documents already received, payslips if relevant, activity details if independent, and any correspondence with authorities."
         },
         {
-          question: "Do you guarantee a tax refund?",
+          question: "Can I open an esek if I am also an employee?",
           answer:
-            "No. A החזר מס request depends on the individual tax situation and available documents. No refund is guaranteed."
+            "Sometimes yes, depending on your personal situation, employment agreement, income and reporting obligations. The first exchange helps identify what to check."
         },
         {
-          question: "Do you work with olim hadashim?",
+          question: "What is the difference between עוסק פטור and עוסק מורשה?",
           answer:
-            "Yes, the service is especially relevant for French-speaking olim hadashim who need to understand Israel's tax system."
+            "They are different frameworks for independent activity, especially around VAT, thresholds and obligations. The right path depends on the activity, expected volume and personal situation."
         },
         {
-          question: "Which languages are supported?",
+          question: "Am I entitled to a החזר מס?",
           answer:
-            "Support can be provided in French, with Hebrew and English support depending on the file."
+            "It depends on income, credits, family changes, work periods and available documents. No refund can be guaranteed before review."
         },
         {
-          question: "Does this replace legal or accounting advice?",
+          question: "How long does a process take?",
           answer:
-            "No. The information is general and the support does not replace personalized analysis by the appropriate professional when required."
+            "Timing depends on the process, document quality and administrative delays. The goal is to prepare a clear file to reduce back-and-forth."
+        },
+        {
+          question: "Can we work remotely?",
+          answer:
+            "Yes. Most exchanges can happen by WhatsApp, phone or email, with the necessary documents sent digitally."
+        },
+        {
+          question: "Is this adapted to olim hadashim?",
+          answer:
+            "Yes. The support is especially useful for French-speaking olim learning Israeli terms, processes and administrative habits."
+        },
+        {
+          question: "Can you help if I do not master Hebrew?",
+          answer:
+            "Yes. The support explains documents and steps in French, while taking Hebrew materials into account when needed."
+        },
+        {
+          question: "Does this replace an accountant or lawyer?",
+          answer:
+            "No. This is tax guidance, preparation and support. The service is not presented as CPA, lawyer, רואה חשבון or licensed tax consultant activity."
+        },
+        {
+          question: "How does the first contact work?",
+          answer:
+            "You send a message with your situation and need. The first step is to frame urgency, useful documents and the most appropriate next action."
         }
       ]
     },
@@ -499,7 +627,7 @@ export const dictionaries = {
         phone: "Phone",
         profile: "Your profile",
         message: "Message",
-        submit: "Send request",
+        submit: "Prepare email",
         profiles: ["Oleh hadash", "Entrepreneur", "Freelancer", "Employee", "Business owner", "Other"],
         placeholder: "Briefly describe your situation, documents and the type of support you are looking for."
       }
@@ -524,6 +652,7 @@ export function pageMetadata(locale: Locale, page: PageKey): Metadata {
   return {
     title: pageTitle,
     description: dictionary.meta.description,
+    keywords: [...dictionary.meta.keywords],
     alternates: {
       canonical: getLocalizedPath(locale, page),
       languages: {

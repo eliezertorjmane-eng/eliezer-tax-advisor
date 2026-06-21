@@ -5,15 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useMemo, useState } from "react";
-import {
-  directions,
-  getDictionary,
-  getLocalizedPath,
-  localeLabels,
-  locales,
-  type Locale,
-  type PageKey
-} from "@/lib/i18n";
+import { directions, getDictionary, getLocalizedPath, getWhatsAppHref, localeLabels, locales, type Locale, type PageKey } from "@/lib/i18n";
 
 type HeaderProps = {
   locale: Locale;
@@ -52,7 +44,7 @@ export function Header({ locale }: HeaderProps) {
   );
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/10 bg-ink/82 backdrop-blur-xl">
+    <header className="sticky top-0 z-40 border-b border-line bg-white/90 shadow-[0_8px_30px_rgba(10,49,72,0.06)] backdrop-blur-xl">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8">
         <Link href={getLocalizedPath(locale)} className="flex min-w-0 items-center gap-3">
           <Image
@@ -60,14 +52,14 @@ export function Header({ locale }: HeaderProps) {
             alt="Eliezer Torjmane Tax Advisor"
             width={48}
             height={48}
-            className="h-12 w-12 rounded-full border border-cyan/25 bg-white/5"
+            className="h-12 w-12 rounded-full border border-line bg-white shadow-soft"
             priority
           />
           <span className="min-w-0">
-            <span className="block truncate text-sm font-semibold text-white sm:text-base">
+            <span className="block truncate text-sm font-semibold text-ink sm:text-base">
               {dictionary.common.brand}
             </span>
-            <span className="hidden truncate text-xs text-cyan/80 sm:block">{dictionary.common.eyebrow}</span>
+            <span className="hidden truncate text-xs text-teal sm:block">{dictionary.common.eyebrow}</span>
           </span>
         </Link>
 
@@ -76,7 +68,7 @@ export function Header({ locale }: HeaderProps) {
             <Link
               key={item}
               href={getLocalizedPath(locale, item)}
-              className="rounded-full px-4 py-2 text-sm font-medium text-slate-300 transition hover:bg-white/10 hover:text-white"
+              className="rounded-full px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-mint hover:text-teal"
             >
               {dictionary.nav[item]}
             </Link>
@@ -84,13 +76,13 @@ export function Header({ locale }: HeaderProps) {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <div className="flex rounded-full border border-white/10 bg-white/5 p-1">
+          <div className="flex rounded-full border border-line bg-soft p-1">
             {localeLinks.map((item) => (
               <Link
                 key={item.locale}
                 href={item.href}
                 className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
-                  item.locale === locale ? "bg-cyan text-ink" : "text-slate-300 hover:text-white"
+                  item.locale === locale ? "bg-white text-teal shadow-soft" : "text-slate-600 hover:text-ink"
                 }`}
               >
                 {item.label}
@@ -98,8 +90,10 @@ export function Header({ locale }: HeaderProps) {
             ))}
           </div>
           <Link
-            href={getLocalizedPath(locale, "contact")}
-            className="rounded-full bg-cyan px-5 py-2.5 text-sm font-semibold text-ink shadow-glow transition hover:bg-mint"
+            href={getWhatsAppHref()}
+            target="_blank"
+            rel="noreferrer"
+            className="rounded-full blue-gradient px-5 py-2.5 text-sm font-semibold text-white shadow-glow transition hover:-translate-y-0.5"
           >
             {dictionary.nav.cta}
           </Link>
@@ -107,7 +101,7 @@ export function Header({ locale }: HeaderProps) {
 
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-white lg:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line bg-white text-ink shadow-soft lg:hidden"
           aria-label={isOpen ? "Close menu" : "Open menu"}
           onClick={() => setIsOpen((value) => !value)}
         >
@@ -116,14 +110,14 @@ export function Header({ locale }: HeaderProps) {
       </div>
 
       {isOpen ? (
-        <div className="border-t border-white/10 bg-ink px-5 py-5 lg:hidden" dir={isRtl ? "rtl" : "ltr"}>
+        <div className="border-t border-line bg-white px-5 py-5 shadow-soft lg:hidden" dir={isRtl ? "rtl" : "ltr"}>
           <nav className="grid gap-2" aria-label="Mobile navigation">
             {navItems.map((item) => (
               <Link
                 key={item}
                 href={getLocalizedPath(locale, item)}
                 onClick={() => setIsOpen(false)}
-                className="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-medium text-slate-100"
+                className="rounded-md border border-line bg-soft px-4 py-3 text-sm font-medium text-slate-800"
               >
                 {dictionary.nav[item]}
               </Link>
@@ -136,7 +130,7 @@ export function Header({ locale }: HeaderProps) {
                 href={item.href}
                 onClick={() => setIsOpen(false)}
                 className={`rounded-full px-3 py-2 text-xs font-semibold ${
-                  item.locale === locale ? "bg-cyan text-ink" : "border border-white/10 text-slate-200"
+                  item.locale === locale ? "bg-teal text-white" : "border border-line text-slate-700"
                 }`}
               >
                 {item.label}

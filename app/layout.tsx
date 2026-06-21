@@ -6,7 +6,8 @@ export const metadata: Metadata = {
     default: "Eliezer Torjmane Tax Advisor",
     template: "%s"
   },
-  description: "French-speaking tax advisor in Israel.",
+  description:
+    "Conseiller fiscal en Israël pour francophones : ouverture de esek, déclarations, החזר מס et suivi administratif.",
   robots: {
     index: true,
     follow: true
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="fr">
-      <body className="min-h-screen bg-ink font-sans antialiased">{children}</body>
+      <body className="min-h-screen bg-paper font-sans text-ink antialiased">{children}</body>
     </html>
   );
 }
