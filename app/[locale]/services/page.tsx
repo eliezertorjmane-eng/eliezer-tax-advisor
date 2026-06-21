@@ -1,10 +1,10 @@
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, MessageCircle } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageCTA } from "@/components/PageCTA";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeader } from "@/components/SectionHeader";
-import { getDictionary, getLocalizedPath, isLocale, locales, pageMetadata, type Locale } from "@/lib/i18n";
+import { getDictionary, getLocalizedPath, getWhatsAppHref, isLocale, locales, pageMetadata, type Locale } from "@/lib/i18n";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -43,6 +43,40 @@ export default async function ServicesPage({ params }: PageProps) {
                   </div>
                   <h2 className="text-xl font-semibold text-ink">{service.title}</h2>
                   <p className="mt-4 text-sm leading-7 text-slate-600">{service.text}</p>
+                  <div className="mt-5 grid gap-4 border-t border-line pt-5">
+                    <div>
+                      <p className="text-xs font-semibold uppercase text-teal">{services.labels.audience}</p>
+                      <p className="mt-2 text-sm leading-7 text-slate-600">{service.audience}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold uppercase text-teal">{services.labels.clarifies}</p>
+                      <p className="mt-2 text-sm leading-7 text-slate-600">{service.clarifies}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold uppercase text-teal">{services.labels.documents}</p>
+                      <p className="mt-2 text-sm leading-7 text-slate-600">{service.documents}</p>
+                    </div>
+                  </div>
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    <a
+                      href={getWhatsAppHref()}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full blue-gradient px-4 text-xs font-semibold text-white shadow-glow"
+                    >
+                      <MessageCircle size={15} aria-hidden />
+                      {dictionary.common.whatsapp}
+                    </a>
+                    {service.resourcePath ? (
+                      <Link
+                        href={service.resourcePath}
+                        className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full border border-line bg-paper px-4 text-xs font-semibold text-teal transition hover:border-sky hover:bg-mint"
+                      >
+                        {dictionary.common.learnMore}
+                        <ArrowRight size={15} aria-hidden />
+                      </Link>
+                    ) : null}
+                  </div>
                 </article>
               </Reveal>
             ))}

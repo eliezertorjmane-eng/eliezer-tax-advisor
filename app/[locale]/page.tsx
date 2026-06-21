@@ -4,7 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { PageCTA } from "@/components/PageCTA";
 import { Reveal } from "@/components/Reveal";
+import { ResourceCard } from "@/components/ResourceCard";
+import { VideoCard } from "@/components/VideoCard";
 import { getDictionary, getLocalizedPath, getWhatsAppHref, isLocale, locales, pageMetadata, type Locale } from "@/lib/i18n";
+import { frenchVideoResources, resourceIndexCards } from "@/lib/resources";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -78,7 +81,7 @@ export default async function HomePage({ params }: PageProps) {
               <div className="flex items-center justify-between gap-4">
                 <Image
                   src="/logo.png"
-                  alt="Eliezer Torjmane Tax Advisor"
+                  alt="Eliezer Torjmane"
                   width={112}
                   height={112}
                   className="rounded-full border border-line bg-white p-1 shadow-soft"
@@ -148,6 +151,51 @@ export default async function HomePage({ params }: PageProps) {
           </div>
         </div>
       </section>
+      {locale === "fr" ? (
+        <>
+          <section className="section-band border-y border-line py-20">
+            <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+              <Reveal>
+                <h2 className="max-w-3xl text-3xl font-semibold text-ink sm:text-4xl">
+                  Vos démarches fiscales en Israël, expliquées simplement
+                </h2>
+              </Reveal>
+              <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                {resourceIndexCards.map((card, index) => (
+                  <Reveal key={card.href} delay={index * 0.04}>
+                    <ResourceCard {...card} />
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          </section>
+          <section className="bg-white py-20">
+            <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+              <Reveal>
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+                  <div>
+                    <p className="text-sm font-semibold uppercase text-teal">Ressources</p>
+                    <h2 className="mt-3 text-3xl font-semibold text-ink sm:text-4xl">Vidéos & conseils pratiques</h2>
+                  </div>
+                  <Link
+                    href="/fr/videos"
+                    className="inline-flex min-h-11 items-center justify-center rounded-full border border-line bg-paper px-5 text-sm font-semibold text-teal transition hover:border-sky hover:bg-mint"
+                  >
+                    Voir toutes les vidéos
+                  </Link>
+                </div>
+              </Reveal>
+              <div className="mt-10 grid gap-4 md:grid-cols-3">
+                {frenchVideoResources.map((video, index) => (
+                  <Reveal key={video.url} delay={index * 0.05}>
+                    <VideoCard {...video} />
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          </section>
+        </>
+      ) : null}
       <PageCTA locale={locale} />
     </>
   );

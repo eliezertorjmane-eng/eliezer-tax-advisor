@@ -17,7 +17,7 @@ export function Footer({ locale }: FooterProps) {
           <div className="flex items-center gap-3">
             <Image
               src="/logo.png"
-              alt="Eliezer Torjmane Tax Advisor"
+              alt="Eliezer Torjmane"
               width={52}
               height={52}
               className="rounded-full border border-cyan/30 bg-white"
@@ -31,7 +31,7 @@ export function Footer({ locale }: FooterProps) {
         </div>
 
         <div>
-          <h2 className="text-sm font-semibold uppercase text-slate-300">Navigation</h2>
+          <h2 className="text-sm font-semibold uppercase text-slate-300">{dictionary.common.navigation}</h2>
           <div className="mt-4 grid gap-3 text-sm">
             <Link href={getLocalizedPath(locale)} className="text-slate-400 transition hover:text-white">
               {dictionary.nav.home}
@@ -48,11 +48,16 @@ export function Footer({ locale }: FooterProps) {
             <Link href={getLocalizedPath(locale, "contact")} className="text-slate-400 transition hover:text-white">
               {dictionary.nav.contact}
             </Link>
+            {locale === "fr" ? (
+              <Link href="/fr/ressources" className="text-slate-400 transition hover:text-white">
+                {dictionary.nav.resources}
+              </Link>
+            ) : null}
           </div>
         </div>
 
         <div>
-          <h2 className="text-sm font-semibold uppercase text-slate-300">Contact</h2>
+          <h2 className="text-sm font-semibold uppercase text-slate-300">{dictionary.common.contactHeading}</h2>
           <div className="mt-4 grid gap-3 text-sm">
             <a className="inline-flex items-center gap-2 text-slate-400 transition hover:text-white" href={contact.phoneHref}>
               <Phone size={16} aria-hidden /> {contact.phoneDisplay}

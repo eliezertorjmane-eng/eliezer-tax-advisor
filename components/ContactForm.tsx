@@ -20,9 +20,16 @@ export function ContactForm({ locale }: ContactFormProps) {
     const email = String(form.get("email") ?? "");
     const phone = String(form.get("phone") ?? "");
     const message = String(form.get("message") ?? "");
-    const subject = encodeURIComponent(`Demande site - ${name || "Nouveau contact"}`);
+    const subject = encodeURIComponent(`${labels.emailSubject} - ${name || labels.fallbackName}`);
     const body = encodeURIComponent(
-      [`Nom: ${name}`, `Email: ${email}`, `Téléphone: ${phone}`, `Profil: ${profile}`, "", message].join("\n")
+      [
+        `${labels.bodyLabels.name}: ${name}`,
+        `${labels.bodyLabels.email}: ${email}`,
+        `${labels.bodyLabels.phone}: ${phone}`,
+        `${labels.bodyLabels.profile}: ${profile}`,
+        "",
+        message
+      ].join("\n")
     );
 
     window.location.href = `${contact.emailHref}?subject=${subject}&body=${body}`;

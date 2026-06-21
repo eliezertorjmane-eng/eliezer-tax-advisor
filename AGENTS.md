@@ -2,7 +2,7 @@
 
 ## Project
 
-This is a multilingual Next.js website for Eliezer Torjmane Tax Advisor.
+This is a multilingual Next.js website for Eliezer Torjmane.
 
 ## Commands
 
@@ -14,8 +14,10 @@ This is a multilingual Next.js website for Eliezer Torjmane Tax Advisor.
 ## Content Rules
 
 - French is the primary complete version.
-- Hebrew pages must support RTL layout.
-- English pages should stay concise and aligned with the French content.
+- Hebrew pages must support RTL layout and use native Hebrew positioning for Israeli visitors.
+- English pages should use native English positioning for international visitors in Israel.
+- Do not use "for French speakers" as the main positioning in Hebrew or English.
+- Keep French resource pages linked internally under `/fr/ressources`.
 - Keep using `public/logo.png` as the main brand asset.
 
 ## Legal Boundaries

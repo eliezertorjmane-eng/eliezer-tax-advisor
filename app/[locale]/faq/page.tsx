@@ -1,9 +1,10 @@
 import { HelpCircle } from "lucide-react";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PageCTA } from "@/components/PageCTA";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeader } from "@/components/SectionHeader";
-import { getDictionary, isLocale, locales, pageMetadata, type Locale } from "@/lib/i18n";
+import { getDictionary, getFaqJsonLd, isLocale, locales, pageMetadata, type Locale } from "@/lib/i18n";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -27,6 +28,7 @@ export default async function FaqPage({ params }: PageProps) {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(getFaqJsonLd(faq.items)) }} />
       <section className="section-band py-16 sm:py-20">
         <div className="mx-auto max-w-4xl px-5 sm:px-6 lg:px-8">
           <Reveal>
@@ -44,6 +46,14 @@ export default async function FaqPage({ params }: PageProps) {
                     <span className="text-teal transition group-open:rotate-45">+</span>
                   </summary>
                   <p className="mt-4 text-sm leading-7 text-slate-600">{item.answer}</p>
+                  {"resourcePath" in item && item.resourcePath ? (
+                    <Link
+                      href={item.resourcePath}
+                      className="mt-4 inline-flex text-sm font-semibold text-teal transition hover:text-ink"
+                    >
+                      {"resourceLabel" in item ? item.resourceLabel : dictionary.common.learnMore}
+                    </Link>
+                  ) : null}
                 </details>
               </Reveal>
             ))}

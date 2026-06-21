@@ -6,12 +6,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useMemo, useState } from "react";
 import { directions, getDictionary, getLocalizedPath, getWhatsAppHref, localeLabels, locales, type Locale, type PageKey } from "@/lib/i18n";
+import { resourceSlugs } from "@/lib/resources";
 
 type HeaderProps = {
   locale: Locale;
 };
 
 const navItems: PageKey[] = ["home", "services", "about", "faq", "contact"];
+const frenchOnlyPaths = new Set<string>(resourceSlugs.map((slug) => slug));
 
 function switchLocalePath(pathname: string, nextLocale: Locale) {
   const parts = pathname.split("/").filter(Boolean);
@@ -20,6 +22,10 @@ function switchLocalePath(pathname: string, nextLocale: Locale) {
   }
 
   if (locales.includes(parts[0] as Locale)) {
+    if (nextLocale !== "fr" && frenchOnlyPaths.has(parts[1] ?? "")) {
+      return `/${nextLocale}`;
+    }
+
     parts[0] = nextLocale;
     return `/${parts.join("/")}`;
   }
@@ -49,7 +55,7 @@ export function Header({ locale }: HeaderProps) {
         <Link href={getLocalizedPath(locale)} className="flex min-w-0 items-center gap-3">
           <Image
             src="/logo.png"
-            alt="Eliezer Torjmane Tax Advisor"
+            alt="Eliezer Torjmane"
             width={48}
             height={48}
             className="h-12 w-12 rounded-full border border-line bg-white shadow-soft"
@@ -63,7 +69,7 @@ export function Header({ locale }: HeaderProps) {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
+        <nav className="hidden items-center gap-1 lg:flex" aria-label={dictionary.common.mainNavigation}>
           {navItems.map((item) => (
             <Link
               key={item}
@@ -73,6 +79,14 @@ export function Header({ locale }: HeaderProps) {
               {dictionary.nav[item]}
             </Link>
           ))}
+          {locale === "fr" ? (
+            <Link
+              href="/fr/ressources"
+              className="rounded-full px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-mint hover:text-teal"
+            >
+              {dictionary.nav.resources}
+            </Link>
+          ) : null}
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
@@ -102,7 +116,7 @@ export function Header({ locale }: HeaderProps) {
         <button
           type="button"
           className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line bg-white text-ink shadow-soft lg:hidden"
-          aria-label={isOpen ? "Close menu" : "Open menu"}
+          aria-label={isOpen ? dictionary.common.closeMenu : dictionary.common.openMenu}
           onClick={() => setIsOpen((value) => !value)}
         >
           {isOpen ? <X aria-hidden size={20} /> : <Menu aria-hidden size={20} />}
@@ -111,7 +125,7 @@ export function Header({ locale }: HeaderProps) {
 
       {isOpen ? (
         <div className="border-t border-line bg-white px-5 py-5 shadow-soft lg:hidden" dir={isRtl ? "rtl" : "ltr"}>
-          <nav className="grid gap-2" aria-label="Mobile navigation">
+          <nav className="grid gap-2" aria-label={dictionary.common.mobileNavigation}>
             {navItems.map((item) => (
               <Link
                 key={item}
@@ -122,6 +136,15 @@ export function Header({ locale }: HeaderProps) {
                 {dictionary.nav[item]}
               </Link>
             ))}
+            {locale === "fr" ? (
+              <Link
+                href="/fr/ressources"
+                onClick={() => setIsOpen(false)}
+                className="rounded-md border border-line bg-soft px-4 py-3 text-sm font-medium text-slate-800"
+              >
+                {dictionary.nav.resources}
+              </Link>
+            ) : null}
           </nav>
           <div className="mt-4 flex flex-wrap gap-2">
             {localeLinks.map((item) => (

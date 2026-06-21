@@ -1,4 +1,13 @@
-import { Compass, MessageSquareText, ScanLine, ShieldCheck } from "lucide-react";
+import {
+  BadgeCheck,
+  BriefcaseBusiness,
+  Compass,
+  HeartHandshake,
+  Languages,
+  MessageSquareText,
+  ScanLine,
+  ShieldCheck
+} from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { PageCTA } from "@/components/PageCTA";
@@ -21,6 +30,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 const icons = [Compass, ScanLine, MessageSquareText, ShieldCheck];
+const whyIcons = [BriefcaseBusiness, BadgeCheck, Languages, HeartHandshake];
 
 export default async function AboutPage({ params }: PageProps) {
   const resolvedParams = await params;
@@ -34,24 +44,46 @@ export default async function AboutPage({ params }: PageProps) {
         <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <Reveal>
-              <div className="mesh-panel edge-line rounded-md border border-line p-6 shadow-glow">
-                <Image
-                  src="/logo.png"
-                  alt="Eliezer Torjmane Tax Advisor"
-                  width={136}
-                  height={136}
-                  className="rounded-full border border-line bg-white p-1 shadow-soft"
-                  priority
-                />
-                <p className="mt-8 text-sm font-semibold text-teal">{dictionary.common.eyebrow}</p>
-                <h2 className="mt-3 text-3xl font-semibold text-ink">{dictionary.common.brand}</h2>
-                <p className="mt-5 text-base leading-8 text-slate-600">{about.body}</p>
+              <div className="edge-line rounded-md border border-sky/25 bg-white p-5 shadow-glow sm:p-6">
+                <div className="flex items-center gap-4">
+                  <Image
+                    src="/logo.png"
+                    alt="Eliezer Torjmane"
+                    width={72}
+                    height={72}
+                    className="rounded-full border border-line bg-white p-1 shadow-soft"
+                    priority
+                  />
+                  <div>
+                    <p className="text-sm font-semibold text-teal">{dictionary.common.eyebrow}</p>
+                    <h2 className="mt-1 text-xl font-semibold text-ink">{dictionary.common.brand}</h2>
+                  </div>
+                </div>
+                <div className="mx-auto mt-7 max-w-[260px] overflow-hidden rounded-xl border border-line bg-paper shadow-soft">
+                  <Image
+                    src="/eliezer-profile.jpg"
+                    alt={about.profileAlt}
+                    width={320}
+                    height={380}
+                    className="aspect-[4/5] w-full object-cover"
+                    priority
+                  />
+                </div>
+                <p className="mx-auto mt-5 max-w-xs text-center text-sm font-semibold leading-6 text-teal">
+                  {about.profileCaption}
+                </p>
               </div>
             </Reveal>
 
             <div>
               <Reveal>
                 <SectionHeader eyebrow={dictionary.common.eyebrow} title={about.title} lead={about.lead} />
+              </Reveal>
+              <Reveal delay={0.05}>
+                <div className="mt-8 space-y-5 text-base leading-8 text-slate-600">
+                  <p>{about.body}</p>
+                  <p>{about.bodySecondary}</p>
+                </div>
               </Reveal>
               <div className="mt-10 grid gap-4 sm:grid-cols-2">
                 {about.values.map((item, index) => {
@@ -70,6 +102,29 @@ export default async function AboutPage({ params }: PageProps) {
                 })}
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+      <section className="bg-white py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+          <Reveal>
+            <SectionHeader eyebrow={dictionary.common.eyebrow} title={about.whyTitle} lead={about.whyLead} />
+          </Reveal>
+          <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {about.whyItems.map((item, index) => {
+              const Icon = whyIcons[index];
+              return (
+                <Reveal key={item.title} delay={index * 0.05}>
+                  <article className="h-full rounded-md border border-line bg-paper p-5 shadow-soft">
+                    <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-full bg-mint text-teal">
+                      <Icon size={20} aria-hidden />
+                    </div>
+                    <h2 className="text-xl font-semibold text-ink">{item.title}</h2>
+                    <p className="mt-3 text-sm leading-7 text-slate-600">{item.text}</p>
+                  </article>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>
