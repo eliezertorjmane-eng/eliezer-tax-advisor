@@ -1,4 +1,6 @@
 import { frenchCalculatorSlugs } from "@/lib/calculators";
+import { articles } from "@/lib/content/articles";
+import { getArticleUrl } from "@/lib/content/articleHelpers";
 import { getPageUrl, locales, siteUrl, type PageKey } from "@/lib/i18n";
 import { resourceSlugs } from "@/lib/resources";
 
@@ -8,9 +10,12 @@ type SitemapEntry = {
   url: string;
   changeFrequency: "weekly" | "monthly";
   priority: number;
+  lastModified?: string;
 };
 
-function entryToXml(entry: SitemapEntry, lastModified: string) {
+function entryToXml(entry: SitemapEntry, fallbackLastModified: string) {
+  const lastModified = entry.lastModified ?? fallbackLastModified;
+
   return [
     "<url>",
     `<loc>${entry.url}</loc>`,
@@ -47,11 +52,35 @@ export function GET() {
     priority: url.endsWith("/calculateurs") || url.endsWith("/calculators") ? 0.85 : 0.75
   }));
 
+  const articleIndexes: SitemapEntry[] = [
+    `${siteUrl}/fr/guides`,
+    `${siteUrl}/en/guides`,
+    `${siteUrl}/he/guides`,
+    `${siteUrl}/fr/cas-reels`,
+    `${siteUrl}/en/cas-reels`,
+    `${siteUrl}/he/cas-reels`
+  ].map((url) => ({
+    url,
+    changeFrequency: "weekly",
+    priority: url.includes("/fr/") ? 0.9 : 0.65
+  }));
+
+  const articlePages: SitemapEntry[] = articles
+    .filter((article) => article.locale === "fr" && (article.type === "guide" || article.type === "case-study"))
+    .map((article) => ({
+      url: getArticleUrl(article),
+      changeFrequency: "monthly",
+      priority: article.featured ? 0.85 : 0.78,
+      lastModified: new Date(`${article.updatedAt}T00:00:00Z`).toISOString()
+    }));
+
   const lastModified = new Date().toISOString();
   const body = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-    ...[...localizedPages, ...frenchResources, ...calculatorPages].map((entry) => entryToXml(entry, lastModified)),
+    ...[...localizedPages, ...frenchResources, ...calculatorPages, ...articleIndexes, ...articlePages].map((entry) =>
+      entryToXml(entry, lastModified)
+    ),
     "</urlset>"
   ].join("\n");
 

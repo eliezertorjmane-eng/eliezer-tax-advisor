@@ -1,7 +1,16 @@
 import { AtSign, Mail, MessageCircle, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { contact, getCalculatorsPath, getDictionary, getLocalizedPath, getWhatsAppHref, type Locale } from "@/lib/i18n";
+import {
+  contact,
+  getCalculatorsPath,
+  getCaseStudiesPath,
+  getDictionary,
+  getGuidesPath,
+  getLocalizedPath,
+  getWhatsAppHref,
+  type Locale
+} from "@/lib/i18n";
 
 type FooterProps = {
   locale: Locale;
@@ -39,6 +48,12 @@ export function Footer({ locale }: FooterProps) {
             <Link href={getLocalizedPath(locale, "services")} className="text-slate-400 transition hover:text-white">
               {dictionary.nav.services}
             </Link>
+            <Link href={getGuidesPath(locale)} className="text-slate-400 transition hover:text-white">
+              {locale === "fr" ? "Guides fiscaux" : locale === "he" ? "מדריכי מס" : "Tax guides"}
+            </Link>
+            <Link href={getCaseStudiesPath(locale)} className="text-slate-400 transition hover:text-white">
+              {locale === "fr" ? "Cas réels" : locale === "he" ? "מקרים לדוגמה" : "Case studies"}
+            </Link>
             <Link href={getLocalizedPath(locale, "about")} className="text-slate-400 transition hover:text-white">
               {dictionary.nav.about}
             </Link>
@@ -49,7 +64,7 @@ export function Footer({ locale }: FooterProps) {
               {dictionary.nav.contact}
             </Link>
             <Link href={getCalculatorsPath(locale)} className="text-slate-400 transition hover:text-white">
-              {dictionary.nav.calculators}
+              {locale === "fr" ? "Calculateurs" : locale === "he" ? "מחשבונים" : "Calculators"}
             </Link>
             {locale === "fr" ? (
               <Link href="/fr/ressources" className="text-slate-400 transition hover:text-white">

@@ -9,12 +9,12 @@ import {
   directions,
   getCalculatorsPath,
   getDictionary,
+  getGuidesPath,
   getLocalizedPath,
   getWhatsAppHref,
   localeLabels,
   locales,
-  type Locale,
-  type PageKey
+  type Locale
 } from "@/lib/i18n";
 import { resourceSlugs } from "@/lib/resources";
 
@@ -22,7 +22,6 @@ type HeaderProps = {
   locale: Locale;
 };
 
-const navItems: PageKey[] = ["home", "services", "about", "faq", "contact"];
 const frenchOnlyPaths = new Set<string>(resourceSlugs.map((slug) => slug));
 
 function switchLocalePath(pathname: string, nextLocale: Locale) {
@@ -34,6 +33,14 @@ function switchLocalePath(pathname: string, nextLocale: Locale) {
   if (locales.includes(parts[0] as Locale)) {
     if (parts[1] === "calculateurs" || parts[1] === "calculators") {
       return getCalculatorsPath(nextLocale);
+    }
+
+    if (parts[1] === "guides") {
+      return getGuidesPath(nextLocale);
+    }
+
+    if (parts[1] === "cas-reels") {
+      return `/${nextLocale}/cas-reels`;
     }
 
     if (nextLocale !== "fr" && frenchOnlyPaths.has(parts[1] ?? "")) {
@@ -52,6 +59,14 @@ export function Header({ locale }: HeaderProps) {
   const pathname = usePathname();
   const dictionary = getDictionary(locale);
   const isRtl = directions[locale] === "rtl";
+  const navItems = [
+    { href: getLocalizedPath(locale), label: dictionary.nav.home },
+    { href: getLocalizedPath(locale, "services"), label: dictionary.nav.services },
+    { href: getGuidesPath(locale), label: dictionary.nav.guides },
+    { href: getLocalizedPath(locale, "about"), label: dictionary.nav.about },
+    { href: getLocalizedPath(locale, "faq"), label: dictionary.nav.faq },
+    { href: getLocalizedPath(locale, "contact"), label: dictionary.nav.contact }
+  ];
 
   const localeLinks = useMemo(
     () =>
@@ -86,11 +101,11 @@ export function Header({ locale }: HeaderProps) {
         <nav className="hidden items-center gap-1 lg:flex" aria-label={dictionary.common.mainNavigation}>
           {navItems.map((item) => (
             <Link
-              key={item}
-              href={getLocalizedPath(locale, item)}
+              key={item.href}
+              href={item.href}
               className="rounded-full px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-mint hover:text-teal"
             >
-              {dictionary.nav[item]}
+              {item.label}
             </Link>
           ))}
           <Link
@@ -148,12 +163,12 @@ export function Header({ locale }: HeaderProps) {
           <nav className="grid gap-2" aria-label={dictionary.common.mobileNavigation}>
             {navItems.map((item) => (
               <Link
-                key={item}
-                href={getLocalizedPath(locale, item)}
+                key={item.href}
+                href={item.href}
                 onClick={() => setIsOpen(false)}
                 className="rounded-md border border-line bg-soft px-4 py-3 text-sm font-medium text-slate-800"
               >
-                {dictionary.nav[item]}
+                {item.label}
               </Link>
             ))}
             <Link

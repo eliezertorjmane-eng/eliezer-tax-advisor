@@ -72,10 +72,12 @@ export const dictionaries = {
     nav: {
       home: "Accueil",
       services: "Services",
+      guides: "Guides",
       about: "À propos",
       faq: "FAQ",
       contact: "Contact",
       resources: "Ressources",
+      caseStudies: "Cas réels",
       calculators: "Calculateurs",
       cta: "WhatsApp"
     },
@@ -350,10 +352,12 @@ export const dictionaries = {
     nav: {
       home: "בית",
       services: "שירותים",
+      guides: "מדריכים",
       about: "אודות",
       faq: "שאלות",
       contact: "יצירת קשר",
       resources: "משאבים",
+      caseStudies: "מקרים לדוגמה",
       calculators: "מחשבונים",
       cta: "WhatsApp"
     },
@@ -615,10 +619,12 @@ export const dictionaries = {
     nav: {
       home: "Home",
       services: "Services",
+      guides: "Guides",
       about: "About",
       faq: "FAQ",
       contact: "Contact",
       resources: "Resources",
+      caseStudies: "Case studies",
       calculators: "Calculators",
       cta: "WhatsApp"
     },
@@ -876,6 +882,14 @@ export function getLocalizedPath(locale: Locale, page: PageKey = "home") {
 
 export function getCalculatorsPath(locale: Locale) {
   return locale === "fr" ? "/fr/calculateurs" : `/${locale}/calculators`;
+}
+
+export function getGuidesPath(locale: Locale) {
+  return `/${locale}/guides`;
+}
+
+export function getCaseStudiesPath(locale: Locale) {
+  return `/${locale}/cas-reels`;
 }
 
 export function getPageUrl(locale: Locale, page: PageKey = "home") {

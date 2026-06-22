@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FrenchCalculator } from "@/components/calculators/FrenchCalculators";
 import { PageCTA } from "@/components/PageCTA";
@@ -44,6 +45,35 @@ const metaBySlug: Record<FrenchCalculatorSlug, { title: string; description: str
   }
 };
 
+const relatedContentByCalculator: Partial<Record<FrenchCalculatorSlug, Array<{ href: string; label: string; text: string }>>> = {
+  "ehzer-mass": [
+    {
+      href: "/fr/cas-reels",
+      label: "Voir les cas pratiques",
+      text: "Situations anonymisées pour comprendre les points à vérifier avant une démarche fiscale."
+    },
+    {
+      href: "/fr/hahzar-mas-remboursement-impot-israel",
+      label: "Lire la page Ehzer Mass",
+      text: "Comprendre les situations qui peuvent justifier une vérification, sans garantie de remboursement."
+    }
+  ],
+  "bituah-leumi-independant": [
+    {
+      href: "/fr/guides/esek-zair-israel-reforme",
+      label: "Lire le guide עסק זעיר",
+      text: "Clarifier la différence entre activité indépendante, régime simplifié et obligations de ביטוח לאומי."
+    }
+  ],
+  "salaire-brut-net-israel": [
+    {
+      href: "/fr/hahzar-mas-remboursement-impot-israel",
+      label: "Lire la page Ehzer Mass",
+      text: "Un changement de salaire, d’employeur ou de נקודות זיכוי peut parfois justifier une vérification."
+    }
+  ]
+};
+
 export function generateStaticParams() {
   return frenchCalculatorSlugs.map((calculatorSlug) => ({ locale: "fr", calculatorSlug }));
 }
@@ -83,10 +113,30 @@ export default async function FrenchCalculatorPage({ params }: PageProps) {
 
   const slug = calculatorSlug as FrenchCalculatorSlug;
   const calculator = frenchCalculators.find((item) => item.slug === slug);
+  const relatedContent = relatedContentByCalculator[slug] ?? [];
 
   return (
     <>
       <FrenchCalculator slug={slug} />
+      {relatedContent.length > 0 ? (
+        <section className="px-5 pb-6 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-6xl rounded-md border border-sky/25 bg-white p-5 shadow-glow">
+            <h2 className="text-xl font-semibold text-ink">À lire aussi</h2>
+            <div className="mt-4 grid gap-3 md:grid-cols-2">
+              {relatedContent.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="rounded-md border border-line bg-paper p-4 transition hover:border-sky hover:bg-mint"
+                >
+                  <span className="text-sm font-semibold text-teal">{link.label}</span>
+                  <span className="mt-2 block text-sm leading-6 text-slate-600">{link.text}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
       <section className="px-5 pb-6 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-6xl rounded-md border border-line bg-white p-5 text-sm leading-7 text-slate-600 shadow-soft">
           <strong className="text-ink">Ce calculateur fait :</strong> une estimation indicative selon les constantes 2026.

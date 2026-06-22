@@ -3,9 +3,11 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { PageCTA } from "@/components/PageCTA";
+import { ArticleCard } from "@/components/articles/ArticleCard";
 import { Reveal } from "@/components/Reveal";
 import { ResourceCard } from "@/components/ResourceCard";
 import { VideoCard } from "@/components/VideoCard";
+import { getFeaturedArticles } from "@/lib/content/articleHelpers";
 import {
   buildWhatsAppUrl,
   getCalculatorsPath,
@@ -42,6 +44,7 @@ export default async function HomePage({ params }: PageProps) {
   const dictionary = getDictionary(locale);
   const home = dictionary.home;
   const countryLabel = locale === "fr" ? "Israël" : locale === "he" ? "ישראל" : "Israel";
+  const featuredArticles = locale === "fr" ? getFeaturedArticles("fr", 3) : [];
 
   return (
     <>
@@ -171,6 +174,48 @@ export default async function HomePage({ params }: PageProps) {
                 </div>
               </div>
             </Reveal>
+          </div>
+        </section>
+      ) : null}
+
+      {locale === "fr" ? (
+        <section className="section-band border-y border-line py-20">
+          <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+            <Reveal>
+              <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+                <div className="max-w-3xl">
+                  <p className="text-sm font-semibold uppercase text-teal">Guides fiscaux</p>
+                  <h2 className="mt-3 text-3xl font-semibold text-ink sm:text-4xl">Guides pratiques et cas réels</h2>
+                  <p className="mt-5 text-base leading-8 text-slate-600">
+                    Des explications claires sur les démarches fiscales en Israël, avec des exemples concrets, des termes
+                    hébreux expliqués et des points d’attention à vérifier avant d’agir.
+                  </p>
+                </div>
+                <div className="flex flex-col gap-3 sm:flex-row">
+                  <Link
+                    href="/fr/guides"
+                    className="inline-flex min-h-12 items-center justify-center rounded-full blue-gradient px-6 text-sm font-semibold text-white shadow-glow transition hover:-translate-y-0.5"
+                  >
+                    Voir tous les guides
+                  </Link>
+                  <a
+                    href={getWhatsAppHref()}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex min-h-12 items-center justify-center rounded-full border border-line bg-white px-6 text-sm font-semibold text-teal shadow-soft transition hover:border-sky hover:bg-mint"
+                  >
+                    Parler avec Eliezer
+                  </a>
+                </div>
+              </div>
+            </Reveal>
+            <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {featuredArticles.map((article, index) => (
+                <Reveal key={article.slug} delay={index * 0.04}>
+                  <ArticleCard article={article} />
+                </Reveal>
+              ))}
+            </div>
           </div>
         </section>
       ) : null}

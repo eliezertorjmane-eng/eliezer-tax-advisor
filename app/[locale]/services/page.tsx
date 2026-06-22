@@ -22,10 +22,35 @@ type PageProps = {
 const frenchServiceActions = [
   { type: "link", label: "Lire la page", href: "/fr/creation-esek-israel" },
   { type: "link", label: "Lire la page", href: "/fr/declarations-fiscales-israel" },
-  { type: "whatsapp", label: "Faire vérifier ma situation" },
-  { type: "whatsapp", label: "Me contacter" },
+  { type: "link", label: "Lire la page Ehzer Mass", href: "/fr/hahzar-mas-remboursement-impot-israel" },
+  { type: "link", label: "Lire le guide עסק זעיר", href: "/fr/guides/esek-zair-israel-reforme" },
   { type: "link", label: "Utiliser un calculateur", href: "/fr/calculateurs/salaire-brut-net-israel" },
   { type: "whatsapp", label: "Me contacter" }
+] as const;
+
+const frenchServiceLinks = [
+  [
+    { label: "Guide עסק זעיר", href: "/fr/guides/esek-zair-israel-reforme" },
+    { label: "Calculateur Bituah Leumi", href: "/fr/calculateurs/bituah-leumi-independant" }
+  ],
+  [{ label: "Guides fiscaux", href: "/fr/guides" }],
+  [
+    { label: "Pré-diagnostic Ehzer Mass", href: "/fr/calculateurs/ehzer-mass" },
+    { label: "Cas pratiques", href: "/fr/cas-reels" }
+  ],
+  [
+    { label: "Guide עסק זעיר", href: "/fr/guides/esek-zair-israel-reforme" },
+    { label: "Guides indépendants", href: "/fr/guides?category=Ind%C3%A9pendants" }
+  ],
+  [
+    { label: "Ehzer Mass", href: "/fr/hahzar-mas-remboursement-impot-israel" },
+    { label: "Calculateur salaire", href: "/fr/calculateurs/salaire-brut-net-israel" }
+  ],
+  [
+    { label: "אישור תושבות מס", href: "/fr/guides/certificat-residence-fiscale-israel" },
+    { label: "Revenus locatifs", href: "/fr/guides/revenus-locatifs-israel-masloulei-mas" },
+    { label: "מס שבח", href: "/fr/guides/prisat-mas-shevach-israel" }
+  ]
 ] as const;
 
 export function generateStaticParams() {
@@ -55,6 +80,7 @@ export default async function ServicesPage({ params }: PageProps) {
           <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {services.items.map((service, index) => {
               const frenchAction = locale === "fr" ? frenchServiceActions[index] : null;
+              const secondaryLinks = locale === "fr" ? frenchServiceLinks[index] : [];
 
               return (
                 <Reveal key={service.title} delay={index * 0.035}>
@@ -117,6 +143,22 @@ export default async function ServicesPage({ params }: PageProps) {
                         </Link>
                       ) : null}
                     </div>
+                    {secondaryLinks.length > 0 ? (
+                      <div className="mt-5 border-t border-line pt-5">
+                        <p className="text-xs font-semibold uppercase text-teal">Guides liés</p>
+                        <div className="mt-3 flex flex-wrap gap-2">
+                          {secondaryLinks.map((link) => (
+                            <Link
+                              key={link.href}
+                              href={link.href}
+                              className="rounded-full border border-line bg-paper px-3 py-1.5 text-xs font-semibold text-slate-700 transition hover:border-sky hover:bg-mint hover:text-teal"
+                            >
+                              {link.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    ) : null}
                   </article>
                 </Reveal>
               );
