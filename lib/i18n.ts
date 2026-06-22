@@ -6,7 +6,7 @@ export type Locale = (typeof locales)[number];
 export type PageKey = "home" | "services" | "about" | "faq" | "contact";
 
 export const defaultLocale: Locale = "fr";
-export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://eliezer-tax-advisor.com").replace(/\/$/, "");
+export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://eliezertax.com").replace(/\/$/, "");
 
 export const localeLabels: Record<Locale, string> = {
   fr: "FR",
