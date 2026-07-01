@@ -44,12 +44,14 @@ const frenchServiceLinks = [
   ],
   [
     { label: "Ehzer Mass", href: "/fr/hahzar-mas-remboursement-impot-israel" },
-    { label: "Calculateur salaire", href: "/fr/calculateurs/salaire-brut-net-israel" }
+    { label: "Calculateur salaire", href: "/fr/calculateurs/salaire-brut-net-israel" },
+    { label: "מילואים / Nekoudot Zikouy", href: "/fr/guides/nekoudot-zikouy-milouim-2026" }
   ],
   [
     { label: "אישור תושבות מס", href: "/fr/guides/certificat-residence-fiscale-israel" },
     { label: "Revenus locatifs", href: "/fr/guides/revenus-locatifs-israel-masloulei-mas" },
     { label: "Calculateur loyers", href: "/fr/calculateurs/impot-revenus-locatifs-israel" },
+    { label: "Mass Rehisha", href: "/fr/guides/mass-rehisha-meshaper-diyur" },
     { label: "מס שבח", href: "/fr/guides/prisat-mas-shevach-israel" }
   ]
 ] as const;

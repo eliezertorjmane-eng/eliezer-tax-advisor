@@ -828,5 +828,503 @@ export const articles: Article[] = [
         ]
       }
     ]
+  },
+  {
+    slug: "mass-rehisha-meshaper-diyur",
+    locale: "fr",
+    type: "guide",
+    category: "Immobilier",
+    title: "Acheter un 2e appartement sur plan tout en payant le Mass Rehisha comme une דירה יחידה",
+    seoTitle: "Mass Rehisha et משפר דיור : acheter un 2e appartement sur plan comme דירה יחידה",
+    shortTitle: "Mass Rehisha משפר דיור",
+    description:
+      "Comprendre comment le statut de משפר דיור peut parfois permettre de payer le Mass Rehisha comme une דירה יחידה lors d’un achat sur plan.",
+    metaDescription:
+      "Vous achetez un nouvel appartement sur plan en Israël alors que vous possédez déjà un bien ? Découvrez comment le statut de משפר דיור peut parfois permettre de payer le Mass Rehisha comme une דירה יחידה, sous conditions.",
+    excerpt:
+      "Une personne qui possède déjà un appartement et achète sur plan peut parfois être traitée comme משפר דיור, mais les délais doivent être vérifiés avant de signer.",
+    ...publication,
+    readingTime: "8 min",
+    ...defaultAuthor,
+    tags: ["Mass Rehisha", "מס רכישה", "משפר דיור", "דירה יחידה", "דירה שנייה", "achat sur plan", "קבלן", "טופס 4", "immobilier Israël"],
+    keywords: [
+      "Mass Rehisha משפר דיור",
+      "מס רכישה דירה יחידה",
+      "acheter deuxième appartement Israël",
+      "achat sur plan קבלן",
+      "טופס 4 Mass Rehisha"
+    ],
+    featured: true,
+    priority: 4,
+    heroLabel: "Guide pratique immobilier",
+    relatedArticleSlugs: [
+      "acheter-2e-appartement-sur-plan-mass-rehisha-dira-yehida",
+      "prisat-mas-shevach-israel",
+      "mas-shevach-vente-appartement-israel"
+    ],
+    relatedCalculatorSlugs: [],
+    sources: [],
+    cta: {
+      title: "Vous achetez un appartement sur plan en Israël ?",
+      text: "Avant de signer, vérifiez si votre achat peut être traité comme une דירה יחידה et quelles conditions doivent être respectées.",
+      label: "Vérifier mon Mass Rehisha",
+      whatsappMessage:
+        "Bonjour Eliezer, je possède déjà un appartement et je souhaite acheter un nouveau bien sur plan en Israël. Je veux vérifier si je peux être traité comme משפר דיור et payer le Mass Rehisha comme une דירה יחידה."
+    },
+    sections: [
+      {
+        title: "Pourquoi ce sujet est important ?",
+        paragraphs: [
+          "En Israël, une personne qui possède déjà un appartement et achète un nouveau bien peut parfois être considérée comme משפר דיור. Dans certains cas, cela permet de bénéficier du traitement fiscal d’une דירה יחידה pour le Mass Rehisha, même si elle détient temporairement deux appartements.",
+          "La différence entre le Mass Rehisha applicable à une דירה יחידה et celui applicable à une דירה שנייה peut être très importante. Beaucoup d’acheteurs signent avec un קבלן sans avoir clarifié la chronologie fiscale."
+        ],
+        bullets: [
+          "Le traitement דירה יחידה peut être beaucoup plus favorable qu’un traitement דירה שנייה.",
+          "Un retard ou une erreur de calendrier peut créer une exposition fiscale importante.",
+          "Le sujet est fréquent pour des francophones qui achètent un appartement neuf tout en gardant temporairement leur premier logement.",
+          "Les délais et règles doivent être vérifiés avant de signer."
+        ]
+      },
+      {
+        title: "דירה יחידה, דירה שנייה, משפר דיור : comprendre les bases",
+        paragraphs: [
+          "דירה יחידה signifie généralement appartement résidentiel unique. דירה שנייה renvoie au traitement d’un second appartement, souvent plus lourd fiscalement.",
+          "משפר דיור désigne un acheteur qui remplace son appartement existant par un nouveau logement. La loi peut permettre une détention temporaire de deux appartements si l’ancien appartement est vendu dans le délai requis."
+        ]
+      },
+      {
+        title: "Le cas typique : acheter sur plan chez un קבלן",
+        paragraphs: [
+          "La situation classique est simple : vous possédez l’appartement A, vous achetez l’appartement B auprès d’un קבלן, et vous ne recevez pas les clés immédiatement.",
+          "Vous pouvez vouloir garder l’appartement A jusqu’à la livraison du nouveau bien. La question centrale devient alors : à quelle date l’appartement A doit-il être vendu pour conserver le traitement דירה יחידה ?"
+        ]
+      },
+      {
+        title: "Le 2 contre 1 : deux appartements temporairement, mais objectif דירה יחידה",
+        paragraphs: [
+          "En pratique, le sujet peut se résumer ainsi : vous avez temporairement 2 appartements, mais vous voulez être traité fiscalement comme quelqu’un qui remplace sa דירה יחידה.",
+          "Ce traitement n’est pas automatique. Il dépend des déclarations, des délais, de la vente effective de l’ancien bien, du contrat d’achat, de la date de livraison prévue et du reporting fiscal."
+        ]
+      },
+      {
+        title: "Quel est le lien avec le Mass Rehisha ?",
+        paragraphs: [
+          "Le Mass Rehisha (מס רכישה) est l’impôt payé lors d’un achat immobilier en Israël. Les tranches applicables à une דירה יחידה peuvent être significativement plus favorables que les tranches applicables à une דירה שנייה.",
+          "Une mauvaise déclaration ou un délai manqué peut entraîner un complément d’impôt, des intérêts, une indexation ou des pénalités selon le cas. Le calcul doit être vérifié avant le dépôt."
+        ]
+      },
+      {
+        title: "Quel est le délai pour vendre l’ancien appartement ?",
+        paragraphs: [
+          "Le délai dépend notamment du type d’achat : bien déjà construit, achat sur plan, date de remise des clés, טופס 4 et règles en vigueur au moment de l’opération.",
+          "Dans un achat sur plan, le point de départ peut être différent d’un achat de seconde main. C’est précisément ce qu’il faut vérifier avant de signer."
+        ],
+        callout: {
+          title: "Point de prudence",
+          text: "Ne vous fiez pas à une règle entendue oralement. Les délais doivent être confirmés selon votre contrat, la livraison prévue et les règles en vigueur.",
+          tone: "warning"
+        }
+      },
+      {
+        title: "Les erreurs fréquentes",
+        bullets: [
+          "Penser que le bénéfice est automatique.",
+          "Ne pas déclarer correctement l’intention de vendre l’ancien appartement.",
+          "Manquer le délai de vente.",
+          "Confondre Mass Rehisha et Mass Shevach.",
+          "Ignorer l’impact d’un retard de construction.",
+          "Ne pas vérifier si l’ancien appartement peut bénéficier d’une exonération de Mass Shevach.",
+          "Attendre après la signature pour poser les questions fiscales."
+        ]
+      },
+      {
+        title: "Documents à préparer",
+        bullets: [
+          "Détails d’achat de l’appartement actuel.",
+          "Contrat ou projet de contrat du nouvel appartement.",
+          "Date de livraison prévue.",
+          "Informations טופס 4 si elles sont disponibles.",
+          "Financement et prêt immobilier si pertinent.",
+          "Tout calcul fiscal reçu de l’avocat ou de l’administration.",
+          "Situation familiale et propriété des biens.",
+          "Ventes immobilières précédentes si elles peuvent être pertinentes."
+        ]
+      },
+      {
+        title: "Comment Eliezer peut vous aider",
+        bullets: [
+          "Revoir la situation avant la signature.",
+          "Clarifier si le traitement משפר דיור peut s’appliquer.",
+          "Vérifier l’exposition au Mass Rehisha.",
+          "Identifier le lien éventuel avec le Mass Shevach lors de la vente.",
+          "Préparer les questions à poser à l’avocat ou à l’administration.",
+          "Expliquer la chronologie fiscale en français."
+        ],
+        links: [
+          {
+            href: "/fr/cas-reels/acheter-2e-appartement-sur-plan-mass-rehisha-dira-yehida",
+            label: "Lire le cas pratique Mass Rehisha"
+          },
+          {
+            href: "/fr/services",
+            label: "Voir l’accompagnement fiscal immobilier"
+          },
+          {
+            href: "/fr/contact",
+            label: "Contacter Eliezer"
+          }
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: "Puis-je acheter un nouvel appartement avant de vendre l’ancien ?",
+        answer:
+          "Dans certains cas, oui. Mais le traitement fiscal dépend des conditions, des déclarations et du délai de vente de l’ancien appartement."
+      },
+      {
+        question: "Est-ce que je paie automatiquement le Mass Rehisha comme דירה יחידה ?",
+        answer:
+          "Non. Le traitement משפר דיור doit être vérifié selon le dossier et les conditions applicables."
+      },
+      {
+        question: "Que se passe-t-il si le קבלן livre en retard ?",
+        answer:
+          "Un retard peut modifier la chronologie à vérifier. Il faut examiner le contrat, la livraison prévue, le טופס 4 et les règles en vigueur."
+      },
+      {
+        question: "Quelle différence entre Mass Rehisha et Mass Shevach ?",
+        answer:
+          "Le Mass Rehisha concerne l’achat. Le Mass Shevach concerne la plus-value lors de la vente. Les deux sujets peuvent se croiser dans un remplacement d’appartement."
+      },
+      {
+        question: "Est-ce que je dois vendre avant de recevoir les clés ?",
+        answer:
+          "Cela dépend du type d’achat et des règles applicables. Le point doit être vérifié avant de signer."
+      },
+      {
+        question: "Dois-je vérifier cela avant de signer ?",
+        answer:
+          "Oui. La fiscalité doit être comprise avant la signature, car le contrat, la déclaration et les délais peuvent avoir un impact important."
+      }
+    ]
+  },
+  {
+    slug: "nekoudot-zikouy-milouim-2026",
+    locale: "fr",
+    type: "guide",
+    category: "Actualités fiscales",
+    title: "Nekoudot Zikouy מילואים 2026 : comment utiliser l’attestation de Tsahal",
+    seoTitle: "Nekoudot Zikouy מילואים 2026 : obtenir l’attestation depuis l’אזור אישי de Tsahal",
+    shortTitle: "Nekoudot Zikouy מילואים",
+    description:
+      "Comprendre comment obtenir et utiliser l’attestation Tsahal liée aux Nekoudot Zikouy après des jours de מילואים.",
+    metaDescription:
+      "Les soldats de réserve peuvent avoir droit à des Nekoudot Zikouy en 2026 selon leurs jours de מילואים. Découvrez comment obtenir l’attestation officielle depuis l’אזור אישי de Tsahal et l’utiliser pour Mass Hachnassa.",
+    excerpt:
+      "Les jours de מילואים peuvent ouvrir droit à des Nekoudot Zikouy, mais l’attestation officielle de Tsahal doit être générée et transmise correctement.",
+    ...publication,
+    readingTime: "6 min",
+    ...defaultAuthor,
+    tags: ["Nekoudot Zikouy", "נקודות זיכוי", "מילואים", "Tsahal", "Mass Hachnassa", "impôt Israël", "2026", "אזור אישי"],
+    keywords: [
+      "Nekoudot Zikouy מילואים 2026",
+      "נקודות זיכוי מילואים",
+      "attestation Tsahal אזור אישי",
+      "Mass Hachnassa מילואים",
+      "réserviste impôt Israël"
+    ],
+    featured: false,
+    priority: 5,
+    heroLabel: "Mise à jour fiscale 2026",
+    relatedArticleSlugs: ["nekoudot-zikouy-milouim-attestation-tsahal", "certificat-residence-fiscale-israel"],
+    relatedCalculatorSlugs: ["nekoudot-zikouy", "ehzer-mass"],
+    sources: [],
+    cta: {
+      title: "Vous avez fait des מילואים ?",
+      text: "Vérifiez si vos Nekoudot Zikouy ont bien été prises en compte par Mass Hachnassa ou votre employeur.",
+      label: "Vérifier mes Nekoudot Zikouy",
+      whatsappMessage:
+        "Bonjour Eliezer, j’ai effectué des מילואים et je souhaite vérifier mes Nekoudot Zikouy pour Mass Hachnassa."
+    },
+    sections: [
+      {
+        title: "De quoi parle cette mise à jour ?",
+        paragraphs: [
+          "Les personnes ayant effectué des jours de מילואים peuvent, dans certains cas, bénéficier de Nekoudot Zikouy auprès de Mass Hachnassa.",
+          "Le droit dépend de l’éligibilité, du nombre de jours pris en compte et de la confirmation officielle. Pour utiliser ce droit, il faut généralement produire une attestation officielle depuis l’אזור אישי du site des מילואים de Tsahal."
+        ]
+      },
+      {
+        title: "Quel document faut-il générer ?",
+        paragraphs: [
+          "Pour obtenir l’attestation, il faut se connecter à l’אזור אישי sur le site des מילואים de Tsahal et générer le document officiel : נקודות זיכוי לשנת 2025.",
+          "Ce document détaille les jours de réserve pris en compte. Il sert de support officiel pour l’avantage fiscal et peut être nécessaire pour la paie ou la déclaration fiscale."
+        ]
+      },
+      {
+        title: "Pourquoi l’attestation parle de 2025 alors que l’avantage est utilisé en 2026 ?",
+        paragraphs: [
+          "Les jours effectués pendant l’année pertinente peuvent influencer le traitement des Nekoudot Zikouy de l’année fiscale suivante, selon les règles officielles et la mise en œuvre par la paie ou la déclaration.",
+          "Il faut vérifier l’année exacte indiquée sur l’attestation et l’année fiscale concernée avant de l’utiliser."
+        ]
+      },
+      {
+        title: "Comment un salarié utilise cette attestation ?",
+        bullets: [
+          "Télécharger l’attestation depuis l’אזור אישי.",
+          "L’envoyer à l’employeur ou au service paie.",
+          "Vérifier si une mise à jour du טופס 101 ou du calcul de paie est nécessaire.",
+          "Contrôler les fiches de paie après la mise à jour.",
+          "Garder une copie pour une revue annuelle."
+        ]
+      },
+      {
+        title: "Comment un indépendant utilise cette attestation ?",
+        bullets: [
+          "Conserver l’attestation officielle.",
+          "La transmettre lors de la préparation ou de la revue annuelle.",
+          "Vérifier son impact éventuel sur le calcul de Mass Hachnassa.",
+          "Ne pas supposer que le droit est appliqué automatiquement."
+        ]
+      },
+      {
+        title: "Combien de Nekoudot Zikouy peut-on recevoir ?",
+        paragraphs: [
+          "Le barème doit être vérifié officiellement avant utilisation. À titre de repère à confirmer, certaines tranches peuvent dépendre du nombre de jours de מילואים admissibles."
+        ],
+        bullets: [
+          "30-39 jours admissibles : 0,50 point.",
+          "40-49 jours admissibles : 0,75 point.",
+          "50-54 jours admissibles : 1,00 point.",
+          "Des périodes admissibles supplémentaires peuvent augmenter les points.",
+          "Un maximum peut s’appliquer selon les règles officielles."
+        ],
+        callout: {
+          title: "Valeur annuelle à vérifier",
+          text: "La valeur d’une Nekoudat Zikouy doit être vérifiée chaque année. Ne prenez pas ce barème comme une garantie sans contrôle officiel.",
+          tone: "warning"
+        }
+      },
+      {
+        title: "Erreurs fréquentes",
+        bullets: [
+          "Ne pas télécharger l’attestation.",
+          "Envoyer un document מילואים générique au lieu de l’attestation spécifique Nekoudot Zikouy.",
+          "Ne pas mettre à jour le טופס 101 si nécessaire.",
+          "Ne pas vérifier la paie après la mise à jour.",
+          "Confondre jours admissibles et total des jours de réserve.",
+          "Oublier d’inclure l’attestation dans la revue annuelle."
+        ]
+      },
+      {
+        title: "Comment Eliezer peut vous aider",
+        bullets: [
+          "Vérifier si l’attestation est le bon document.",
+          "Expliquer quoi transmettre à l’employeur.",
+          "Relire une fiche de paie ou le résultat fiscal.",
+          "Intégrer l’attestation dans une revue annuelle si nécessaire."
+        ],
+        links: [
+          {
+            href: "/fr/cas-reels/nekoudot-zikouy-milouim-attestation-tsahal",
+            label: "Lire le cas pratique מילואים"
+          },
+          {
+            href: "/fr/hahzar-mas-remboursement-impot-israel",
+            label: "Lire la page Ehzer Mass"
+          },
+          {
+            href: "/fr/contact",
+            label: "Contacter Eliezer"
+          }
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: "Où télécharger l’attestation Nekoudot Zikouy מילואים ?",
+        answer:
+          "Elle doit généralement être générée depuis l’אזור אישי sur le site des מילואים de Tsahal."
+      },
+      {
+        question: "Pourquoi l’attestation s’appelle נקודות זיכוי לשנת 2025 ?",
+        answer:
+          "L’année indiquée sur le document doit être rapprochée de l’année fiscale concernée. Il faut vérifier le document exact avant de l’utiliser."
+      },
+      {
+        question: "Que doit faire un salarié ?",
+        answer:
+          "Télécharger l’attestation, la transmettre à l’employeur ou à la paie, puis vérifier que le calcul a bien été mis à jour si le droit s’applique."
+      },
+      {
+        question: "Que doit faire un indépendant ?",
+        answer:
+          "Conserver l’attestation et la transmettre lors de la préparation ou de la revue annuelle de Mass Hachnassa."
+      },
+      {
+        question: "Est-ce automatique ?",
+        answer:
+          "Pas toujours. L’attestation et la mise à jour doivent être vérifiées selon la situation."
+      },
+      {
+        question: "Dois-je garder l’attestation ?",
+        answer:
+          "Oui. Il faut garder une copie pour la paie, la déclaration annuelle ou une vérification future."
+      }
+    ]
+  },
+  {
+    slug: "acheter-2e-appartement-sur-plan-mass-rehisha-dira-yehida",
+    locale: "fr",
+    type: "case-study",
+    category: "Immobilier",
+    title: "Cas pratique : acheter un 2e appartement sur plan tout en payant le Mass Rehisha comme une דירה יחידה",
+    seoTitle: "Cas pratique Mass Rehisha : acheter un 2e appartement sur plan comme דירה יחידה",
+    shortTitle: "Achat sur plan דירה יחידה",
+    description:
+      "Cas pratique anonymisé sur un achat sur plan où le statut משפר דיור devait être vérifié avant de signer.",
+    metaDescription:
+      "Un cas pratique anonymisé pour comprendre comment un achat sur plan peut parfois être traité comme משפר דיור, avec un Mass Rehisha de דירה יחידה sous conditions.",
+    excerpt:
+      "Une famille possédait déjà un appartement et voulait acheter sur plan sans vendre immédiatement. Le calendrier fiscal devait être compris avant la signature.",
+    ...publication,
+    readingTime: "4 min",
+    ...defaultAuthor,
+    tags: ["cas pratique anonymisé", "Mass Rehisha", "משפר דיור", "דירה יחידה", "קבלן", "achat sur plan"],
+    keywords: ["cas Mass Rehisha", "acheter deuxième appartement Israël", "משפר דיור דירה יחידה"],
+    featured: false,
+    priority: 14,
+    heroLabel: "Cas pratique anonymisé",
+    relatedArticleSlugs: ["mass-rehisha-meshaper-diyur", "prisat-mas-shevach-israel"],
+    relatedCalculatorSlugs: [],
+    sources: [],
+    cta: {
+      title: "Vérifier mon achat immobilier",
+      text: "Avant de signer, vérifiez le traitement Mass Rehisha et le calendrier de vente de l’ancien bien.",
+      label: "Vérifier mon achat immobilier",
+      whatsappMessage:
+        "Bonjour Eliezer, je souhaite acheter un 2e appartement sur plan et vérifier si je peux payer le Mass Rehisha comme une דירה יחידה."
+    },
+    caseStudy: {
+      situation:
+        "Une famille francophone en Israël possédait un appartement et voulait acheter un nouveau bien sur plan auprès d’un קבלן.",
+      problem:
+        "Elle avait peur d’être imposée comme propriétaire d’une דירה שנייה, tout en ayant besoin de conserver l’ancien logement jusqu’à la livraison.",
+      analysis:
+        "La question clé était de vérifier si le traitement משפר דיור pouvait s’appliquer et à quelle date l’ancien appartement devait être vendu.",
+      lesson:
+        "L’avantage fiscal peut être très important, mais la chronologie doit être comprise avant de signer."
+    },
+    sections: [
+      {
+        title: "Situation",
+        paragraphs: [
+          "Cas pratique anonymisé : une famille francophone en Israël possédait déjà un appartement et souhaitait acheter un nouveau bien sur plan auprès d’un קבלן.",
+          "Elle ne voulait pas vendre immédiatement son appartement actuel, car elle devait continuer à y vivre jusqu’à la remise des clés."
+        ]
+      },
+      {
+        title: "Problème",
+        paragraphs: [
+          "La famille craignait d’être taxée comme propriétaire d’une דירה שנייה. La différence de Mass Rehisha pouvait être importante selon le traitement retenu."
+        ]
+      },
+      {
+        title: "Analyse",
+        paragraphs: [
+          "Le point central n’était pas seulement le nombre d’appartements détenus le jour de la signature. Il fallait vérifier si la famille pouvait être traitée comme משפר דיור et dans quel délai l’ancien appartement devait être vendu.",
+          "Le contrat, la livraison prévue, le טופס 4 et la déclaration fiscale devaient être compris avant la signature."
+        ]
+      },
+      {
+        title: "Enseignement",
+        paragraphs: [
+          "Acheter avant de vendre peut être possible dans certains cas, mais ce n’est pas automatique. Le calendrier doit être cadré avant de signer, avec une attention particulière au Mass Rehisha et au Mass Shevach potentiel sur l’ancien bien."
+        ],
+        links: [
+          {
+            href: "/fr/guides/mass-rehisha-meshaper-diyur",
+            label: "Lire le guide Mass Rehisha / משפר דיור"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    slug: "nekoudot-zikouy-milouim-attestation-tsahal",
+    locale: "fr",
+    type: "case-study",
+    category: "Actualités fiscales",
+    title: "Cas pratique : utiliser l’attestation Tsahal pour ses Nekoudot Zikouy après מילואים",
+    seoTitle: "Cas pratique Nekoudot Zikouy מילואים : attestation Tsahal et Mass Hachnassa",
+    shortTitle: "Attestation מילואים",
+    description:
+      "Cas pratique anonymisé sur l’utilisation de l’attestation Tsahal pour faire valoir des Nekoudot Zikouy liées aux מילואים.",
+    metaDescription:
+      "Un cas pratique anonymisé pour comprendre pourquoi l’attestation officielle de Tsahal est importante pour faire valoir des Nekoudot Zikouy liées aux מילואים.",
+    excerpt:
+      "Un salarié pensait que l’avantage מילואים était automatique. La paie avait besoin de l’attestation officielle générée depuis l’אזור אישי.",
+    ...publication,
+    readingTime: "4 min",
+    ...defaultAuthor,
+    tags: ["cas pratique anonymisé", "Nekoudot Zikouy", "מילואים", "Tsahal", "Mass Hachnassa", "אזור אישי"],
+    keywords: ["cas Nekoudot Zikouy מילואים", "attestation Tsahal impôt", "Mass Hachnassa réserviste"],
+    featured: false,
+    priority: 15,
+    heroLabel: "Cas pratique anonymisé",
+    relatedArticleSlugs: ["nekoudot-zikouy-milouim-2026"],
+    relatedCalculatorSlugs: ["nekoudot-zikouy", "ehzer-mass"],
+    sources: [],
+    cta: {
+      title: "Vérifier mes Nekoudot Zikouy",
+      text: "Ne supposez pas que l’avantage a été appliqué automatiquement. Vérifiez l’attestation et la paie.",
+      label: "Vérifier mes Nekoudot Zikouy",
+      whatsappMessage:
+        "Bonjour Eliezer, j’ai fait des מילואים et je veux vérifier si mes Nekoudot Zikouy ont bien été prises en compte."
+    },
+    caseStudy: {
+      situation:
+        "Un salarié francophone avait effectué des jours de מילואים et pensait que l’avantage fiscal serait appliqué automatiquement.",
+      problem:
+        "La paie n’avait pas nécessairement appliqué les Nekoudot Zikouy, car l’attestation spécifique n’avait pas été transmise.",
+      analysis:
+        "Le document requis devait être généré depuis l’אזור אישי sur le site des מילואים de Tsahal, puis transmis à l’employeur ou conservé pour la revue annuelle.",
+      lesson:
+        "Il ne faut pas attendre la fin de l’année. Il faut télécharger le bon document et vérifier la paie ou la revue fiscale annuelle."
+    },
+    sections: [
+      {
+        title: "Situation",
+        paragraphs: [
+          "Cas pratique anonymisé : un salarié francophone en Israël avait effectué des jours de מילואים et pensait que le droit fiscal serait appliqué automatiquement."
+        ]
+      },
+      {
+        title: "Problème",
+        paragraphs: [
+          "L’employeur ou la paie ne pouvait pas toujours appliquer les Nekoudot Zikouy sans le document spécifique. Un simple document général de מילואים ne suffisait pas forcément."
+        ]
+      },
+      {
+        title: "Analyse",
+        paragraphs: [
+          "La bonne démarche consistait à générer l’attestation depuis l’אזור אישי sur le site des מילואים de Tsahal, vérifier l’année indiquée et la transmettre au bon interlocuteur.",
+          "Ensuite, il fallait contrôler la fiche de paie ou intégrer le document dans la revue annuelle de Mass Hachnassa."
+        ]
+      },
+      {
+        title: "Enseignement",
+        paragraphs: [
+          "Les droits liés aux מילואים doivent être documentés. Télécharger l’attestation tôt permet d’éviter une correction tardive ou une vérification incomplète en fin d’année."
+        ],
+        links: [
+          {
+            href: "/fr/guides/nekoudot-zikouy-milouim-2026",
+            label: "Lire le guide Nekoudot Zikouy מילואים"
+          }
+        ]
+      }
+    ]
   }
 ];

@@ -10,7 +10,8 @@ export const guideCategoryTabs = [
   "Indépendants",
   "Olim hadashim",
   "France-Israël",
-  "Salariés"
+  "Salariés",
+  "Actualités fiscales"
 ] as const;
 
 const articleTypePath: Record<ArticleType, string> = {

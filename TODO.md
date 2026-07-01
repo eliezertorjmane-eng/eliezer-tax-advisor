@@ -20,8 +20,6 @@
 - Achat immobilier en Israël.
 - Guides restants à compléter et prioriser.
 - Cas pratiques restants à compléter et prioriser.
-- Milouim 2026 : mise à jour Nekoudot Zikouy (נקודות זיכוי).
-- Guide Mass Rehisha (מס רכישה) / משפר דיור.
 - Visuels spécifiques pour les articles et cartes éditoriales.
 - Visuels pour Google Business posts.
 - Calculateurs full Hebrew and English.
@@ -36,3 +34,12 @@
 - Add verified official France-Israel tax convention source.
 - Add verified official source for פריסת מס שבח / form 7003.
 - Verify official 2026 Israeli Tax Authority rental income thresholds and rules before final publication.
+- Verify official current Israeli Tax Authority deadlines for משפר דיור / Mass Rehisha, including purchase from kablan and טופס 4.
+- Verify official 2026 Nekoudot Zikouy Milouim scale, point value, maximum points, and Tsahal certificate wording.
+- Verify official annual value of a Nekoudat Zikouy.
+- Verify official Tsahal certificate wording and אזור אישי route if needed.
+
+## Added in V7.2
+
+- Mass Rehisha / משפר דיור guide and case study added.
+- Milouim 2026 / Nekoudot Zikouy guide and case study added.
