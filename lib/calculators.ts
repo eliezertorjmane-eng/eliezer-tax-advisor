@@ -6,7 +6,8 @@ export const frenchCalculatorSlugs = [
   "ole-hadash-nekoudot-zikouy",
   "nekoudot-zikouy",
   "salaire-brut-net-israel",
-  "impot-revenu-israel"
+  "impot-revenu-israel",
+  "impot-revenus-locatifs-israel"
 ] as const;
 
 export type FrenchCalculatorSlug = (typeof frenchCalculatorSlugs)[number];
@@ -48,6 +49,14 @@ export const frenchCalculators = [
     title: "Impôt sur le revenu",
     description: "Estimez l’impôt sur le revenu selon les tranches 2026.",
     badge: "Estimation"
+  },
+  {
+    slug: "impot-revenus-locatifs-israel",
+    title: "Revenus locatifs : choisir le bon Massloul Mass",
+    description:
+      "Comparez le Massloul Ptor, le Massloul 10 % et le Massloul Mass Shouli pour vos loyers résidentiels en Israël.",
+    badge: "Immobilier",
+    featured: true
   }
 ] as const;
 

@@ -18,7 +18,6 @@
 - Retraites françaises en Israël.
 - Crédit d’impôt / נקודות זיכוי.
 - Achat immobilier en Israël.
-- Calculateur revenus locatifs / Massloul Mass (מסלול מס) pour comparer פטור, 10% et מס שולי.
 - Guides restants à compléter et prioriser.
 - Cas pratiques restants à compléter et prioriser.
 - Milouim 2026 : mise à jour Nekoudot Zikouy (נקודות זיכוי).
@@ -36,4 +35,4 @@
 - Add verified official source for אישור תושבות מס / Israeli tax-residence certificate.
 - Add verified official France-Israel tax convention source.
 - Add verified official source for פריסת מס שבח / form 7003.
-- Add verified official source for Israeli residential rental-income tax routes.
+- Verify official 2026 Israeli Tax Authority rental income thresholds and rules before final publication.

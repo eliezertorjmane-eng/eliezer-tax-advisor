@@ -423,6 +423,11 @@ export const resourceIndexCards = [
     description: "Organiser les revenus, documents et échanges administratifs liés aux déclarations fiscales."
   },
   {
+    href: "/fr/calculateurs/impot-revenus-locatifs-israel",
+    title: "Calculateur revenus locatifs",
+    description: "Comparer le Massloul Ptor, le Massloul 10 % et le Massloul Mass Shouli pour des loyers résidentiels."
+  },
+  {
     href: "/fr/fiscalite-salaries-israel",
     title: "Comprendre sa situation de salarié",
     description: "Faire le point sur les fiches de paie, changements d’emploi et questions de remboursement d’impôt."

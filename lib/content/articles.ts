@@ -299,49 +299,51 @@ export const articles: Article[] = [
     type: "guide",
     category: "Immobilier",
     title: "Revenus locatifs en Israël : quel Massloul Mass (מסלול מס) choisir ?",
-    seoTitle: "Revenus locatifs en Israël : פטור, 10% ou Massloul Mass ?",
+    seoTitle: "Revenus locatifs en Israël : Massloul Ptor, 10 % ou Massloul Mass Shouli ?",
     shortTitle: "Revenus locatifs",
     description:
-      "Un guide simple pour comparer les principaux Massloulei Mass (מסלולי מס) applicables aux loyers résidentiels en Israël : exemption, 10% ou imposition marginale.",
+      "Un guide simple pour comparer les principaux Massloulim Mass (מסלולי מס) applicables aux loyers résidentiels en Israël : exemption, 10 % ou imposition marginale.",
     metaDescription:
-      "Vous louez un appartement en Israël ? Découvrez les 3 principaux Massloulei Mass (מסלולי מס) : exemption, 10% ou imposition marginale, et les points à vérifier avant de choisir.",
+      "Vous louez un appartement en Israël ? Découvrez les 3 principaux Massloulim Mass (מסלולי מס) : exemption, 10 % ou imposition marginale, et les points à vérifier avant de choisir.",
     excerpt:
       "Les loyers résidentiels peuvent relever de plusieurs régimes. Le bon choix dépend du loyer, des dépenses, des autres revenus et de la situation personnelle.",
     ...publication,
     readingTime: "9 min",
     ...defaultAuthor,
-    tags: ["revenus locatifs Israël", "Massloul Mass", "location appartement Israël", "פטור", "10%", "מס שולי", "impôt loyers Israël"],
+    tags: ["revenus locatifs Israël", "Massloul Mass", "location appartement Israël", "פטור", "10 %", "מס שולי", "impôt loyers Israël"],
     keywords: [
       "revenus locatifs Israël",
       "Massloul Mass location",
       "impôt loyers Israël",
-      "מסלול 10%",
+      "מסלול 10 %",
       "מס שולי loyers"
     ],
+    imageTheme: "revenus locatifs / appartement / calculatrice / Massloul Mass",
     featured: true,
     priority: 2,
     heroLabel: "Guide pratique",
-    relatedArticleSlugs: ["revenus-locatifs-choix-masloul-mas", "prisat-mas-shevach-israel"],
-    relatedCalculatorSlugs: [],
+    relatedArticleSlugs: ["revenus-locatifs-choix-massloul-mass", "prisat-mas-shevach-israel"],
+    relatedCalculatorSlugs: ["impot-revenus-locatifs-israel"],
     sources: [],
     cta: {
       title: "Vous louez un appartement en Israël ?",
       text: "Faites vérifier le Massloul Mass (מסלול מס) le plus adapté à votre situation avant de choisir par habitude.",
-      label: "Vérifier mes revenus locatifs",
+      label: "Tester le calculateur revenus locatifs",
+      href: "/fr/calculateurs/impot-revenus-locatifs-israel",
       whatsappMessage:
         "Bonjour Eliezer, je loue un appartement en Israël et je souhaite vérifier quel Massloul Mass (מסלול מס) est le plus adapté."
     },
     sections: [
       {
-        title: "Les 3 principaux Massloulei Mass (מסלולי מס)",
+        title: "Les 3 principaux Massloulim Mass (מסלולי מס)",
         paragraphs: [
           "Les revenus de location d’un appartement résidentiel en Israël peuvent être imposés selon plusieurs régimes. Le bon choix dépend du montant du loyer, de vos autres revenus, de vos dépenses et de votre situation personnelle.",
-          "On parle souvent de trois grandes options : exemption totale ou partielle, régime 10%, ou régime marginal avec déclaration complète."
+          "On parle souvent de trois grandes options : Massloul Ptor, Massloul 10 % ou Massloul Mass Shouli avec déclaration complète."
         ],
-        numbered: ["Exemption totale ou partielle.", "Régime 10%.", "Régime marginal / déclaration complète."]
+        numbered: ["Massloul Ptor (מסלול פטור).", "Massloul 10 %.", "Massloul Mass Shouli (מסלול מס שולי)."]
       },
       {
-        title: "Massloul Ptour (מסלול פטור) : exemption totale ou partielle",
+        title: "Massloul Ptor (מסלול פטור) : exemption totale ou partielle",
         bullets: [
           "Une exemption totale peut exister sous un plafond mensuel à vérifier chaque année.",
           "Une exemption partielle peut s’appliquer lorsque le loyer dépasse le plafond mais reste sous certaines limites.",
@@ -355,9 +357,9 @@ export const articles: Article[] = [
         }
       },
       {
-        title: "Massloul 10% (מסלול 10%) : simple mais pas toujours optimal",
+        title: "Massloul 10 % : simple mais pas toujours optimal",
         paragraphs: [
-          "Le régime 10% consiste généralement à payer 10% sur le loyer brut. Il peut paraître simple, mais il ne permet généralement pas de déduire les dépenses courantes.",
+          "Le Massloul 10 % consiste généralement à payer 10 % sur le loyer brut. Il peut paraître simple, mais il ne permet généralement pas de déduire les dépenses courantes.",
           "Les délais et modalités de paiement doivent être vérifiés. Ce régime peut être pertinent pour des contribuables avec un taux marginal élevé et peu de dépenses déductibles."
         ]
       },
@@ -383,26 +385,26 @@ export const articles: Article[] = [
         ]
       },
       {
-        title: "Bientôt : calculateur pour comparer les Massloulei Mass",
+        title: "Tester le calculateur revenus locatifs",
         paragraphs: [
-          "Un futur outil pourra aider à comparer פטור, 10% et מס שולי selon les informations principales. En attendant, le choix du Massloul Mass doit rester une vérification personnalisée."
+          "Le calculateur revenus locatifs permet de comparer le Massloul Ptor, le Massloul 10 % et le Massloul Mass Shouli selon les informations principales. Le résultat reste indicatif et doit être vérifié selon le dossier."
         ],
         callout: {
           title: "Quel Massloul Mass choisir pour mes loyers ?",
-          text: "Un futur outil pourra comparer פטור, 10% et מס שולי selon votre situation. Pour l’instant, demandez une vérification personnalisée.",
-          href: "/fr/contact",
-          label: "Me demander une vérification"
+          text: "Testez une première simulation, puis faites vérifier le choix avant toute décision fiscale.",
+          href: "/fr/calculateurs/impot-revenus-locatifs-israel",
+          label: "Tester le calculateur revenus locatifs"
         }
       },
       {
         title: "Cas pratique anonymisé",
         paragraphs: [
-          "Exemple inspiré de situations rencontrées : un propriétaire a choisi le régime 10% parce qu’il semblait simple. Après revue des dépenses et des revenus personnels, une autre route pouvait être plus pertinente.",
+          "Exemple inspiré de situations rencontrées : un propriétaire a choisi le Massloul 10 % parce qu’il semblait simple. Après revue des dépenses et des revenus personnels, une autre route pouvait être plus pertinente.",
           "La bonne réponse dépend du dossier : niveau de loyer, dépenses, autres revenus, année fiscale et situation personnelle."
         ],
         links: [
           {
-            href: "/fr/cas-reels/revenus-locatifs-choix-masloul-mas",
+            href: "/fr/cas-reels/revenus-locatifs-choix-massloul-mass",
             label: "Lire le cas pratique anonymisé",
             description: "Pourquoi le régime le plus simple n’est pas toujours le plus adapté."
           }
@@ -416,9 +418,9 @@ export const articles: Article[] = [
           "Les revenus locatifs doivent être examinés selon le type de bien, le montant du loyer, le régime choisi et votre situation personnelle."
       },
       {
-        question: "Le régime 10% est-il toujours le plus simple ?",
+        question: "Le Massloul 10 % est-il toujours le plus simple ?",
         answer:
-          "Il est simple dans certains cas, mais il n’est pas toujours le plus avantageux. Il faut comparer avec les autres Massloulei Mass."
+          "Il est simple dans certains cas, mais il n’est pas toujours le plus avantageux. Il faut comparer avec les autres Massloulim Mass."
       },
       {
         question: "Peut-on changer de Massloul Mass ?",
@@ -427,7 +429,7 @@ export const articles: Article[] = [
       {
         question: "Les dépenses sont-elles déductibles ?",
         answer:
-          "Dans certains régimes, des dépenses éligibles peuvent être prises en compte. Dans le régime 10%, elles ne sont généralement pas déduites."
+          "Dans certains Massloulim, des dépenses éligibles peuvent être prises en compte. Dans le Massloul 10 %, elles ne sont généralement pas déduites."
       },
       {
         question: "Que faire si je possède plusieurs appartements ?",
@@ -747,7 +749,7 @@ export const articles: Article[] = [
     ]
   },
   {
-    slug: "revenus-locatifs-choix-masloul-mas",
+    slug: "revenus-locatifs-choix-massloul-mass",
     locale: "fr",
     type: "case-study",
     category: "Immobilier",
@@ -755,44 +757,45 @@ export const articles: Article[] = [
     seoTitle: "Cas pratique : choisir le bon Massloul Mass pour des loyers en Israël",
     shortTitle: "Choix Massloul Mass",
     description:
-      "Cas pratique anonymisé sur le choix entre exemption, 10% et régime marginal pour des revenus locatifs en Israël.",
+      "Cas pratique anonymisé sur le choix entre Massloul Ptor, Massloul 10 % et Massloul Mass Shouli pour des revenus locatifs en Israël.",
     metaDescription:
-      "Cas pratique anonymisé : pourquoi le régime 10% n’est pas toujours le plus adapté pour des revenus locatifs en Israël.",
+      "Cas pratique anonymisé : pourquoi le Massloul 10 % n’est pas toujours le plus adapté pour des revenus locatifs en Israël.",
     excerpt:
-      "Un propriétaire devait choisir entre פטור, 10% et מס שולי. La leçon : le plus simple n’est pas toujours le plus adapté.",
+      "Un propriétaire devait choisir entre Massloul Ptor, Massloul 10 % et Massloul Mass Shouli. La leçon : le plus simple n’est pas toujours le plus adapté.",
     ...publication,
     readingTime: "4 min",
     ...defaultAuthor,
-    tags: ["cas pratique anonymisé", "revenus locatifs", "Massloul Mass", "10%", "פטור", "מס שולי"],
+    tags: ["cas pratique anonymisé", "revenus locatifs", "Massloul Mass", "10 %", "פטור", "מס שולי"],
     keywords: ["cas revenus locatifs Israël", "choisir Massloul Mass", "location appartement Israël fiscalité"],
+    imageTheme: "revenus locatifs / appartement / calculatrice / Massloul Mass",
     featured: false,
     priority: 13,
     heroLabel: "Cas anonymisé",
     relatedArticleSlugs: ["revenus-locatifs-israel-masloulei-mas", "prisat-mas-shevach-israel"],
-    relatedCalculatorSlugs: [],
+    relatedCalculatorSlugs: ["impot-revenus-locatifs-israel"],
     sources: [],
     cta: {
       title: "Vérifier mes revenus locatifs",
       text: "Le bon Massloul Mass dépend de vos loyers, dépenses et autres revenus.",
-      label: "Vérifier mes loyers",
+      label: "Faire vérifier mes revenus locatifs",
       whatsappMessage:
-        "Bonjour Eliezer, je loue un appartement en Israël et je souhaite vérifier le Massloul Mass adapté."
+        "Bonjour Eliezer, je loue un appartement en Israël et je souhaite vérifier quel Massloul Mass est le plus avantageux pour mes revenus locatifs."
     },
     caseStudy: {
       situation:
-        "Un propriétaire louait un appartement résidentiel en Israël et hésitait entre exemption, 10% et régime marginal.",
+        "Un propriétaire louait un appartement résidentiel en Israël et hésitait entre Massloul Ptor, Massloul 10 % et Massloul Mass Shouli.",
       problem:
-        "Le régime 10% semblait simple, mais les dépenses et les autres revenus pouvaient changer l’analyse.",
+        "Le Massloul 10 % semblait simple, mais les dépenses et les autres revenus pouvaient changer l’analyse.",
       analysis:
         "Le choix devait tenir compte du loyer mensuel, des frais, de la situation personnelle et des seuils de l’année fiscale.",
       lesson:
-        "Le régime le plus simple n’est pas toujours le plus adapté. Les Massloulei Mass doivent être comparés avant de choisir."
+        "La route la plus simple n’est pas toujours la plus adaptée. Les Massloulim Mass doivent être comparés avant de choisir."
     },
     sections: [
       {
         title: "Situation",
         paragraphs: [
-          "Cas pratique anonymisé : un propriétaire percevait des loyers en Israël et voulait choisir rapidement le régime 10% parce qu’il semblait le plus simple.",
+          "Cas pratique anonymisé : un propriétaire percevait des loyers en Israël et voulait choisir rapidement le Massloul 10 % parce qu’il semblait le plus simple.",
           "Une vérification était nécessaire avant de décider."
         ]
       },
@@ -805,7 +808,7 @@ export const articles: Article[] = [
       {
         title: "Analyse",
         paragraphs: [
-          "Il fallait comparer les trois routes principales : פטור, 10% et מס שולי. Le régime 10% peut être pratique, mais il n’est pas forcément optimal si les dépenses ou la situation personnelle changent le calcul."
+          "Il fallait comparer les trois routes principales : Massloul Ptor, Massloul 10 % et Massloul Mass Shouli. Le Massloul 10 % peut être pratique, mais il n’est pas forcément optimal si les dépenses ou la situation personnelle changent le calcul."
         ]
       },
       {
@@ -814,6 +817,10 @@ export const articles: Article[] = [
           "Avant de choisir, il faut poser les chiffres principaux et vérifier l’année fiscale concernée. Le choix doit rester documenté et adapté au dossier."
         ],
         links: [
+          {
+            href: "/fr/calculateurs/impot-revenus-locatifs-israel",
+            label: "Tester le calculateur revenus locatifs"
+          },
           {
             href: "/fr/guides/revenus-locatifs-israel-masloulei-mas",
             label: "Lire le guide sur les revenus locatifs"

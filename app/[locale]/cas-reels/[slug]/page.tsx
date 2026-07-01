@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { ArticleLayout } from "@/components/articles/ArticleLayout";
 import { articleMetadata, getArticleBySlug, getCaseStudyArticles } from "@/lib/content/articleHelpers";
 import { isLocale } from "@/lib/i18n";
@@ -31,6 +31,10 @@ export default async function CaseStudyArticlePage({ params }: PageProps) {
 
   if (!isLocale(rawLocale) || rawLocale !== "fr") {
     notFound();
+  }
+
+  if (slug === "revenus-locatifs-choix-masloul-mas") {
+    redirect("/fr/cas-reels/revenus-locatifs-choix-massloul-mass");
   }
 
   const article = getArticleBySlug(slug, rawLocale);

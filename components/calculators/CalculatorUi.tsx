@@ -46,7 +46,8 @@ export function CalculatorInput({
   onChange,
   type = "number",
   step = "1",
-  min = "0"
+  min = "0",
+  max
 }: {
   label: string;
   help?: string;
@@ -55,6 +56,7 @@ export function CalculatorInput({
   type?: "number" | "date";
   step?: string;
   min?: string;
+  max?: string;
 }) {
   return (
     <label className="grid gap-3 rounded-md border border-line bg-paper p-4 text-sm text-slate-700">
@@ -63,6 +65,7 @@ export function CalculatorInput({
         type={type}
         value={value}
         min={type === "number" ? min : undefined}
+        max={type === "number" ? max : undefined}
         step={type === "number" ? step : undefined}
         onChange={(event) => onChange(event.target.value)}
         className="min-h-12 rounded-md border border-line bg-white px-4 text-ink outline-none transition placeholder:text-slate-400 focus:border-sky"

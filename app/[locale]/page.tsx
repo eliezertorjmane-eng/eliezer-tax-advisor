@@ -286,7 +286,7 @@ export default async function HomePage({ params }: PageProps) {
                   <ResourceCard
                     href={getCalculatorsPath(locale)}
                     title="Utiliser un calculateur fiscal"
-                    description="Pré-diagnostic Ehzer Mass, Bitouah Leumi, נקודות זיכוי, salaire brut/net et impôt sur le revenu."
+                    description="Pré-diagnostic Ehzer Mass, revenus locatifs, Bitouah Leumi, נקודות זיכוי, salaire brut/net et impôt sur le revenu."
                     cta="Voir les calculateurs"
                   />
                 </Reveal>

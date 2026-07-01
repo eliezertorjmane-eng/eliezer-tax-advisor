@@ -20,6 +20,11 @@ import { calculateEhzerMassPrecheck, type EhzerMassInputs } from "@/lib/tax/ehze
 import { formatILS, formatNumber } from "@/lib/tax/format";
 import { calculateIncomeTax } from "@/lib/tax/incomeTax";
 import { calculateOlehHadashCreditPoints } from "@/lib/tax/olehHadash";
+import {
+  calculateRentalIncomeTaxComparison,
+  type RentalOwnerSituation,
+  type RentalRouteStatus
+} from "@/lib/tax/rentalIncome";
 import { calculateGrossToNetSalary } from "@/lib/tax/salary";
 
 function toNumber(value: string | number) {
@@ -387,6 +392,184 @@ function IncomeTaxCalculator() {
   );
 }
 
+function rentalStatusLabel(status: RentalRouteStatus) {
+  if (status === "possible") return "Possible";
+  if (status === "check") return "À vérifier";
+  return "Non recommandé";
+}
+
+function RentalIncomeCalculator() {
+  const [monthlyRent, setMonthlyRent] = useState("6500");
+  const [rentedMonths, setRentedMonths] = useState("12");
+  const [numberOfProperties, setNumberOfProperties] = useState("1");
+  const [isResidentialLongTerm, setIsResidentialLongTerm] = useState(true);
+  const [ownerAge, setOwnerAge] = useState("45");
+  const [annualOtherIncome, setAnnualOtherIncome] = useState("180000");
+  const [ownerSituation, setOwnerSituation] = useState<RentalOwnerSituation>("employee");
+  const [mortgageInterest, setMortgageInterest] = useState("0");
+  const [repairs, setRepairs] = useState("0");
+  const [insurance, setInsurance] = useState("0");
+  const [managementFees, setManagementFees] = useState("0");
+  const [otherExpenses, setOtherExpenses] = useState("0");
+
+  const deductibleExpensesAnnual =
+    toNumber(mortgageInterest) + toNumber(repairs) + toNumber(insurance) + toNumber(managementFees) + toNumber(otherExpenses);
+
+  const result = useMemo(
+    () =>
+      calculateRentalIncomeTaxComparison({
+        monthlyRent: toNumber(monthlyRent),
+        rentedMonths: toNumber(rentedMonths),
+        deductibleExpensesAnnual,
+        annualOtherIncome: toNumber(annualOtherIncome),
+        ownerAge: toNumber(ownerAge),
+        isResidentialLongTerm,
+        numberOfProperties: toNumber(numberOfProperties),
+        ownerSituation
+      }),
+    [
+      annualOtherIncome,
+      deductibleExpensesAnnual,
+      isResidentialLongTerm,
+      monthlyRent,
+      numberOfProperties,
+      ownerAge,
+      ownerSituation,
+      rentedMonths
+    ]
+  );
+
+  const message = `Bonjour Eliezer, je loue un bien en Israël et je souhaite vérifier quel Massloul Mass est le plus avantageux pour mes revenus locatifs. Loyer mensuel: ${monthlyRent} ₪, mois loués: ${rentedMonths}, dépenses annuelles saisies: ${formatILS(deductibleExpensesAnnual)}, route indicative: ${result.recommendedRoute.label}.`;
+
+  function reset() {
+    setMonthlyRent("6500");
+    setRentedMonths("12");
+    setNumberOfProperties("1");
+    setIsResidentialLongTerm(true);
+    setOwnerAge("45");
+    setAnnualOtherIncome("180000");
+    setOwnerSituation("employee");
+    setMortgageInterest("0");
+    setRepairs("0");
+    setInsurance("0");
+    setManagementFees("0");
+    setOtherExpenses("0");
+  }
+
+  return (
+    <CalculatorShell
+      title="Calculateur revenus locatifs Israël : quel Massloul Mass choisir ?"
+      subtitle="Comparez le Massloul Ptor, le Massloul 10 % et le Massloul Mass Shouli pour des loyers résidentiels longue durée en Israël."
+    >
+      <CalculatorFrame>
+        <FieldPanel>
+          <div className="border-b border-line pb-2">
+            <h2 className="text-lg font-semibold text-ink">Revenus locatifs</h2>
+          </div>
+          <CalculatorInput label="Loyer mensuel total en ₪" value={monthlyRent} onChange={setMonthlyRent} />
+          <CalculatorInput label="Nombre de mois loués dans l’année" min="1" max="12" value={rentedMonths} onChange={setRentedMonths} />
+          <CalculatorInput label="Nombre de biens loués" min="1" value={numberOfProperties} onChange={setNumberOfProperties} />
+          <ToggleRow
+            label="Location résidentielle longue durée ?"
+            checked={isResidentialLongTerm}
+            onChange={setIsResidentialLongTerm}
+          />
+
+          <div className="border-b border-line pb-2 pt-3">
+            <h2 className="text-lg font-semibold text-ink">Situation personnelle</h2>
+          </div>
+          <CalculatorInput label="Âge du propriétaire" value={ownerAge} onChange={setOwnerAge} />
+          <CalculatorInput label="Revenus annuels hors loyers en ₪" value={annualOtherIncome} onChange={setAnnualOtherIncome} />
+          <SelectField
+            label="Situation optionnelle"
+            value={ownerSituation}
+            onChange={(value) => setOwnerSituation(value as RentalOwnerSituation)}
+          >
+            <option value="employee">Salarié</option>
+            <option value="independent">Indépendant</option>
+            <option value="retired">Retraité</option>
+            <option value="none">Sans autre revenu</option>
+          </SelectField>
+
+          <div className="border-b border-line pb-2 pt-3">
+            <h2 className="text-lg font-semibold text-ink">Dépenses liées au bien</h2>
+          </div>
+          <CalculatorInput label="Intérêts d’emprunt annuels" value={mortgageInterest} onChange={setMortgageInterest} />
+          <CalculatorInput label="Travaux / réparations" value={repairs} onChange={setRepairs} />
+          <CalculatorInput label="Assurance" value={insurance} onChange={setInsurance} />
+          <CalculatorInput label="Frais de gestion" value={managementFees} onChange={setManagementFees} />
+          <CalculatorInput label="Autres dépenses" value={otherExpenses} onChange={setOtherExpenses} />
+          <div className="rounded-md border border-sky/25 bg-mint p-4 text-sm leading-7 text-slate-700">
+            <span className="font-semibold text-ink">Total dépenses saisies : </span>
+            {formatILS(deductibleExpensesAnnual)}
+          </div>
+          <ResetButton onClick={reset} />
+        </FieldPanel>
+
+        <div className="grid gap-5">
+          <ResultCard title="Recommandation indicative" value={result.recommendedRoute.label} tone="strong">
+            <p>{result.explanation}</p>
+            <p className="mt-3">
+              Impôt annuel estimé : <strong>{formatILS(result.recommendedRoute.annualTax)}</strong>. Revenu net annuel
+              estimé après impôt et dépenses saisies : <strong>{formatILS(result.recommendedRoute.annualNetRent)}</strong>.
+            </p>
+          </ResultCard>
+
+          <div className="grid gap-4">
+            {result.routes.map((route) => (
+              <div key={route.id} className="rounded-md border border-line bg-white p-5 shadow-soft">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                  <div>
+                    <h2 className="text-xl font-semibold text-ink">{route.label}</h2>
+                    <p className="mt-2 text-sm leading-7 text-slate-600">{route.explanation}</p>
+                  </div>
+                  <span className="w-fit rounded-full border border-sky/30 bg-mint px-3 py-1 text-xs font-semibold text-teal">
+                    {rentalStatusLabel(route.status)}
+                  </span>
+                </div>
+                <div className="mt-5 grid gap-3 sm:grid-cols-3">
+                  <div className="rounded-md border border-line bg-paper p-4">
+                    <p className="text-xs font-semibold uppercase text-teal">Impôt annuel estimé</p>
+                    <p className="mt-2 text-xl font-semibold text-ink">{formatILS(route.annualTax)}</p>
+                  </div>
+                  <div className="rounded-md border border-line bg-paper p-4">
+                    <p className="text-xs font-semibold uppercase text-teal">Impôt mensuel estimé</p>
+                    <p className="mt-2 text-xl font-semibold text-ink">{formatILS(route.monthlyTax)}</p>
+                  </div>
+                  <div className="rounded-md border border-line bg-paper p-4">
+                    <p className="text-xs font-semibold uppercase text-teal">Revenu net annuel estimé</p>
+                    <p className="mt-2 text-xl font-semibold text-ink">{formatILS(route.annualNetRent)}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <DisclaimerBox>
+            Cette simulation est indicative. Elle ne remplace pas une vérification personnalisée de votre dossier fiscal.
+          </DisclaimerBox>
+
+          {result.warnings.length > 0 ? (
+            <div className="rounded-md border border-sky/25 bg-white p-5 shadow-soft">
+              <h2 className="text-xl font-semibold text-ink">Points à vérifier</h2>
+              <ul className="mt-4 grid gap-2">
+                {result.warnings.map((warning) => (
+                  <li key={warning} className="text-sm leading-7 text-slate-600">
+                    {warning}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+
+          <WhatsAppResultButton label="Faire vérifier mon Massloul Mass" message={message} />
+          <Assumptions items={result.assumptions} />
+        </div>
+      </CalculatorFrame>
+    </CalculatorShell>
+  );
+}
+
 export function OfficialSimulatorsSection() {
   return (
     <section className="bg-white py-16 sm:py-20">
@@ -414,5 +597,6 @@ export function FrenchCalculator({ slug }: { slug: FrenchCalculatorSlug }) {
   if (slug === "ole-hadash-nekoudot-zikouy") return <OlehHadashCalculator />;
   if (slug === "nekoudot-zikouy") return <CreditPointValueCalculator />;
   if (slug === "salaire-brut-net-israel") return <SalaryCalculator />;
+  if (slug === "impot-revenus-locatifs-israel") return <RentalIncomeCalculator />;
   return <IncomeTaxCalculator />;
 }

@@ -129,7 +129,11 @@ export function getRelatedCalculatorLinks(article: Article) {
       href: "/fr/calculateurs/salaire-brut-net-israel",
       label: "Calculateur salaire brut / net"
     },
-    "impot-revenu-israel": { href: "/fr/calculateurs/impot-revenu-israel", label: "Calculateur impôt sur le revenu" }
+    "impot-revenu-israel": { href: "/fr/calculateurs/impot-revenu-israel", label: "Calculateur impôt sur le revenu" },
+    "impot-revenus-locatifs-israel": {
+      href: "/fr/calculateurs/impot-revenus-locatifs-israel",
+      label: "Calculateur revenus locatifs"
+    }
   };
 
   return article.relatedCalculatorSlugs.map((slug) => calculatorLinks[slug]).filter((item): item is { href: string; label: string } => Boolean(item));

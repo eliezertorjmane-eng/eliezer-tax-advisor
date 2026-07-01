@@ -49,6 +49,7 @@ const frenchServiceLinks = [
   [
     { label: "אישור תושבות מס", href: "/fr/guides/certificat-residence-fiscale-israel" },
     { label: "Revenus locatifs", href: "/fr/guides/revenus-locatifs-israel-masloulei-mas" },
+    { label: "Calculateur loyers", href: "/fr/calculateurs/impot-revenus-locatifs-israel" },
     { label: "מס שבח", href: "/fr/guides/prisat-mas-shevach-israel" }
   ]
 ] as const;
