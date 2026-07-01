@@ -73,6 +73,10 @@ export type Article = {
   authorTitle: string;
   tags: string[];
   keywords: string[];
+  image?: string;
+  imageAlt?: string;
+  imagePosition?: string;
+  imageTheme?: string;
   featured: boolean;
   priority: number;
   heroLabel: string;

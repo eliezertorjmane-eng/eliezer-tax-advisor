@@ -1,12 +1,12 @@
 export const TAX_YEAR = 2026;
 
 // Constants must be reviewed annually before launch and after every official update.
-// Source labels shown in the UI: National Insurance Institute (Bituah Leumi) and Israel Tax Authority.
+// Source labels shown in the UI: National Insurance Institute (Bitouah Leumi) and Israel Tax Authority.
 export const TAX_CONSTANTS_2026 = {
   sourceLabel: "Constantes 2026 — à vérifier chaque année.",
   officialSources: [
     {
-      label: "Bituah Leumi / National Insurance Institute",
+      label: "Bitouah Leumi / National Insurance Institute",
       url: "https://www.btl.gov.il/English%20Homepage/Insurance/Pages/default.aspx"
     },
     {

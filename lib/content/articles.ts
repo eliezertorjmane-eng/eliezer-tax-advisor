@@ -158,22 +158,22 @@ export const articles: Article[] = [
     locale: "fr",
     type: "guide",
     category: "Immobilier",
-    title: "פריסת מס שבח : comment étaler la plus-value immobilière en Israël",
-    seoTitle: "פריסת מס שבח en Israël : réduire l’impôt sur une vente immobilière",
-    shortTitle: "מס שבח",
+    title: "Prissat Mass Shevach (פריסת מס שבח) : comment étaler la plus-value immobilière en Israël",
+    seoTitle: "Prissat Mass Shevach en Israël : réduire l’impôt sur une vente immobilière",
+    shortTitle: "Mass Shevach",
     description:
-      "Comprendre le mécanisme de פריסת מס שבח, les dossiers où il peut être pertinent et les documents à rassembler après une vente immobilière.",
+      "Comprendre le mécanisme de Prissat Mass Shevach (פריסת מס שבח), les dossiers où il peut être pertinent et les documents à rassembler après une vente immobilière.",
     metaDescription:
-      "Lors d’une vente immobilière en Israël, la פריסת מס שבח peut parfois réduire fortement l’impôt sur la plus-value. Découvrez le principe, les cas concernés et les points à vérifier.",
+      "Lors d’une vente immobilière en Israël, la Prissat Mass Shevach (פריסת מס שבח) peut parfois réduire fortement l’impôt sur la plus-value. Découvrez le principe, les cas concernés et les points à vérifier.",
     excerpt:
-      "La פריסת מס שבח peut parfois répartir une plus-value immobilière sur plusieurs années et réduire l’impôt selon le profil du vendeur.",
+      "La Prissat Mass Shevach (פריסת מס שבח) peut parfois répartir une plus-value immobilière sur plusieurs années et réduire l’impôt selon le profil du vendeur.",
     ...publication,
     readingTime: "8 min",
     ...defaultAuthor,
-    tags: ["מס שבח", "פריסת מס שבח", "immobilier Israël", "plus-value immobilière", "vente appartement Israël", "formulaire 7003"],
+    tags: ["Mass Shevach", "פריסת מס שבח", "immobilier Israël", "plus-value immobilière", "vente appartement Israël", "formulaire 7003"],
     keywords: [
-      "פריסת מס שבח",
-      "מס שבח Israël",
+      "Prissat Mass Shevach",
+      "Mass Shevach Israël",
       "plus-value immobilière Israël",
       "vente appartement Israël fiscalité",
       "formulaire 7003"
@@ -186,17 +186,17 @@ export const articles: Article[] = [
     sources: [],
     cta: {
       title: "Vous avez vendu un bien en Israël ?",
-      text: "Faites vérifier votre מס שבח avant de laisser passer une possibilité d’économie.",
-      label: "Faire vérifier mon מס שבח",
+      text: "Faites vérifier votre Mass Shevach (מס שבח) avant de laisser passer une possibilité d’économie.",
+      label: "Faire vérifier mon Mass Shevach",
       whatsappMessage:
-        "Bonjour Eliezer, j’ai vendu un bien en Israël et je souhaite vérifier si une פריסת מס שבח peut être pertinente."
+        "Bonjour Eliezer, j’ai vendu un bien en Israël et je souhaite vérifier si une Prissat Mass Shevach (פריסת מס שבח) peut être pertinente."
     },
     sections: [
       {
-        title: "Qu’est-ce que le מס שבח ?",
+        title: "Qu’est-ce que le Mass Shevach (מס שבח) ?",
         paragraphs: [
-          "Le מס שבח est l’impôt israélien lié à la plus-value immobilière lors de la vente d’un bien. En pratique, il compare la valeur d’acquisition et la valeur de vente, avec des règles et ajustements à vérifier selon le dossier.",
-          "Lors d’une vente immobilière en Israël, le מס שבח peut représenter un montant important. Dans certains cas, la פריסת מס שבח permet de répartir la plus-value sur plusieurs années, ce qui peut réduire l’impôt selon la situation personnelle du vendeur."
+          "Le Mass Shevach (מס שבח) est l’impôt israélien lié à la plus-value immobilière lors de la vente d’un bien. En pratique, il compare la valeur d’acquisition et la valeur de vente, avec des règles et ajustements à vérifier selon le dossier.",
+          "Lors d’une vente immobilière en Israël, le Mass Shevach peut représenter un montant important. Dans certains cas, la Prissat Mass Shevach (פריסת מס שבח) permet de répartir la plus-value sur plusieurs années, ce qui peut réduire l’impôt selon la situation personnelle du vendeur."
         ]
       },
       {
@@ -212,9 +212,9 @@ export const articles: Article[] = [
         ]
       },
       {
-        title: "Qu’est-ce que la פריסת מס שבח ?",
+        title: "Qu’est-ce que la Prissat Mass Shevach (פריסת מס שבח) ?",
         paragraphs: [
-          "La פריסת מס שבח est un mécanisme qui peut permettre d’étaler la plus-value taxable sur plusieurs années, jusqu’à 4 ans lorsque les conditions sont réunies.",
+          "La Prissat Mass Shevach est un mécanisme qui peut permettre d’étaler la plus-value taxable sur plusieurs années, jusqu’à 4 ans lorsque les conditions sont réunies.",
           "L’idée est de ne pas concentrer toute la plus-value sur une seule année fiscale, mais de vérifier si une répartition sur des années précédentes améliore le résultat fiscal."
         ],
         callout: {
@@ -236,7 +236,7 @@ export const articles: Article[] = [
           "Vendeurs avec revenus faibles les années précédentes.",
           "Retraités.",
           "Personnes avec נקודות זיכוי non utilisées.",
-          "Personnes ayant payé un מס שבח élevé.",
+          "Personnes ayant payé un Mass Shevach élevé.",
           "Vendeurs qui n’ont pas demandé la פריסה au moment de la vente.",
           "Personnes ayant vendu un appartement avec une plus-value importante."
         ]
@@ -257,7 +257,7 @@ export const articles: Article[] = [
       {
         title: "Cas pratique anonymisé",
         paragraphs: [
-          "Exemple inspiré de situations rencontrées : un vendeur a payé un מס שבח élevé après la vente d’un appartement. Une vérification a montré que l’étalement de la plus-value sur des années précédentes pouvait potentiellement réduire la charge fiscale.",
+          "Exemple inspiré de situations rencontrées : un vendeur a payé un Mass Shevach élevé après la vente d’un appartement. Une vérification a montré que l’étalement de la plus-value sur des années précédentes pouvait potentiellement réduire la charge fiscale.",
           "Le résultat final dépend toujours des revenus, crédits et données fiscales de chaque année. Aucun montant ne doit être supposé sans calcul."
         ],
         links: [
@@ -272,7 +272,7 @@ export const articles: Article[] = [
     faq: [
       {
         question: "Est-ce automatique ?",
-        answer: "Non. La פריסת מס שבח doit être vérifiée et demandée selon les règles applicables au dossier."
+        answer: "Non. La Prissat Mass Shevach (פריסת מס שבח) doit être vérifiée et demandée selon les règles applicables au dossier."
       },
       {
         question: "Peut-on demander la פריסה après la vente ?",
@@ -284,7 +284,7 @@ export const articles: Article[] = [
         answer: "Non. L’intérêt dépend des revenus, crédits, années concernées et règles applicables."
       },
       {
-        question: "Est-ce que cela annule toujours le מס שבח ?",
+        question: "Est-ce que cela annule toujours le Mass Shevach ?",
         answer: "Non. L’étalement peut parfois réduire l’impôt, mais il ne l’annule pas automatiquement."
       },
       {
@@ -298,22 +298,22 @@ export const articles: Article[] = [
     locale: "fr",
     type: "guide",
     category: "Immobilier",
-    title: "Revenus locatifs en Israël : quel מסלול מס choisir ?",
-    seoTitle: "Revenus locatifs en Israël : פטור, 10% ou מס שולי ?",
+    title: "Revenus locatifs en Israël : quel Massloul Mass (מסלול מס) choisir ?",
+    seoTitle: "Revenus locatifs en Israël : פטור, 10% ou Massloul Mass ?",
     shortTitle: "Revenus locatifs",
     description:
-      "Un guide simple pour comparer les principaux מסלולי מס applicables aux loyers résidentiels en Israël : exemption, 10% ou imposition marginale.",
+      "Un guide simple pour comparer les principaux Massloulei Mass (מסלולי מס) applicables aux loyers résidentiels en Israël : exemption, 10% ou imposition marginale.",
     metaDescription:
-      "Vous louez un appartement en Israël ? Découvrez les 3 principaux מסלולי מס : exemption, 10% ou imposition marginale, et les points à vérifier avant de choisir.",
+      "Vous louez un appartement en Israël ? Découvrez les 3 principaux Massloulei Mass (מסלולי מס) : exemption, 10% ou imposition marginale, et les points à vérifier avant de choisir.",
     excerpt:
       "Les loyers résidentiels peuvent relever de plusieurs régimes. Le bon choix dépend du loyer, des dépenses, des autres revenus et de la situation personnelle.",
     ...publication,
     readingTime: "9 min",
     ...defaultAuthor,
-    tags: ["revenus locatifs Israël", "מסלול מס", "location appartement Israël", "פטור", "10%", "מס שולי", "impôt loyers Israël"],
+    tags: ["revenus locatifs Israël", "Massloul Mass", "location appartement Israël", "פטור", "10%", "מס שולי", "impôt loyers Israël"],
     keywords: [
       "revenus locatifs Israël",
-      "מסלול מס location",
+      "Massloul Mass location",
       "impôt loyers Israël",
       "מסלול 10%",
       "מס שולי loyers"
@@ -326,14 +326,14 @@ export const articles: Article[] = [
     sources: [],
     cta: {
       title: "Vous louez un appartement en Israël ?",
-      text: "Faites vérifier le מסלול מס le plus adapté à votre situation avant de choisir par habitude.",
+      text: "Faites vérifier le Massloul Mass (מסלול מס) le plus adapté à votre situation avant de choisir par habitude.",
       label: "Vérifier mes revenus locatifs",
       whatsappMessage:
-        "Bonjour Eliezer, je loue un appartement en Israël et je souhaite vérifier quel מסלול מס est le plus adapté."
+        "Bonjour Eliezer, je loue un appartement en Israël et je souhaite vérifier quel Massloul Mass (מסלול מס) est le plus adapté."
     },
     sections: [
       {
-        title: "Les 3 principaux מסלולי מס",
+        title: "Les 3 principaux Massloulei Mass (מסלולי מס)",
         paragraphs: [
           "Les revenus de location d’un appartement résidentiel en Israël peuvent être imposés selon plusieurs régimes. Le bon choix dépend du montant du loyer, de vos autres revenus, de vos dépenses et de votre situation personnelle.",
           "On parle souvent de trois grandes options : exemption totale ou partielle, régime 10%, ou régime marginal avec déclaration complète."
@@ -341,7 +341,7 @@ export const articles: Article[] = [
         numbered: ["Exemption totale ou partielle.", "Régime 10%.", "Régime marginal / déclaration complète."]
       },
       {
-        title: "מסלול פטור : exemption totale ou partielle",
+        title: "Massloul Ptour (מסלול פטור) : exemption totale ou partielle",
         bullets: [
           "Une exemption totale peut exister sous un plafond mensuel à vérifier chaque année.",
           "Une exemption partielle peut s’appliquer lorsque le loyer dépasse le plafond mais reste sous certaines limites.",
@@ -355,14 +355,14 @@ export const articles: Article[] = [
         }
       },
       {
-        title: "מסלול 10% : simple mais pas toujours optimal",
+        title: "Massloul 10% (מסלול 10%) : simple mais pas toujours optimal",
         paragraphs: [
           "Le régime 10% consiste généralement à payer 10% sur le loyer brut. Il peut paraître simple, mais il ne permet généralement pas de déduire les dépenses courantes.",
           "Les délais et modalités de paiement doivent être vérifiés. Ce régime peut être pertinent pour des contribuables avec un taux marginal élevé et peu de dépenses déductibles."
         ]
       },
       {
-        title: "מסלול מס שולי : déclaration complète",
+        title: "Massloul Mass Shouli (מסלול מס שולי) : déclaration complète",
         paragraphs: [
           "Dans le régime marginal, le loyer est ajouté aux autres revenus et imposé selon le taux personnel applicable. Selon le dossier, certaines dépenses éligibles peuvent être prises en compte.",
           "Ce régime peut devenir pertinent lorsque les dépenses sont élevées, lorsque le taux marginal personnel est faible ou lorsque la situation globale justifie une déclaration complète."
@@ -383,12 +383,12 @@ export const articles: Article[] = [
         ]
       },
       {
-        title: "Bientôt : calculateur pour comparer les מסלולי מס",
+        title: "Bientôt : calculateur pour comparer les Massloulei Mass",
         paragraphs: [
-          "Un futur outil pourra aider à comparer פטור, 10% et מס שולי selon les informations principales. En attendant, le choix doit rester une vérification personnalisée."
+          "Un futur outil pourra aider à comparer פטור, 10% et מס שולי selon les informations principales. En attendant, le choix du Massloul Mass doit rester une vérification personnalisée."
         ],
         callout: {
-          title: "Quel מסלול מס choisir pour mes loyers ?",
+          title: "Quel Massloul Mass choisir pour mes loyers ?",
           text: "Un futur outil pourra comparer פטור, 10% et מס שולי selon votre situation. Pour l’instant, demandez une vérification personnalisée.",
           href: "/fr/contact",
           label: "Me demander une vérification"
@@ -418,10 +418,10 @@ export const articles: Article[] = [
       {
         question: "Le régime 10% est-il toujours le plus simple ?",
         answer:
-          "Il est simple dans certains cas, mais il n’est pas toujours le plus avantageux. Il faut comparer avec les autres מסלולי מס."
+          "Il est simple dans certains cas, mais il n’est pas toujours le plus avantageux. Il faut comparer avec les autres Massloulei Mass."
       },
       {
-        question: "Peut-on changer de מסלול מס ?",
+        question: "Peut-on changer de Massloul Mass ?",
         answer: "Cela dépend des années concernées, des déclarations et des règles applicables. Le point doit être vérifié avant d’agir."
       },
       {
@@ -543,12 +543,12 @@ export const articles: Article[] = [
         title: "עסק זעיר, עוסק פטור, עוסק מורשה : ne pas confondre",
         paragraphs: [
           "עוסק פטור et עוסק מורשה relèvent notamment de la TVA. עסק זעיר est un régime simplifié lié à l’impôt sur le revenu.",
-          "Bituah Leumi est encore un autre sujet : même si une démarche fiscale est simplifiée, il faut vérifier les obligations de ביטוח לאומי selon l’activité, les revenus et les heures."
+          "Bitouah Leumi est encore un autre sujet : même si une démarche fiscale est simplifiée, il faut vérifier les obligations de ביטוח לאומי selon l’activité, les revenus et les heures."
         ],
         links: [
           {
             href: "/fr/calculateurs/bituah-leumi-independant",
-            label: "Utiliser le calculateur Bituah Leumi indépendant",
+            label: "Utiliser le calculateur Bitouah Leumi indépendant",
             description: "Estimer le statut et les cotisations à vérifier pour une activité indépendante."
           }
         ]
@@ -584,7 +584,7 @@ export const articles: Article[] = [
       {
         question: "Est-ce que je dois quand même gérer ביטוח לאומי ?",
         answer:
-          "Oui, Bituah Leumi est un sujet séparé. Les obligations doivent être vérifiées selon votre activité, vos revenus et vos heures."
+          "Oui, Bitouah Leumi est un sujet séparé. Les obligations doivent être vérifiées selon votre activité, vos revenus et vos heures."
       },
       {
         question: "Est-ce que cela remplace un conseil fiscal ?",
@@ -675,20 +675,20 @@ export const articles: Article[] = [
     locale: "fr",
     type: "case-study",
     category: "Immobilier",
-    title: "Cas pratique : vérifier un מס שבח après une vente immobilière",
-    seoTitle: "Cas pratique : vérifier un מס שבח après une vente immobilière",
+    title: "Cas pratique : vérifier un Mass Shevach après une vente immobilière",
+    seoTitle: "Cas pratique : vérifier un Mass Shevach après une vente immobilière",
     shortTitle: "Vente immobilière",
     description:
-      "Cas pratique anonymisé sur les points à vérifier après un מס שבח élevé lors d’une vente immobilière en Israël.",
+      "Cas pratique anonymisé sur les points à vérifier après un Mass Shevach élevé lors d’une vente immobilière en Israël.",
     metaDescription:
-      "Cas pratique anonymisé : après une vente immobilière en Israël, vérifier si une פריסת מס שבח ou d’autres points peuvent réduire la charge fiscale.",
+      "Cas pratique anonymisé : après une vente immobilière en Israël, vérifier si une Prissat Mass Shevach ou d’autres points peuvent réduire la charge fiscale.",
     excerpt:
-      "Après une vente d’appartement, un מס שבח élevé peut justifier une revue du calcul, des années concernées et de la possibilité de פריסת מס שבח.",
+      "Après une vente d’appartement, un Mass Shevach élevé peut justifier une revue du calcul, des années concernées et de la possibilité de Prissat Mass Shevach.",
     ...publication,
     readingTime: "4 min",
     ...defaultAuthor,
-    tags: ["cas pratique anonymisé", "מס שבח", "פריסת מס שבח", "vente immobilière Israël"],
-    keywords: ["cas מס שבח Israël", "vérifier מס שבח", "פריסת מס שבח cas pratique"],
+    tags: ["cas pratique anonymisé", "Mass Shevach", "פריסת מס שבח", "vente immobilière Israël"],
+    keywords: ["cas Mass Shevach Israël", "vérifier Mass Shevach", "Prissat Mass Shevach cas pratique"],
     featured: false,
     priority: 12,
     heroLabel: "Cas anonymisé",
@@ -696,33 +696,33 @@ export const articles: Article[] = [
     relatedCalculatorSlugs: ["impot-revenu-israel"],
     sources: [],
     cta: {
-      title: "Faire vérifier mon מס שבח",
+      title: "Faire vérifier mon Mass Shevach",
       text: "Une revue peut identifier les points à vérifier après la vente, sans garantie de résultat.",
-      label: "Faire vérifier mon מס שבח",
-      whatsappMessage: "Bonjour Eliezer, j’ai vendu un bien en Israël et je souhaite faire vérifier mon מס שבח."
+      label: "Faire vérifier mon Mass Shevach",
+      whatsappMessage: "Bonjour Eliezer, j’ai vendu un bien en Israël et je souhaite faire vérifier mon Mass Shevach (מס שבח)."
     },
     caseStudy: {
       situation:
-        "Un vendeur a reçu un calcul de מס שבח important après la vente d’un appartement en Israël.",
+        "Un vendeur a reçu un calcul de Mass Shevach important après la vente d’un appartement en Israël.",
       problem:
-        "La question était de savoir si une פריסת מס שבח ou une autre vérification pouvait réduire la charge fiscale.",
+        "La question était de savoir si une Prissat Mass Shevach ou une autre vérification pouvait réduire la charge fiscale.",
       analysis:
         "Les années de revenus, les crédits disponibles et les documents de vente devaient être revus avant toute conclusion.",
       lesson:
-        "Un מס שבח élevé ne signifie pas automatiquement qu’une économie est possible, mais il mérite souvent une vérification structurée."
+        "Un Mass Shevach élevé ne signifie pas automatiquement qu’une économie est possible, mais il mérite souvent une vérification structurée."
     },
     sections: [
       {
         title: "Situation",
         paragraphs: [
-          "Cas pratique anonymisé : après la vente d’un appartement, le vendeur a reçu un montant de מס שבח qu’il trouvait élevé.",
+          "Cas pratique anonymisé : après la vente d’un appartement, le vendeur a reçu un montant de Mass Shevach qu’il trouvait élevé.",
           "Le sujet n’était pas de promettre une réduction, mais de vérifier si le calcul et les options disponibles avaient été correctement examinés."
         ]
       },
       {
         title: "Problème",
         paragraphs: [
-          "Lorsqu’un מס שבח est payé rapidement après une vente, certaines personnes ne vérifient pas la possibilité d’une פריסת מס שבח ou l’impact de leurs revenus des années précédentes."
+          "Lorsqu’un Mass Shevach est payé rapidement après une vente, certaines personnes ne vérifient pas la possibilité d’une Prissat Mass Shevach ou l’impact de leurs revenus des années précédentes."
         ]
       },
       {
@@ -740,7 +740,7 @@ export const articles: Article[] = [
         links: [
           {
             href: "/fr/guides/prisat-mas-shevach-israel",
-            label: "Lire le guide sur la פריסת מס שבח"
+            label: "Lire le guide sur la Prissat Mass Shevach"
           }
         ]
       }
@@ -751,9 +751,9 @@ export const articles: Article[] = [
     locale: "fr",
     type: "case-study",
     category: "Immobilier",
-    title: "Cas pratique : choisir le bon מסלול מס pour des loyers en Israël",
-    seoTitle: "Cas pratique : choisir le bon מסלול מס pour des loyers en Israël",
-    shortTitle: "Choix מסלול מס",
+    title: "Cas pratique : choisir le bon Massloul Mass pour des loyers en Israël",
+    seoTitle: "Cas pratique : choisir le bon Massloul Mass pour des loyers en Israël",
+    shortTitle: "Choix Massloul Mass",
     description:
       "Cas pratique anonymisé sur le choix entre exemption, 10% et régime marginal pour des revenus locatifs en Israël.",
     metaDescription:
@@ -763,8 +763,8 @@ export const articles: Article[] = [
     ...publication,
     readingTime: "4 min",
     ...defaultAuthor,
-    tags: ["cas pratique anonymisé", "revenus locatifs", "מסלול מס", "10%", "פטור", "מס שולי"],
-    keywords: ["cas revenus locatifs Israël", "choisir מסלול מס", "location appartement Israël fiscalité"],
+    tags: ["cas pratique anonymisé", "revenus locatifs", "Massloul Mass", "10%", "פטור", "מס שולי"],
+    keywords: ["cas revenus locatifs Israël", "choisir Massloul Mass", "location appartement Israël fiscalité"],
     featured: false,
     priority: 13,
     heroLabel: "Cas anonymisé",
@@ -773,10 +773,10 @@ export const articles: Article[] = [
     sources: [],
     cta: {
       title: "Vérifier mes revenus locatifs",
-      text: "Le bon מסלול מס dépend de vos loyers, dépenses et autres revenus.",
+      text: "Le bon Massloul Mass dépend de vos loyers, dépenses et autres revenus.",
       label: "Vérifier mes loyers",
       whatsappMessage:
-        "Bonjour Eliezer, je loue un appartement en Israël et je souhaite vérifier le מסלול מס adapté."
+        "Bonjour Eliezer, je loue un appartement en Israël et je souhaite vérifier le Massloul Mass adapté."
     },
     caseStudy: {
       situation:
@@ -786,7 +786,7 @@ export const articles: Article[] = [
       analysis:
         "Le choix devait tenir compte du loyer mensuel, des frais, de la situation personnelle et des seuils de l’année fiscale.",
       lesson:
-        "Le régime le plus simple n’est pas toujours le plus adapté. Les מסלולי מס doivent être comparés avant de choisir."
+        "Le régime le plus simple n’est pas toujours le plus adapté. Les Massloulei Mass doivent être comparés avant de choisir."
     },
     sections: [
       {
@@ -799,7 +799,7 @@ export const articles: Article[] = [
       {
         title: "Problème",
         paragraphs: [
-          "Le choix d’un מסלול מס ne dépend pas seulement du loyer. Il peut aussi dépendre des dépenses, des autres revenus, de la tranche marginale et du nombre de biens."
+          "Le choix d’un Massloul Mass ne dépend pas seulement du loyer. Il peut aussi dépendre des dépenses, des autres revenus, de la tranche marginale et du nombre de biens."
         ]
       },
       {

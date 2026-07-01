@@ -1,7 +1,7 @@
 # TODO
 
 - Confirm the preferred production domain and update SEO canonical URLs if needed.
-- Add the real profile photo at `public/eliezer-profile.jpg`. V5 expects this exact file for the About page and structured data image.
+- Keep the About page profile image at `public/eliezer-profile.jpg` and maintain a landscape-friendly layout.
 - Optional private reference file `private-reference/bituah-leumi-calculator-2025.html` was not found.
 - Review and confirm the 2026 calculator constants against official Israeli sources before launch and repeat this review every year.
 - The contact form currently prepares a `mailto:` email draft and is not connected to a backend.
@@ -9,7 +9,7 @@
 - Add analytics only after choosing a privacy-friendly provider and consent approach.
 - Review final French, Hebrew and English wording with the business owner before launch.
 - Add professional photography or additional brand assets if they become available.
-- Manual calculator QA to repeat before launch: Bituah Leumi status detection at 20h/week, 12h + 2,065 NIS income, 6,885 NIS income; ole hadash schedules before/after 2022; income tax bracket edges; credit-point value; gross-to-net with and without Bituah Leumi.
+- Manual calculator QA to repeat before launch: Bitouah Leumi status detection at 20h/week, 12h + 2,065 NIS income, 6,885 NIS income; ole hadash schedules before/after 2022; income tax bracket edges; credit-point value; gross-to-net with and without Bitouah Leumi.
 
 ## Future V7 Content Backlog
 
@@ -18,10 +18,18 @@
 - Retraites françaises en Israël.
 - Crédit d’impôt / נקודות זיכוי.
 - Achat immobilier en Israël.
-- Calculateur מסלול מס loyers.
+- Calculateur revenus locatifs / Massloul Mass (מסלול מס) pour comparer פטור, 10% et מס שולי.
+- Guides restants à compléter et prioriser.
+- Cas pratiques restants à compléter et prioriser.
+- Milouim 2026 : mise à jour Nekoudot Zikouy (נקודות זיכוי).
+- Guide Mass Rehisha (מס רכישה) / משפר דיור.
+- Visuels spécifiques pour les articles et cartes éditoriales.
+- Visuels pour Google Business posts.
 - Calculateurs full Hebrew and English.
 - Google Business posts.
 - Monthly SEO content calendar.
+- Google Search Console query signal: declaration fiscale israel.
+- Google Search Console query signal: déclaration impôts israël.
 
 ## Official Source Follow-Ups
 

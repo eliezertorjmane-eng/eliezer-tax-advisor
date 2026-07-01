@@ -69,7 +69,11 @@ export function getArticleUrl(article: Article) {
   return `${siteUrl}${getArticlePath(article)}`;
 }
 
-export function getArticleImageUrl() {
+export function getArticleImageUrl(article?: Article) {
+  if (article?.image) {
+    return article.image.startsWith("http") ? article.image : `${siteUrl}${article.image}`;
+  }
+
   return `${siteUrl}/logo.png`;
 }
 
@@ -114,7 +118,7 @@ export function getRelatedCalculatorLinks(article: Article) {
     "ehzer-mass": { href: "/fr/calculateurs/ehzer-mass", label: "Pré-diagnostic Ehzer Mass / החזר מס" },
     "bituah-leumi-independant": {
       href: "/fr/calculateurs/bituah-leumi-independant",
-      label: "Calculateur Bituah Leumi indépendant"
+      label: "Calculateur Bitouah Leumi indépendant"
     },
     "ole-hadash-nekoudot-zikouy": {
       href: "/fr/calculateurs/ole-hadash-nekoudot-zikouy",
@@ -133,7 +137,7 @@ export function getRelatedCalculatorLinks(article: Article) {
 
 export function articleMetadata(article: Article): Metadata {
   const url = getArticleUrl(article);
-  const image = getArticleImageUrl();
+  const image = getArticleImageUrl(article);
 
   return {
     title: article.seoTitle,
@@ -190,7 +194,7 @@ export function getArticleJsonLd(article: Article) {
       "@type": "WebPage",
       "@id": url
     },
-    image: getArticleImageUrl(),
+    image: getArticleImageUrl(article),
     inLanguage: localeToLanguage[article.locale],
     keywords: article.keywords.join(", ")
   };

@@ -31,7 +31,7 @@ const frenchServiceActions = [
 const frenchServiceLinks = [
   [
     { label: "Guide עסק זעיר", href: "/fr/guides/esek-zair-israel-reforme" },
-    { label: "Calculateur Bituah Leumi", href: "/fr/calculateurs/bituah-leumi-independant" }
+    { label: "Calculateur Bitouah Leumi", href: "/fr/calculateurs/bituah-leumi-independant" }
   ],
   [{ label: "Guides fiscaux", href: "/fr/guides" }],
   [

@@ -42,39 +42,7 @@ export default async function AboutPage({ params }: PageProps) {
     <>
       <section className="section-band py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-            <Reveal>
-              <div className="edge-line rounded-md border border-sky/25 bg-white p-5 shadow-glow sm:p-6">
-                <div className="flex items-center gap-4">
-                  <Image
-                    src="/logo.png"
-                    alt="Eliezer Torjmane"
-                    width={72}
-                    height={72}
-                    className="rounded-full border border-line bg-white p-1 shadow-soft"
-                    priority
-                  />
-                  <div>
-                    <p className="text-sm font-semibold text-teal">{dictionary.common.eyebrow}</p>
-                    <h2 className="mt-1 text-xl font-semibold text-ink">{dictionary.common.brand}</h2>
-                  </div>
-                </div>
-                <div className="mx-auto mt-7 max-w-[260px] overflow-hidden rounded-xl border border-line bg-paper shadow-soft">
-                  <Image
-                    src="/eliezer-profile.jpg"
-                    alt={about.profileAlt}
-                    width={320}
-                    height={380}
-                    className="aspect-[4/5] w-full object-cover"
-                    priority
-                  />
-                </div>
-                <p className="mx-auto mt-5 max-w-xs text-center text-sm font-semibold leading-6 text-teal">
-                  {about.profileCaption}
-                </p>
-              </div>
-            </Reveal>
-
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,0.58fr)_minmax(320px,0.42fr)] lg:items-center">
             <div>
               <Reveal>
                 <SectionHeader eyebrow={dictionary.common.eyebrow} title={about.title} lead={about.lead} />
@@ -102,6 +70,24 @@ export default async function AboutPage({ params }: PageProps) {
                 })}
               </div>
             </div>
+
+            <Reveal delay={0.08}>
+              <figure className="mx-auto w-full max-w-[740px]">
+                <div className="overflow-hidden rounded-2xl border border-sky/25 bg-white p-2 shadow-glow">
+                  <Image
+                    src="/eliezer-profile.jpg"
+                    alt={about.profileAlt}
+                    width={1200}
+                    height={675}
+                    className="h-auto w-full rounded-xl"
+                    priority
+                  />
+                </div>
+                <figcaption className="mt-4 text-center text-sm font-semibold leading-6 text-teal">
+                  {about.profileCaption}
+                </figcaption>
+              </figure>
+            </Reveal>
           </div>
         </div>
       </section>

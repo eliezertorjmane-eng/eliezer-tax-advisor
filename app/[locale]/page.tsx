@@ -198,6 +198,12 @@ export default async function HomePage({ params }: PageProps) {
                   >
                     Voir tous les guides
                   </Link>
+                  <Link
+                    href="/fr/cas-reels"
+                    className="inline-flex min-h-12 items-center justify-center rounded-full border border-line bg-white px-6 text-sm font-semibold text-teal shadow-soft transition hover:border-sky hover:bg-mint"
+                  >
+                    Cas pratiques fiscaux en Israël
+                  </Link>
                   <a
                     href={getWhatsAppHref()}
                     target="_blank"
@@ -280,7 +286,7 @@ export default async function HomePage({ params }: PageProps) {
                   <ResourceCard
                     href={getCalculatorsPath(locale)}
                     title="Utiliser un calculateur fiscal"
-                    description="Pré-diagnostic Ehzer Mass, Bituah Leumi, נקודות זיכוי, salaire brut/net et impôt sur le revenu."
+                    description="Pré-diagnostic Ehzer Mass, Bitouah Leumi, נקודות זיכוי, salaire brut/net et impôt sur le revenu."
                     cta="Voir les calculateurs"
                   />
                 </Reveal>

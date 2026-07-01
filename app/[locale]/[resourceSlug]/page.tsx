@@ -26,7 +26,7 @@ function resourceUrl(slug: string) {
 
 function relatedCalculatorLinks(slug: string) {
   if (slug === "creation-esek-israel") {
-    return [{ href: "/fr/calculateurs/bituah-leumi-independant", label: "Calculateur Bituah Leumi indépendant" }];
+    return [{ href: "/fr/calculateurs/bituah-leumi-independant", label: "Calculateur Bitouah Leumi indépendant" }];
   }
 
   if (slug === "fiscalite-salaries-israel") {

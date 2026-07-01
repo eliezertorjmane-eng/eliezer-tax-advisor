@@ -12,6 +12,25 @@ This site keeps editorial content in `lib/content/articles.ts`.
 6. Add `relatedArticleSlugs` and `relatedCalculatorSlugs` to strengthen internal links.
 7. Set `featured: true` only for homepage-level articles, then control order with `priority`.
 
+## Article Images and Thumbnails
+
+- Use `image` for an article-specific visual when a real approved asset exists.
+- Use `imageAlt` for clear descriptive alt text, for example: `Eliezer Torjmane explaining Mass Shevach in Israel`.
+- Use `imagePosition` only when the thumbnail needs focal-point control, such as `center top`.
+- Use `imageTheme` only as an internal editorial note for future visual direction.
+- Do not add broken image paths or generic stock images.
+- Article cards already show a clean branded fallback when no image exists, so it is better to leave `image` empty than to publish a weak or unfinished visual.
+- Recommended visual themes: Ehzer Mass (החזר מס), Mass Shevach (מס שבח), Mass Rehisha (מס רכישה), אישור תושבות מס, revenus locatifs, Olim Hadashim, Nekoudot Zikouy, Bitouah Leumi and France-Israël situations.
+
+## French Terminology
+
+- Use natural Franco-Israeli tax language in French content.
+- Write `Mass`, not `Mas`, when transliterating מס.
+- Preferred examples: `Ehzer Mass (החזר מס)`, `Mass Shevach (מס שבח)`, `Mass Rehisha (מס רכישה)`, `Mass Hachnassa (מס הכנסה)`, `Massloul Mass (מסלול מס)`.
+- Write `Bitouah Leumi (ביטוח לאומי)`, not `Bituah Leumi`.
+- Write `Nekoudot Zikouy (נקודות זיכוי) — points de crédit d’impôt` when an explanation helps.
+- Keep Hebrew tax terms naturally where French-speaking users in Israel expect them.
+
 ## Add a New Case Study
 
 1. Add a new object to `articles` with `type: "case-study"`.
@@ -72,6 +91,10 @@ npm run build
   authorTitle: "Conseiller fiscal agréé en Israël",
   tags: ["tag 1", "tag 2"],
   keywords: ["mot clé 1", "mot clé 2"],
+  image: "/images/example.webp",
+  imageAlt: "Description claire de l’image pour le guide fiscal",
+  imagePosition: "center",
+  imageTheme: "Mass Shevach",
   featured: false,
   priority: 20,
   heroLabel: "Guide pratique",

@@ -192,12 +192,12 @@ function BituahLeumiCalculator() {
     weeklyIndependentHours: toNumber(hours)
   });
   const statusLabel = result.status === "atzmai" ? "עצמאי" : "עצמאי שאינו עונה להגדרה";
-  const message = `Bonjour Eliezer, j’ai utilisé le calculateur Bituah Leumi indépendant. Salaire salarié: ${salary} ₪, revenu indépendant: ${income} ₪, heures: ${hours}/semaine. Statut estimé: ${statusLabel}, cotisation estimée: ${formatILS(result.contribution)}. Pouvez-vous vérifier ma situation ?`;
+  const message = `Bonjour Eliezer, j’ai utilisé le calculateur Bitouah Leumi indépendant. Salaire salarié: ${salary} ₪, revenu indépendant: ${income} ₪, heures: ${hours}/semaine. Statut estimé: ${statusLabel}, cotisation estimée: ${formatILS(result.contribution)}. Pouvez-vous vérifier ma situation ?`;
 
   return (
     <CalculatorShell
-      title="Calculateur Bituah Leumi pour indépendant"
-      subtitle="Estimez votre statut et vos cotisations Bituah Leumi selon vos revenus, heures d’activité et éventuel salaire salarié."
+      title="Calculateur Bitouah Leumi pour indépendant"
+      subtitle="Estimez votre statut et vos cotisations Bitouah Leumi selon vos revenus, heures d’activité et éventuel salaire salarié."
     >
       <CalculatorFrame>
         <FieldPanel>
@@ -209,7 +209,7 @@ function BituahLeumiCalculator() {
         <div className="grid gap-5">
           <ResultCard title="Statut estimé" value={statusLabel} tone="strong" />
           <ResultCard title="Cotisation mensuelle estimée" value={formatILS(result.contribution)}>
-            Revenu indépendant restant après estimation Bituah Leumi : <strong>{formatILS(result.netAfterContribution)}</strong>
+            Revenu indépendant restant après estimation Bitouah Leumi : <strong>{formatILS(result.netAfterContribution)}</strong>
           </ResultCard>
           {result.status === "notDefinition" ? (
             <DisclaimerBox>
@@ -325,13 +325,13 @@ function SalaryCalculator() {
           <CalculatorInput label="Nombre de נקודות זיכוי" step="0.25" value={points} onChange={setPoints} />
           <CalculatorInput label="Cotisation pension salarié %" step="0.1" value={pension} onChange={setPension} />
           <CalculatorInput label="Cotisation keren hishtalmut salarié %" step="0.1" value={hishtalmut} onChange={setHishtalmut} />
-          <ToggleRow label="Inclure Bituah Leumi et assurance santé" checked={includeBl} onChange={setIncludeBl} />
+          <ToggleRow label="Inclure Bitouah Leumi et assurance santé" checked={includeBl} onChange={setIncludeBl} />
         </FieldPanel>
         <div className="grid gap-5">
           <ResultCard title="Salaire net mensuel estimé" value={formatILS(result.estimatedMonthlyNet)} tone="strong" />
           <ResultCard title="Retenues estimées">
             Impôt mensuel : {formatILS(result.monthlyIncomeTax)}<br />
-            Bituah Leumi / santé : {formatILS(result.monthlyBituahLeumiAndHealth)}<br />
+            Bitouah Leumi / santé : {formatILS(result.monthlyBituahLeumiAndHealth)}<br />
             Pension : {formatILS(result.pension)}<br />
             Keren hishtalmut : {formatILS(result.kerenHishtalmut)}
           </ResultCard>

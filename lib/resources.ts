@@ -222,9 +222,9 @@ export const frenchResourcePages: FrenchResourcePage[] = [
         ]
       },
       {
-        title: "Mas Hachnasa et Bituah Leumi, expliqués simplement",
+        title: "Mass Hachnassa et Bitouah Leumi, expliqués simplement",
         paragraphs: [
-          "Mas Hachnasa concerne l’impôt sur le revenu. Bituah Leumi concerne la sécurité sociale israélienne. Selon votre situation, les deux peuvent apparaître dans vos démarches.",
+          "Mass Hachnassa concerne l’impôt sur le revenu. Bitouah Leumi concerne la sécurité sociale israélienne. Selon votre situation, les deux peuvent apparaître dans vos démarches.",
           "L’accompagnement aide à distinguer les documents et demandes liés à chaque organisme."
         ]
       },

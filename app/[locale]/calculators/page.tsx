@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (locale === "en") {
     return {
       title: "Tax calculators in Israel | Eliezer Torjmane",
-      description: "Tax calculators in Israel: refund pre-check, Bituah Leumi, credit points, gross to net and income tax.",
+      description: "Tax calculators in Israel: refund pre-check, Bitouah Leumi, credit points, gross to net and income tax.",
       alternates: { canonical: `${siteUrl}/en/calculators` }
     };
   }

@@ -21,8 +21,8 @@ export const frenchCalculators = [
   },
   {
     slug: "bituah-leumi-independant",
-    title: "Bituah Leumi indépendant",
-    description: "Estimez votre statut Bituah Leumi et vos cotisations selon vos revenus et heures d’activité.",
+    title: "Bitouah Leumi indépendant",
+    description: "Estimez votre statut Bitouah Leumi et vos cotisations selon vos revenus et heures d’activité.",
     badge: "Estimation"
   },
   {
@@ -54,7 +54,7 @@ export const frenchCalculators = [
 export const localizedCalculatorCards: Record<Exclude<Locale, "fr">, Array<{ title: string; description: string; badge: string }>> = {
   en: [
     { title: "Tax refund pre-check", description: "See whether your situation may justify a tax refund review.", badge: "Popular" },
-    { title: "Bituah Leumi for freelancers", description: "Estimate status and contributions for independent activity.", badge: "Estimate" },
+    { title: "Bitouah Leumi for freelancers", description: "Estimate status and contributions for independent activity.", badge: "Estimate" },
     { title: "Oleh Hadash credit points", description: "Estimate credit points based on aliyah date.", badge: "Check" },
     { title: "Credit point value", description: "Calculate yearly and monthly value of known credit points.", badge: "Simple" },
     { title: "Gross to net salary", description: "Estimate net salary from gross salary and credit points.", badge: "Estimate" },

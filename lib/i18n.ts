@@ -77,7 +77,7 @@ export const dictionaries = {
       faq: "FAQ",
       contact: "Contact",
       resources: "Ressources",
-      caseStudies: "Cas réels",
+      caseStudies: "Cas pratiques",
       calculators: "Calculateurs",
       cta: "WhatsApp"
     },
@@ -213,7 +213,7 @@ export const dictionaries = {
         "Eliezer Torjmane dispose d’une solide expérience dans le monde de l’entreprise, notamment dans l’écosystème high-tech israélien. En parallèle, depuis environ 10 ans, il accompagne des entrepreneurs, indépendants et salariés francophones dans leurs démarches fiscales en Israël.",
       bodySecondary:
         "Son approche est pragmatique : clarifier la situation, organiser les documents, expliquer les étapes et accompagner chaque personne avec méthode et disponibilité.",
-      profileAlt: "Portrait professionnel d’Eliezer Torjmane",
+      profileAlt: "Eliezer Torjmane, conseiller fiscal agréé en Israël",
       profileCaption: "Un accompagnement humain, clair et structuré.",
       values: [
         { title: "Clarté", text: "Des explications simples pour comprendre les options, les documents et les délais." },
@@ -490,7 +490,7 @@ export const dictionaries = {
         "לאליעזר טורג׳מן ניסיון משמעותי בעולם העסקי, ובפרט באקוסיסטם ההייטק הישראלי. במקביל, מזה כ-10 שנים, הוא מלווה יזמים, עצמאים ושכירים בתהליכים בתחום המס בישראל.",
       bodySecondary:
         "הגישה שלו פרקטית: להבין את המצב, לארגן את המסמכים, להסביר את השלבים וללוות כל אדם בצורה מסודרת וזמינה.",
-      profileAlt: "תמונה מקצועית של אליעזר טורג׳מן",
+      profileAlt: "אליעזר טורג׳מן, יועץ מס מורשה בישראל",
       profileCaption: "ליווי אנושי, ברור ומסודר.",
       values: [
         { title: "בהירות", text: "הסברים פשוטים להבנת האפשרויות, המסמכים והמועדים." },
@@ -758,7 +758,7 @@ export const dictionaries = {
         "Eliezer Torjmane has solid experience in the business world, including the Israeli high-tech ecosystem. In parallel, for around 10 years, he has supported entrepreneurs, freelancers and employees through tax-related processes in Israel.",
       bodySecondary:
         "His approach is pragmatic: clarify the situation, organize documents, explain the steps and support each person with method and availability.",
-      profileAlt: "Professional portrait of Eliezer Torjmane",
+      profileAlt: "Eliezer Torjmane, licensed tax advisor in Israel",
       profileCaption: "Human, clear and structured support.",
       values: [
         { title: "Clarity", text: "Simple explanations to understand options, documents and deadlines." },

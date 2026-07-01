@@ -52,7 +52,7 @@ export function Footer({ locale }: FooterProps) {
               {locale === "fr" ? "Guides fiscaux" : locale === "he" ? "מדריכי מס" : "Tax guides"}
             </Link>
             <Link href={getCaseStudiesPath(locale)} className="text-slate-400 transition hover:text-white">
-              {locale === "fr" ? "Cas réels" : locale === "he" ? "מקרים לדוגמה" : "Case studies"}
+              {locale === "fr" ? "Cas pratiques" : locale === "he" ? "מקרים לדוגמה" : "Case studies"}
             </Link>
             <Link href={getLocalizedPath(locale, "about")} className="text-slate-400 transition hover:text-white">
               {dictionary.nav.about}

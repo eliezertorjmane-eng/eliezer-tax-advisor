@@ -18,10 +18,10 @@ const metaBySlug: Record<FrenchCalculatorSlug, { title: string; description: str
     keywords: ["calculateur Ehzer Mass", "remboursement impôt Israël", "החזר מס Israël"]
   },
   "bituah-leumi-independant": {
-    title: "Calculateur Bituah Leumi indépendant | Statut עצמאי",
+    title: "Calculateur Bitouah Leumi indépendant | Statut עצמאי",
     description:
-      "Estimez votre statut Bituah Leumi, vos cotisations et votre revenu indépendant restant selon les constantes 2026.",
-    keywords: ["Bituah Leumi indépendant", "עצמאי שאינו עונה להגדרה", "calculateur ביטוח לאומי"]
+      "Estimez votre statut Bitouah Leumi, vos cotisations et votre revenu indépendant restant selon les constantes 2026.",
+    keywords: ["Bitouah Leumi indépendant", "עצמאי שאינו עונה להגדרה", "calculateur ביטוח לאומי"]
   },
   "ole-hadash-nekoudot-zikouy": {
     title: "Calculateur נקודות זיכוי olé hadash | Israël 2026",

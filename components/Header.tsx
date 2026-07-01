@@ -63,6 +63,8 @@ export function Header({ locale }: HeaderProps) {
     { href: getLocalizedPath(locale), label: dictionary.nav.home },
     { href: getLocalizedPath(locale, "services"), label: dictionary.nav.services },
     { href: getGuidesPath(locale), label: dictionary.nav.guides },
+    { href: `/${locale}/cas-reels`, label: dictionary.nav.caseStudies },
+    { href: getCalculatorsPath(locale), label: dictionary.nav.calculators },
     { href: getLocalizedPath(locale, "about"), label: dictionary.nav.about },
     { href: getLocalizedPath(locale, "faq"), label: dictionary.nav.faq },
     { href: getLocalizedPath(locale, "contact"), label: dictionary.nav.contact }
@@ -108,20 +110,6 @@ export function Header({ locale }: HeaderProps) {
               {item.label}
             </Link>
           ))}
-          <Link
-            href={getCalculatorsPath(locale)}
-            className="rounded-full px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-mint hover:text-teal"
-          >
-            {dictionary.nav.calculators}
-          </Link>
-          {locale === "fr" ? (
-            <Link
-              href="/fr/ressources"
-              className="rounded-full px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-mint hover:text-teal"
-            >
-              {dictionary.nav.resources}
-            </Link>
-          ) : null}
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
@@ -171,22 +159,6 @@ export function Header({ locale }: HeaderProps) {
                 {item.label}
               </Link>
             ))}
-            <Link
-              href={getCalculatorsPath(locale)}
-              onClick={() => setIsOpen(false)}
-              className="rounded-md border border-line bg-soft px-4 py-3 text-sm font-medium text-slate-800"
-            >
-              {dictionary.nav.calculators}
-            </Link>
-            {locale === "fr" ? (
-              <Link
-                href="/fr/ressources"
-                onClick={() => setIsOpen(false)}
-                className="rounded-md border border-line bg-soft px-4 py-3 text-sm font-medium text-slate-800"
-              >
-                {dictionary.nav.resources}
-              </Link>
-            ) : null}
           </nav>
           <div className="mt-4 flex flex-wrap gap-2">
             {localeLinks.map((item) => (

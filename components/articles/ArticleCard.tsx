@@ -1,4 +1,5 @@
 import { ArrowRight, BookOpenText, FileText } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import type { Article } from "@/lib/content/articleTypes";
 import { getArticlePath } from "@/lib/content/articleHelpers";
@@ -16,11 +17,29 @@ export function ArticleCard({ article, ctaLabel }: ArticleCardProps) {
 
   return (
     <article className="flex h-full flex-col rounded-md border border-line bg-white p-5 shadow-soft transition hover:-translate-y-0.5 hover:border-sky hover:shadow-glow">
-      <div className="flex items-start justify-between gap-4">
-        <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-mint text-teal">
-          <Icon size={20} aria-hidden />
+      <div className="relative overflow-hidden rounded-md border border-sky/25 bg-gradient-to-br from-white via-mint to-soft">
+        {article.image ? (
+          <Image
+            src={article.image}
+            alt={article.imageAlt ?? article.title}
+            width={900}
+            height={506}
+            className="aspect-[16/9] w-full object-cover"
+            style={{ objectPosition: article.imagePosition ?? "center" }}
+          />
+        ) : (
+          <div className="flex aspect-[16/9] items-center justify-center p-5">
+            <div className="grid justify-items-center gap-3 text-center">
+              <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white text-teal shadow-soft">
+                <Icon size={22} aria-hidden />
+              </span>
+              <span className="text-xs font-semibold uppercase tracking-wide text-teal">{article.category}</span>
+            </div>
+          </div>
+        )}
+        <div className="absolute right-3 top-3">
+          <ArticleTag>{article.category}</ArticleTag>
         </div>
-        <ArticleTag>{article.category}</ArticleTag>
       </div>
 
       <div className="mt-6">

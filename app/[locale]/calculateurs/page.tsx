@@ -24,12 +24,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: "Calculateurs fiscaux en Israël | Eliezer Torjmane",
     description:
-      "Calculateurs fiscaux en Israël : salaire net, נקודות זיכוי, Ehzer Mass, Bituah Leumi, impôt sur le revenu et statut d’indépendant.",
+      "Calculateurs fiscaux en Israël : salaire net, נקודות זיכוי, Ehzer Mass, Bitouah Leumi, impôt sur le revenu et statut d’indépendant.",
     keywords: [
       "calculateur impôt Israël",
       "calculateur salaire brut net Israël",
       "calculateur Ehzer Mass",
-      "Bituah Leumi indépendant",
+      "Bitouah Leumi indépendant",
       "נקודות זיכוי עולה חדש"
     ],
     alternates: {
@@ -62,7 +62,7 @@ export default async function FrenchCalculatorsPage({ params }: PageProps) {
               <h1 className="text-balance text-4xl font-semibold text-ink sm:text-5xl">Calculateurs fiscaux en Israël</h1>
               <p className="mt-5 text-lg leading-8 text-slate-600">
                 Des outils simples pour estimer votre situation fiscale en Israël : salaire net, נקודות זיכוי, Ehzer Mass,
-                Bituah Leumi et statut d’indépendant.
+                Bitouah Leumi et statut d’indépendant.
               </p>
             </div>
           </Reveal>
