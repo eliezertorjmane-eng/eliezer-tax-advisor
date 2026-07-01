@@ -783,38 +783,46 @@ export const articles: Article[] = [
     },
     caseStudy: {
       situation:
-        "Un propriétaire louait un appartement résidentiel en Israël et hésitait entre Massloul Ptor, Massloul 10 % et Massloul Mass Shouli.",
+        "Un propriétaire louait un appartement résidentiel et avait choisi le Massloul 10 % parce qu’il semblait simple.",
       problem:
-        "Le Massloul 10 % semblait simple, mais les dépenses et les autres revenus pouvaient changer l’analyse.",
+        "Après ajout des dépenses et des autres revenus, une autre route pouvait parfois mériter une vérification.",
       analysis:
-        "Le choix devait tenir compte du loyer mensuel, des frais, de la situation personnelle et des seuils de l’année fiscale.",
+        "Le choix devait comparer le loyer, les dépenses, les autres revenus et la tranche marginale, puis être confronté au calculateur.",
       lesson:
-        "La route la plus simple n’est pas toujours la plus adaptée. Les Massloulim Mass doivent être comparés avant de choisir."
+        "Le Massloul le plus simple n’est pas toujours le plus adapté. Les chiffres doivent être posés avant de choisir."
     },
     sections: [
       {
         title: "Situation",
         paragraphs: [
-          "Cas pratique anonymisé : un propriétaire percevait des loyers en Israël et voulait choisir rapidement le Massloul 10 % parce qu’il semblait le plus simple.",
-          "Une vérification était nécessaire avant de décider."
+          "Cas pratique anonymisé : un propriétaire percevait un loyer résidentiel en Israël et avait choisi mentalement le Massloul 10 % parce qu’il semblait simple.",
+          "Dans un exemple illustratif, le loyer mensuel pouvait être autour de 7,500 ₪, avec des dépenses annuelles importantes liées aux intérêts, réparations et frais de gestion."
         ]
       },
       {
-        title: "Problème",
+        title: "La crainte du client",
         paragraphs: [
-          "Le choix d’un Massloul Mass ne dépend pas seulement du loyer. Il peut aussi dépendre des dépenses, des autres revenus, de la tranche marginale et du nombre de biens."
+          "Sa crainte était de compliquer inutilement le dossier. Il pensait que le Massloul 10 % évitait toute discussion, mais il ne savait pas si les dépenses et les autres revenus changeaient l’analyse."
         ]
       },
       {
-        title: "Analyse",
+        title: "Le point fiscal à vérifier",
         paragraphs: [
-          "Il fallait comparer les trois routes principales : Massloul Ptor, Massloul 10 % et Massloul Mass Shouli. Le Massloul 10 % peut être pratique, mais il n’est pas forcément optimal si les dépenses ou la situation personnelle changent le calcul."
+          "Le choix d’un Massloul Mass ne dépend pas seulement du loyer. Il peut aussi dépendre des dépenses, des autres revenus, de la tranche marginale, du nombre de biens et de la nature résidentielle de la location."
         ]
       },
       {
-        title: "Enseignement",
+        title: "L’analyse",
         paragraphs: [
-          "Avant de choisir, il faut poser les chiffres principaux et vérifier l’année fiscale concernée. Le choix doit rester documenté et adapté au dossier."
+          "Il fallait comparer Massloul Ptor, Massloul 10 % et Massloul Mass Shouli. Le Massloul 10 % peut être pratique, mais il n’est pas forcément optimal si les dépenses déclarables ou la situation personnelle modifient le calcul.",
+          "Une première simulation permettait de voir quelle route semblait la plus avantageuse, puis de décider quels documents devaient être revus avant de déclarer."
+        ]
+      },
+      {
+        title: "Ce que ce cas montre",
+        paragraphs: [
+          "Avant de choisir, il faut poser les chiffres principaux et vérifier l’année fiscale concernée. Le choix doit rester documenté et adapté au dossier.",
+          "Le calculateur aide à comparer les routes, mais une vérification personnalisée reste recommandée lorsque les dépenses sont élevées, que plusieurs biens sont loués ou que les revenus personnels changent la tranche marginale."
         ],
         links: [
           {
@@ -876,7 +884,8 @@ export const articles: Article[] = [
         title: "Pourquoi ce sujet est important ?",
         paragraphs: [
           "En Israël, une personne qui possède déjà un appartement et achète un nouveau bien peut parfois être considérée comme משפר דיור. Dans certains cas, cela permet de bénéficier du traitement fiscal d’une דירה יחידה pour le Mass Rehisha, même si elle détient temporairement deux appartements.",
-          "La différence entre le Mass Rehisha applicable à une דירה יחידה et celui applicable à une דירה שנייה peut être très importante. Beaucoup d’acheteurs signent avec un קבלן sans avoir clarifié la chronologie fiscale."
+          "Mass Rehisha (מס רכישה) est la taxe d’acquisition payée lors de l’achat d’un bien immobilier en Israël. La différence entre le traitement דירה יחידה et le traitement דירה שנייה peut être très importante, surtout lorsque le prix du bien est élevé.",
+          "Beaucoup d’acheteurs signent avec un קבלן sans avoir clarifié la chronologie fiscale. Or, dans certains dossiers, l’enjeu peut représenter des dizaines, voire des centaines de milliers de shekels. L’enjeu ne se limite pas au Mass Rehisha : il peut aussi concerner la stratégie de conservation et de revente des deux biens."
         ],
         bullets: [
           "Le traitement דירה יחידה peut être beaucoup plus favorable qu’un traitement דירה שנייה.",
@@ -900,16 +909,22 @@ export const articles: Article[] = [
         ]
       },
       {
-        title: "Le 2 contre 1 : deux appartements temporairement, mais objectif דירה יחידה",
+        title: "Le vrai avantage : 2 appartements temporairement, mais un traitement דירה יחידה",
         paragraphs: [
           "En pratique, le sujet peut se résumer ainsi : vous avez temporairement 2 appartements, mais vous voulez être traité fiscalement comme quelqu’un qui remplace sa דירה יחידה.",
-          "Ce traitement n’est pas automatique. Il dépend des déclarations, des délais, de la vente effective de l’ancien bien, du contrat d’achat, de la date de livraison prévue et du reporting fiscal."
-        ]
+          "Un acheteur peut déjà posséder l’appartement A et acheter l’appartement B sur plan auprès d’un קבלן. Si les conditions et délais sont respectés, il peut parfois payer le Mass Rehisha sur l’appartement B selon le traitement דירה יחידה, même si l’appartement A est encore détenu temporairement.",
+          "La logique économique peut être forte : pendant la construction, l’acheteur conserve l’appartement A, tandis que l’appartement B peut aussi prendre de la valeur pendant la période du projet. Si les conditions sont remplies, le Mass Rehisha peut être calculé comme דירה יחידה au lieu de דירה שנייה. Cette combinaison peut être puissante, mais elle doit être vérifiée avant signature."
+        ],
+        callout: {
+          title: "Exemple illustratif",
+          text: "Appartement A déjà détenu. Appartement B acheté sur plan en 01/2025, livraison attendue autour de 08/2030. Si les règles applicables, le טופס 4, la remise des clés et la situation personnelle le permettent, l’appartement A pourrait potentiellement être vendu dans la période autorisée après livraison, par exemple autour de 07/2031. Le délai exact doit être vérifié selon le droit en vigueur et le dossier.",
+          tone: "warning"
+        }
       },
       {
         title: "Quel est le lien avec le Mass Rehisha ?",
         paragraphs: [
-          "Le Mass Rehisha (מס רכישה) est l’impôt payé lors d’un achat immobilier en Israël. Les tranches applicables à une דירה יחידה peuvent être significativement plus favorables que les tranches applicables à une דירה שנייה.",
+          "Le Mass Rehisha (מס רכישה) est la taxe d’acquisition payée lors de l’achat d’un bien immobilier en Israël. Les tranches applicables à une דירה יחידה peuvent être significativement plus favorables que les tranches applicables à une דירה שנייה.",
           "Une mauvaise déclaration ou un délai manqué peut entraîner un complément d’impôt, des intérêts, une indexation ou des pénalités selon le cas. Le calcul doit être vérifié avant le dépôt."
         ]
       },
@@ -1051,15 +1066,17 @@ export const articles: Article[] = [
       {
         title: "De quoi parle cette mise à jour ?",
         paragraphs: [
-          "Les personnes ayant effectué des jours de מילואים peuvent, dans certains cas, bénéficier de Nekoudot Zikouy auprès de Mass Hachnassa.",
-          "Le droit dépend de l’éligibilité, du nombre de jours pris en compte et de la confirmation officielle. Pour utiliser ce droit, il faut généralement produire une attestation officielle depuis l’אזור אישי du site des מילואים de Tsahal."
+          "À partir de 2026, les personnes ayant effectué des jours de מילואים admissibles en 2025 peuvent, dans certains cas, bénéficier de Nekoudot Zikouy auprès de Mass Hachnassa.",
+          "Le droit dépend de l’éligibilité, du nombre de jours pris en compte, du service dans un מערך מזכה et de la confirmation officielle. Les niveaux d’activité concernés incluent notamment א'+, א' et ב', selon les règles applicables.",
+          "Les Nekoudot Zikouy ne sont pas une prime ponctuelle : ce sont des points de crédit d’impôt qui réduisent l’impôt sur le revenu. Pour les salariés, l’avantage se reflète généralement dans la paie lorsque l’employeur met à jour les données fiscales."
         ]
       },
       {
         title: "Quel document faut-il générer ?",
         paragraphs: [
           "Pour obtenir l’attestation, il faut se connecter à l’אזור אישי sur le site des מילואים de Tsahal et générer le document officiel : נקודות זיכוי לשנת 2025.",
-          "Ce document détaille les jours de réserve pris en compte. Il sert de support officiel pour l’avantage fiscal et peut être nécessaire pour la paie ou la déclaration fiscale."
+          "Ce document indique les jours admissibles dans le cadre éligible. Il sert de support officiel pour l’avantage fiscal et peut être nécessaire pour la paie ou la déclaration fiscale.",
+          "Si le nombre de jours indiqué dans l’attestation ne correspond pas aux jours réellement effectués, il vaut mieux attendre la mise à jour des données avant de transmettre le document à l’employeur."
         ]
       },
       {
@@ -1074,16 +1091,23 @@ export const articles: Article[] = [
         bullets: [
           "Télécharger l’attestation depuis l’אזור אישי.",
           "L’envoyer à l’employeur ou au service paie.",
-          "Vérifier si une mise à jour du טופס 101 ou du calcul de paie est nécessaire.",
+          "Marquer ou mettre à jour le טופס 101 si nécessaire.",
           "Contrôler les fiches de paie après la mise à jour.",
-          "Garder une copie pour une revue annuelle."
-        ]
+          "Garder une copie pour une revue annuelle.",
+          "En cas de plusieurs employeurs, effectuer un תיאום מס."
+        ],
+        callout: {
+          title: "Attention aux données incorrectes",
+          text: "Transmettre des données erronées peut créer un excès de crédit d’impôt et une dette future envers Mass Hachnassa. Si l’attestation est absente ou incorrecte, il faut contacter les ressources humaines de l’unité ou la hotline מילואים : 1111 extension 4.",
+          tone: "warning"
+        }
       },
       {
         title: "Comment un indépendant utilise cette attestation ?",
         bullets: [
           "Conserver l’attestation officielle.",
-          "La transmettre lors de la préparation ou de la revue annuelle.",
+          "L’utiliser dans la déclaration annuelle.",
+          "La transmettre lors de la préparation ou de la revue annuelle avec un conseiller fiscal.",
           "Vérifier son impact éventuel sur le calcul de Mass Hachnassa.",
           "Ne pas supposer que le droit est appliqué automatiquement."
         ]
@@ -1091,18 +1115,29 @@ export const articles: Article[] = [
       {
         title: "Combien de Nekoudot Zikouy peut-on recevoir ?",
         paragraphs: [
-          "Le barème doit être vérifié officiellement avant utilisation. À titre de repère à confirmer, certaines tranches peuvent dépendre du nombre de jours de מילואים admissibles."
+          "L’éligibilité commence à partir de 30 jours admissibles. Le barème ci-dessous reprend l’échelle fournie pour les jours de מילואים admissibles en מערך מזכה, à vérifier avec l’attestation officielle avant toute utilisation."
         ],
         bullets: [
+          "0-29 jours : 0 point.",
           "30-39 jours admissibles : 0,50 point.",
           "40-49 jours admissibles : 0,75 point.",
           "50-54 jours admissibles : 1,00 point.",
-          "Des périodes admissibles supplémentaires peuvent augmenter les points.",
-          "Un maximum peut s’appliquer selon les règles officielles."
+          "55-59 jours admissibles : 1,25 point.",
+          "60-64 jours admissibles : 1,50 point.",
+          "65-69 jours admissibles : 1,75 point.",
+          "70-74 jours admissibles : 2 points.",
+          "75-79 jours admissibles : 2,25 points.",
+          "80-84 jours admissibles : 2,50 points.",
+          "85-89 jours admissibles : 2,75 points.",
+          "90-94 jours admissibles : 3 points.",
+          "95-99 jours admissibles : 3,25 points.",
+          "100-104 jours admissibles : 3,50 points.",
+          "105-109 jours admissibles : 3,75 points.",
+          "110 jours et plus : 4 points."
         ],
         callout: {
           title: "Valeur annuelle à vérifier",
-          text: "La valeur d’une Nekoudat Zikouy doit être vérifiée chaque année. Ne prenez pas ce barème comme une garantie sans contrôle officiel.",
+          text: "La valeur annuelle d’une Nekoudat Zikouy doit être vérifiée chaque année avant de publier ou d’utiliser un montant en shekels.",
           tone: "warning"
         }
       },
@@ -1114,7 +1149,9 @@ export const articles: Article[] = [
           "Ne pas mettre à jour le טופס 101 si nécessaire.",
           "Ne pas vérifier la paie après la mise à jour.",
           "Confondre jours admissibles et total des jours de réserve.",
-          "Oublier d’inclure l’attestation dans la revue annuelle."
+          "Oublier d’inclure l’attestation dans la revue annuelle.",
+          "Transmettre l’attestation alors que le nombre de jours n’est pas encore à jour.",
+          "Oublier le תיאום מס lorsqu’il existe plusieurs employeurs."
         ]
       },
       {
@@ -1123,7 +1160,8 @@ export const articles: Article[] = [
           "Vérifier si l’attestation est le bon document.",
           "Expliquer quoi transmettre à l’employeur.",
           "Relire une fiche de paie ou le résultat fiscal.",
-          "Intégrer l’attestation dans une revue annuelle si nécessaire."
+          "Intégrer l’attestation dans une revue annuelle si nécessaire.",
+          "Vérifier si un תיאום מס est nécessaire en présence de plusieurs employeurs."
         ],
         links: [
           {
@@ -1155,7 +1193,7 @@ export const articles: Article[] = [
       {
         question: "Que doit faire un salarié ?",
         answer:
-          "Télécharger l’attestation, la transmettre à l’employeur ou à la paie, puis vérifier que le calcul a bien été mis à jour si le droit s’applique."
+          "Télécharger l’attestation, la transmettre à l’employeur ou à la paie, mettre à jour le טופס 101 si nécessaire, puis vérifier que le calcul a bien été mis à jour si le droit s’applique."
       },
       {
         question: "Que doit faire un indépendant ?",
@@ -1165,7 +1203,7 @@ export const articles: Article[] = [
       {
         question: "Est-ce automatique ?",
         answer:
-          "Pas toujours. L’attestation et la mise à jour doivent être vérifiées selon la situation."
+          "Pas toujours. L’attestation, le nombre de jours admissibles, le טופס 101 et la paie doivent être vérifiés selon la situation."
       },
       {
         question: "Dois-je garder l’attestation ?",
@@ -1200,47 +1238,56 @@ export const articles: Article[] = [
     relatedCalculatorSlugs: [],
     sources: [],
     cta: {
-      title: "Vérifier mon achat immobilier",
+      title: "Vérifier mon achat sur plan",
       text: "Avant de signer, vérifiez le traitement Mass Rehisha et le calendrier de vente de l’ancien bien.",
-      label: "Vérifier mon achat immobilier",
+      label: "Vérifier mon achat sur plan",
       whatsappMessage:
-        "Bonjour Eliezer, je souhaite acheter un 2e appartement sur plan et vérifier si je peux payer le Mass Rehisha comme une דירה יחידה."
+        "Bonjour Eliezer, je possède déjà un appartement et j’envisage d’acheter un 2e bien sur plan. Je souhaite vérifier si je peux payer le Mass Rehisha comme une דירה יחידה et comment organiser le calendrier de vente."
     },
     caseStudy: {
       situation:
-        "Une famille francophone en Israël possédait un appartement et voulait acheter un nouveau bien sur plan auprès d’un קבלן.",
+        "Une famille possédait l’appartement A et voulait signer l’achat d’un appartement B sur plan auprès d’un קבלן en 01/2025.",
       problem:
-        "Elle avait peur d’être imposée comme propriétaire d’une דירה שנייה, tout en ayant besoin de conserver l’ancien logement jusqu’à la livraison.",
+        "Elle craignait de payer le Mass Rehisha comme דירה שנייה ou de devoir vendre trop tôt l’appartement A.",
       analysis:
-        "La question clé était de vérifier si le traitement משפר דיור pouvait s’appliquer et à quelle date l’ancien appartement devait être vendu.",
+        "Le point fiscal était le calendrier : signature, livraison prévue autour de 08/2030, טופס 4, remise des clés et fenêtre de vente possible.",
       lesson:
-        "L’avantage fiscal peut être très important, mais la chronologie doit être comprise avant de signer."
+        "Le traitement משפר דיור peut être très utile dans certains dossiers, mais seulement si les conditions et délais sont respectés."
     },
     sections: [
       {
         title: "Situation",
         paragraphs: [
-          "Cas pratique anonymisé : une famille francophone en Israël possédait déjà un appartement et souhaitait acheter un nouveau bien sur plan auprès d’un קבלן.",
-          "Elle ne voulait pas vendre immédiatement son appartement actuel, car elle devait continuer à y vivre jusqu’à la remise des clés."
+          "Cas pratique anonymisé, avec dates illustratives : une famille francophone en Israël possédait déjà l’appartement A et souhaitait acheter l’appartement B sur plan auprès d’un קבלן.",
+          "La signature du nouveau bien était envisagée en 01/2025, avec une livraison annoncée autour de 08/2030. La famille ne voulait pas vendre l’appartement A trop tôt, car elle devait continuer à y vivre jusqu’à la remise des clés."
         ]
       },
       {
-        title: "Problème",
+        title: "La crainte du client",
         paragraphs: [
-          "La famille craignait d’être taxée comme propriétaire d’une דירה שנייה. La différence de Mass Rehisha pouvait être importante selon le traitement retenu."
+          "La première crainte était de payer immédiatement le Mass Rehisha comme acheteur d’une דירה שנייה. La seconde était de vendre l’appartement A trop tôt et de perdre plusieurs années de conservation potentielle pendant la construction.",
+          "La famille craignait aussi de manquer le délai légal, ou de créer une exposition inattendue au Mass Shevach ou au Mass Rehisha."
         ]
       },
       {
-        title: "Analyse",
+        title: "Le point fiscal à vérifier",
         paragraphs: [
-          "Le point central n’était pas seulement le nombre d’appartements détenus le jour de la signature. Il fallait vérifier si la famille pouvait être traitée comme משפר דיור et dans quel délai l’ancien appartement devait être vendu.",
-          "Le contrat, la livraison prévue, le טופס 4 et la déclaration fiscale devaient être compris avant la signature."
+          "Dans ce type de dossier, la question n’est pas seulement : acheter ou vendre ? La vraie question est le calendrier fiscal.",
+          "Il faut poser la date d’achat, la date de livraison prévue, le טופס 4, la remise des clés, la déclaration à l’administration fiscale et la date de vente envisagée pour l’appartement A."
         ]
       },
       {
-        title: "Enseignement",
+        title: "L’analyse",
         paragraphs: [
-          "Acheter avant de vendre peut être possible dans certains cas, mais ce n’est pas automatique. Le calendrier doit être cadré avant de signer, avec une attention particulière au Mass Rehisha et au Mass Shevach potentiel sur l’ancien bien."
+          "À titre d’exemple simplifié, si l’appartement B est acheté en 01/2025 et livré autour de 08/2030, l’appartement A pourrait potentiellement être vendu dans la période autorisée après livraison, par exemple autour de 07/2031, si les règles applicables et les conditions du dossier le permettent.",
+          "L’intérêt d’une revue fiscale est de vérifier si le traitement משפר דיור peut s’appliquer, d’éviter un traitement דירה שנייה lorsque le traitement דירה יחידה peut être disponible, et de planifier la vente sans précipitation inutile."
+        ]
+      },
+      {
+        title: "Ce que ce cas montre",
+        paragraphs: [
+          "Dans certains cas, la différence entre les deux traitements peut atteindre des dizaines, voire des centaines de milliers de shekels, selon les prix et les délais.",
+          "Conserver les deux biens pendant une longue construction peut aussi créer une opportunité de valorisation, mais cela doit être mis en balance avec le financement, le risque de marché et les délais fiscaux. Le calendrier doit être cadré avant la signature."
         ],
         links: [
           {
@@ -1285,38 +1332,47 @@ export const articles: Article[] = [
     },
     caseStudy: {
       situation:
-        "Un salarié francophone avait effectué des jours de מילואים et pensait que l’avantage fiscal serait appliqué automatiquement.",
+        "Un salarié avait effectué des jours de מילואים admissibles en 2025 et pensait que l’avantage 2026 serait automatique.",
       problem:
-        "La paie n’avait pas nécessairement appliqué les Nekoudot Zikouy, car l’attestation spécifique n’avait pas été transmise.",
+        "La paie n’avait rien mis à jour, car le certificat נקודות זיכוי לשנת 2025 n’avait pas été transmis.",
       analysis:
-        "Le document requis devait être généré depuis l’אזור אישי sur le site des מילואים de Tsahal, puis transmis à l’employeur ou conservé pour la revue annuelle.",
+        "Le document devait être généré depuis l’אזור אישי, vérifié, transmis à l’employeur et accompagné de la mise à jour du טופס 101 si nécessaire.",
       lesson:
-        "Il ne faut pas attendre la fin de l’année. Il faut télécharger le bon document et vérifier la paie ou la revue fiscale annuelle."
+        "Le droit peut réduire Mass Hachnassa via la paie, mais il faut le bon certificat et un contrôle de la fiche de paie."
     },
     sections: [
       {
         title: "Situation",
         paragraphs: [
-          "Cas pratique anonymisé : un salarié francophone en Israël avait effectué des jours de מילואים et pensait que le droit fiscal serait appliqué automatiquement."
+          "Cas pratique anonymisé : un salarié francophone en Israël avait effectué des jours de מילואים admissibles en 2025. En 2026, il pensait que les Nekoudot Zikouy seraient appliquées automatiquement par son employeur.",
+          "Il disposait d’un document général de réserve, mais pas du certificat spécifique נקודות זיכוי לשנת 2025."
         ]
       },
       {
-        title: "Problème",
+        title: "La crainte du client",
         paragraphs: [
-          "L’employeur ou la paie ne pouvait pas toujours appliquer les Nekoudot Zikouy sans le document spécifique. Un simple document général de מילואים ne suffisait pas forcément."
+          "Sa crainte était simple : perdre l’avantage fiscal alors qu’il avait bien effectué les jours de réserve. Il ne savait pas non plus si l’employeur devait recevoir un document particulier ou si la mise à jour se faisait seule."
         ]
       },
       {
-        title: "Analyse",
+        title: "Le point fiscal à vérifier",
         paragraphs: [
-          "La bonne démarche consistait à générer l’attestation depuis l’אזור אישי sur le site des מילואים de Tsahal, vérifier l’année indiquée et la transmettre au bon interlocuteur.",
-          "Ensuite, il fallait contrôler la fiche de paie ou intégrer le document dans la revue annuelle de Mass Hachnassa."
+          "Le point fiscal n’était pas de demander une faveur. Il s’agissait de faire appliquer un droit fiscal déjà prévu, avec le bon document.",
+          "Le certificat officiel devait être généré depuis l’אזור אישי sur le site des מילואים de Tsahal, puis transmis à l’employeur. Le salarié devait aussi vérifier si le טופס 101 devait être marqué ou mis à jour."
         ]
       },
       {
-        title: "Enseignement",
+        title: "L’analyse",
         paragraphs: [
-          "Les droits liés aux מילואים doivent être documentés. Télécharger l’attestation tôt permet d’éviter une correction tardive ou une vérification incomplète en fin d’année."
+          "Avant de transmettre l’attestation, il fallait vérifier que le nombre de jours indiqué correspondait bien aux jours admissibles. Si les jours n’étaient pas encore à jour, il valait mieux attendre la correction plutôt que de créer un crédit d’impôt excessif.",
+          "Une donnée incorrecte peut créer une réduction d’impôt trop élevée et une dette future envers Mass Hachnassa. Après transmission, la fiche de paie devait être contrôlée pour vérifier que le bénéfice était bien reflété."
+        ]
+      },
+      {
+        title: "Ce que ce cas montre",
+        paragraphs: [
+          "Les droits liés aux מילואים doivent être documentés. Télécharger le bon certificat tôt permet d’éviter une correction tardive ou une vérification incomplète en fin d’année.",
+          "Pour un salarié, l’avantage peut réduire l’impôt via la paie. Pour un indépendant, il doit être intégré dans la déclaration annuelle. Dans les deux cas, le document et les jours admissibles doivent être vérifiés."
         ],
         links: [
           {
