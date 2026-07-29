@@ -428,6 +428,11 @@ export const resourceIndexCards = [
     description: "Comparer le Massloul Ptor, le Massloul 10 % et le Massloul Mass Shouli pour des loyers résidentiels."
   },
   {
+    href: "/fr/calculateurs/nekoudot-zikouy-enfants",
+    title: "Calculateur Nekoudot Zikouy enfants",
+    description: "Estimer les points de crédit liés aux enfants pour une situation familiale standard."
+  },
+  {
     href: "/fr/fiscalite-salaries-israel",
     title: "Comprendre sa situation de salarié",
     description: "Faire le point sur les fiches de paie, changements d’emploi et questions de remboursement d’impôt."

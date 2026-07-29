@@ -1053,7 +1053,7 @@ export const articles: Article[] = [
     priority: 5,
     heroLabel: "Mise à jour fiscale 2026",
     relatedArticleSlugs: ["nekoudot-zikouy-milouim-attestation-tsahal", "certificat-residence-fiscale-israel"],
-    relatedCalculatorSlugs: ["nekoudot-zikouy", "ehzer-mass"],
+    relatedCalculatorSlugs: ["nekoudot-zikouy", "nekoudot-zikouy-enfants", "ehzer-mass"],
     sources: [],
     cta: {
       title: "Vous avez fait des מילואים ?",
@@ -1164,6 +1164,10 @@ export const articles: Article[] = [
           "Vérifier si un תיאום מס est nécessaire en présence de plusieurs employeurs."
         ],
         links: [
+          {
+            href: "/fr/calculateurs/nekoudot-zikouy-enfants",
+            label: "Calculateur Nekoudot Zikouy enfants"
+          },
           {
             href: "/fr/cas-reels/nekoudot-zikouy-milouim-attestation-tsahal",
             label: "Lire le cas pratique מילואים"

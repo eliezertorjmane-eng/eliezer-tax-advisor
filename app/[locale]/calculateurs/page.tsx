@@ -81,6 +81,7 @@ export default async function FrenchCalculatorsPage({ params }: PageProps) {
                   description={calculator.description}
                   badge={calculator.badge}
                   featured={"featured" in calculator ? calculator.featured : false}
+                  cta={"cta" in calculator ? calculator.cta : undefined}
                 />
               </Reveal>
             ))}

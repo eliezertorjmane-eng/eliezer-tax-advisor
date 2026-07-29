@@ -25,8 +25,16 @@
 - Calculateurs full Hebrew and English.
 - Google Business posts.
 - Monthly SEO content calendar.
-- Google Search Console query signal: declaration fiscale israel.
-- Google Search Console query signal: déclaration impôts israël.
+- Google Search Console query signal: declaration fiscale israel — 15 impressions.
+- Google Search Console query signal: impot loyers israel — 4 impressions.
+- Google Search Console query signal: déclaration impôts israël — 3 impressions.
+- Google Search Console query signal: autoentrepreneur israël — 3 impressions.
+- Google Search Console query signal: sde eliezer — 2 impressions.
+- Google Search Console query signal: ouvrir une entreprise israël — 2 impressions.
+- Google Search Console query signal: tax management israel — 2 impressions.
+- Google Search Console query signal: torjmane — 1 impression.
+- Google Search Console query signal: tax israel — 1 impression.
+- Create or strengthen a dedicated French pillar page for déclaration fiscale en Israël and improve the opening-business / autoentrepreneur semantic cluster.
 
 ## Official Source Follow-Ups
 

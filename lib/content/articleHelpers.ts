@@ -126,6 +126,10 @@ export function getRelatedCalculatorLinks(article: Article) {
       label: "Calculateur נקודות זיכוי olé hadash"
     },
     "nekoudot-zikouy": { href: "/fr/calculateurs/nekoudot-zikouy", label: "Calculateur נקודות זיכוי" },
+    "nekoudot-zikouy-enfants": {
+      href: "/fr/calculateurs/nekoudot-zikouy-enfants",
+      label: "Calculateur Nekoudot Zikouy enfants"
+    },
     "salaire-brut-net-israel": {
       href: "/fr/calculateurs/salaire-brut-net-israel",
       label: "Calculateur salaire brut / net"

@@ -15,6 +15,14 @@ import {
 import { officialSimulators, type FrenchCalculatorSlug } from "@/lib/calculators";
 import { TAX_YEAR } from "@/lib/tax/constants2026";
 import { calculateBituahLeumiIndependent } from "@/lib/tax/bituahLeumi";
+import {
+  calculateChildCreditPoints,
+  defaultChildCreditTaxYear,
+  getChildCreditSpecialSituationWarning,
+  supportedChildCreditTaxYears,
+  type ChildCreditParentProfile,
+  type ChildCreditTaxYear
+} from "@/lib/tax/childCreditPoints";
 import { calculateKnownCreditPointValue } from "@/lib/tax/creditPoints";
 import { calculateEhzerMassPrecheck, type EhzerMassInputs } from "@/lib/tax/ehzerMass";
 import { formatILS, formatNumber } from "@/lib/tax/format";
@@ -301,6 +309,201 @@ function CreditPointValueCalculator() {
             Vérifier avec le simulateur officiel de רשות המסים
           </a>
           <WhatsAppResultButton label="Faire vérifier ma situation sur WhatsApp" message={message} />
+        </div>
+      </CalculatorFrame>
+    </CalculatorShell>
+  );
+}
+
+function birthYearOptions(taxYear: ChildCreditTaxYear) {
+  return Array.from({ length: 26 }, (_, index) => taxYear - index);
+}
+
+function ChildCreditPointsCalculator() {
+  const [taxYear, setTaxYear] = useState<ChildCreditTaxYear>(defaultChildCreditTaxYear);
+  const [parentProfile, setParentProfile] = useState<ChildCreditParentProfile>("mother");
+  const [childCount, setChildCount] = useState(2);
+  const [birthYears, setBirthYears] = useState<number[]>([defaultChildCreditTaxYear - 3, defaultChildCreditTaxYear - 8]);
+
+  const normalizedBirthYears = useMemo(() => birthYears.slice(0, childCount), [birthYears, childCount]);
+  const result = useMemo(
+    () =>
+      calculateChildCreditPoints({
+        taxYear,
+        parentProfile,
+        childrenBirthYears: normalizedBirthYears
+      }),
+    [normalizedBirthYears, parentProfile, taxYear]
+  );
+  const message =
+    "Bonjour Eliezer, je souhaite vérifier mes Nekoudot Zikouy liées à mes enfants et m’assurer qu’elles sont correctement appliquées dans mon טופס 101 ou ma déclaration fiscale.";
+
+  function updateTaxYear(value: string) {
+    const nextTaxYear = Number(value) as ChildCreditTaxYear;
+    setTaxYear(nextTaxYear);
+    setBirthYears((current) =>
+      current.map((birthYear) => Math.min(nextTaxYear, Math.max(nextTaxYear - 25, birthYear)))
+    );
+  }
+
+  function updateChildCount(nextCount: number) {
+    const safeCount = Math.min(15, Math.max(0, nextCount));
+    setChildCount(safeCount);
+    setBirthYears((current) => {
+      if (safeCount <= current.length) return current;
+      return [...current, ...Array.from({ length: safeCount - current.length }, () => taxYear - 3)];
+    });
+  }
+
+  function updateBirthYear(index: number, value: string) {
+    const nextBirthYear = Number(value);
+    setBirthYears((current) => current.map((birthYear, currentIndex) => (currentIndex === index ? nextBirthYear : birthYear)));
+  }
+
+  return (
+    <CalculatorShell
+      title="Calculateur Nekoudot Zikouy enfants"
+      subtitle="Estimez les נקודות זיכוי liées aux enfants pour une situation standard, selon l’année fiscale et le profil parent."
+    >
+      <CalculatorFrame>
+        <FieldPanel>
+          <SelectField label="Année fiscale" value={String(taxYear)} onChange={updateTaxYear}>
+            {supportedChildCreditTaxYears.map((year) => (
+              <option key={year} value={year}>
+                {year}
+              </option>
+            ))}
+          </SelectField>
+          <SelectField
+            label="Profil parent"
+            value={parentProfile}
+            onChange={(value) => setParentProfile(value as ChildCreditParentProfile)}
+          >
+            <option value="mother">Mère</option>
+            <option value="father">Père</option>
+            <option value="special">Situation familiale particulière / à vérifier</option>
+          </SelectField>
+
+          <div className="rounded-md border border-line bg-paper p-4">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="text-sm font-semibold leading-6 text-slate-700">Nombre d’enfants</p>
+                <p className="mt-1 text-xs leading-5 text-slate-500">Entre 0 et 15 enfants.</p>
+              </div>
+              <div className="grid grid-cols-[44px_76px_44px] items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => updateChildCount(childCount - 1)}
+                  className="min-h-11 rounded-md border border-line bg-white text-lg font-semibold text-teal transition hover:border-sky hover:bg-mint"
+                  aria-label="Retirer un enfant"
+                >
+                  -
+                </button>
+                <input
+                  type="number"
+                  min="0"
+                  max="15"
+                  value={childCount}
+                  onChange={(event) => updateChildCount(toNumber(event.target.value))}
+                  className="min-h-11 rounded-md border border-line bg-white px-3 text-center font-semibold text-ink outline-none transition focus:border-sky"
+                />
+                <button
+                  type="button"
+                  onClick={() => updateChildCount(childCount + 1)}
+                  className="min-h-11 rounded-md border border-line bg-white text-lg font-semibold text-teal transition hover:border-sky hover:bg-mint"
+                  aria-label="Ajouter un enfant"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {childCount > 0 ? (
+            <div className="grid gap-3">
+              {normalizedBirthYears.map((birthYear, index) => (
+                <SelectField
+                  key={index}
+                  label={`Enfant ${index + 1} — année de naissance`}
+                  value={String(birthYear)}
+                  onChange={(value) => updateBirthYear(index, value)}
+                >
+                  {birthYearOptions(taxYear).map((year) => (
+                    <option key={year} value={year}>
+                      {year}
+                    </option>
+                  ))}
+                </SelectField>
+              ))}
+            </div>
+          ) : (
+            <DisclaimerBox>Aucun enfant saisi : le calcul reste neutre.</DisclaimerBox>
+          )}
+
+          <ResetButton
+            onClick={() => {
+              setTaxYear(defaultChildCreditTaxYear);
+              setParentProfile("mother");
+              setChildCount(2);
+              setBirthYears([defaultChildCreditTaxYear - 3, defaultChildCreditTaxYear - 8]);
+            }}
+          />
+        </FieldPanel>
+
+        <div className="grid gap-5">
+          {result.shouldCalculate ? (
+            <>
+              <ResultCard title="Total points enfants" value={formatNumber(result.totalPoints)} tone="strong">
+                Valeur maximale estimée : <strong>{formatILS(result.monthlyMaxValue)}</strong> par mois, soit{" "}
+                <strong>{formatILS(result.annualMaxValue)}</strong> par an.
+              </ResultCard>
+              <ResultCard title="Valeur d’une Nekoudat Zikouy">
+                Année {result.taxYear} : <strong>{formatILS(result.monthlyPointValue)}</strong> par mois, soit{" "}
+                <strong>{formatILS(result.annualPointValue)}</strong> par an.
+              </ResultCard>
+              {result.details.length > 0 ? (
+                <div className="rounded-md border border-line bg-white p-5 shadow-soft">
+                  <h2 className="text-xl font-semibold text-ink">Détail par enfant</h2>
+                  <div className="mt-4 grid gap-3">
+                    {result.details.map((child) => (
+                      <div key={child.childIndex} className="rounded-md border border-line bg-paper p-4 text-sm leading-7 text-slate-600">
+                        <p className="font-semibold text-ink">Enfant {child.childIndex}</p>
+                        <p>
+                          Naissance {child.birthYear}, âge fiscal {child.fiscalAge} :{" "}
+                          <strong>{formatNumber(child.points)} point(s)</strong>
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+            </>
+          ) : (
+            <ResultCard title="Situation à vérifier" tone="strong">
+              {getChildCreditSpecialSituationWarning()}
+            </ResultCard>
+          )}
+
+          {result.warnings.map((warning) => (
+            <DisclaimerBox key={warning}>{warning}</DisclaimerBox>
+          ))}
+          {result.shouldCalculate ? (
+            <DisclaimerBox>
+              La valeur indiquée réduit uniquement l’impôt dû. Elle ne garantit pas un remboursement et ne vérifie pas les
+              autres droits fiscaux.
+            </DisclaimerBox>
+          ) : null}
+          <div className="rounded-md border border-sky/25 bg-white p-5 shadow-glow">
+            <h2 className="text-xl font-semibold text-ink">Vos Nekoudot Zikouy sont-elles bien appliquées ?</h2>
+            <p className="mt-3 text-sm leading-7 text-slate-600">
+              Une erreur dans le טופס 101 ou dans la déclaration annuelle peut entraîner un impôt trop élevé. Eliezer peut
+              vérifier votre situation et les points réellement pris en compte.
+            </p>
+            <div className="mt-5">
+              <WhatsAppResultButton label="Vérifier mes Nekoudot Zikouy" message={message} />
+            </div>
+          </div>
+          {result.assumptions.length > 0 ? <Assumptions items={result.assumptions} /> : null}
         </div>
       </CalculatorFrame>
     </CalculatorShell>
@@ -596,6 +799,7 @@ export function FrenchCalculator({ slug }: { slug: FrenchCalculatorSlug }) {
   if (slug === "bituah-leumi-independant") return <BituahLeumiCalculator />;
   if (slug === "ole-hadash-nekoudot-zikouy") return <OlehHadashCalculator />;
   if (slug === "nekoudot-zikouy") return <CreditPointValueCalculator />;
+  if (slug === "nekoudot-zikouy-enfants") return <ChildCreditPointsCalculator />;
   if (slug === "salaire-brut-net-israel") return <SalaryCalculator />;
   if (slug === "impot-revenus-locatifs-israel") return <RentalIncomeCalculator />;
   return <IncomeTaxCalculator />;

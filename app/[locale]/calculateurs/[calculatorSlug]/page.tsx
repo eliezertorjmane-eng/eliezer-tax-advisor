@@ -33,6 +33,17 @@ const metaBySlug: Record<FrenchCalculatorSlug, { title: string; description: str
     description: "Calculez la valeur annuelle et mensuelle estimée de vos נקודות זיכוי.",
     keywords: ["נקודות זיכוי", "valeur point crédit Israël", "calculateur impôt Israël"]
   },
+  "nekoudot-zikouy-enfants": {
+    title: "Calculateur Nekoudot Zikouy enfants | Points de crédit Israël 2026",
+    description:
+      "Estimez les Nekoudot Zikouy liées aux enfants en Israël selon l’année fiscale, le profil parent et l’année de naissance de chaque enfant.",
+    keywords: [
+      "Nekoudot Zikouy enfants",
+      "נקודות זיכוי ילדים",
+      "טופס 101 enfants",
+      "points de crédit enfants Israël"
+    ]
+  },
   "salaire-brut-net-israel": {
     title: "Calculateur salaire brut net Israël | Estimation 2026",
     description: "Estimez votre salaire net mensuel en Israël à partir du brut, des נקודות זיכוי et des retenues principales.",
@@ -83,6 +94,42 @@ const relatedContentByCalculator: Partial<Record<FrenchCalculatorSlug, Array<{ h
       href: "/fr/hahzar-mas-remboursement-impot-israel",
       label: "Lire la page Ehzer Mass",
       text: "Un changement de salaire, d’employeur ou de נקודות זיכוי peut parfois justifier une vérification."
+    },
+    {
+      href: "/fr/calculateurs/nekoudot-zikouy-enfants",
+      label: "Calculer les points enfants",
+      text: "Les points liés aux enfants peuvent modifier l’impôt prélevé sur la fiche de paie."
+    }
+  ],
+  "impot-revenu-israel": [
+    {
+      href: "/fr/calculateurs/nekoudot-zikouy-enfants",
+      label: "Calculer les points enfants",
+      text: "Ajoutez les Nekoudot Zikouy liées aux enfants à votre estimation d’impôt."
+    }
+  ],
+  "nekoudot-zikouy": [
+    {
+      href: "/fr/calculateurs/nekoudot-zikouy-enfants",
+      label: "Calculateur enfants",
+      text: "Estimer les points enfants avant de convertir les נקודות זיכוי en valeur mensuelle ou annuelle."
+    }
+  ],
+  "nekoudot-zikouy-enfants": [
+    {
+      href: "/fr/calculateurs/nekoudot-zikouy",
+      label: "Valeur des נקודות זיכוי",
+      text: "Comprendre la valeur annuelle et mensuelle d’un point de crédit."
+    },
+    {
+      href: "/fr/calculateurs/salaire-brut-net-israel",
+      label: "Calculateur salaire",
+      text: "Vérifier l’effet estimatif des points sur une fiche de paie israélienne."
+    },
+    {
+      href: "/fr/guides/nekoudot-zikouy-milouim-2026",
+      label: "Guide מילואים 2026",
+      text: "Ne pas confondre les points enfants avec les droits éventuels liés aux jours de מילואים."
     }
   ],
   "impot-revenus-locatifs-israel": [
@@ -132,6 +179,34 @@ const rentalIncomeFaq = [
   }
 ];
 
+const childCreditFaq = [
+  {
+    question: "Que calcule ce calculateur Nekoudot Zikouy enfants ?",
+    answer:
+      "Il estime les points de crédit liés aux enfants dans une situation standard, selon l’année fiscale, le profil Père ou Mère et l’année de naissance de chaque enfant."
+  },
+  {
+    question: "La valeur affichée est-elle un remboursement garanti ?",
+    answer:
+      "Non. Les Nekoudot Zikouy réduisent l’impôt dû. Si l’impôt est inférieur à la valeur des points, une partie peut ne pas être utilisée."
+  },
+  {
+    question: "Pourquoi les situations particulières ne sont-elles pas calculées ?",
+    answer:
+      "Les situations de parent isolé, garde partagée, enfant en situation de handicap ou autres cas particuliers nécessitent une vérification personnalisée."
+  },
+  {
+    question: "Faut-il mettre à jour le טופס 101 ?",
+    answer:
+      "Pour les salariés, les informations familiales doivent généralement être correctement déclarées dans le טופס 101 afin que la paie applique les points pertinents."
+  },
+  {
+    question: "Puis-je utiliser ce calculateur pour les droits מילואים ?",
+    answer:
+      "Non. Les droits éventuels liés aux jours de מילואים suivent des règles distinctes et doivent être vérifiés séparément avec l’attestation officielle."
+  }
+];
+
 function getRentalIncomeFaqJsonLd() {
   return {
     "@context": "https://schema.org",
@@ -145,6 +220,94 @@ function getRentalIncomeFaqJsonLd() {
       }
     }))
   };
+}
+
+function getChildCreditFaqJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: childCreditFaq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer
+      }
+    }))
+  };
+}
+
+function ChildCreditSeoContent() {
+  return (
+    <section className="bg-white px-5 py-12 sm:px-6 sm:py-16 lg:px-8">
+      <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
+        <div className="grid gap-5">
+          <article className="rounded-md border border-line bg-white p-6 shadow-soft">
+            <p className="text-base leading-8 text-slate-600">
+              En Israël, les Nekoudot Zikouy liées aux enfants peuvent réduire le Mass Hachnassa dû par un parent. Le
+              calcul dépend notamment de l’année fiscale, de l’âge fiscal de chaque enfant et du profil parent.
+            </p>
+          </article>
+
+          <article className="rounded-md border border-line bg-white p-6 shadow-soft">
+            <h2 className="text-2xl font-semibold text-ink">Comment sont estimés les points enfants ?</h2>
+            <p className="mt-4 text-sm leading-7 text-slate-600">
+              Le calculateur utilise l’année fiscale moins l’année de naissance pour obtenir l’âge fiscal. Il applique
+              ensuite le barème standard Père ou Mère pour les années 2024, 2025 et 2026. Les situations familiales
+              particulières ne sont pas calculées automatiquement.
+            </p>
+          </article>
+
+          <article className="rounded-md border border-line bg-white p-6 shadow-soft">
+            <h2 className="text-2xl font-semibold text-ink">Pourquoi le טופס 101 est important</h2>
+            <p className="mt-4 text-sm leading-7 text-slate-600">
+              Pour un salarié, une erreur ou une information manquante dans le טופס 101 peut empêcher l’application correcte
+              des points sur la paie. Une revue peut aussi être utile dans une déclaration annuelle, notamment si la
+              situation familiale a changé.
+            </p>
+          </article>
+
+          <article className="rounded-md border border-line bg-white p-6 shadow-soft">
+            <h2 className="text-2xl font-semibold text-ink">Ce que ce calculateur ne vérifie pas</h2>
+            <p className="mt-4 text-sm leading-7 text-slate-600">
+              Il ne calcule pas les droits liés à un parent isolé, une garde partagée, un enfant en situation de handicap,
+              un olé hadash, les מילואים, la résidence fiscale ou d’autres crédits personnels. Ces éléments peuvent changer
+              le résultat réel et doivent être vérifiés séparément.
+            </p>
+          </article>
+
+          <article className="rounded-md border border-line bg-white p-6 shadow-soft">
+            <h2 className="text-2xl font-semibold text-ink">Questions fréquentes</h2>
+            <div className="mt-5 grid gap-3">
+              {childCreditFaq.map((item) => (
+                <details key={item.question} className="group rounded-md border border-line bg-paper p-4">
+                  <summary className="cursor-pointer text-sm font-semibold leading-6 text-ink">{item.question}</summary>
+                  <p className="mt-3 text-sm leading-7 text-slate-600">{item.answer}</p>
+                </details>
+              ))}
+            </div>
+          </article>
+        </div>
+
+        <aside className="rounded-md border border-sky/25 bg-mint p-5 shadow-glow lg:sticky lg:top-28">
+          <h2 className="text-xl font-semibold text-ink">Vos points sont-ils appliqués ?</h2>
+          <p className="mt-3 text-sm leading-7 text-slate-700">
+            Une vérification du טופס 101, des fiches de paie ou de la déclaration annuelle peut éviter un impôt trop élevé.
+          </p>
+          <a
+            href={buildWhatsAppUrl(
+              "Bonjour Eliezer, je souhaite vérifier mes Nekoudot Zikouy liées à mes enfants et m’assurer qu’elles sont correctement appliquées dans mon טופס 101 ou ma déclaration fiscale."
+            )}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-5 inline-flex min-h-11 items-center justify-center rounded-full blue-gradient px-5 text-sm font-semibold text-white shadow-glow"
+          >
+            Vérifier mes Nekoudot Zikouy
+          </a>
+        </aside>
+      </div>
+    </section>
+  );
 }
 
 function RentalIncomeSeoContent() {
@@ -283,14 +446,19 @@ export default async function FrenchCalculatorPage({ params }: PageProps) {
   const calculator = frenchCalculators.find((item) => item.slug === slug);
   const relatedContent = relatedContentByCalculator[slug] ?? [];
   const rentalIncomeFaqJsonLd = slug === "impot-revenus-locatifs-israel" ? getRentalIncomeFaqJsonLd() : null;
+  const childCreditFaqJsonLd = slug === "nekoudot-zikouy-enfants" ? getChildCreditFaqJsonLd() : null;
 
   return (
     <>
       {rentalIncomeFaqJsonLd ? (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(rentalIncomeFaqJsonLd) }} />
       ) : null}
+      {childCreditFaqJsonLd ? (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(childCreditFaqJsonLd) }} />
+      ) : null}
       <FrenchCalculator slug={slug} />
       {slug === "impot-revenus-locatifs-israel" ? <RentalIncomeSeoContent /> : null}
+      {slug === "nekoudot-zikouy-enfants" ? <ChildCreditSeoContent /> : null}
       {relatedContent.length > 0 ? (
         <section className="px-5 pb-6 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-6xl rounded-md border border-sky/25 bg-white p-5 shadow-glow">

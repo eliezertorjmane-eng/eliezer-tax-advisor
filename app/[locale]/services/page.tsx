@@ -45,6 +45,7 @@ const frenchServiceLinks = [
   [
     { label: "Ehzer Mass", href: "/fr/hahzar-mas-remboursement-impot-israel" },
     { label: "Calculateur salaire", href: "/fr/calculateurs/salaire-brut-net-israel" },
+    { label: "Nekoudot Zikouy enfants", href: "/fr/calculateurs/nekoudot-zikouy-enfants" },
     { label: "מילואים / Nekoudot Zikouy", href: "/fr/guides/nekoudot-zikouy-milouim-2026" }
   ],
   [

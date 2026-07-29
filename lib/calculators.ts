@@ -5,6 +5,7 @@ export const frenchCalculatorSlugs = [
   "bituah-leumi-independant",
   "ole-hadash-nekoudot-zikouy",
   "nekoudot-zikouy",
+  "nekoudot-zikouy-enfants",
   "salaire-brut-net-israel",
   "impot-revenu-israel",
   "impot-revenus-locatifs-israel"
@@ -37,6 +38,14 @@ export const frenchCalculators = [
     title: "Valeur des נקודות זיכוי",
     description: "Calculez la valeur annuelle et mensuelle de vos points de crédit.",
     badge: "Simple"
+  },
+  {
+    slug: "nekoudot-zikouy-enfants",
+    title: "Nekoudot Zikouy pour enfants",
+    description:
+      "Estimez les points liés aux enfants selon l’année fiscale, votre profil parent et les années de naissance.",
+    badge: "Famille",
+    cta: "Ouvrir le calculateur"
   },
   {
     slug: "salaire-brut-net-israel",

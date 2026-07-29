@@ -32,6 +32,7 @@ function relatedCalculatorLinks(slug: string) {
   if (slug === "fiscalite-salaries-israel") {
     return [
       { href: "/fr/calculateurs/salaire-brut-net-israel", label: "Calculateur salaire brut / net" },
+      { href: "/fr/calculateurs/nekoudot-zikouy-enfants", label: "Calculateur Nekoudot Zikouy enfants" },
       { href: "/fr/calculateurs/ehzer-mass", label: "Pré-diagnostic Ehzer Mass" }
     ];
   }
@@ -41,7 +42,10 @@ function relatedCalculatorLinks(slug: string) {
   }
 
   if (slug === "hahzar-mas-remboursement-impot-israel") {
-    return [{ href: "/fr/calculateurs/ehzer-mass", label: "Pré-diagnostic Ehzer Mass / החזר מס" }];
+    return [
+      { href: "/fr/calculateurs/ehzer-mass", label: "Pré-diagnostic Ehzer Mass / החזר מס" },
+      { href: "/fr/calculateurs/nekoudot-zikouy-enfants", label: "Calculateur Nekoudot Zikouy enfants" }
+    ];
   }
 
   return [];
