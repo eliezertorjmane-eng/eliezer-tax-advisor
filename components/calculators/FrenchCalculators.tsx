@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 import type { ReactNode } from "react";
 import {
@@ -278,6 +279,19 @@ function OlehHadashCalculator() {
             <DisclaimerBox>Date d’alyah à vérifier.</DisclaimerBox>
           )}
           <DisclaimerBox>Les périodes de service militaire ou d’études peuvent modifier le calcul. À vérifier individuellement.</DisclaimerBox>
+          <div className="rounded-md border border-sky/25 bg-mint p-5 text-sm leading-7 text-slate-700 shadow-soft">
+            <p>
+              <strong className="text-ink">Nouvelle réforme 2026 :</strong> certains Olim Hadashim et Toshavim Hozrim
+              arrivés pendant la période prévue peuvent aussi bénéficier d’une exonération spécifique sur certains revenus
+              professionnels générés en Israël. Cette réforme est distincte des Nekoudot Zikouy.
+            </p>
+            <Link
+              href="/fr/guides/reforme-fiscale-olim-hadashim-2026"
+              className="mt-3 inline-flex text-sm font-semibold text-teal transition hover:text-ink"
+            >
+              Lire le guide réforme Olim Hadashim 2026
+            </Link>
+          </div>
           <WhatsAppResultButton label="Faire vérifier mes droits d’olé hadash sur WhatsApp" message={message} />
         </div>
       </CalculatorFrame>

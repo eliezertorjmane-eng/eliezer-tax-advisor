@@ -8,7 +8,7 @@ This site keeps editorial content in `lib/content/articles.ts`.
 2. Use `type: "guide"` and `locale: "fr"` unless the full article is professionally translated.
 3. Set a stable `slug`; the public URL will be `/fr/guides/{slug}`.
 4. Fill `publishedAt` and `updatedAt` in `YYYY-MM-DD` format.
-5. Add `sources`, even if one source is a temporary TODO before final publication.
+5. Add `sources` only when a verified public source is ready. Keep unresolved source follow-ups in `TODO.md`.
 6. Add `relatedArticleSlugs` and `relatedCalculatorSlugs` to strengthen internal links.
 7. Set `featured: true` only for homepage-level articles, then control order with `priority`.
 
@@ -49,7 +49,7 @@ This site keeps editorial content in `lib/content/articles.ts`.
 
 - Prefer official Israeli Tax Authority, gov.il, legislation or official treaty links.
 - Use `status: "verified"` when the source is ready.
-- Use `status: "todo"` with a short note when a source must be completed before final publication.
+- Do not publish unresolved source placeholders. Track source follow-ups in `TODO.md` until an official source is ready.
 
 ## Related Content
 

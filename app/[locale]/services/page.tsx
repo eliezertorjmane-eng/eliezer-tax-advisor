@@ -20,25 +20,31 @@ type PageProps = {
 };
 
 const frenchServiceActions = [
-  { type: "link", label: "Lire la page", href: "/fr/creation-esek-israel" },
-  { type: "link", label: "Lire la page", href: "/fr/declarations-fiscales-israel" },
+  { type: "link", label: "Lire le guide", href: "/fr/guides/ouvrir-entreprise-israel" },
+  { type: "link", label: "Lire le guide", href: "/fr/guides/declaration-fiscale-israel" },
   { type: "link", label: "Lire la page Ehzer Mass", href: "/fr/hahzar-mas-remboursement-impot-israel" },
-  { type: "link", label: "Lire le guide עסק זעיר", href: "/fr/guides/esek-zair-israel-reforme" },
+  { type: "link", label: "Lire le guide", href: "/fr/guides/ouvrir-entreprise-israel" },
   { type: "link", label: "Utiliser un calculateur", href: "/fr/calculateurs/salaire-brut-net-israel" },
   { type: "whatsapp", label: "Me contacter" }
 ] as const;
 
 const frenchServiceLinks = [
   [
+    { label: "Ouvrir une entreprise", href: "/fr/guides/ouvrir-entreprise-israel" },
     { label: "Guide עסק זעיר", href: "/fr/guides/esek-zair-israel-reforme" },
     { label: "Calculateur Bitouah Leumi", href: "/fr/calculateurs/bituah-leumi-independant" }
   ],
-  [{ label: "Guides fiscaux", href: "/fr/guides" }],
+  [
+    { label: "Déclaration fiscale", href: "/fr/guides/declaration-fiscale-israel" },
+    { label: "Page déclarations", href: "/fr/declarations-fiscales-israel" },
+    { label: "Guides fiscaux", href: "/fr/guides" }
+  ],
   [
     { label: "Pré-diagnostic Ehzer Mass", href: "/fr/calculateurs/ehzer-mass" },
     { label: "Cas pratiques", href: "/fr/cas-reels" }
   ],
   [
+    { label: "Ouvrir une entreprise", href: "/fr/guides/ouvrir-entreprise-israel" },
     { label: "Guide עסק זעיר", href: "/fr/guides/esek-zair-israel-reforme" },
     { label: "Guides indépendants", href: "/fr/guides?category=Ind%C3%A9pendants" }
   ],
@@ -46,9 +52,12 @@ const frenchServiceLinks = [
     { label: "Ehzer Mass", href: "/fr/hahzar-mas-remboursement-impot-israel" },
     { label: "Calculateur salaire", href: "/fr/calculateurs/salaire-brut-net-israel" },
     { label: "Nekoudot Zikouy enfants", href: "/fr/calculateurs/nekoudot-zikouy-enfants" },
-    { label: "מילואים / Nekoudot Zikouy", href: "/fr/guides/nekoudot-zikouy-milouim-2026" }
+    { label: "מילואים / Nekoudot Zikouy", href: "/fr/guides/nekoudot-zikouy-milouim-2026" },
+    { label: "Réforme Olim 2026", href: "/fr/guides/reforme-fiscale-olim-hadashim-2026" }
   ],
   [
+    { label: "Déclaration fiscale", href: "/fr/guides/declaration-fiscale-israel" },
+    { label: "Réforme Olim 2026", href: "/fr/guides/reforme-fiscale-olim-hadashim-2026" },
     { label: "אישור תושבות מס", href: "/fr/guides/certificat-residence-fiscale-israel" },
     { label: "Revenus locatifs", href: "/fr/guides/revenus-locatifs-israel-masloulei-mas" },
     { label: "Calculateur loyers", href: "/fr/calculateurs/impot-revenus-locatifs-israel" },

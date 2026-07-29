@@ -34,7 +34,8 @@
 - Google Search Console query signal: tax management israel — 2 impressions.
 - Google Search Console query signal: torjmane — 1 impression.
 - Google Search Console query signal: tax israel — 1 impression.
-- Create or strengthen a dedicated French pillar page for déclaration fiscale en Israël and improve the opening-business / autoentrepreneur semantic cluster.
+- Google Search Console V8 note, 2026-07-29: declaration fiscale israel, déclaration impôts israël, autoentrepreneur israël, ouvrir une entreprise israël, tax management israel, tax israel and torjmane were used to prioritize the new French editorial cluster.
+- Monitor the new declaration fiscale, opening-business and Olim Hadashim 2026 clusters after indexing.
 
 ## Official Source Follow-Ups
 
@@ -48,6 +49,7 @@
 - Verify official Milouim 2026 / Tsahal source URL for the אזור אישי certificate flow.
 - Verify official annual value of a Nekoudat Zikouy.
 - Verify official Tsahal certificate wording and אזור אישי route if needed.
+- Add direct official Tax Authority PDF URLs for Income Tax Circular 7/2026 and Form 116ע if exposed outside the current Tax Authority service attachment flow.
 
 ## Added in V7.2
 
@@ -60,3 +62,11 @@
 - Mass Rehisha / משפר דיור guide and case strengthened.
 - Milouim 2026 / Nekoudot Zikouy guide and case strengthened with owner-provided Tsahal/miluim details.
 - Rental income case study strengthened with a clearer Massloul Mass comparison story.
+
+## Added in V8 - 2026-07-29
+
+- French pillar guide added for declaration fiscale israel / déclaration impôts israël.
+- French pillar guide added for opening-business / autoentrepreneur israël intent, including Esek Patur, Esek Mourche, Esek Zair and company comparison.
+- French pillar guide added for the Olim Hadashim 2026 reform, with official source links and no public source placeholders.
+- Three French case studies added for declaration France-Israel, pre-opening status choice and Oleh Hadash 2026 revenue separation.
+- Services, resources, calculator related links and the Oleh Hadash calculator callout were connected to the new V8 content.

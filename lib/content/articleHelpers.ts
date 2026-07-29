@@ -5,9 +5,12 @@ import { siteUrl, type Locale } from "@/lib/i18n";
 
 export const guideCategoryTabs = [
   "Tous",
+  "Déclarations fiscales",
   "Ehzer Mass",
   "Immobilier",
+  "Entrepreneurs",
   "Indépendants",
+  "Olim Hadashim",
   "Olim hadashim",
   "France-Israël",
   "Salariés",

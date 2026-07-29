@@ -1,4 +1,5 @@
 import type { Article } from "@/lib/content/articleTypes";
+import { v8Articles } from "@/lib/content/v8Articles";
 
 const defaultAuthor = {
   authorName: "Eliezer Torjmane",
@@ -12,6 +13,7 @@ const publication = {
 };
 
 export const articles: Article[] = [
+  ...v8Articles,
   {
     slug: "certificat-residence-fiscale-israel",
     locale: "fr",
@@ -49,7 +51,12 @@ export const articles: Article[] = [
     featured: true,
     priority: 1,
     heroLabel: "Guide pratique",
-    relatedArticleSlugs: ["certificat-residence-fiscale-retraite-france-israel", "revenus-locatifs-israel-masloulei-mas"],
+    relatedArticleSlugs: [
+      "declaration-fiscale-israel",
+      "reforme-fiscale-olim-hadashim-2026",
+      "certificat-residence-fiscale-retraite-france-israel",
+      "revenus-locatifs-israel-masloulei-mas"
+    ],
     relatedCalculatorSlugs: [],
     sources: [],
     cta: {
@@ -181,7 +188,11 @@ export const articles: Article[] = [
     featured: true,
     priority: 3,
     heroLabel: "Guide pratique",
-    relatedArticleSlugs: ["mas-shevach-vente-appartement-israel", "revenus-locatifs-israel-masloulei-mas"],
+    relatedArticleSlugs: [
+      "declaration-fiscale-israel",
+      "mas-shevach-vente-appartement-israel",
+      "revenus-locatifs-israel-masloulei-mas"
+    ],
     relatedCalculatorSlugs: ["impot-revenu-israel"],
     sources: [],
     cta: {
@@ -322,7 +333,12 @@ export const articles: Article[] = [
     featured: true,
     priority: 2,
     heroLabel: "Guide pratique",
-    relatedArticleSlugs: ["revenus-locatifs-choix-massloul-mass", "prisat-mas-shevach-israel"],
+    relatedArticleSlugs: [
+      "declaration-fiscale-israel",
+      "salarie-revenus-france-declaration-fiscale-israel",
+      "revenus-locatifs-choix-massloul-mass",
+      "prisat-mas-shevach-israel"
+    ],
     relatedCalculatorSlugs: ["impot-revenus-locatifs-israel"],
     sources: [],
     cta: {
@@ -470,7 +486,7 @@ export const articles: Article[] = [
     featured: false,
     priority: 4,
     heroLabel: "Guide pratique",
-    relatedArticleSlugs: ["revenus-locatifs-israel-masloulei-mas"],
+    relatedArticleSlugs: ["ouvrir-entreprise-israel", "choisir-esek-patur-esek-mourche-avant-ouvrir"],
     relatedCalculatorSlugs: ["bituah-leumi-independant", "impot-revenu-israel"],
     sources: [
       {
@@ -1052,7 +1068,12 @@ export const articles: Article[] = [
     featured: false,
     priority: 5,
     heroLabel: "Mise à jour fiscale 2026",
-    relatedArticleSlugs: ["nekoudot-zikouy-milouim-attestation-tsahal", "certificat-residence-fiscale-israel"],
+    relatedArticleSlugs: [
+      "reforme-fiscale-olim-hadashim-2026",
+      "declaration-fiscale-israel",
+      "nekoudot-zikouy-milouim-attestation-tsahal",
+      "certificat-residence-fiscale-israel"
+    ],
     relatedCalculatorSlugs: ["nekoudot-zikouy", "nekoudot-zikouy-enfants", "ehzer-mass"],
     sources: [],
     cta: {

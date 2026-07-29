@@ -72,6 +72,11 @@ const metaBySlug: Record<FrenchCalculatorSlug, { title: string; description: str
 const relatedContentByCalculator: Partial<Record<FrenchCalculatorSlug, Array<{ href: string; label: string; text: string }>>> = {
   "ehzer-mass": [
     {
+      href: "/fr/guides/declaration-fiscale-israel",
+      label: "Déclaration fiscale en Israël",
+      text: "Distinguer une demande de remboursement d’une obligation de déclaration annuelle."
+    },
+    {
       href: "/fr/cas-reels",
       label: "Voir les cas pratiques",
       text: "Situations anonymisées pour comprendre les points à vérifier avant une démarche fiscale."
@@ -84,9 +89,26 @@ const relatedContentByCalculator: Partial<Record<FrenchCalculatorSlug, Array<{ h
   ],
   "bituah-leumi-independant": [
     {
+      href: "/fr/guides/ouvrir-entreprise-israel",
+      label: "Ouvrir une entreprise",
+      text: "Comparer Esek Patur, Esek Mourche, Esek Zair et société avant de facturer."
+    },
+    {
       href: "/fr/guides/esek-zair-israel-reforme",
       label: "Lire le guide עסק זעיר",
       text: "Clarifier la différence entre activité indépendante, régime simplifié et obligations de ביטוח לאומי."
+    }
+  ],
+  "ole-hadash-nekoudot-zikouy": [
+    {
+      href: "/fr/guides/reforme-fiscale-olim-hadashim-2026",
+      label: "Réforme fiscale Olim 2026",
+      text: "Distinguer les points de crédit olé hadash de la nouvelle exonération sur certains revenus professionnels israéliens."
+    },
+    {
+      href: "/fr/guides/declaration-fiscale-israel",
+      label: "Déclaration fiscale",
+      text: "Vérifier si une déclaration annuelle reste nécessaire malgré les avantages liés à l’alyah."
     }
   ],
   "salaire-brut-net-israel": [
@@ -102,6 +124,16 @@ const relatedContentByCalculator: Partial<Record<FrenchCalculatorSlug, Array<{ h
     }
   ],
   "impot-revenu-israel": [
+    {
+      href: "/fr/guides/declaration-fiscale-israel",
+      label: "Déclaration fiscale",
+      text: "Comprendre les situations où une estimation d’impôt doit être suivie d’une déclaration ou d’une vérification."
+    },
+    {
+      href: "/fr/guides/ouvrir-entreprise-israel",
+      label: "Créer une activité",
+      text: "Si le revenu vient d’une activité indépendante, le cadre fiscal et social doit être choisi avant de facturer."
+    },
     {
       href: "/fr/calculateurs/nekoudot-zikouy-enfants",
       label: "Calculer les points enfants",
@@ -133,6 +165,11 @@ const relatedContentByCalculator: Partial<Record<FrenchCalculatorSlug, Array<{ h
     }
   ],
   "impot-revenus-locatifs-israel": [
+    {
+      href: "/fr/guides/declaration-fiscale-israel",
+      label: "Déclaration fiscale",
+      text: "Les revenus locatifs peuvent modifier l’obligation de déclaration ou les documents à préparer."
+    },
     {
       href: "/fr/guides/revenus-locatifs-israel-masloulei-mas",
       label: "Lire le guide revenus locatifs",

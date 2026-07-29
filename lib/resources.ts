@@ -408,6 +408,21 @@ export const frenchResourcePages: FrenchResourcePage[] = [
 
 export const resourceIndexCards = [
   {
+    href: "/fr/guides/declaration-fiscale-israel",
+    title: "Déclaration fiscale en Israël",
+    description: "Identifier les situations qui peuvent nécessiter une déclaration, les revenus à examiner et les documents à préparer."
+  },
+  {
+    href: "/fr/guides/reforme-fiscale-olim-hadashim-2026",
+    title: "Réforme fiscale Olim Hadashim 2026",
+    description: "Comprendre la nouvelle exonération sur certains revenus professionnels générés en Israël."
+  },
+  {
+    href: "/fr/guides/ouvrir-entreprise-israel",
+    title: "Ouvrir une entreprise en Israël",
+    description: "Comparer Esek Patur, Esek Mourche, Esek Zair et société avant de facturer."
+  },
+  {
     href: "/fr/creation-esek-israel",
     title: "Ouverture d’un עסק en Israël",
     description: "Comprendre les statuts, préparer les documents et organiser l’ouverture d’une activité en Israël."
