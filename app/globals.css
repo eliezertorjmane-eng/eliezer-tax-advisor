@@ -61,3 +61,33 @@ a {
     linear-gradient(180deg, rgba(244, 251, 254, 0.92), rgba(255, 255, 255, 0.96)),
     radial-gradient(circle at 85% 0%, rgba(125, 220, 255, 0.22), transparent 24rem);
 }
+
+@media print {
+  header,
+  .sticky,
+  .fixed {
+    position: static !important;
+  }
+
+  header {
+    box-shadow: none !important;
+  }
+
+  .fixed {
+    display: none !important;
+  }
+
+  main,
+  section,
+  article {
+    overflow: visible !important;
+  }
+
+  article,
+  details,
+  [class*="shadow-soft"],
+  [class*="shadow-glow"] {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
