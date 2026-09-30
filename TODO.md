@@ -45,10 +45,10 @@
 - Verify official 2026 Israeli Tax Authority rental income thresholds and rules before final publication.
 - Verify official current Israeli Tax Authority deadlines for משפר דיור / Mass Rehisha, including purchase from kablan and טופס 4.
 - Verify official current Mass Rehisha purchase tax brackets for דירה יחידה and דירה שנייה.
-- Verify official 2026 Nekoudot Zikouy Milouim scale, point value, maximum points, and Tsahal certificate wording.
-- Verify official Milouim 2026 / Tsahal source URL for the אזור אישי certificate flow.
-- Verify official annual value of a Nekoudat Zikouy.
-- Verify official Tsahal certificate wording and אזור אישי route if needed.
+- Milouim verification completed on 2026-09-30: the Tax Authority confirms the full 2026–2027 scale (0 below 30 days, 0.5 at 30–39, 0.75 at 40–49, 1 at 50–54, then +0.25 per complete 5 days, capped at 4 from 110 days), 2,904 NIS per point annually (242 monthly), and Form 101 part ח׳, item 16. Sources: https://www.gov.il/he/pages/pa181225-1 and https://www.gov.il/he/pages/warrior-credit-points . Recheck the point value for each subsequent tax year; this does not close the general calculator-constants review above.
+- Tsahal verification completed on 2026-09-30: the official article linked in the guide confirms service in 2025 for tax year 2026, levels א'+ / א' / ב', the certificate named נקודות זיכוי לשנת 2025 in אזור אישי, employer submission, annual returns for independents, waiting for accurate days, tax coordination for multiple employers, and hotline 1111 extension 4.
+- Confirmed public entry URL: https://www.miluim.idf.il/auth (MY IDF or one-time code). Still unconfirmed: exact authenticated sub-menu labels/click sequence and certificate generation/download after login. Do not publish an invented internal route; the public Tsahal article establishes availability in אזור אישי.
+- Verification access limitation: direct gov.il pages/PDF retrieval returned HTTP 403 and the Tsahal pages expose no readable body to the fetcher. The conclusions above were checked against indexed text from the official URLs, including the full Tax Authority scale and Tsahal instructions; no secondary source was used as confirmation. A live authenticated walkthrough remains outstanding.
 - Add direct official Tax Authority PDF URLs for Income Tax Circular 7/2026 and Form 116ע if exposed outside the current Tax Authority service attachment flow.
 
 ## Added in V7.2
