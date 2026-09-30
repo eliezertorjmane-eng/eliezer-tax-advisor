@@ -1055,6 +1055,7 @@ export const articles: Article[] = [
     excerpt:
       "Les jours de מילואים peuvent ouvrir droit à des Nekoudot Zikouy, mais l’attestation officielle de Tsahal doit être générée et transmise correctement.",
     ...publication,
+    updatedAt: "2026-09-30",
     readingTime: "6 min",
     ...defaultAuthor,
     tags: ["Nekoudot Zikouy", "נקודות זיכוי", "מילואים", "Tsahal", "Mass Hachnassa", "impôt Israël", "2026", "אזור אישי"],
@@ -1075,7 +1076,32 @@ export const articles: Article[] = [
       "certificat-residence-fiscale-israel"
     ],
     relatedCalculatorSlugs: ["nekoudot-zikouy", "nekoudot-zikouy-enfants", "ehzer-mass"],
-    sources: [],
+    sources: [
+      {
+        label: "רשות המסים — נקודות זיכוי בעד שירות מילואים כלוחם",
+        href: "https://www.gov.il/he/pages/pa181225-1",
+        status: "verified",
+        note: "Vérifié le 30/09/2026 : barème complet 2026–2027, plafond de 4 points, valeur annuelle de 2 904 ₪ et טופס 101, partie ח׳, rubrique 16."
+      },
+      {
+        label: "רשות המסים — מדריך נקודות זיכוי ללוחמים משרתי מילואים",
+        href: "https://www.gov.il/he/pages/warrior-credit-points",
+        status: "verified",
+        note: "Vérifié le 30/09/2026 : article 39ב, attestation Tsahal et service de l’année précédente."
+      },
+      {
+        label: "Tsahal — חיילי מילואים במערך מזכה? הטבה במס בדרך אליכם",
+        href: "https://www.miluim.idf.il/articles-list/%D7%97%D7%99%D7%99%D7%9C%D7%99-%D7%9E%D7%99%D7%9C%D7%95%D7%90%D7%99%D7%9D-%D7%91%D7%9E%D7%A2%D7%A8%D7%9A-%D7%9E%D7%96%D7%9B%D7%94-%D7%94%D7%98%D7%91%D7%94-%D7%91%D7%9E%D7%A1-%D7%91%D7%93%D7%A8%D7%9A-%D7%90%D7%9C%D7%99%D7%9B%D7%9D/",
+        status: "verified",
+        note: "Vérifié le 30/09/2026 : éligibilité, attestation נקודות זיכוי לשנת 2025 dans l’אזור אישי, salariés et indépendants, données à jour, תיאום מס et 1111 extension 4."
+      },
+      {
+        label: "Tsahal — entrée dans l’אזור אישי",
+        href: "https://www.miluim.idf.il/auth",
+        status: "verified",
+        note: "Vérifié le 30/09/2026 : accès avec MY IDF ou code à usage unique. Les écrans et sous-menus après connexion n’ont pas pu être vérifiés."
+      }
+    ],
     cta: {
       title: "Vous avez fait des מילואים ?",
       text: "Vérifiez si vos Nekoudot Zikouy ont bien été prises en compte par Mass Hachnassa ou votre employeur.",
@@ -1087,7 +1113,7 @@ export const articles: Article[] = [
       {
         title: "De quoi parle cette mise à jour ?",
         paragraphs: [
-          "À partir de 2026, les personnes ayant effectué des jours de מילואים admissibles en 2025 peuvent, dans certains cas, bénéficier de Nekoudot Zikouy auprès de Mass Hachnassa.",
+          "En 2026, les personnes ayant effectué au moins 30 jours de מילואים admissibles en 2025 peuvent bénéficier de Nekoudot Zikouy auprès de Mass Hachnassa, sous réserve de l’attestation Tsahal. Ce dispositif relève de l’article 39ב de la פקודת מס הכנסה et du barème temporaire applicable aux années fiscales 2026–2027.",
           "Le droit dépend de l’éligibilité, du nombre de jours pris en compte, du service dans un מערך מזכה et de la confirmation officielle. Les niveaux d’activité concernés incluent notamment א'+, א' et ב', selon les règles applicables.",
           "Les Nekoudot Zikouy ne sont pas une prime ponctuelle : ce sont des points de crédit d’impôt qui réduisent l’impôt sur le revenu. Pour les salariés, l’avantage se reflète généralement dans la paie lorsque l’employeur met à jour les données fiscales."
         ]
@@ -1103,7 +1129,7 @@ export const articles: Article[] = [
       {
         title: "Pourquoi l’attestation parle de 2025 alors que l’avantage est utilisé en 2026 ?",
         paragraphs: [
-          "Les jours effectués pendant l’année pertinente peuvent influencer le traitement des Nekoudot Zikouy de l’année fiscale suivante, selon les règles officielles et la mise en œuvre par la paie ou la déclaration.",
+          "L’attestation נקודות זיכוי לשנת 2025 documente le service admissible effectué en 2025 : les points correspondants réduisent l’impôt de l’année fiscale 2026. Le même barème s’applique en 2027 aux jours admissibles effectués en 2026.",
           "Il faut vérifier l’année exacte indiquée sur l’attestation et l’année fiscale concernée avant de l’utiliser."
         ]
       },
@@ -1112,7 +1138,7 @@ export const articles: Article[] = [
         bullets: [
           "Télécharger l’attestation depuis l’אזור אישי.",
           "L’envoyer à l’employeur ou au service paie.",
-          "Marquer ou mettre à jour le טופס 101 si nécessaire.",
+          "Déclarer les jours admissibles dans le טופס 101, partie ח׳, rubrique 16, et joindre l’attestation Tsahal.",
           "Contrôler les fiches de paie après la mise à jour.",
           "Garder une copie pour une revue annuelle.",
           "En cas de plusieurs employeurs, effectuer un תיאום מס."
@@ -1136,7 +1162,7 @@ export const articles: Article[] = [
       {
         title: "Combien de Nekoudot Zikouy peut-on recevoir ?",
         paragraphs: [
-          "L’éligibilité commence à partir de 30 jours admissibles. Le barème ci-dessous reprend l’échelle fournie pour les jours de מילואים admissibles en מערך מזכה, à vérifier avec l’attestation officielle avant toute utilisation."
+          "L’éligibilité commence à partir de 30 jours admissibles. Le barème ci-dessous est confirmé par l’administration fiscale pour 2026–2027 : 0,50 point pour 30–39 jours, 0,75 pour 40–49 jours, puis 1 point à 50 jours et 0,25 point supplémentaire par tranche complète de 5 jours au-delà de 50, dans la limite de 4 points. Pour 2026, utilisez les jours admissibles de 2025 figurant dans l’attestation Tsahal."
         ],
         bullets: [
           "0-29 jours : 0 point.",
@@ -1157,9 +1183,9 @@ export const articles: Article[] = [
           "110 jours et plus : 4 points."
         ],
         callout: {
-          title: "Valeur annuelle à vérifier",
-          text: "La valeur annuelle d’une Nekoudat Zikouy doit être vérifiée chaque année avant de publier ou d’utiliser un montant en shekels.",
-          tone: "warning"
+          title: "Valeur et plafond en 2026",
+          text: "Une Nekoudat Zikouy vaut 2 904 ₪ par an en 2026, soit 242 ₪ par mois. Le plafond de cette mesure est de 4 points dès 110 jours admissibles, soit une réduction théorique maximale de 11 616 ₪ par an (4 × 2 904 ₪). Le bénéfice effectif dépend de l’impôt dû : ce montant ne constitue pas une prime ni un remboursement garanti. La valeur du point doit être revue pour chaque nouvelle année fiscale.",
+          tone: "info"
         }
       },
       {
@@ -1167,7 +1193,7 @@ export const articles: Article[] = [
         bullets: [
           "Ne pas télécharger l’attestation.",
           "Envoyer un document מילואים générique au lieu de l’attestation spécifique Nekoudot Zikouy.",
-          "Ne pas mettre à jour le טופס 101 si nécessaire.",
+          "Ne pas déclarer les jours admissibles dans le טופס 101 avec l’attestation Tsahal.",
           "Ne pas vérifier la paie après la mise à jour.",
           "Confondre jours admissibles et total des jours de réserve.",
           "Oublier d’inclure l’attestation dans la revue annuelle.",
@@ -1208,17 +1234,17 @@ export const articles: Article[] = [
       {
         question: "Où télécharger l’attestation Nekoudot Zikouy מילואים ?",
         answer:
-          "Elle doit généralement être générée depuis l’אזור אישי sur le site des מילואים de Tsahal."
+          "Elle est disponible dans l’אזור אישי sur le site des מילואים de Tsahal sous le nom נקודות זיכוי לשנת 2025. Connectez-vous avec MY IDF ou un code à usage unique."
       },
       {
         question: "Pourquoi l’attestation s’appelle נקודות זיכוי לשנת 2025 ?",
         answer:
-          "L’année indiquée sur le document doit être rapprochée de l’année fiscale concernée. Il faut vérifier le document exact avant de l’utiliser."
+          "Elle atteste les jours admissibles de service effectués en 2025, qui ouvrent droit aux points de crédit d’impôt de l’année fiscale 2026."
       },
       {
         question: "Que doit faire un salarié ?",
         answer:
-          "Télécharger l’attestation, la transmettre à l’employeur ou à la paie, mettre à jour le טופס 101 si nécessaire, puis vérifier que le calcul a bien été mis à jour si le droit s’applique."
+          "Télécharger l’attestation, la transmettre à l’employeur ou à la paie, déclarer les jours admissibles dans le טופס 101, partie ח׳, rubrique 16, puis contrôler la paie. En présence de plusieurs employeurs, effectuer un תיאום מס."
       },
       {
         question: "Que doit faire un indépendant ?",
