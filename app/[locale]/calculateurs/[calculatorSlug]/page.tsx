@@ -5,6 +5,7 @@ import { FrenchCalculator } from "@/components/calculators/FrenchCalculators";
 import { PageCTA } from "@/components/PageCTA";
 import { frenchCalculators, frenchCalculatorSlugs, type FrenchCalculatorSlug } from "@/lib/calculators";
 import { buildWhatsAppUrl, siteUrl } from "@/lib/i18n";
+import { bituahLeumiFaq } from "@/lib/tax/bituahLeumiSources";
 
 type PageProps = {
   params: Promise<{ locale: string; calculatorSlug: string }>;
@@ -18,9 +19,9 @@ const metaBySlug: Record<FrenchCalculatorSlug, { title: string; description: str
     keywords: ["calculateur Ehzer Mass", "remboursement impôt Israël", "החזר מס Israël"]
   },
   "bituah-leumi-independant": {
-    title: "Calculateur Bitouah Leumi indépendant | Statut עצמאי",
+    title: "Calculateur Bitouah Leumi indépendant 2026 | Statut et cotisations",
     description:
-      "Estimez votre statut Bitouah Leumi, vos cotisations et votre revenu indépendant restant selon les constantes 2026.",
+      "Calculez votre statut Bitouah Leumi et vos cotisations 2026 : bénéfice annuel, heures, salaire éventuel, déduction de 52 % et détail assurance nationale / santé.",
     keywords: ["Bitouah Leumi indépendant", "עצמאי שאינו עונה להגדרה", "calculateur ביטוח לאומי"]
   },
   "ole-hadash-nekoudot-zikouy": {
@@ -34,9 +35,9 @@ const metaBySlug: Record<FrenchCalculatorSlug, { title: string; description: str
     keywords: ["נקודות זיכוי", "valeur point crédit Israël", "calculateur impôt Israël"]
   },
   "nekoudot-zikouy-enfants": {
-    title: "Calculateur Nekoudot Zikouy enfants | Points de crédit Israël 2026",
+    title: "Nekoudot Zikouy : enfants + points de base | Calculateur Israël",
     description:
-      "Estimez les Nekoudot Zikouy liées aux enfants en Israël selon l’année fiscale, le profil parent et l’année de naissance de chaque enfant.",
+      "Estimez vos points enfants et les 2,25 ou 2,75 points de base d’un résident israélien éligible, pour les années fiscales 2024, 2025 et 2026.",
     keywords: [
       "Nekoudot Zikouy enfants",
       "נקודות זיכוי ילדים",
@@ -220,7 +221,7 @@ const childCreditFaq = [
   {
     question: "Que calcule ce calculateur Nekoudot Zikouy enfants ?",
     answer:
-      "Il estime les points de crédit liés aux enfants dans une situation standard, selon l’année fiscale, le profil Père ou Mère et l’année de naissance de chaque enfant."
+      "Il additionne les points liés aux enfants et les points de base du résident israélien éligible : 2,25 pour un père, 2,75 pour une mère, demi-point féminin inclus. Les deux composantes sont affichées séparément, pour 2024, 2025 et 2026."
   },
   {
     question: "La valeur affichée est-elle un remboursement garanti ?",
@@ -290,7 +291,9 @@ function ChildCreditSeoContent() {
             <h2 className="text-2xl font-semibold text-ink">Comment sont estimés les points enfants ?</h2>
             <p className="mt-4 text-sm leading-7 text-slate-600">
               Le calculateur utilise l’année fiscale moins l’année de naissance pour obtenir l’âge fiscal. Il applique
-              ensuite le barème standard Père ou Mère pour les années 2024, 2025 et 2026. Les situations familiales
+              ensuite le barème standard Père ou Mère pour les années 2024, 2025 et 2026 et ajoute les points de base
+              du résident éligible (2,25 ou 2,75, demi-point féminin déjà inclus). Ne les ajoutez pas une seconde fois
+              dans le calculateur de salaire ou de Mass. Les situations familiales
               particulières ne sont pas calculées automatiquement.
             </p>
           </article>
@@ -342,6 +345,21 @@ function ChildCreditSeoContent() {
             Vérifier mes Nekoudot Zikouy
           </a>
         </aside>
+      </div>
+    </section>
+  );
+}
+
+function BituahLeumiSeoContent() {
+  return (
+    <section className="bg-white px-5 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl divide-y divide-line">
+        {bituahLeumiFaq.map((item) => (
+          <article key={item.question} className="py-6">
+            <h2 className="text-xl font-semibold text-ink">{item.question}</h2>
+            <p className="mt-3 max-w-4xl text-sm leading-7 text-slate-600">{item.answer}</p>
+          </article>
+        ))}
       </div>
     </section>
   );
@@ -484,6 +502,10 @@ export default async function FrenchCalculatorPage({ params }: PageProps) {
   const relatedContent = relatedContentByCalculator[slug] ?? [];
   const rentalIncomeFaqJsonLd = slug === "impot-revenus-locatifs-israel" ? getRentalIncomeFaqJsonLd() : null;
   const childCreditFaqJsonLd = slug === "nekoudot-zikouy-enfants" ? getChildCreditFaqJsonLd() : null;
+  const bituahFaqJsonLd = slug === "bituah-leumi-independant" ? {
+    "@context": "https://schema.org", "@type": "FAQPage",
+    mainEntity: bituahLeumiFaq.map((item) => ({ "@type": "Question", name: item.question, acceptedAnswer: { "@type": "Answer", text: item.answer } }))
+  } : null;
 
   return (
     <>
@@ -494,6 +516,8 @@ export default async function FrenchCalculatorPage({ params }: PageProps) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(childCreditFaqJsonLd) }} />
       ) : null}
       <FrenchCalculator slug={slug} />
+      {bituahFaqJsonLd ? <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(bituahFaqJsonLd).replace(/</g, "\\u003c") }} /> : null}
+      {slug === "bituah-leumi-independant" ? <BituahLeumiSeoContent /> : null}
       {slug === "impot-revenus-locatifs-israel" ? <RentalIncomeSeoContent /> : null}
       {slug === "nekoudot-zikouy-enfants" ? <ChildCreditSeoContent /> : null}
       {relatedContent.length > 0 ? (
@@ -517,7 +541,7 @@ export default async function FrenchCalculatorPage({ params }: PageProps) {
       ) : null}
       <section className="px-5 pb-6 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-6xl rounded-md border border-line bg-white p-5 text-sm leading-7 text-slate-600 shadow-soft">
-          <strong className="text-ink">Ce calculateur fait :</strong> une estimation indicative selon les constantes 2026.
+          <strong className="text-ink">Ce calculateur fait :</strong> une estimation indicative {slug === "nekoudot-zikouy-enfants" ? "pour l’année fiscale choisie (2024, 2025 ou 2026)." : "selon les constantes 2026."}
           <br />
           <strong className="text-ink">Ce calculateur ne fait pas :</strong> une décision fiscale définitive, une garantie de résultat ou une analyse complète de votre dossier.
           {calculator ? <span className="sr-only">{calculator.title}</span> : null}

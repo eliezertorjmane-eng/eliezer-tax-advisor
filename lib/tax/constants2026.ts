@@ -1,4 +1,5 @@
 export const TAX_YEAR = 2026;
+const averageSalary2026 = 13769;
 
 // Constants must be reviewed annually before launch and after every official update.
 // Source labels shown in the UI: National Insurance Institute (Bitouah Leumi) and Israel Tax Authority.
@@ -19,12 +20,18 @@ export const TAX_CONSTANTS_2026 = {
     }
   ],
   bituahLeumi: {
-    averageSalary: 13769,
+    averageSalary: averageSalary2026,
     reducedBracket: 7703,
     maximumMonthlyInsuredIncome: 51910,
+    minimumSelfEmployedBase: 3442,
+    // Public tables round to 3442; the official simulator uses 25% of 13769 in combined minimum calculations.
+    minimumSelfEmployedCalculationBase: averageSalary2026 * 0.25,
+    nonWorkIncomeExemption: 3442,
+    nationalInsuranceDeduction: 0.52,
+    minimumNonWorking: { national: 143, health: 123, total: 266 },
     independentDefinition: {
-      incomeThreshold50Percent: 6885,
-      comboIncomeThreshold15Percent: 2065,
+      incomeThreshold50Percent: averageSalary2026 * 0.5,
+      comboIncomeThreshold15Percent: averageSalary2026 * 0.15,
       hoursThreshold: 20,
       comboHoursThreshold: 12
     },
@@ -48,7 +55,8 @@ export const TAX_CONSTANTS_2026 = {
     },
     nonWorkIncomeRates: {
       reduced: 0.1209,
-      regular: 0.1217
+      regular: 0.1217,
+      breakdown: { nationalReduced: 0.0692, nationalRegular: 0.07, health: 0.0517 }
     }
   },
   incomeTax: {

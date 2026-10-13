@@ -8,17 +8,19 @@ import { buildWhatsAppUrl, type Locale } from "@/lib/i18n";
 export function CalculatorShell({
   title,
   subtitle,
+  eyebrow = "Constantes 2026 — à vérifier chaque année",
   children
 }: {
   title: string;
   subtitle: string;
+  eyebrow?: string;
   children: ReactNode;
 }) {
   return (
     <section className="section-band py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
-          <p className="mb-3 text-sm font-semibold uppercase text-teal">Constantes 2026 — à vérifier chaque année</p>
+          <p className="mb-3 text-sm font-semibold uppercase text-teal">{eyebrow}</p>
           <h1 className="text-balance text-4xl font-semibold text-ink sm:text-5xl">{title}</h1>
           <p className="mt-5 text-lg leading-8 text-slate-600">{subtitle}</p>
         </div>

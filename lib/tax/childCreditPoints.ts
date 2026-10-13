@@ -32,6 +32,9 @@ export type ChildCreditCalculation = {
   monthlyPointValue: number;
   annualPointValue: number;
   totalPoints: number;
+  basicResidentPoints: number;
+  childRelatedPoints: number;
+  totalStandardPoints: number;
   monthlyMaxValue: number;
   annualMaxValue: number;
   details: ChildCreditDetail[];
@@ -146,6 +149,9 @@ export function calculateChildCreditPoints({
       monthlyPointValue: rules.monthlyPointValue,
       annualPointValue: rules.annualPointValue,
       totalPoints: 0,
+      basicResidentPoints: 0,
+      childRelatedPoints: 0,
+      totalStandardPoints: 0,
       monthlyMaxValue: 0,
       annualMaxValue: 0,
       details: [],
@@ -169,9 +175,11 @@ export function calculateChildCreditPoints({
     };
   });
   const totalPoints = details.reduce((sum, child) => sum + child.points, 0);
+  const basicResidentPoints = parentProfile === "mother" ? 2.75 : 2.25;
+  const totalStandardPoints = basicResidentPoints + totalPoints;
 
   if (childrenBirthYears.length === 0) {
-    warnings.push("Aucun enfant n’est saisi : le résultat reste neutre.");
+    warnings.push("Aucun enfant n’est saisi : seuls les points de base du résident éligible sont inclus.");
   }
 
   if (details.some((child) => !child.eligible)) {
@@ -185,12 +193,17 @@ export function calculateChildCreditPoints({
     monthlyPointValue: rules.monthlyPointValue,
     annualPointValue: rules.annualPointValue,
     totalPoints,
-    monthlyMaxValue: totalPoints * rules.monthlyPointValue,
-    annualMaxValue: totalPoints * rules.annualPointValue,
+    basicResidentPoints,
+    childRelatedPoints: totalPoints,
+    totalStandardPoints,
+    monthlyMaxValue: totalStandardPoints * rules.monthlyPointValue,
+    annualMaxValue: totalStandardPoints * rules.annualPointValue,
     details,
     warnings,
     assumptions: [
-      "Calcul standard uniquement : parent Père ou Mère, sans situation familiale particulière.",
+      "Résident israélien éligible sur l’année entière : Père (homme), 2,25 points de base ; Mère (femme), 2,75, demi-point féminin déjà inclus.",
+      "Total standard estimé — hors avantages fiscaux particuliers : Oleh Hadash, Milouim, localités éligibles, handicap, garde particulière, parent isolé et autres crédits personnels.",
+      "Ce total inclut déjà les points de base : ne les ajoutez pas une seconde fois dans un autre calculateur.",
       "L’âge fiscal utilisé correspond à année fiscale moins année de naissance.",
       "La valeur estimée réduit uniquement l’impôt dû ; elle ne crée pas un remboursement automatique si l’impôt est insuffisant.",
       "Les autres droits, crédits, טופס 101, déclaration annuelle et situations personnelles doivent être vérifiés séparément."

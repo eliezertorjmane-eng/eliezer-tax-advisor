@@ -15,7 +15,7 @@ import {
 } from "@/components/calculators/CalculatorUi";
 import { officialSimulators, type FrenchCalculatorSlug } from "@/lib/calculators";
 import { TAX_YEAR } from "@/lib/tax/constants2026";
-import { calculateBituahLeumiIndependent } from "@/lib/tax/bituahLeumi";
+import { BituahLeumiCalculator } from "./BituahLeumiCalculator";
 import {
   calculateChildCreditPoints,
   defaultChildCreditTaxYear,
@@ -196,53 +196,6 @@ function EhzerMassCalculator() {
   );
 }
 
-function BituahLeumiCalculator() {
-  const [salary, setSalary] = useState("0");
-  const [income, setIncome] = useState("8000");
-  const [hours, setHours] = useState("15");
-  const result = calculateBituahLeumiIndependent({
-    monthlyEmployeeSalary: toNumber(salary),
-    monthlyIndependentIncome: toNumber(income),
-    weeklyIndependentHours: toNumber(hours)
-  });
-  const statusLabel = result.status === "atzmai" ? "עצמאי" : "עצמאי שאינו עונה להגדרה";
-  const message = `Bonjour Eliezer, j’ai utilisé le calculateur Bitouah Leumi indépendant. Salaire salarié: ${salary} ₪, revenu indépendant: ${income} ₪, heures: ${hours}/semaine. Statut estimé: ${statusLabel}, cotisation estimée: ${formatILS(result.contribution)}. Pouvez-vous vérifier ma situation ?`;
-
-  return (
-    <CalculatorShell
-      title="Calculateur Bitouah Leumi pour indépendant"
-      subtitle="Estimez votre statut et vos cotisations Bitouah Leumi selon vos revenus, heures d’activité et éventuel salaire salarié."
-    >
-      <CalculatorFrame>
-        <FieldPanel>
-          <CalculatorInput label="Salaire brut salarié mensuel" help="Indiquez 0 si vous n’êtes pas salarié." value={salary} onChange={setSalary} />
-          <CalculatorInput label="Revenu mensuel indépendant estimé" help="Chiffre d’affaires moins dépenses professionnelles estimées." value={income} onChange={setIncome} />
-          <CalculatorInput label="Heures d’activité indépendante par semaine" value={hours} onChange={setHours} />
-          <ResetButton onClick={() => { setSalary("0"); setIncome("8000"); setHours("15"); }} />
-        </FieldPanel>
-        <div className="grid gap-5">
-          <ResultCard title="Statut estimé" value={statusLabel} tone="strong" />
-          <ResultCard title="Cotisation mensuelle estimée" value={formatILS(result.contribution)}>
-            Revenu indépendant restant après estimation Bitouah Leumi : <strong>{formatILS(result.netAfterContribution)}</strong>
-          </ResultCard>
-          {result.status === "notDefinition" ? (
-            <DisclaimerBox>
-              Attention : ce statut peut ne pas offrir la même couverture qu’un statut עצמאי pour certains droits liés à l’activité professionnelle.
-            </DisclaimerBox>
-          ) : null}
-          {result.comparison ? (
-            <ResultCard title="Point à vérifier">
-              {result.comparison.note} Différence estimée : {formatILS(result.comparison.estimatedDifference)}.
-            </ResultCard>
-          ) : null}
-          <Assumptions items={result.assumptions} />
-          <WhatsAppResultButton label="Faire vérifier ma situation sur WhatsApp" message={message} />
-        </div>
-      </CalculatorFrame>
-    </CalculatorShell>
-  );
-}
-
 function OlehHadashCalculator() {
   const [aliyahDate, setAliyahDate] = useState("2024-01-01");
   const [taxYear, setTaxYear] = useState(String(TAX_YEAR));
@@ -334,6 +287,7 @@ function birthYearOptions(taxYear: ChildCreditTaxYear) {
 }
 
 function ChildCreditPointsCalculator() {
+  const childMoney = (value: number) => `${new Intl.NumberFormat("fr-FR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(value)} ₪`;
   const [taxYear, setTaxYear] = useState<ChildCreditTaxYear>(defaultChildCreditTaxYear);
   const [parentProfile, setParentProfile] = useState<ChildCreditParentProfile>("mother");
   const [childCount, setChildCount] = useState(2);
@@ -376,8 +330,9 @@ function ChildCreditPointsCalculator() {
 
   return (
     <CalculatorShell
-      title="Calculateur Nekoudot Zikouy enfants"
-      subtitle="Estimez les נקודות זיכוי liées aux enfants pour une situation standard, selon l’année fiscale et le profil parent."
+      title="Calculateur Nekoudot Zikouy : enfants + points de base"
+      eyebrow="Années fiscales 2024, 2025 et 2026"
+      subtitle="Estimez vos points enfants et les points de base d’un résident israélien éligible : 2,25 pour un père, 2,75 pour une mère, demi-point féminin inclus."
     >
       <CalculatorFrame>
         <FieldPanel>
@@ -415,6 +370,7 @@ function ChildCreditPointsCalculator() {
                 </button>
                 <input
                   type="number"
+                  aria-label="Nombre d’enfants"
                   min="0"
                   max="15"
                   value={childCount}
@@ -451,7 +407,7 @@ function ChildCreditPointsCalculator() {
               ))}
             </div>
           ) : (
-            <DisclaimerBox>Aucun enfant saisi : le calcul reste neutre.</DisclaimerBox>
+            <DisclaimerBox>Aucun enfant saisi : seuls les points de base du résident éligible sont inclus.</DisclaimerBox>
           )}
 
           <ResetButton
@@ -467,13 +423,17 @@ function ChildCreditPointsCalculator() {
         <div className="grid gap-5">
           {result.shouldCalculate ? (
             <>
-              <ResultCard title="Total points enfants" value={formatNumber(result.totalPoints)} tone="strong">
-                Valeur maximale estimée : <strong>{formatILS(result.monthlyMaxValue)}</strong> par mois, soit{" "}
-                <strong>{formatILS(result.annualMaxValue)}</strong> par an.
+              <ResultCard title="Total estimé de vos Nekoudot Zikouy" value={formatNumber(result.totalStandardPoints)} tone="strong">
+                <p>Total standard estimé — hors avantages fiscaux particuliers.</p>
+                Réduction d’impôt maximale mensuelle : <strong>{childMoney(result.monthlyMaxValue)}</strong>.<br />
+                Réduction d’impôt maximale annuelle : <strong>{childMoney(result.annualMaxValue)}</strong>.
               </ResultCard>
+              <ResultCard title="Nekoudot Zikouy de base" value={formatNumber(result.basicResidentPoints)} />
+              <ResultCard title="Nekoudot Zikouy liées aux enfants" value={formatNumber(result.childRelatedPoints)} />
               <ResultCard title="Valeur d’une Nekoudat Zikouy">
                 Année {result.taxYear} : <strong>{formatILS(result.monthlyPointValue)}</strong> par mois, soit{" "}
                 <strong>{formatILS(result.annualPointValue)}</strong> par an.
+                <p className="mt-3"><a href="https://www.gov.il/fr/pages/immigrant-guide-1" target="_blank" rel="noreferrer" className="text-teal underline underline-offset-4">Source officielle : points de base du résident</a></p>
               </ResultCard>
               {result.details.length > 0 ? (
                 <div className="rounded-md border border-line bg-white p-5 shadow-soft">
@@ -503,8 +463,8 @@ function ChildCreditPointsCalculator() {
           ))}
           {result.shouldCalculate ? (
             <DisclaimerBox>
-              La valeur indiquée réduit uniquement l’impôt dû. Elle ne garantit pas un remboursement et ne vérifie pas les
-              autres droits fiscaux.
+              Les Nekoudot Zikouy réduisent l’impôt sur le revenu effectivement dû. Leur valeur totale ne peut pas être
+              automatiquement considérée comme un remboursement. Les points de base sont déjà inclus dans ce total.
             </DisclaimerBox>
           ) : null}
           <div className="rounded-md border border-sky/25 bg-white p-5 shadow-glow">

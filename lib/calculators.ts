@@ -24,7 +24,7 @@ export const frenchCalculators = [
   {
     slug: "bituah-leumi-independant",
     title: "Bitouah Leumi indépendant",
-    description: "Estimez votre statut Bitouah Leumi et vos cotisations selon vos revenus et heures d’activité.",
+    description: "Bénéfice annuel, heures et salaire éventuel : estimez votre statut et vos cotisations 2026 avec le détail assurance nationale / santé.",
     badge: "Estimation"
   },
   {
@@ -41,9 +41,9 @@ export const frenchCalculators = [
   },
   {
     slug: "nekoudot-zikouy-enfants",
-    title: "Nekoudot Zikouy pour enfants",
+    title: "Nekoudot Zikouy : enfants + points de base",
     description:
-      "Estimez les points liés aux enfants selon l’année fiscale, votre profil parent et les années de naissance.",
+      "Estimez les points enfants et les points de base du résident éligible pour 2024, 2025 ou 2026.",
     badge: "Famille",
     cta: "Ouvrir le calculateur"
   },
