@@ -3,6 +3,7 @@ import type { Locale } from "@/lib/i18n";
 export const frenchCalculatorSlugs = [
   "ehzer-mass",
   "bituah-leumi-independant",
+  "pensia-hova-independant",
   "ole-hadash-nekoudot-zikouy",
   "nekoudot-zikouy",
   "nekoudot-zikouy-enfants",
@@ -26,6 +27,12 @@ export const frenchCalculators = [
     title: "Bitouah Leumi indépendant",
     description: "Bénéfice annuel, heures et salaire éventuel : estimez votre statut et vos cotisations 2026 avec le détail assurance nationale / santé.",
     badge: "Estimation"
+  },
+  {
+    slug: "pensia-hova-independant",
+    title: "Pensia Hova indépendant",
+    description: "Estimez votre pension obligatoire 2026 selon votre bénéfice annuel, votre première immatriculation et vos versements pension.",
+    badge: "Retraite"
   },
   {
     slug: "ole-hadash-nekoudot-zikouy",

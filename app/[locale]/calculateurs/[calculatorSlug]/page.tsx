@@ -6,12 +6,18 @@ import { PageCTA } from "@/components/PageCTA";
 import { frenchCalculators, frenchCalculatorSlugs, type FrenchCalculatorSlug } from "@/lib/calculators";
 import { buildWhatsAppUrl, siteUrl } from "@/lib/i18n";
 import { bituahLeumiFaq } from "@/lib/tax/bituahLeumiSources";
+import { pensiaHovaFaq } from "@/lib/tax/pensiaHovaSources";
 
 type PageProps = {
   params: Promise<{ locale: string; calculatorSlug: string }>;
 };
 
 const metaBySlug: Record<FrenchCalculatorSlug, { title: string; description: string; keywords: string[] }> = {
+  "pensia-hova-independant": {
+    title: "Calculateur Pensia Hova indépendant 2026 | Pension obligatoire Israël",
+    description: "Estimez la pension obligatoire des indépendants en Israël : bénéfice annuel, âge, première immatriculation, cotisations salariées et montant restant à déposer en 2026.",
+    keywords: ["Pensia Hova indépendant", "pension obligatoire Israël 2026", "פנסיה חובה לעצמאים", "calculateur pension indépendant"]
+  },
   "ehzer-mass": {
     title: "Calculateur Ehzer Mass / החזר מס | Pré-diagnostic remboursement impôt Israël",
     description:
@@ -71,6 +77,11 @@ const metaBySlug: Record<FrenchCalculatorSlug, { title: string; description: str
 };
 
 const relatedContentByCalculator: Partial<Record<FrenchCalculatorSlug, Array<{ href: string; label: string; text: string }>>> = {
+  "pensia-hova-independant": [
+    { href: "/fr/calculateurs/bituah-leumi-independant", label: "Bitouah Leumi indépendant", text: "La pension obligatoire et les cotisations sociales suivent des règles distinctes." },
+    { href: "/fr/guides/ouvrir-entreprise-israel", label: "Ouvrir une entreprise en Israël", text: "Préparer les obligations fiscales et sociales de votre activité." },
+    { href: "/fr/ressources", label: "Ressources fiscales", text: "Retrouver les guides et outils pratiques." }
+  ],
   "ehzer-mass": [
     {
       href: "/fr/guides/declaration-fiscale-israel",
@@ -506,6 +517,10 @@ export default async function FrenchCalculatorPage({ params }: PageProps) {
     "@context": "https://schema.org", "@type": "FAQPage",
     mainEntity: bituahLeumiFaq.map((item) => ({ "@type": "Question", name: item.question, acceptedAnswer: { "@type": "Answer", text: item.answer } }))
   } : null;
+  const pensionFaqJsonLd = slug === "pensia-hova-independant" ? {
+    "@context": "https://schema.org", "@type": "FAQPage",
+    mainEntity: pensiaHovaFaq.map((item) => ({ "@type": "Question", name: item.question, acceptedAnswer: { "@type": "Answer", text: item.answer } }))
+  } : null;
 
   return (
     <>
@@ -516,6 +531,8 @@ export default async function FrenchCalculatorPage({ params }: PageProps) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(childCreditFaqJsonLd) }} />
       ) : null}
       <FrenchCalculator slug={slug} />
+      {pensionFaqJsonLd ? <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pensionFaqJsonLd).replace(/</g, "\\u003c") }} /> : null}
+      {slug === "pensia-hova-independant" ? <section className="bg-white px-5 py-10 sm:px-6 lg:px-8"><div className="mx-auto max-w-6xl"><h2 className="text-2xl font-semibold text-ink">Pensia Hova : questions pratiques</h2><div className="mt-6 divide-y divide-line">{pensiaHovaFaq.map((item) => <details key={item.question} className="py-4"><summary className="cursor-pointer font-semibold leading-7 text-ink">{item.question}</summary><p className="mt-3 max-w-3xl text-sm leading-7 text-slate-600">{item.answer}</p></details>)}</div></div></section> : null}
       {bituahFaqJsonLd ? <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(bituahFaqJsonLd).replace(/</g, "\\u003c") }} /> : null}
       {slug === "bituah-leumi-independant" ? <BituahLeumiSeoContent /> : null}
       {slug === "impot-revenus-locatifs-israel" ? <RentalIncomeSeoContent /> : null}
