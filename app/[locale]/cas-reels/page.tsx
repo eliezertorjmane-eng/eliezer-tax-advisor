@@ -25,9 +25,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       alternates: {
         canonical: `${siteUrl}/fr/cas-reels`,
         languages: {
-          fr: `${siteUrl}/fr/cas-reels`,
-          en: `${siteUrl}/en/cas-reels`,
-          he: `${siteUrl}/he/cas-reels`
+          fr: `${siteUrl}/fr/cas-reels`
         }
       },
       openGraph: {
@@ -50,7 +48,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title,
     description,
-    alternates: { canonical: `${siteUrl}/${locale}/cas-reels` }
+    robots: { index: false, follow: true }
   };
 }
 

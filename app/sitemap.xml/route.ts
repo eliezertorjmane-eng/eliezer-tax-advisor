@@ -54,11 +54,7 @@ export function GET() {
 
   const articleIndexes: SitemapEntry[] = [
     `${siteUrl}/fr/guides`,
-    `${siteUrl}/en/guides`,
-    `${siteUrl}/he/guides`,
-    `${siteUrl}/fr/cas-reels`,
-    `${siteUrl}/en/cas-reels`,
-    `${siteUrl}/he/cas-reels`
+    `${siteUrl}/fr/cas-reels`
   ].map((url) => ({
     url,
     changeFrequency: "weekly",
