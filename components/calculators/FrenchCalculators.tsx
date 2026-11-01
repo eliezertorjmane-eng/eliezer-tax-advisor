@@ -16,6 +16,7 @@ import {
 import { officialSimulators, type FrenchCalculatorSlug } from "@/lib/calculators";
 import { TAX_YEAR } from "@/lib/tax/constants2026";
 import { BituahLeumiCalculator } from "./BituahLeumiCalculator";
+import { IndependentTaxSimulatorCalculator } from "./IndependentTaxSimulatorCalculator";
 import { PensiaHovaCalculator } from "./PensiaHovaCalculator";
 import { OleHadashExemptionCalculator } from "./OleHadashExemptionCalculator";
 import {
@@ -779,6 +780,7 @@ export function FrenchCalculator({ slug }: { slug: FrenchCalculatorSlug }) {
   if (slug === "bituah-leumi-independant") return <BituahLeumiCalculator />;
   if (slug === "pensia-hova-independant") return <PensiaHovaCalculator />;
   if (slug === "exoneration-ole-hadash-2026") return <OleHadashExemptionCalculator />;
+  if (slug === "simulateur-fiscal-independant-israel") return <IndependentTaxSimulatorCalculator />;
   if (slug === "ole-hadash-nekoudot-zikouy") return <OlehHadashCalculator />;
   if (slug === "nekoudot-zikouy") return <CreditPointValueCalculator />;
   if (slug === "nekoudot-zikouy-enfants") return <ChildCreditPointsCalculator />;

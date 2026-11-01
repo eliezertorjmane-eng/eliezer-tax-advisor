@@ -5,6 +5,7 @@ export const frenchCalculatorSlugs = [
   "bituah-leumi-independant",
   "pensia-hova-independant",
   "exoneration-ole-hadash-2026",
+  "simulateur-fiscal-independant-israel",
   "ole-hadash-nekoudot-zikouy",
   "nekoudot-zikouy",
   "nekoudot-zikouy-enfants",
@@ -40,6 +41,13 @@ export const frenchCalculators = [
     title: "Calculateur d’exonération fiscale — Alyah 2026",
     description: "Estimez, sous conditions, les revenus professionnels israéliens potentiellement exonérés pour les années fiscales 2026–2030.",
     badge: "Réforme 2026",
+    featured: true
+  },
+  {
+    slug: "simulateur-fiscal-independant-israel",
+    title: "Simulateur fiscal complet indépendant — 2026",
+    description: "Estimez ensemble l’impôt sur le revenu, le Bitouah Leumi, la Pensia Hova et le revenu professionnel disponible.",
+    badge: "Simulateur 2026",
     featured: true
   },
   {

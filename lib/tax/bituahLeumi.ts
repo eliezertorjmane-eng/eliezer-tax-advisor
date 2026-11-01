@@ -66,6 +66,7 @@ export type BituahSimulationInput = {
   isSalaried: boolean;
   monthlySalary: number;
   standardCategory?: boolean;
+  businessRegime?: "classic" | "esekZair";
 };
 
 const roundMoney = (value: number) => Math.round((value + Number.EPSILON) * 100) / 100;
@@ -109,7 +110,9 @@ export function calculateBituahLeumiSimulation(input: BituahSimulationInput) {
     warnings.push("Indiquez votre salaire brut mensuel pour coordonner les tranches et le plafond.");
   }
   const floor = Math.max(0, c.minimumSelfEmployedCalculationBase - salary);
-  const adjustment = independent ? adjustedSelfEmployedBase(profit, reducedRoom, cap, floor) : { adjusted: profit, deduction: 0 };
+  const adjustment = independent && input.businessRegime !== "esekZair"
+    ? adjustedSelfEmployedBase(profit, reducedRoom, cap, floor)
+    : { adjusted: profit, deduction: 0 };
   // The employee/non-work FAQ retains the 25% exemption even with salary. Apply it to the
   // activity alone, before the remaining salary-prioritized cap; qualifying self-employment has no such exemption.
   const exemption = independent ? 0 : Math.min(profit, c.nonWorkIncomeExemption);
@@ -164,7 +167,7 @@ export function calculateBituahLeumiSimulation(input: BituahSimulationInput) {
       { label: "Normale", base: regularBase, rate: niRegular + healthRegular, national: regularNational, health: regularHealth, contribution: calculationPrecision(regularNational + regularHealth) }
     ],
     minimumTopUp: calculationPrecision(minimumNationalTopUp + minimumHealthTopUp), warnings,
-    assumptions: ["Résident israélien de 18 ans à l’âge de la retraite, sans exonération particulière.", "Activité et salaire stables sur douze mois ; le montant définitif dépend de la שומה סופית.", "Les versements à une קופת גמל, les autres revenus et le régime Esek Zair ne sont pas modélisés."]
+    assumptions: ["Résident israélien de 18 ans à l’âge de la retraite, sans exonération particulière.", "Activité et salaire stables sur douze mois ; le montant définitif dépend de la שומה סופית.", input.businessRegime === "esekZair" ? "Régime Esek Zair : base reçue après la déduction forfaitaire de 30 %, sans réductions personnelles de la section 345." : "Les versements à une קופת גמל et les autres revenus ne sont pas modélisés."]
   };
 }
 

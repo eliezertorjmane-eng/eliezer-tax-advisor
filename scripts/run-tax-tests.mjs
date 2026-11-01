@@ -5,8 +5,8 @@ import path from "node:path";
 // Compile the pure tax modules with the existing TypeScript dependency; no extra test package is needed.
 const buildDir = mkdtempSync(path.resolve(".tax-tests-"));
 try {
-  execFileSync(process.execPath, ["node_modules/typescript/bin/tsc", "--ignoreConfig", "lib/tax/bituahLeumi.ts", "lib/tax/childCreditPoints.ts", "lib/tax/pensiaHova.ts", "lib/tax/oleHadashExemption.ts", "lib/tax/olehHadash.ts", "lib/tax/oleHadashExemptionUi.ts", "--outDir", buildDir, "--module", "commonjs", "--target", "ES2020", "--strict", "--skipLibCheck", "--esModuleInterop"], { stdio: "inherit" });
-  execFileSync(process.execPath, ["--test", "tests/tax.test.mjs", "tests/pensiaHova.test.mjs", "tests/oleHadashExemption.test.mjs", "tests/olehHadash.test.mjs"], { stdio: "inherit", env: { ...process.env, TAX_TEST_BUILD_DIR: buildDir } });
+  execFileSync(process.execPath, ["node_modules/typescript/bin/tsc", "--ignoreConfig", "lib/tax/bituahLeumi.ts", "lib/tax/childCreditPoints.ts", "lib/tax/constants2026.ts", "lib/tax/incomeTax.ts", "lib/tax/independentTaxSimulator2026.ts", "lib/tax/pensiaHova.ts", "lib/tax/oleHadashExemption.ts", "lib/tax/olehHadash.ts", "lib/tax/oleHadashExemptionUi.ts", "--outDir", buildDir, "--module", "commonjs", "--target", "ES2020", "--strict", "--skipLibCheck", "--esModuleInterop"], { stdio: "inherit" });
+  execFileSync(process.execPath, ["--test", "tests/tax.test.mjs", "tests/pensiaHova.test.mjs", "tests/oleHadashExemption.test.mjs", "tests/olehHadash.test.mjs", "tests/independentTaxSimulator2026.test.mjs"], { stdio: "inherit", env: { ...process.env, TAX_TEST_BUILD_DIR: buildDir } });
 } catch (error) {
   process.exitCode = error.status ?? 1;
 } finally {

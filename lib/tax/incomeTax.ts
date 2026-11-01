@@ -1,4 +1,4 @@
-import { TAX_CONSTANTS_2026, type TaxBracket } from "@/lib/tax/constants2026";
+import { TAX_CONSTANTS_2026, type TaxBracket } from "./constants2026";
 
 export function calculateProgressiveTax(monthlyIncome: number, brackets: readonly TaxBracket[]) {
   const income = Math.max(0, monthlyIncome);
