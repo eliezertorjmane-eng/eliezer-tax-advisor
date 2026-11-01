@@ -17,6 +17,7 @@ import { officialSimulators, type FrenchCalculatorSlug } from "@/lib/calculators
 import { TAX_YEAR } from "@/lib/tax/constants2026";
 import { BituahLeumiCalculator } from "./BituahLeumiCalculator";
 import { PensiaHovaCalculator } from "./PensiaHovaCalculator";
+import { OleHadashExemptionCalculator } from "./OleHadashExemptionCalculator";
 import {
   calculateChildCreditPoints,
   defaultChildCreditTaxYear,
@@ -29,7 +30,7 @@ import { calculateKnownCreditPointValue } from "@/lib/tax/creditPoints";
 import { calculateEhzerMassPrecheck, type EhzerMassInputs } from "@/lib/tax/ehzerMass";
 import { formatILS, formatNumber } from "@/lib/tax/format";
 import { calculateIncomeTax } from "@/lib/tax/incomeTax";
-import { calculateOlehHadashCreditPoints } from "@/lib/tax/olehHadash";
+import { calculateOlehHadashCreditPoints, getOlehHadashReformContext } from "@/lib/tax/olehHadash";
 import {
   calculateRentalIncomeTaxComparison,
   type RentalOwnerSituation,
@@ -201,54 +202,58 @@ function OlehHadashCalculator() {
   const [aliyahDate, setAliyahDate] = useState("2024-01-01");
   const [taxYear, setTaxYear] = useState(String(TAX_YEAR));
   const [excludedMonths, setExcludedMonths] = useState("0");
-  const [taxBeforeCredits, setTaxBeforeCredits] = useState("0");
+  const [taxBeforeCredits, setTaxBeforeCredits] = useState("");
   const result = calculateOlehHadashCreditPoints({
     aliyahDate,
-    targetTaxYear: toNumber(taxYear),
-    excludedMonths: toNumber(excludedMonths),
-    annualTaxBeforeCredits: toNumber(taxBeforeCredits) || undefined
+    targetTaxYear: Number(taxYear),
+    excludedMonths: Number(excludedMonths),
+    annualTaxBeforeCredits: taxBeforeCredits.trim() === "" ? undefined : Number(taxBeforeCredits)
   });
-  const message = `Bonjour Eliezer, j’ai utilisé le calculateur נקודות זיכוי olé hadash. Date d’alyah: ${aliyahDate}, année: ${taxYear}. Points estimés: ${result ? formatNumber(result.annualCreditPoints) : "à vérifier"}. Pouvez-vous vérifier mes droits ?`;
+  const reformContext = getOlehHadashReformContext(aliyahDate);
+  const message = `Bonjour Eliezer, j’ai utilisé le calculateur נקודות זיכוי olé hadash. Date d’alyah: ${aliyahDate}, année: ${taxYear}. Points estimés: ${result && !result.requiresReview ? formatNumber(result.annualCreditPoints) : "à vérifier"}. Pouvez-vous vérifier mes droits ?`;
 
   return (
     <CalculatorShell title="Calculateur נקודות זיכוי pour olé hadash" subtitle="Estimez les points de crédit liés au statut d’olé hadash selon votre date d’alyah et l’année fiscale.">
+      <div className="min-w-0 [&>div>div]:min-w-0 [&_input]:min-w-0 [&_input]:w-full">
       <CalculatorFrame>
         <FieldPanel>
           <CalculatorInput type="date" label="Date d’alyah" value={aliyahDate} onChange={setAliyahDate} />
           <CalculatorInput label="Année fiscale" value={taxYear} onChange={setTaxYear} />
-          <CalculatorInput label="Mois à exclure pour service militaire ou études" help="Optionnel — à vérifier selon votre situation." value={excludedMonths} onChange={setExcludedMonths} />
-          <CalculatorInput label="Impôt annuel avant crédits" help="Optionnel — permet d’estimer la part réellement utilisable." value={taxBeforeCredits} onChange={setTaxBeforeCredits} />
+          <CalculatorInput label="Mois à exclure pour service militaire ou études" help="Optionnel : des mois exclus nécessitent une vérification des dates exactes, pas une simple soustraction de points." value={excludedMonths} onChange={setExcludedMonths} />
+          <CalculatorInput label="Impôt annuel après exonérations, avant ces crédits" help="Optionnel : montant issu d’un calcul fiscal complet. L’outil affiche seulement un plafond d’utilisation selon ce montant, pas une économie d’impôt réelle." value={taxBeforeCredits} onChange={setTaxBeforeCredits} />
         </FieldPanel>
         <div className="grid gap-5">
-          {result ? (
+          {result && !result.requiresReview ? (
             <>
               <ResultCard title="Régime estimé" value={result.regime === "before2022" ? "Avant 2022" : "2022 et après"} tone="strong" />
-              <ResultCard title="Points annuels estimés" value={formatNumber(result.annualCreditPoints)}>
-                Valeur estimée : {formatILS(result.estimatedValue)}. Valeur utilisable estimée : {formatILS(result.usableValue)}.
+              <ResultCard title="Points annuels estimés" value={formatNumber(result.annualCreditPoints)} />
+              <ResultCard title="Valeur maximale théorique des crédits" value={formatILS(result.estimatedValue)}>
+                Valorisation indicative au barème 2026 : 2 904 ₪ par point et par an. La valeur du point doit être vérifiée pour une autre année fiscale.
               </ResultCard>
+              {result.usableValue !== null ? <ResultCard title="Plafond utilisable avec l’impôt indiqué" value={formatILS(result.usableValue)} /> : null}
               <ResultCard title="Mois restants estimés" value={String(result.remainingEligibilityMonths)} />
-              {result.unusedValue > 0 ? <DisclaimerBox>Une partie des crédits peut rester inutilisée si l’impôt réellement payé est inférieur à la valeur des crédits.</DisclaimerBox> : null}
+              {result.unusedValue !== null && result.unusedValue > 0 ? <DisclaimerBox>Une partie de la valeur théorique peut rester inutilisée si l’impôt dû après exonérations est inférieur aux crédits.</DisclaimerBox> : null}
             </>
           ) : (
-            <DisclaimerBox>Date d’alyah à vérifier.</DisclaimerBox>
+            <DisclaimerBox>{result?.requiresReview ? "Périodes exclues : vérification professionnelle nécessaire. Le nombre de mois seul ne permet pas de reconstituer les tranches et la durée restante ; aucun montant définitif n’est affiché." : "Vérifiez la date d’alyah, l’année fiscale et les montants saisis."}</DisclaimerBox>
           )}
-          <DisclaimerBox>Les périodes de service militaire ou d’études peuvent modifier le calcul. À vérifier individuellement.</DisclaimerBox>
-          <div className="rounded-md border border-sky/25 bg-mint p-5 text-sm leading-7 text-slate-700 shadow-soft">
-            <p>
-              <strong className="text-ink">Nouvelle réforme 2026 :</strong> certains Olim Hadashim et Toshavim Hozrim
-              arrivés pendant la période prévue peuvent aussi bénéficier d’une exonération spécifique sur certains revenus
-              professionnels générés en Israël. Cette réforme est distincte des Nekoudot Zikouy.
-            </p>
+          <DisclaimerBox>Les Nekoudot Zikouy réduisent l’impôt sur le revenu effectivement dû. Elles ne constituent pas automatiquement un remboursement et ne peuvent pas réduire l’impôt en dessous de zéro.</DisclaimerBox>
+          {reformContext ? <section aria-label="Autre exonération fiscale" className="rounded-md border border-sky/25 bg-mint p-5 text-sm leading-7 text-slate-700 shadow-soft">
+            <h2 className="text-base font-semibold text-ink">Vous pourriez bénéficier d’une autre exonération fiscale</h2>
+            <p className="mt-2">En plus de vos Nekoudot Zikouy, la réforme Olé Hadash 2026–2030 prévoit, sous conditions, une exonération sur certains revenus professionnels réalisés en Israël. Vos points de crédit d’impôt restent applicables, mais leur avantage réel dépend de l’impôt restant après les exonérations.</p>
+            <p className="mt-2 text-xs leading-6">{reformContext === "review" ? "Arrivée du 1er janvier au 10 février 2027 : le service actuel de l’Autorité fiscale accepte les demandes, tandis que le texte initial vise le 31 décembre 2026. Les modalités de l’extension doivent être confirmées par un professionnel ; aucun droit n’est garanti." : "Votre date d’alyah constitue un repère, pas une preuve d’éligibilité : la date effective de résidence fiscale, le statut et la nature des revenus doivent être vérifiés."}</p>
+            <Link href="/fr/calculateurs/exoneration-ole-hadash-2026" className="mt-3 block font-semibold text-teal underline underline-offset-4">Estimer l’exonération Olé Hadash 2026–2030</Link>
             <Link
               href="/fr/guides/reforme-fiscale-olim-hadashim-2026"
               className="mt-3 inline-flex text-sm font-semibold text-teal transition hover:text-ink"
             >
               Lire le guide réforme Olim Hadashim 2026
             </Link>
-          </div>
-          <WhatsAppResultButton label="Faire vérifier mes droits d’olé hadash sur WhatsApp" message={message} />
+          </section> : null}
+          <div className="min-w-0 [&_a]:max-w-full [&_a]:whitespace-normal [&_a]:text-center"><WhatsAppResultButton label="Faire vérifier mes droits d’olé hadash sur WhatsApp" message={message} /></div>
         </div>
       </CalculatorFrame>
+      </div>
     </CalculatorShell>
   );
 }
@@ -773,6 +778,7 @@ export function FrenchCalculator({ slug }: { slug: FrenchCalculatorSlug }) {
   if (slug === "ehzer-mass") return <EhzerMassCalculator />;
   if (slug === "bituah-leumi-independant") return <BituahLeumiCalculator />;
   if (slug === "pensia-hova-independant") return <PensiaHovaCalculator />;
+  if (slug === "exoneration-ole-hadash-2026") return <OleHadashExemptionCalculator />;
   if (slug === "ole-hadash-nekoudot-zikouy") return <OlehHadashCalculator />;
   if (slug === "nekoudot-zikouy") return <CreditPointValueCalculator />;
   if (slug === "nekoudot-zikouy-enfants") return <ChildCreditPointsCalculator />;

@@ -13,6 +13,11 @@ type PageProps = {
 };
 
 const metaBySlug: Record<FrenchCalculatorSlug, { title: string; description: string; keywords: string[] }> = {
+  "exoneration-ole-hadash-2026": {
+    title: "Calculateur d’exonération fiscale — Alyah 2026 | Israël",
+    description: "Pour les Olim Hadashim ayant fait leur Alyah entre le 5 novembre 2025 et le 31 décembre 2026 : estimation conditionnelle des revenus professionnels exonérés en 2026–2030.",
+    keywords: ["calculateur exonération Olé Hadash", "Olim Hadashim 2026", "פטור ממס", "Mass Hachnassa Israël"]
+  },
   "pensia-hova-independant": {
     title: "Calculateur Pensia Hova indépendant 2026 | Pension obligatoire Israël",
     description: "Estimez la pension obligatoire des indépendants en Israël : bénéfice annuel, âge, première immatriculation, cotisations salariées et montant restant à déposer en 2026.",
@@ -77,6 +82,14 @@ const metaBySlug: Record<FrenchCalculatorSlug, { title: string; description: str
 };
 
 const relatedContentByCalculator: Partial<Record<FrenchCalculatorSlug, Array<{ href: string; label: string; text: string }>>> = {
+  "exoneration-ole-hadash-2026": [
+    { href: "/fr/guides/reforme-fiscale-olim-hadashim-2026", label: "Guide de la réforme Olim Hadashim 2026", text: "Conditions, revenus couverts et démarches administratives." },
+    { href: "/fr/calculateurs/ole-hadash-nekoudot-zikouy", label: "Nekoudot Zikouy olé hadash", text: "Les points de crédit sont distincts de l’exonération de revenu." },
+    { href: "/fr/calculateurs/bituah-leumi-independant", label: "Bitouah Leumi indépendant", text: "Les cotisations sociales restent à examiner séparément." },
+    { href: "/fr/calculateurs/pensia-hova-independant", label: "Pensia Hova indépendant", text: "La retraite obligatoire ne disparaît pas avec l’exonération." },
+    { href: "/fr/calculateurs/impot-revenu-israel", label: "Mass Hachnassa", text: "Un outil séparé, à ne pas confondre avec le revenu exonéré." },
+    { href: "/fr/ressources", label: "Ressources fiscales", text: "Guides et outils pour préparer votre dossier." }
+  ],
   "pensia-hova-independant": [
     { href: "/fr/calculateurs/bituah-leumi-independant", label: "Bitouah Leumi indépendant", text: "La pension obligatoire et les cotisations sociales suivent des règles distinctes." },
     { href: "/fr/guides/ouvrir-entreprise-israel", label: "Ouvrir une entreprise en Israël", text: "Préparer les obligations fiscales et sociales de votre activité." },
@@ -558,7 +571,7 @@ export default async function FrenchCalculatorPage({ params }: PageProps) {
       ) : null}
       <section className="px-5 pb-6 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-6xl rounded-md border border-line bg-white p-5 text-sm leading-7 text-slate-600 shadow-soft">
-          <strong className="text-ink">Ce calculateur fait :</strong> une estimation indicative {slug === "nekoudot-zikouy-enfants" ? "pour l’année fiscale choisie (2024, 2025 ou 2026)." : "selon les constantes 2026."}
+          <strong className="text-ink">Ce calculateur fait :</strong> une estimation indicative {slug === "exoneration-ole-hadash-2026" ? "pour l’année choisie de 2026 à 2030, sous les conditions du régime." : slug === "nekoudot-zikouy-enfants" ? "pour l’année fiscale choisie (2024, 2025 ou 2026)." : "selon les constantes 2026."}
           <br />
           <strong className="text-ink">Ce calculateur ne fait pas :</strong> une décision fiscale définitive, une garantie de résultat ou une analyse complète de votre dossier.
           {calculator ? <span className="sr-only">{calculator.title}</span> : null}

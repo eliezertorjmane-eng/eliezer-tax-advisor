@@ -12,7 +12,7 @@ export function CalculatorShell({
   children
 }: {
   title: string;
-  subtitle: string;
+  subtitle: ReactNode;
   eyebrow?: string;
   children: ReactNode;
 }) {

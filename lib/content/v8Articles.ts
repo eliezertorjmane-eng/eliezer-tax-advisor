@@ -299,6 +299,7 @@ export const v8Articles: Article[] = [
     excerpt:
       "Arrivée entre novembre 2025 et décembre 2026, revenu professionnel en Israël, Form 116ע, coordination fiscale : les points à vérifier avant de compter sur l’exonération.",
     ...v8Publication,
+    updatedAt: "2026-10-26",
     readingTime: "11 min",
     ...v8Author,
     tags: [
@@ -331,7 +332,7 @@ export const v8Articles: Article[] = [
       "certificat-residence-fiscale-israel",
       "salarie-revenus-france-declaration-fiscale-israel"
     ],
-    relatedCalculatorSlugs: ["ole-hadash-nekoudot-zikouy", "nekoudot-zikouy", "nekoudot-zikouy-enfants", "impot-revenu-israel"],
+    relatedCalculatorSlugs: ["exoneration-ole-hadash-2026", "ole-hadash-nekoudot-zikouy", "nekoudot-zikouy", "nekoudot-zikouy-enfants", "impot-revenu-israel"],
     sources: [
       {
         label: "Israel Tax Authority - tax reliefs for New Immigrants and Veteran Returning Residents, 2026-2030",
@@ -353,9 +354,15 @@ export const v8Articles: Article[] = [
       },
       {
         label: "Ministry of Aliyah and Integration - tax benefits guide for new immigrants",
-        href: "https://www.gov.il/he/pages/health-system-in-israel?chapterIndex=5",
+        href: "https://www.gov.il/BlobFolder/generalpage/information_olim_tuota/he/guide-for-the-new-immigrant-HE.PDF",
         status: "verified",
-        note: "Guide officiel mis à jour en 2026 sur les droits fiscaux des nouveaux immigrants."
+        note: "Guide officiel sur les droits fiscaux, distinct du nouveau régime sur les revenus professionnels israéliens."
+      },
+      {
+        label: "Autorité fiscale — circulaire 07/2026, catalogue officiel",
+        href: "https://www.gov.il/he/collectors/policies/?TopicId=d4bd9e40-c777-4f25-9b36-cc48432da172&officeId=c0d8ba69-e309-4fe5-801f-855971774a90",
+        status: "verified",
+        note: "Publication du 5 juillet 2026 ; mise à jour affichée au catalogue le 29 juillet. La page de demande actuelle accepte les arrivées jusqu’au 10 février 2027 ; les modalités de cette extension restent à confirmer individuellement."
       }
     ],
     cta: {
@@ -373,10 +380,15 @@ export const v8Articles: Article[] = [
           "Elle ne remplace pas les Nekoudot Zikouy accordées aux Olim Hadashim, et elle ne se confond pas avec le régime existant sur certains revenus de source étrangère. Ce sont trois sujets différents : points de crédit, exonération sur revenus étrangers et nouvelle exonération sur revenus professionnels israéliens."
         ],
         callout: {
-          title: "Période officielle",
-          text: "La page de service de l’administration fiscale vise les Olim Hadashim et Toshavim Hozrim vétérans arrivés entre le 5 novembre 2025 et le 31 décembre 2026."
+          title: "Texte initial et position administrative actuelle",
+          text: "L’article 2(a) du texte adopté vise la résidence fiscale établie du 5 novembre 2025 au 31 décembre 2026. Au 26 octobre 2026, le service de l’Autorité fiscale accepte les demandes jusqu’au 10 février 2027. L’extension est rattachée à l’article 38 de la Loi fondamentale : la Knesset ; pour une arrivée en 2027, il faut confirmer les modalités plutôt que supposer une exclusion ou inventer un prorata."
         },
         links: [
+          {
+            href: "/fr/calculateurs/exoneration-ole-hadash-2026",
+            label: "Estimer l’exonération Olé Hadash 2026–2030",
+            description: "Plafonds et prorata, sans confondre revenu exonéré et économie d’impôt."
+          },
           {
             href: "/fr/calculateurs/ole-hadash-nekoudot-zikouy",
             label: "Calculateur Nekoudot Zikouy olé hadash",
@@ -393,10 +405,12 @@ export const v8Articles: Article[] = [
         title: "Qui peut être concerné ?",
         paragraphs: [
           "Le service officiel vise les nouveaux immigrants et les résidents de retour vétérans arrivés pendant la période prévue. L’éligibilité doit être vérifiée avec les documents d’arrivée, le statut personnel et la résidence fiscale effective.",
-          "Une personne qui a fait son alyah avant cette période, une personne qui ne remplit pas les conditions de statut ou une personne qui compte seulement sur des revenus passifs étrangers ne doit pas supposer que la réforme s’applique."
+          "Une personne qui a fait son alyah avant cette période, une personne qui ne remplit pas les conditions de statut ou une personne qui compte seulement sur des revenus passifs étrangers ne doit pas supposer que la réforme s’applique.",
+          "Le début effectif de résidence fiscale dépend du centre de vie, pas uniquement de la date sur la Teoudat Olé. Pour un Toshav Hozer Vatik, les dix années consécutives de résidence à l’étranger et le certificat du ministère de l’Alyah doivent être documentés. La circulaire 07/2026 précise aussi que l’année d’adaptation ne décale pas artificiellement cette fenêtre."
         ],
         bullets: [
           "Oleh Hadash arrivé entre le 5 novembre 2025 et le 31 décembre 2026.",
+          "Arrivée du 1er janvier au 10 février 2027 : demande admise par le service courant, modalités à confirmer ; le calculateur conserve un état de vérification.",
           "Toshav Hozer vétéran, selon la définition applicable, revenu en Israël pendant la période de la réforme.",
           "Revenu professionnel issu d’un travail salarié, d’une activité indépendante ou d’une activité professionnelle générée en Israël.",
           "Dossier documenté avec Teoudat Oleh ou certificat de résident de retour, historique d’entrées/sorties et justificatifs de revenus."
@@ -406,7 +420,8 @@ export const v8Articles: Article[] = [
         title: "Quels revenus sont visés ?",
         paragraphs: [
           "La réforme vise les revenus d’un effort personnel générés en Israël : salaire israélien, revenu d’activité indépendante, honoraires ou revenu professionnel. Ce point est central : un revenu passif ou un revenu de source étrangère ne doit pas être mélangé automatiquement avec cette nouvelle exonération.",
-          "Un salaire en Israël, une activité de consultant ouverte en Israël ou une activité professionnelle exercée depuis Israël peuvent entrer dans le périmètre à analyser. Des loyers en France, des dividendes étrangers ou une pension française relèvent d’un raisonnement fiscal différent."
+          "Un salaire en Israël, une activité de consultant ouverte en Israël ou une activité professionnelle exercée depuis Israël peuvent entrer dans le périmètre à analyser. Des loyers en France, des dividendes étrangers ou une pension française relèvent d’un raisonnement fiscal différent.",
+          "La définition légale vise un revenu imposable d’effort personnel au titre des articles 2(1) ou 2(2). Pour un indépendant, on examine le bénéfice fiscal après dépenses admises, pas le chiffre d’affaires. Les dividendes, loyers, intérêts, plus-values et autres revenus visés par 62א(d) ne sont pas automatiquement admissibles ; certaines attributions de structures transparentes sont également exclues, sous les exceptions précises du texte."
         ],
         links: [
           {
@@ -425,7 +440,8 @@ export const v8Articles: Article[] = [
         title: "Plafonds annuels indiqués par les sources officielles",
         paragraphs: [
           "Les plafonds doivent toujours être vérifiés selon la loi, la date d’arrivée, la nature du revenu et la situation personnelle. Les sources officielles publiées indiquent un mécanisme progressif sur les années 2026 à 2030.",
-          "Pour les revenus qui ne proviennent pas d’un proche, les plafonds communiqués sont : 600 000 NIS pour 2026, 1 000 000 NIS pour 2027, 1 000 000 NIS pour 2028, 350 000 NIS pour 2029 et 150 000 NIS pour 2030. Les revenus provenant d’un proche suivent un plafond particulier qui doit être vérifié séparément, notamment autour de 140 000 NIS selon les instructions publiées."
+          "Pour les revenus qui ne proviennent pas d’un proche, les plafonds sont : 600 000 NIS pour 2026, 1 000 000 NIS pour 2027, 1 000 000 NIS pour 2028, 350 000 NIS pour 2029 et 150 000 NIS pour 2030. En 2026, l’article 2(d) prorate le plafond à la période de résidence fiscale. Ces cinq années sont fixes, sans report du plafond inutilisé sur l’année suivante.",
+          "Exemple : début effectif de résidence le 15 juin 2026, soit 200 jours jusqu’au 31 décembre inclus. Le plafond général vaut 600 000 × 200 / 365 = 328 767,12 ₪. Avec 400 000 ₪ de revenu personnel éligible, 71 232,88 ₪ restent hors de cette exonération. Ce solde n’est pas le montant de l’impôt ; l’économie fiscale dépend du dossier complet."
         ],
         callout: {
           tone: "warning",
@@ -433,11 +449,27 @@ export const v8Articles: Article[] = [
         }
       },
       {
+        title: "Revenus d’un proche : le sens de קרוב",
+        paragraphs: [
+          "קרוב ne signifie pas simplement un client que l’on connaît. La loi renvoie à l’article 88 : liens familiaux et certains liens de détention ou de contrôle. Un salaire versé par un conjoint ou une entreprise liée à la famille peut demander cette qualification.",
+          "Les revenus éligibles provenant d’un קרוב sont plafonnés à 140 000 ₪ par an de 2026 à 2029, avec le prorata de résidence en 2026. En 2030, le plafond général de 150 000 ₪ s’applique. En présence de revenus mixtes, le plafond général reste un total combiné, pas un plafond supplémentaire ; la ventilation de l’avantage doit être examinée lorsque ce total est atteint.",
+          "Le texte exclut spécifiquement de la définition de קרוב la société entièrement détenue par l’Olé. Cette exception ne transforme pas tous ses profits en revenus personnels exonérés ; les versements, l’activité réelle et la qualification du revenu restent déterminants."
+        ]
+      },
+      {
+        title: "Esek ou Hevra Baam : séparer salaire et profits de société",
+        paragraphs: [
+          "Dans un Esek, le bénéfice professionnel imposable personnel peut relever du dispositif. Dans une Hevra Baam, un salaire réel éligible de l’actionnaire et les bénéfices appartenant à la société sont deux revenus distincts : l’avantage personnel ne dispense pas la société israélienne d’impôt sur ses profits et n’exonère pas automatiquement ses dividendes.",
+          "L’article 62א et les exceptions concernant certaines structures transparentes peuvent conduire à attribuer un revenu à l’individu. Ce n’est ni un choix libre de retirer des profits sans impôt, ni une règle identique pour toutes les sociétés. Le calculateur public renvoie ces situations à une vérification, sans optimiser automatiquement le choix Esek / Hevra Baam."
+        ]
+      },
+      {
         title: "Comment demander l’avantage",
         paragraphs: [
           "La démarche officielle repose notamment sur le Form 116ע, les documents d’aliyah ou de retour, les entrées et sorties, les fiches de paie ou attestations de revenu et un fichier simulateur demandé par l’administration.",
           "La voie pratique dépend de l’obligation de déposer une déclaration annuelle. Une personne non tenue au rapport annuel peut, selon les instructions officielles, utiliser une coordination fiscale en ligne jusqu’à un plafond de revenu professionnel annuel de 300 000 NIS. Si le revenu dépasse ce montant, la déclaration annuelle peut être nécessaire pour le reste.",
-          "Une personne tenue au rapport annuel peut utiliser la coordination fiscale en ligne jusqu’à 500 000 NIS de revenu professionnel annuel, et une demande de réduction d’acomptes peut être pertinente pour un indépendant représenté. Au-dessus des plafonds de procédure, le Formulaire 1301 doit être examiné."
+          "Une personne inscrite comme tenue au rapport annuel au moment de la demande peut utiliser la coordination fiscale en ligne jusqu’à 500 000 NIS de revenu professionnel annuel, et une demande de réduction d’acomptes peut être pertinente pour un indépendant représenté. Au-dessus des plafonds de procédure, le Formulaire 1301 doit être examiné.",
+          "La circulaire 07/2026 distingue ces autorisations anticipées du droit statutaire définitif : les limites de 300 000 / 500 000 ₪ sont elles aussi proratisées en 2026 sur les jours de résidence rapportés à 365. Elles ne réduisent pas définitivement l’exonération légale ; le solde de l’avantage peut être demandé dans le rapport annuel 1301. Les revenus d’un קרוב passent par ce rapport, et non par la coordination anticipée. Les autres critères administratifs de séjour et les pièces exigées restent à vérifier."
         ],
         links: [
           {

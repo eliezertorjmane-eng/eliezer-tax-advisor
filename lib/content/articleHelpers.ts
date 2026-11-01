@@ -119,6 +119,7 @@ export function formatArticleDate(value: string, locale: Locale = "fr") {
 
 export function getRelatedCalculatorLinks(article: Article) {
   const calculatorLinks: Record<string, { href: string; label: string }> = {
+    "exoneration-ole-hadash-2026": { href: "/fr/calculateurs/exoneration-ole-hadash-2026", label: "Calculateur exonération Olé Hadash 2026–2030" },
     "ehzer-mass": { href: "/fr/calculateurs/ehzer-mass", label: "Pré-diagnostic Ehzer Mass / החזר מס" },
     "bituah-leumi-independant": {
       href: "/fr/calculateurs/bituah-leumi-independant",

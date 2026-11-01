@@ -4,6 +4,7 @@ export const frenchCalculatorSlugs = [
   "ehzer-mass",
   "bituah-leumi-independant",
   "pensia-hova-independant",
+  "exoneration-ole-hadash-2026",
   "ole-hadash-nekoudot-zikouy",
   "nekoudot-zikouy",
   "nekoudot-zikouy-enfants",
@@ -33,6 +34,13 @@ export const frenchCalculators = [
     title: "Pensia Hova indépendant",
     description: "Estimez votre pension obligatoire 2026 selon votre bénéfice annuel, votre première immatriculation et vos versements pension.",
     badge: "Retraite"
+  },
+  {
+    slug: "exoneration-ole-hadash-2026",
+    title: "Calculateur d’exonération fiscale — Alyah 2026",
+    description: "Estimez, sous conditions, les revenus professionnels israéliens potentiellement exonérés pour les années fiscales 2026–2030.",
+    badge: "Réforme 2026",
+    featured: true
   },
   {
     slug: "ole-hadash-nekoudot-zikouy",
