@@ -31,6 +31,7 @@ function AmountField({ label, value, onChange, help, invalid = false }: { label:
 export function BituahLeumiCalculator() {
   const [income, setIncome] = useState("190000");
   const [hours, setHours] = useState("15");
+  const [activityMonths, setActivityMonths] = useState(12);
   const [isSalaried, setIsSalaried] = useState(false);
   const [salary, setSalary] = useState("");
   const [standardCategory, setStandardCategory] = useState(true);
@@ -38,7 +39,7 @@ export function BituahLeumiCalculator() {
   const annual = parseBituahAmount(income);
   const weeklyHours = parseBituahAmount(hours);
   const monthlySalary = isSalaried ? parseBituahAmount(salary) : 0;
-  const result = calculateBituahLeumiSimulation({ annualBusinessProfit: annual ?? NaN, weeklyHours: weeklyHours ?? NaN, isSalaried, monthlySalary: monthlySalary ?? NaN, standardCategory });
+  const result = calculateBituahLeumiSimulation({ annualBusinessProfit: annual ?? NaN, weeklyHours: weeklyHours ?? NaN, isSalaried, monthlySalary: monthlySalary ?? NaN, standardCategory, activityMonths });
   const inputsValid = annual !== null && weeklyHours !== null && weeklyHours <= 168 && monthlySalary !== null;
   const showDiagnostic = inputsValid && standardCategory && result.nonWorkAdjustmentRequiresReview && (!isSalaried || (monthlySalary ?? 0) > 0);
   const statusHebrew = result.status === "atzmai" ? "עצמאי עונה להגדרה" : "עצמאי שאינו עונה להגדרה";
@@ -46,7 +47,7 @@ export function BituahLeumiCalculator() {
   const c = TAX_CONSTANTS_2026.bituahLeumi;
   const message = `Bonjour Eliezer, je souhaite faire vérifier mes cotisations Bitouah Leumi. Bénéfice annuel estimé : ${annual === null ? "à préciser" : money(annual)} ; heures : ${hours}/semaine ; salarié : ${isSalaried ? "oui" : "non"}${isSalaried ? ` ; salaire brut mensuel : ${monthlySalary === null ? "à préciser" : money(monthlySalary)}` : ""}. Statut estimé : ${inputsValid ? statusHebrew : "à vérifier"} ; cotisation mensuelle liée à l’activité : ${result.shouldCalculate ? money(result.monthly) : "vérification personnalisée nécessaire"}.`;
   function update(set: (v: string) => void, value: string) { set(value); setExample(false); }
-  function reset(sample: boolean) { setIncome(sample ? "190000" : "0"); setHours(sample ? "15" : "0"); setIsSalaried(false); setSalary(""); setStandardCategory(true); setExample(sample); }
+  function reset(sample: boolean) { setActivityMonths(12); setIncome(sample ? "190000" : "0"); setHours(sample ? "15" : "0"); setIsSalaried(false); setSalary(""); setStandardCategory(true); setExample(sample); }
 
   return <CalculatorShell title="Calculateur Bitouah Leumi indépendant 2026" subtitle="Estimez votre statut et la cotisation liée à votre activité, avec le détail assurance nationale et santé.">
     <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
@@ -54,6 +55,7 @@ export function BituahLeumiCalculator() {
         <p className="text-sm text-teal">{example ? "Exemple illustratif : 190 000 ₪ par an, 15 heures par semaine, sans salaire." : "Vos données de simulation"}</p>
         <AmountField label="Bénéfice professionnel net annuel (₪)" value={income} onChange={(v) => update(setIncome, v)} invalid={annual === null} help="Revenu annuel de votre activité après dépenses professionnelles, avant impôt sur le revenu et ajustements spécifiques du Bitouah Leumi. Ce n’est pas votre chiffre d’affaires." />
         <p className="-mt-3 text-xs leading-5 text-slate-500">Formats acceptés : 190000, 190 000 ou 190,000.</p>
+        <label className="grid gap-2 text-sm font-semibold">Nombre de mois d’activité<select className="min-h-12 rounded-md border border-line bg-white px-3" value={activityMonths} onChange={(e) => { setActivityMonths(Number(e.target.value)); setExample(false); }}>{Array.from({ length: 12 }, (_, i) => <option key={i + 1} value={i + 1}>{i + 1}</option>)}</select><span className="text-xs font-normal">Mois d’activité déclarés au Bitouah Leumi, pas les seuls mois de facturation.</span></label>
         <AmountField label="Heures d’activité par semaine" value={hours} onChange={(v) => update(setHours, v)} invalid={weeklyHours === null || weeklyHours > 168} help="Moyenne sur l’année, entre 0 et 168 heures." />
         <label className="flex items-start gap-3 text-sm font-semibold text-ink"><input type="checkbox" checked={isSalaried} onChange={(e) => { setIsSalaried(e.target.checked); setExample(false); }} className="mt-1 h-5 w-5 shrink-0 accent-[#1E6B87]" /><span>Je suis aussi salarié <bdi lang="he" dir="rtl">(שכיר)</bdi></span></label>
         {isSalaried ? <AmountField label="Salaire brut mensuel (₪)" value={salary} onChange={(v) => update(setSalary, v)} invalid={monthlySalary === null} help="Le salaire est prioritaire pour les tranches et le plafond. Son montant est nécessaire au calcul." /> : null}

@@ -7,6 +7,7 @@ import { calculateOlehHadashCreditPoints } from "./olehHadash";
 import { calculatePensiaHova } from "./pensiaHova";
 
 export type IndependentTaxSimulatorInput = {
+  activityMonths?: number;
   businessRegime: "classic" | "esekZair";
   annualTurnover: number;
   annualProfit: number;
@@ -133,11 +134,12 @@ export function calculateIndependentTaxSimulator2026(input: IndependentTaxSimula
       isSalaried: input.isSalaried,
       monthlySalary: input.isSalaried ? input.monthlySalary : 0,
       standardCategory: true,
-      businessRegime: input.businessRegime
+      businessRegime: input.businessRegime,
+      activityMonths: input.activityMonths
     })
     : null;
 
-  if (nationalInsurance && !nationalInsurance.shouldCalculate) {
+  if (nationalInsurance && (!nationalInsurance.shouldCalculate || nationalInsurance.activityMonths < 12)) {
     warnings.push(...nationalInsurance.warnings);
   }
 
@@ -154,7 +156,7 @@ export function calculateIndependentTaxSimulator2026(input: IndependentTaxSimula
   if (olehCalculation?.requiresReview) warnings.push("La période d’éligibilité aux points olé comprend des mois exclus ou nécessite une vérification; aucun montant de points olé n’est appliqué.");
 
   const nationalInsuranceDeduction = applicable && input.businessRegime === "classic" && nationalInsurance?.shouldCalculate
-    ? nationalInsurance.deduction * 12
+    ? nationalInsurance.deduction * nationalInsurance.activityMonths
     : 0;
   let oleExemption = null;
   let eligibleExemption = 0;
@@ -256,8 +258,8 @@ export function calculateIndependentTaxSimulator2026(input: IndependentTaxSimula
     nationalInsuranceMonthly: nationalInsurance?.shouldCalculate ? nationalInsurance.monthly : null,
     nationalInsuranceAnnual: nationalInsurance?.shouldCalculate ? nationalInsurance.annual : null,
     nationalInsuranceBreakdown: nationalInsurance?.shouldCalculate ? {
-      national: nationalInsurance.nationalInsurance * 12,
-      health: nationalInsurance.healthInsurance * 12,
+      national: nationalInsurance.nationalInsurance * nationalInsurance.activityMonths,
+      health: nationalInsurance.healthInsurance * nationalInsurance.activityMonths,
       status: nationalInsurance.status
     } : null,
     nationalInsuranceDeduction,

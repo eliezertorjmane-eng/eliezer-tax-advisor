@@ -8,6 +8,19 @@ export const PENSIA_HOVA_2026 = {
   maximumAnnualContribution: 14044.38
 } as const;
 
+// The 2027 entry is a provisional estimate using 2026 financial parameters.
+type PensionYearConstants = { readonly [K in keyof typeof PENSIA_HOVA_2026]: number };
+export const PENSIA_HOVA_BY_YEAR: Readonly<Record<number, PensionYearConstants | undefined>> = {
+  2026: PENSIA_HOVA_2026,
+  2027: { ...PENSIA_HOVA_2026, year: 2027 }
+};
+export const PENSIA_HOVA_REFERENCE_YEAR: Readonly<Record<number, number | undefined>> = { 2026: 2026, 2027: 2026 };
+export const PENSIA_HOVA_YEAR_SOURCES: Readonly<Record<number, string | undefined>> = {
+  2026: "https://www.btl.gov.il/Insurance/HozrimBituah/Hozrim/_מקדמות_ודמי_ביטוח_לעצמאים_2026__.pdf"
+};
+export function getPensiaHovaYear(year: number) { return PENSIA_HOVA_BY_YEAR[year]; }
+export function getPensiaHovaReferenceYear(year: number) { return PENSIA_HOVA_REFERENCE_YEAR[year]; }
+
 export type PensiaHovaInput = {
   fiscalYear: number;
   annualProfit: number;
@@ -26,12 +39,15 @@ function validDate(value: string) {
 }
 
 export function calculatePensiaHova(input: PensiaHovaInput) {
-  const c = PENSIA_HOVA_2026;
+  const supportedYear = getPensiaHovaYear(input.fiscalYear);
+  const referenceYear = getPensiaHovaReferenceYear(input.fiscalYear);
+  const c = supportedYear ?? PENSIA_HOVA_2026;
+  const provisional = referenceYear !== undefined && referenceYear !== input.fiscalYear;
   const reasons: string[] = [];
   const warnings: string[] = [];
   const requiresReview = input.exceptionalYear === true;
   const yearEnd = `${c.year}-12-31`;
-  const valid = input.fiscalYear === c.year &&
+  const valid = supportedYear !== undefined && input.fiscalYear === c.year &&
     [input.annualProfit, input.independentDeposits, input.salariedPensionDeposits].every((value) => Number.isFinite(value) && Math.abs(value) <= Number.MAX_SAFE_INTEGER / 24) &&
     input.independentDeposits >= 0 && input.salariedPensionDeposits >= 0 &&
     validDate(input.dateOfBirth) && validDate(input.firstRegistrationDate) &&
@@ -43,18 +59,22 @@ export function calculatePensiaHova(input: PensiaHovaInput) {
   const recentRegistration = valid && input.firstRegistrationDate >= `${c.year}-07-01`;
   const ageExemption = valid && (ageAtYearEnd! < 21 || ageAtYearEnd! >= 60);
   const exempt = transitionalExemption || ageExemption || recentRegistration;
-  if (!valid) reasons.push("Renseignez des montants valides et des dates cohérentes au plus tard le 31 décembre 2026. Seule l’année 2026 est prise en charge.");
+  if (!valid) reasons.push(`Renseignez des montants valides et des dates cohérentes au plus tard le 31 décembre ${input.fiscalYear}.`);
   if (valid) {
+    if (provisional) {
+      warnings.push("Estimation provisoire 2027 calculée avec les taux et plafonds de référence 2026, en attendant leur actualisation.");
+      warnings.push("Les règles d’éligibilité propres à 2027 n’ont pas été vérifiées séparément; les contrôles de dates et d’âge appliquent le cadre modélisé au 31 décembre 2027.");
+    }
     if (requiresReview) reasons.push("Fermeture, réouverture ou changement de résidence signalé : situation particulière, vérification nécessaire. Aucun montant définitif n’est estimé.");
     reasons.push(transitionalExemption
       ? "Vous aviez au moins 55 ans le 1er janvier 2017 : exemption transitoire."
       : ageExemption
-        ? `Au 31 décembre 2026, vous avez ${ageAtYearEnd} ans : l’obligation standard ne s’applique pas avant 21 ans ou à partir de 60 ans.`
-        : `Au 31 décembre 2026, vous avez ${ageAtYearEnd} ans : condition d’âge de 21 à moins de 60 ans remplie.`);
+        ? `Au 31 décembre ${c.year}, vous avez ${ageAtYearEnd} ans : l’obligation standard ne s’applique pas avant 21 ans ou à partir de 60 ans.`
+        : `Au 31 décembre ${c.year}, vous avez ${ageAtYearEnd} ans : condition d’âge de 21 à moins de 60 ans remplie.`);
     reasons.push(recentRegistration
-      ? "Première immatriculation à partir du 1er juillet 2026 : moins de six mois écoulés au 31 décembre, exemption pour cette année."
+      ? `Première immatriculation à partir du 1er juillet ${c.year} : moins de six mois écoulés au 31 décembre, exemption pour cette année.`
       : "Au moins six mois depuis la première immatriculation à la TVA au 31 décembre : pas d’exemption pour immatriculation récente.");
-    reasons.push("Le barème annuel porte sur le bénéfice éligible réellement gagné en 2026, sans annualisation ni prorata des seuils selon les mois de revenus.");
+    reasons.push(`Le barème annuel porte sur le bénéfice éligible réellement gagné en ${c.year}, sans annualisation ni prorata des seuils selon les mois de revenus.`);
     if (input.isSalaried) reasons.push("Les versements pension admissibles du salarié et de l’employeur couvrent d’abord l’obligation ; vos versements indépendants ne sont comptés qu’une fois, ensuite.");
     if (input.annualProfit <= 0) reasons.push("Bénéfice nul ou déficitaire : aucune obligation calculée sur ce revenu.");
     warnings.push("Estimation pour une première immatriculation continue et un revenu professionnel éligible. Fermeture, réouverture, changement de résidence ou autre situation exceptionnelle : faites vérifier le dossier ; ne traitez pas cette estimation comme un montant définitif.");
@@ -78,6 +98,7 @@ export function calculatePensiaHova(input: PensiaHovaInput) {
   const excessDeposits = annualObligation === null ? null : Math.max(0, totalDeposits - annualObligation);
   return {
     valid, requiresReview, status: !valid ? "invalid" as const : requiresReview ? "review" as const : exempt ? "exempt" as const : "mandatory" as const,
+    referenceYear, provisional,
     ageAtYearEnd, ageExemption, transitionalExemption, recentRegistration,
     reasons, warnings, firstBase, secondBase, firstContribution, secondContribution,
     bracketTotal, annualObligation, monthlyPlanning: annualObligation === null ? null : annualObligation / 12,

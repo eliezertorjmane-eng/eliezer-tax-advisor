@@ -150,7 +150,7 @@ export function getRelatedCalculatorLinks(article: Article) {
 
 export function articleMetadata(article: Article): Metadata {
   const url = getArticleUrl(article);
-  const image = getArticleImageUrl(article);
+  const image = `${siteUrl}/logo.png`;
 
   return {
     title: article.seoTitle,
@@ -169,7 +169,7 @@ export function articleMetadata(article: Article): Metadata {
       siteName: "Eliezer Torjmane",
       locale: localeToOgLocale[article.locale],
       type: article.type === "case-study" ? "article" : "article",
-      images: [{ url: image, width: 512, height: 512, alt: "Eliezer Torjmane" }]
+      images: [{ url: image, width: 200, height: 200, alt: "Eliezer Torjmane" }]
     },
     twitter: {
       card: "summary_large_image",

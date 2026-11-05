@@ -524,6 +524,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: meta.title,
       description: meta.description,
+      images: [{ url: `${siteUrl}/logo.png`, width: 200, height: 200, alt: "Eliezer Torjmane" }],
       url: `${siteUrl}/fr/calculateurs/${slug}`,
       siteName: "Eliezer Torjmane",
       locale: "fr_FR",

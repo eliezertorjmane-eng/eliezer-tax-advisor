@@ -4,6 +4,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  openGraph: { type: "website", siteName: "Eliezer Torjmane", images: [{ url: `${siteUrl}/logo.png`, width: 200, height: 200, alt: "Eliezer Torjmane" }] },
+  twitter: { card: "summary_large_image", images: [`${siteUrl}/logo.png`] },
   title: {
     default: "Eliezer Torjmane",
     template: "%s"

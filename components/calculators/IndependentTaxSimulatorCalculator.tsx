@@ -46,6 +46,7 @@ export function IndependentTaxSimulatorCalculator() {
   const [turnover, setTurnover] = useState("100000");
   const [profit, setProfit] = useState("100000");
   const [weeklyHours, setWeeklyHours] = useState("20");
+  const [activityMonths, setActivityMonths] = useState(12);
   const [isSalaried, setIsSalaried] = useState(false);
   const [monthlySalary, setMonthlySalary] = useState("");
   const [salariedMonths, setSalariedMonths] = useState("12");
@@ -73,6 +74,7 @@ export function IndependentTaxSimulatorCalculator() {
     ? childrenBirthYears.slice(0, Math.min(12, Math.max(0, Number(childrenCount)))).map((year) => year.trim() ? Number(year) : NaN)
     : [], [childrenBirthYears, childrenCount, hasChildren]);
   const result = calculateIndependentTaxSimulator2026({
+    activityMonths,
     businessRegime,
     annualTurnover: parse(turnover) ?? NaN,
     annualProfit: parse(profit) ?? NaN,
@@ -131,6 +133,7 @@ export function IndependentTaxSimulatorCalculator() {
           <AmountField label="Heures de travail par semaine dans votre activité indépendante" value={weeklyHours} onChange={setWeeklyHours} help="La définition Bitouah Leumi dépend à la fois du temps de travail et du revenu." />
         </section>
 
+        <label className="grid gap-2 text-sm font-semibold">Nombre de mois d’activité<select className={fieldClass} value={activityMonths} onChange={(e) => setActivityMonths(Number(e.target.value))}>{Array.from({ length: 12 }, (_, i) => <option key={i + 1} value={i + 1}>{i + 1}</option>)}</select><span className="text-xs font-normal">Pour le Bitouah Leumi uniquement : mois déclarés, pas les seuls mois de facturation.</span></label>
         <section className="grid gap-4 border-t border-line pt-5">
           <h2 className="text-lg font-semibold text-ink">B. Ma situation personnelle</h2>
           <label className="grid min-w-0 gap-2 text-sm text-slate-700"><span className="font-semibold">Votre situation</span><select className={fieldClass} value={parentProfile} onChange={(event) => setParentProfile(event.target.value as "father" | "mother")}><option value="father">Homme</option><option value="mother">Femme</option></select></label>

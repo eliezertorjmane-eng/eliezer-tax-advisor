@@ -61,6 +61,7 @@ export function classifyBituahActivity(monthlyIncome: number, weeklyHours: numbe
 }
 
 export type BituahSimulationInput = {
+  activityMonths?: number;
   annualBusinessProfit: number;
   weeklyHours: number;
   isSalaried: boolean;
@@ -94,8 +95,9 @@ function adjustedSelfEmployedBase(profit: number, reducedRoom: number, cap: numb
 
 export function calculateBituahLeumiSimulation(input: BituahSimulationInput) {
   const c = TAX_CONSTANTS_2026.bituahLeumi;
-  const valid = [input.annualBusinessProfit, input.weeklyHours, input.monthlySalary].every((v) => Number.isFinite(v) && v >= 0 && v <= Number.MAX_SAFE_INTEGER / 12) && input.weeklyHours <= 168;
-  const profit = valid ? input.annualBusinessProfit / 12 : 0;
+  const activityMonths = input.activityMonths ?? 12;
+  const valid = Number.isInteger(activityMonths) && activityMonths >= 1 && activityMonths <= 12 && [input.annualBusinessProfit, input.weeklyHours, input.monthlySalary].every((v) => Number.isFinite(v) && v >= 0 && v <= Number.MAX_SAFE_INTEGER / 12) && input.weeklyHours <= 168;
+  const profit = valid ? input.annualBusinessProfit / activityMonths : 0;
   const salary = valid && input.isSalaried ? input.monthlySalary : 0;
   const { status, reasons } = classifyBituahActivity(profit, valid ? input.weeklyHours : 0);
   const independent = status === "atzmai";
@@ -103,6 +105,13 @@ export function calculateBituahLeumiSimulation(input: BituahSimulationInput) {
   const reducedRoom = Math.max(0, c.reducedBracket - salary);
   const warnings: string[] = [];
   let shouldCalculate = valid && input.standardCategory !== false;
+  if (activityMonths < 12) {
+    warnings.push("Estimation des seuls mois d’activité déclarés au Bitouah Leumi, avec revenu et statut constants. Les mois hors activité et les changements de statut ne sont pas inclus.");
+    if (!independent) {
+      shouldCalculate = false;
+      warnings.push("Activité hors définition sur une partie de l’année : la ventilation des périodes et revenus nécessite une vérification.");
+    }
+  }
   if (!valid) warnings.push("Saisissez des montants positifs ou nuls et des heures entre 0 et 168.");
   if (input.standardCategory === false) warnings.push("Cette catégorie d’assuré nécessite une vérification personnalisée ; aucun montant standard n’est calculé.");
   if (input.isSalaried && salary <= 0) {
@@ -151,14 +160,14 @@ export function calculateBituahLeumiSimulation(input: BituahSimulationInput) {
   if (input.isSalaried) warnings.push("Seule la cotisation liée à l’activité est affichée, hors cotisations déjà prélevées sur le salaire. Salaire constant et déclaré à Bitouah Leumi sur l’année entière.");
   if (!independent && input.isSalaried && salary > 0) warnings.push("L’exemption hors travail de 25 % du salaire moyen, publiée à 3 442 ₪ par mois en 2026, reste applicable même avec un salaire. Seul l’excédent utilise les tranches et le plafond encore disponibles après le salaire. Le minimum sans emploi de 266 ₪ n’est pas ajouté à un salarié déjà assuré.");
   const monthly = calculationPrecision(nationalInsurance + healthInsurance);
-  const annual = calculationPrecision(monthly * 12);
+  const annual = calculationPrecision(monthly * activityMonths);
   const quarterly = calculationPrecision(monthly * 3);
   return {
     shouldCalculate, nonWorkAdjustmentRequiresReview, status, reasons: reasons.length ? reasons : ["Aucune des trois conditions n’est remplie : moins de 20 heures, revenu inférieur à 6 884,50 ₪ et condition 12 heures / 2 065,35 ₪ non remplie."],
     monthlyProfit: profit, monthlySalary: salary, adjustedMonthlyBase: adjustment.adjusted,
     deduction: adjustment.deduction, exemption, contributionBase, reducedRoom, remainingCap: cap,
     minimumApplied, nonWorkingMinimumApplied, capApplied, nationalInsurance, healthInsurance,
-    monthly, annual, quarterly,
+    monthly, annual, quarterly, activityMonths,
     // Round each payment period only after aggregating its precise contributions.
     monthlyEstimate: Math.round(monthly), annualEstimate: Math.round(annual), quarterlyEstimate: Math.round(quarterly),
     effectiveRate: profit > 0 ? monthly / profit : null,

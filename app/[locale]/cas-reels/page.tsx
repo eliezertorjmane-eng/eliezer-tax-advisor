@@ -34,6 +34,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         url: `${siteUrl}/fr/cas-reels`,
         siteName: "Eliezer Torjmane",
         locale: "fr_FR",
+        images: [{ url: `${siteUrl}/logo.png`, width: 200, height: 200, alt: "Eliezer Torjmane" }],
         type: "website"
       }
     };

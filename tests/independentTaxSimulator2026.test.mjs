@@ -20,6 +20,115 @@ const simulate = (overrides = {}) => tax.calculateIndependentTaxSimulator2026({
 });
 const near = (actual, expected, tolerance = 1e-6) => assert.ok(Math.abs(actual - expected) <= tolerance, `${actual} != ${expected}`);
 
+for (const activityMonths of [1, 3, 6, 12]) test(`Activity period ${activityMonths}: shared monthly base, salary, classification and Esek Zair`, () => {
+  for (const businessRegime of ["classic", "esekZair"]) for (const monthlySalary of [0, 9000]) {
+    const base = { annualBusinessProfit: 120000, weeklyHours: 20, isSalaried: monthlySalary > 0, monthlySalary, businessRegime };
+    const result = ni.calculateBituahLeumiSimulation({ ...base, activityMonths });
+    near(result.monthlyProfit, 120000 / activityMonths);
+    assert.equal(result.status, "atzmai");
+    near(result.annual, result.monthly * activityMonths, 0.011);
+    assert.ok(result.contributionBase <= result.remainingCap);
+    if (activityMonths === 12) assert.deepEqual(result, ni.calculateBituahLeumiSimulation(base));
+    const annualTurnover = 100000;
+    const integrated = simulate({ annualProfit: 120000, annualTurnover, businessRegime, activityMonths, isSalaried: monthlySalary > 0, monthlySalary, salariedMonths: 12 });
+    const shared = ni.calculateBituahLeumiSimulation({ ...base, annualBusinessProfit: businessRegime === "esekZair" ? annualTurnover * 0.7 : 120000, activityMonths });
+    near(integrated.nationalInsuranceAnnual, shared.annual);
+  }
+  const classified = ni.calculateBituahLeumiSimulation({ annualBusinessProfit: 24000, weeklyHours: 0, monthlySalary: 0, isSalaried: false, activityMonths });
+  assert.equal(classified.status, 24000 / activityMonths >= 6884.5 ? "atzmai" : "notDefinition");
+  if (classified.status === "notDefinition" && activityMonths < 12) assert.equal(classified.shouldCalculate, false);
+});
+
+test("Pension 2026 reference remains unchanged; 2027 is explicitly provisional", () => {
+  const pension = require(path.join(process.env.TAX_TEST_BUILD_DIR, "pensiaHova.js"));
+  assert.equal(pension.getPensiaHovaYear(2026).year, 2026);
+  assert.equal(pension.getPensiaHovaReferenceYear(2026), 2026);
+  assert.equal(pension.getPensiaHovaYear(2027).year, 2027);
+  assert.equal(pension.getPensiaHovaReferenceYear(2027), 2026);
+  for (const fiscalYear of [2028, 2030]) {
+    assert.equal(pension.getPensiaHovaYear(fiscalYear), undefined);
+    assert.equal(pension.calculatePensiaHova({ fiscalYear, annualProfit: 120000, dateOfBirth: "1990-01-01", firstRegistrationDate: "2020-01-01", isSalaried: false, independentDeposits: 0, salariedPensionDeposits: 0 }).annualObligation, null);
+  }
+});
+
+test("2027 standard pension estimate uses 2026 reference rates and thresholds", () => {
+  const pension = require(path.join(process.env.TAX_TEST_BUILD_DIR, "pensiaHova.js"));
+  const input = { annualProfit: 120000, dateOfBirth: "1990-01-01", firstRegistrationDate: "2020-01-01", isSalaried: false, independentDeposits: 0, salariedPensionDeposits: 0 };
+  const result2026 = pension.calculatePensiaHova({ ...input, fiscalYear: 2026 });
+  const result2027 = pension.calculatePensiaHova({ ...input, fiscalYear: 2027 });
+  assert.equal(result2026.annualObligation, 8368.266);
+  assert.equal(result2026.provisional, false);
+  assert.equal(result2027.annualObligation, result2026.annualObligation);
+  assert.equal(result2027.remaining, result2026.remaining);
+  assert.equal(result2027.provisional, true);
+  assert.ok(result2027.warnings.includes("Estimation provisoire 2027 calculée avec les taux et plafonds de référence 2026, en attendant leur actualisation."));
+  assert.ok(result2027.warnings.some((warning) => warning.includes("règles d’éligibilité propres à 2027 n’ont pas été vérifiées séparément")));
+  const component = readFileSync(path.join(process.cwd(), "components/calculators/PensiaHovaCalculator.tsx"), "utf8");
+  assert.ok(component.includes("Estimation provisoire 2027 calculée avec les taux et plafonds de référence 2026, en attendant leur actualisation."));
+  assert.ok(component.includes("règles d’éligibilité propres à 2027 n’ont pas été vérifiées séparément"));
+  assert.ok(component.includes("Estimation indicative Pensia Hova ${year}"));
+});
+
+test("2027 pension eligibility dates use 2027 while financial thresholds use 2026 references", () => {
+  const pension = require(path.join(process.env.TAX_TEST_BUILD_DIR, "pensiaHova.js"));
+  const base = { fiscalYear: 2027, annualProfit: 120000, firstRegistrationDate: "2020-01-01", isSalaried: false, independentDeposits: 0, salariedPensionDeposits: 0 };
+  const turns21In2027 = pension.calculatePensiaHova({ ...base, dateOfBirth: "2006-12-31" });
+  assert.equal(turns21In2027.ageAtYearEnd, 21);
+  assert.equal(turns21In2027.ageExemption, false);
+  assert.ok(turns21In2027.annualObligation > 0);
+  const turns60In2027 = pension.calculatePensiaHova({ ...base, dateOfBirth: "1967-01-01" });
+  assert.equal(turns60In2027.ageAtYearEnd, 60);
+  assert.equal(turns60In2027.ageExemption, true);
+  assert.equal(turns60In2027.annualObligation, 0);
+  const newRegistration = pension.calculatePensiaHova({ ...base, firstRegistrationDate: "2027-07-01", dateOfBirth: "1990-01-01" });
+  assert.equal(newRegistration.recentRegistration, true);
+  assert.equal(newRegistration.annualObligation, 0);
+  assert.ok(newRegistration.reasons.some((reason) => reason.includes("1er juillet 2027")));
+});
+
+test("2027 keeps salary coordination and deposits behavior with provisional parameters", () => {
+  const pension = require(path.join(process.env.TAX_TEST_BUILD_DIR, "pensiaHova.js"));
+  const result = pension.calculatePensiaHova({ fiscalYear: 2027, annualProfit: 120000, firstRegistrationDate: "2020-01-01", dateOfBirth: "1990-01-01", isSalaried: true, independentDeposits: 1000, salariedPensionDeposits: 3000 });
+  assert.equal(result.provisional, true);
+  assert.equal(result.salaryOffset, 3000);
+  assert.equal(result.independentCovered, 1000);
+  assert.equal(result.remaining, result.annualObligation - 4000);
+});
+
+test("Activity months change BL and only its admissible national-insurance income-tax deduction", () => {
+  const twelveMonths = simulate({ annualProfit: 100000, activityMonths: 12 });
+  const sixMonths = simulate({ annualProfit: 100000, activityMonths: 6 });
+  assert.equal(twelveMonths.businessIncomeForIncomeTax, 100000);
+  assert.equal(sixMonths.businessIncomeForIncomeTax, 100000);
+  assert.notEqual(twelveMonths.nationalInsuranceAnnual, sixMonths.nationalInsuranceAnnual);
+  for (const result of [twelveMonths, sixMonths]) {
+    near(result.nationalInsuranceDeduction, result.nationalInsurance.deduction * result.nationalInsurance.activityMonths);
+    near(result.nationalInsuranceDeduction, 0.52 * result.nationalInsurance.nationalInsurance * result.nationalInsurance.activityMonths, 0.02);
+    assert.ok(result.nationalInsuranceDeduction < 0.52 * (result.nationalInsurance.nationalInsurance + result.nationalInsurance.healthInsurance) * result.nationalInsurance.activityMonths);
+    assert.equal(result.taxableIncome, 100000 - result.nationalInsuranceDeduction);
+    const incomeTax = require(path.join(process.env.TAX_TEST_BUILD_DIR, "incomeTax.js"));
+    const expectedTax = incomeTax.calculateIncomeTax({ monthlyTaxableIncome: result.taxableIncome / 12, creditPoints: 2.25, incomeType: "work", age60OrOlder: false });
+    near(result.annualIncomeTax, expectedTax.annualTaxAfterCredits);
+  }
+  assert.notEqual(twelveMonths.annualIncomeTax, sixMonths.annualIncomeTax);
+  assert.deepEqual(twelveMonths.pension, sixMonths.pension);
+});
+
+test("Activity months do not add an unapproved BL deduction for Esek Zair", () => {
+  const twelveMonths = simulate({ businessRegime: "esekZair", annualTurnover: 100000, activityMonths: 12 });
+  const sixMonths = simulate({ businessRegime: "esekZair", annualTurnover: 100000, activityMonths: 6 });
+  assert.equal(twelveMonths.businessIncomeForIncomeTax, 70000);
+  assert.equal(sixMonths.businessIncomeForIncomeTax, 70000);
+  assert.notEqual(twelveMonths.nationalInsuranceAnnual, sixMonths.nationalInsuranceAnnual);
+  assert.equal(twelveMonths.nationalInsuranceDeduction, 0);
+  assert.equal(sixMonths.nationalInsuranceDeduction, 0);
+  assert.equal(twelveMonths.taxableIncome, 70000);
+  assert.equal(sixMonths.taxableIncome, 70000);
+  assert.equal(twelveMonths.annualIncomeTax, sixMonths.annualIncomeTax);
+  assert.equal(twelveMonths.pension, null);
+  assert.equal(sixMonths.pension, null);
+});
+
 test("Classic independent, 100000 ILS: three bases are distinct outputs and all principal results compute", () => {
   const r = simulate();
   assert.equal(r.status, "estimate");
